@@ -48,5 +48,9 @@
       "yarn prettier --write",
       "git add"
     ]
+  },
+  "dependencies": {
+    "type-graphql": "^0.14.0",
+    "typeorm": "^0.2.7"
   }
 }

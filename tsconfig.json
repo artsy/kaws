@@ -1,23 +1,16 @@
 {
-    "compilerOptions": {
-        "target": "es6",
-        "module": "commonjs",
-        "rootDir": "src",
-        "outDir": "build",
-        "allowJs": false,
-        "pretty": true,
-        "strictNullChecks": true,
-        "declaration": true
-    },
-    "lib":["es2017"],
-    "include": [
-        "src/**/*.ts",
-        "src/**/*.tsx",
-        "dangerfile.ts"
-    ],
-    "exclude": [
-        "dangerfile.ts",
-        "node_modules",
-        "build"
-    ]
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "rootDir": "src",
+    "outDir": "build",
+    "allowJs": false,
+    "pretty": true,
+    "strictNullChecks": true,
+    "declaration": true,
+    "experimentalDecorators": true
+  },
+  "lib": ["es2017"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "dangerfile.ts"],
+  "exclude": ["dangerfile.ts", "node_modules", "build"]
 }
