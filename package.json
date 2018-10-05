@@ -7,6 +7,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^23.3.2",
+    "@types/lodash": "^4.14.116",
     "@types/node": "^10.11.0",
     "danger": "^4.0.2",
     "husky": "^1.0.0",
@@ -23,7 +24,8 @@
     "type-check": "tsc --noEmit",
     "build": "tsc",
     "lint": "tslint 'src/**/*.{ts,tsx}'",
-    "release": "release-it"
+    "release": "release-it",
+    "start": "node build/index.js"
   },
   "jest": {
     "preset": "ts-jest"
@@ -50,6 +52,10 @@
     ]
   },
   "dependencies": {
+    "class-transformer": "^0.1.9",
+    "graphql-yoga": "^1.16.2",
+    "lodash": "^4.17.11",
+    "reflect-metadata": "^0.1.12",
     "type-graphql": "^0.14.0",
     "typeorm": "^0.2.7"
   }
