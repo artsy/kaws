@@ -2,7 +2,9 @@ import "reflect-metadata"
 
 import { GraphQLServer, Options } from "graphql-yoga"
 import { buildSchema } from "type-graphql"
-import { CollectionsResolver } from "./CollectionsResolver"
+import { Connection, createConnection } from "typeorm"
+import { entities } from "./Entities"
+import { CollectionsResolver } from "./Resolvers/Collections"
 
 async function bootstrap() {
   const schema = await buildSchema({
@@ -10,6 +12,17 @@ async function bootstrap() {
   })
 
   const server = new GraphQLServer({ schema })
+
+  const connection: Connection = await createConnection({
+    type: "mongodb",
+    host: "localhost",
+    port: 27017,
+    database: "kaws",
+    entities,
+    extra: {
+      useNewUrlParser: true,
+    },
+  })
 
   const serverOptions: Options = {
     port: 4000,
