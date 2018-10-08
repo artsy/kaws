@@ -11,6 +11,7 @@
     "semicolon": [true, "never", "ignore-interfaces", "ignore-bound-class-methods"],
     "switch-default": false,
     "trailing-comma": [true, { "multiline": "always", "singleline": "never" }],
-    "variable-name": false
+    "variable-name": false,
+    "no-var-requires": false
   }
 }
