@@ -8,7 +8,7 @@
   "devDependencies": {
     "@types/jest": "^23.3.2",
     "@types/lodash": "^4.14.116",
-    "@types/node": "^10.11.0",
+    "@types/node": "^10.11.7",
     "danger": "^4.0.2",
     "dotenv": "^6.1.0",
     "husky": "^1.0.0",
