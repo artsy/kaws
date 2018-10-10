@@ -4,6 +4,9 @@ logs
 npm-debug.log*
 yarn-debug.log*
 
+# Dotenv config
+.env
+
 # Coverage directory used by tools like istanbul
 coverage
 
