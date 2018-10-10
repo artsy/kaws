@@ -1,0 +1,9 @@
+---
+version: '2'
+services:
+  kaws:
+    extends:
+      file: build.yml
+      service: kaws
+    ports:
+      - 80:80
