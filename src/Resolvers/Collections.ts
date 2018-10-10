@@ -8,8 +8,7 @@ export class CollectionsResolver {
 
   @Query(returns => [Collection])
   async collections(): Promise<Collection[]> {
-    const data = await this.repository.find()
-    return data
+    return await this.repository.find()
   }
 
   @Query(returns => Collection, { nullable: true })
