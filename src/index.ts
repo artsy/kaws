@@ -6,7 +6,7 @@ import { Connection, createConnection } from "typeorm"
 import { entities } from "./Entities"
 import { CollectionsResolver } from "./Resolvers/Collections"
 
-const { MONGOHQ_URL } = process.env
+const { MONGOHQ_URL, PORT } = process.env
 
 async function bootstrap() {
   const schema = await buildSchema({
@@ -25,7 +25,7 @@ async function bootstrap() {
   })
 
   const serverOptions: Options = {
-    port: 4000,
+    port: PORT,
     endpoint: "/graphql",
     playground: "/playground",
   }
