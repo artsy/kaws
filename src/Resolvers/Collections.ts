@@ -1,18 +1,18 @@
 import { Arg, Query, Resolver } from "type-graphql"
-import { Collection } from "./CollectionType"
-import { data } from "./Data"
+import { getMongoRepository } from "typeorm"
+import { Collection } from "../Entities/Collection"
 
 @Resolver(of => Collection)
 export class CollectionsResolver {
-  private readonly items: Collection[] = data
+  private readonly repository = getMongoRepository(Collection)
 
   @Query(returns => [Collection])
   async collections(): Promise<Collection[]> {
-    return await this.items
+    return await this.repository.find()
   }
 
   @Query(returns => Collection, { nullable: true })
   async collection(@Arg("slug") slug: string): Promise<Collection | undefined> {
-    return await this.items.find(collection => collection.slug === slug)
+    return await this.repository.findOne({ slug })
   }
 }

@@ -1,0 +1,33 @@
+[
+  {
+    "title": "KAWS, Companions",
+    "slug": "kaws-companions",
+    "description": "Brian Donnelly, better known as KAWS, spent the first year of his career as an animator for Disney. After leaving in 1997, KAWS took inspiration from the company’s signature cartoon, Mickey Mouse, to create his own set of characters that he named “Companions.” With gloved hands and X’s for eyes, “Companions” first appeared in KAWS’s graffiti works across New York City in the late 1990s. By the end of the decade, the street artist created his first three-dimensional version, and his characters have since taken on a variety of colors, sizes, and poses. In 2017, his four-foot-tall Seated Companion (2011) broke the auction record for the series, selling for over $400,000. However, many of KAWS’s “Companions” are considerably more affordable, such as his vinyl toys produced in collaboration with esteemed manufacturers including Bounty Hunter, Bape, Medicom, and his own brand OriginalFake, which was active between 2006 and 2013.",
+    "keywords": "Companion, BFF, Passing Through, Astroboy, Astro Boy, Small Lie, Together, Accomplice, Twins, Stormtrooper, Boba Fett, Darth Vader, Undercover Bear, Tweety, Pinocchio, Resting Place, Along the Way, Final Day",
+    "query": {
+      "artist_ids": "kaws",
+      "tags_ids": ""
+    },
+    "headerImage": {
+      "small": "https://cdn3.pitchfork.com/longform/239/kanyeart1865.jpg",
+      "medium": "https://cdn3.pitchfork.com/longform/239/kanyeart1865.jpg",
+      "large": "https://cdn3.pitchfork.com/longform/239/kanyeart1865.jpg"
+    }
+  },
+  {
+    "title": "Pablo Picasso, Lithographs",
+    "slug": "pablo-picasso-lithographs",
+    "description": "Pablo Picasso was a prolific printmaker, producing over 2,400 original prints throughout his career in a variety of techniques. But until 1945, almost all of his prints were black and white, and only a handful of them were lithographs, a printmaking method that closely resembles painting, enabling artists to draw directly on a stone slab or metal plate. This ratio drastically changed when Picasso met the master printmaker Fernand Mourlot. In just under two decades, Picasso and Mourlot produced over 350 lithographs (many of them in color), experimenting with unconventional techniques like finger painting that pushed the boundaries of the medium.",
+    "keywords": "Artist, Sculptor, Modele, Model, Sculpteur, Peintre, Atelier, Rembrandt, Raphael, Sculptés",
+    "query": {
+      "gene_id": "lithograph",
+      "artist_id": "pablo-picasso"
+    },
+    "headerImage": {
+      "small": "https://vidalcuglietta.com/wp-content/uploads/2018/07/pablo-picasso-most-famous-painting-luxury-overstockart-releases-annual-top-10-list-pablo-of-pablo-picasso-most-famous-painting.jpg",
+      "medium": "https://vidalcuglietta.com/wp-content/uploads/2018/07/pablo-picasso-most-famous-painting-luxury-overstockart-releases-annual-top-10-list-pablo-of-pablo-picasso-most-famous-painting.jpg",
+      "large": "https://vidalcuglietta.com/wp-content/uploads/2018/07/pablo-picasso-most-famous-painting-luxury-overstockart-releases-annual-top-10-list-pablo-of-pablo-picasso-most-famous-painting.jpg"
+    }
+  },
+  {}
+]

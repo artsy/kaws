@@ -1,5 +1,5 @@
 import { plainToClass } from "class-transformer"
-import { Collection } from "./CollectionType"
+import { Collection } from "./Entities/Collection"
 
 export const data = plainToClass(Collection, [
   {
