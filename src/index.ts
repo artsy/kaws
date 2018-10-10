@@ -19,9 +19,6 @@ async function bootstrap() {
     type: "mongodb",
     url: MONGOHQ_URL,
     entities,
-    extra: {
-      useNewUrlParser: true,
-    },
   })
 
   const serverOptions: Options = {

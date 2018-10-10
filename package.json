@@ -26,7 +26,8 @@
     "build": "tsc",
     "lint": "tslint 'src/**/*.{ts,tsx}'",
     "release": "release-it",
-    "start": "node build/index.js",
+    "start": "node -r dotenv/config build/index.js",
+    "bootstrap-data": "node -r dotenv/config build/scripts/bootstrapData.js",
     "watch": "tsc --watch"
   },
   "jest": {
@@ -57,7 +58,7 @@
     "class-transformer": "^0.1.9",
     "graphql-yoga": "^1.16.2",
     "lodash": "^4.17.11",
-    "mongodb": "^3.1.6",
+    "mongodb": "~3.0.8",
     "reflect-metadata": "^0.1.12",
     "slugify": "^1.3.1",
     "type-graphql": "^0.14.0",
