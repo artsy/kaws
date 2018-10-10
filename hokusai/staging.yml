@@ -46,4 +46,5 @@ spec:
     app: kaws
     component: web
     layer: application
-  type: ClusterIP
+  sessionAffinity: None
+  type: LoadBalancer
