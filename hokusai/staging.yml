@@ -27,6 +27,32 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 4000
+          resources:
+            requests:
+              cpu: 500m
+              memory: 768Mi
+            limits:
+              memory: 1Gi
+          readinessProbe:
+            httpGet:
+              port: 4000
+              path: /health
+              httpHeaders:
+                - name: X-FORWARDED-PROTO
+                  value: https
+            initialDelaySeconds: 5
+            periodSeconds: 5
+      dnsPolicy: Default
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: tier
+                    operator: In
+                    values:
+                      - foreground
+
 ---
 apiVersion: v1
 kind: Service
@@ -37,13 +63,26 @@ metadata:
     layer: application
   name: kaws-web
   namespace: default
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "arn:aws:iam::585031190124:server-certificate/2018-01-17_artsy-net-wildcard"
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
+    service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
+    service.beta.kubernetes.io/aws-load-balancer-connection-draining-enabled: "true"
+    service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "300"
 spec:
   ports:
+    - port: 443
+      protocol: TCP
+      name: https
+      targetPort: 4000
     - port: 80
       protocol: TCP
+      name: http
       targetPort: 4000
   selector:
     app: kaws
-    component: web
     layer: application
-  type: ClusterIP
+    component: web
+  sessionAffinity: None
+  type: LoadBalancer

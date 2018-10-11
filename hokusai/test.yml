@@ -2,7 +2,7 @@
 version: '2'
 services:
   kaws:
-    command: ["bash", "test.sh"]
+    command: ["yarn", "test"]
     extends:
       file: build.yml
       service: kaws
