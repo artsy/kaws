@@ -1,6 +1,7 @@
 import "reflect-metadata"
 
 import { GraphQLServer, Options } from "graphql-yoga"
+import * as morgan from "morgan"
 import { Connection, createConnection } from "typeorm"
 import { createSchema } from "./createSchema"
 import { entities } from "./Entities"
@@ -10,6 +11,7 @@ const { MONGOHQ_URL, PORT } = process.env
 async function bootstrap() {
   const schema = await createSchema()
   const server = new GraphQLServer({ schema })
+  const app = server.express
 
   const connection: Connection = await createConnection({
     type: "mongodb",
@@ -22,6 +24,11 @@ async function bootstrap() {
     endpoint: "/graphql",
     playground: "/playground",
   }
+
+  app.get("/health", (req, res) => {
+    return res.status(200).end()
+  })
+  app.use(morgan("combined"))
 
   server.start(serverOptions, ({ port, playground }) => {
     // tslint:disable-next-line
