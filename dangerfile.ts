@@ -19,10 +19,10 @@ const modifiedTestFiles = modified.filter(p => p.includes("_tests")).filter(p =>
 
 // When there are app-changes and it's not a PR marked as trivial, expect
 // there to be CHANGELOG changes.
-const changelogChanges = modified.includes("CHANGELOG.md")
-if (modifiedAppFiles.length > 0 && !trivialPR && !changelogChanges) {
-  fail("No CHANGELOG added.")
-}
+// const changelogChanges = modified.includes("CHANGELOG.md")
+// if (modifiedAppFiles.length > 0 && !trivialPR && !changelogChanges) {
+//   fail("No CHANGELOG added.")
+// }
 
 // No PR is too small to warrant a paragraph or two of summary
 if (pr.body.length === 0) {
