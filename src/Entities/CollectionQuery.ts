@@ -7,119 +7,119 @@ export class CollectionQuery {
   @ObjectIdColumn()
   id: ObjectID
 
-  @Field({ description: "" })
-  @Column()
+  @Field({ nullable: true, description: "" })
+  @Column({ nullable: true })
   acquireable: boolean
 
-  @Field(type => [String], { description: "" })
-  @Column()
+  @Field(type => [String], { nullable: true, description: "" })
+  @Column({ nullable: true })
   aggregations: string[]
 
-  @Field(type => [String], { description: "" })
-  @Column()
+  @Field(type => [String], { nullable: true, description: "" })
+  @Column({ nullable: true })
   artist_ids: string[]
 
-  @Field({ description: "" })
-  @Column()
+  @Field({ nullable: true, description: "" })
+  @Column({ nullable: true })
   artist_id: string
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   at_auction: boolean
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   color: string
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   dimension_range: string
 
-  @Field(type => [String])
-  @Column()
+  @Field(type => [String], { nullable: true })
+  @Column({ nullable: true })
   extra_aggregation_gene_ids: string[]
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   include_artworks_by_followed_artists: boolean
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   include_medium_filter_in_aggregation: boolean
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   inquireable_only: boolean
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   for_sale: boolean
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   gene_id: string
 
-  @Field(type => [String])
-  @Column()
+  @Field(type => [String], { nullable: true })
+  @Column({ nullable: true })
   gene_ids: string[]
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   height: string
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   width: string
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   medium: string
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   period: string
 
-  @Field(type => [String])
-  @Column()
+  @Field(type => [String], { nullable: true })
+  @Column({ nullable: true })
   periods: [string]
 
-  @Field(type => [String])
-  @Column()
+  @Field(type => [String], { nullable: true })
+  @Column({ nullable: true })
   major_periods: [string]
 
-  @Field(type => ID)
-  @Column()
+  @Field(type => ID, { nullable: true })
+  @Column({ nullable: true })
   partner_id: string
 
-  @Field(type => [String])
-  @Column()
+  @Field(type => [String], { nullable: true })
+  @Column({ nullable: true })
   partner_cities: [string]
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   price_range: string
 
-  @Field(type => Int)
-  @Column()
+  @Field(type => Int, { nullable: true })
+  @Column({ nullable: true })
   page: number
 
-  @Field(type => ID)
-  @Column()
+  @Field(type => ID, { nullable: true })
+  @Column({ nullable: true })
   sale_id: string
 
-  @Field(type => Int)
-  @Column()
+  @Field(type => Int, { nullable: true })
+  @Column({ nullable: true })
   size: number
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   sort: string
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   tag_id: string
 
-  @Field()
-  @Column()
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   keyword: string
 }
