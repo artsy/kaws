@@ -1,0 +1,8 @@
+---
+version: '2'
+services:
+  kaws:
+    command: ["yarn", "test"]
+    extends:
+      file: build.yml
+      service: kaws

@@ -3,16 +3,14 @@ import { Connection, createConnection, getMongoRepository } from "typeorm"
 import { Collection, entities } from "../Entities"
 
 const data = require("../../fixtures/collections.json")
+const { MONGOHQ_URL } = process.env
 
 async function bootstrap() {
   try {
     const connection: Connection = await createConnection({
       type: "mongodb",
-      host: "localhost",
-      port: 27017,
-      database: "kaws",
+      url: MONGOHQ_URL,
       entities,
-      synchronize: true,
     })
 
     const repository = getMongoRepository(Collection)

@@ -6,6 +6,8 @@ import { Connection, createConnection } from "typeorm"
 import { entities } from "./Entities"
 import { CollectionsResolver } from "./Resolvers/Collections"
 
+const { MONGOHQ_URL, PORT } = process.env
+
 async function bootstrap() {
   const schema = await buildSchema({
     resolvers: [CollectionsResolver],
@@ -15,17 +17,12 @@ async function bootstrap() {
 
   const connection: Connection = await createConnection({
     type: "mongodb",
-    host: "localhost",
-    port: 27017,
-    database: "kaws",
+    url: MONGOHQ_URL,
     entities,
-    extra: {
-      useNewUrlParser: true,
-    },
   })
 
   const serverOptions: Options = {
-    port: 4000,
+    port: PORT,
     endpoint: "/graphql",
     playground: "/playground",
   }
