@@ -1,19 +1,22 @@
-.dockerignore
-Dockerfile
 .git
 .gitignore
+.dockerignore
+Dockerfile
+hokusai
 
 README.md
 LICENSE
 VERSION
+docs
 
 .DS_Store
 .AppleDouble
 .LSOverride
 
-env
 .env
 .env.*
 log
-*.log
 tmp
+node_modules
+.vscode
+redis.conf
