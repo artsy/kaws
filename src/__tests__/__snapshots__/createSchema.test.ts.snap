@@ -1,8 +1,11 @@
-# Object representing a collection page
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`creates an SDL 1`] = `
+"# Object representing a collection page
 type Collection {
   id: ID!
 
-  # slug version of title, used for pretty URLs (e.g. `kaws-prints` for Kaws Prints
+  # slug version of title, used for pretty URLs (e.g. \`kaws-prints\` for Kaws Prints 
   slug: String!
 
   # Name of the collection
@@ -56,7 +59,7 @@ type CollectionQuery {
   keyword: String
 }
 
-# The javascript `Date` as string. Type represents date and time as the ISO Date string.
+# The javascript \`Date\` as string. Type represents date and time as the ISO Date string.
 scalar DateTime
 
 type Image {
@@ -70,3 +73,5 @@ type Query {
   collections: [Collection!]!
   collection(slug: String!): Collection
 }
+"
+`;
