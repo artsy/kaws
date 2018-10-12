@@ -19,8 +19,6 @@ async function bootstrap() {
     entities,
   })
 
-  console.log(MONGOHQ_URL)
-
   const serverOptions: Options = {
     port: PORT,
     endpoint: "/graphql",
