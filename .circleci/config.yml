@@ -39,8 +39,8 @@ workflows:
       - test:
           filters:
             branches:
-              only:
-                - master
+              ignore:
+                - release
       - push:
           filters:
             branches:
