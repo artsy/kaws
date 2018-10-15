@@ -34,7 +34,10 @@
     "test": "jest"
   },
   "jest": {
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "roots": [
+      "<rootDir>/src"
+    ]
   },
   "prettier": {
     "printWidth": 115,

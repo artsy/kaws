@@ -1,5 +1,6 @@
 import { printSchema } from "graphql"
 import { createSchema } from "../createSchema"
+
 it("creates an SDL", async () => {
   const kawsSchema = await createSchema()
 
