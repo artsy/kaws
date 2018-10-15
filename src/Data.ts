@@ -15,6 +15,10 @@ export const data = plainToClass(Collection, [
       small: "",
     },
     keywords: ["minimalist", "prints", "20th century"],
+    imageCaption: "",
+    category: {
+      name: ""
+    },
     query: {
       medium: "prints",
       time_periods: ["2000"],

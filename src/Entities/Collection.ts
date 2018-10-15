@@ -2,6 +2,7 @@ import { Field, ID, ObjectType } from "type-graphql"
 import { Column, Entity, ObjectID, ObjectIdColumn } from "typeorm"
 import { CollectionQuery } from "./CollectionQuery"
 import { Image } from "./Image"
+import { Category } from "./CollectionCategory"
 
 @ObjectType({ description: "Object representing a collection page" })
 @Entity()
@@ -32,6 +33,14 @@ export class Collection {
   @Field(type => String, { description: "Set of keywords used for SEO purposes" })
   @Column()
   keywords: string
+
+  @Field(type => String, { description: "Image caption for the header image" })
+  @Column()
+  imageCaption?: string
+
+  @Field(type => String, { description: "Category of the collection" })
+  @Column()
+  category: Category
 
   @Field(type => CollectionQuery, { description: "Structured object used to build filtered artworks query" })
   @Column(type => CollectionQuery)
