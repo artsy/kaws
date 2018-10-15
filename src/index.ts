@@ -6,7 +6,7 @@ import { Connection, createConnection } from "typeorm"
 import { createSchema } from "./createSchema"
 import { entities } from "./Entities"
 
-const { MONGOHQ_URL, PORT } = process.env
+const { MONGOHQ_URL, NODE_ENV, PORT } = process.env
 
 async function bootstrap() {
   const schema = await createSchema()
@@ -23,6 +23,7 @@ async function bootstrap() {
     port: PORT,
     endpoint: "/graphql",
     playground: "/playground",
+    debug: NODE_ENV === "development",
   }
 
   app.get("/health", (req, res) => {

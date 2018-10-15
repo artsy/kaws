@@ -3,123 +3,123 @@ import { Column, Entity, ObjectID, ObjectIdColumn } from "typeorm"
 @ObjectType()
 @Entity()
 export class CollectionQuery {
-  @Field(type => ID)
+  @Field(type => ID, { nullable: true })
   @ObjectIdColumn()
   id: ObjectID
 
   @Field({ nullable: true, description: "" })
   @Column({ nullable: true })
-  acquireable: boolean
+  acquireable?: boolean
 
   @Field(type => [String], { nullable: true, description: "" })
   @Column({ nullable: true })
-  aggregations: string[]
+  aggregations?: string[] = []
 
   @Field(type => [String], { nullable: true, description: "" })
   @Column({ nullable: true })
-  artist_ids: string[]
+  artist_ids?: string[] = []
 
   @Field({ nullable: true, description: "" })
   @Column({ nullable: true })
-  artist_id: string
+  artist_id?: string
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  at_auction: boolean
+  at_auction?: boolean
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  color: string
+  color?: string
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  dimension_range: string
+  dimension_range?: string
 
   @Field(type => [String], { nullable: true })
   @Column({ nullable: true })
-  extra_aggregation_gene_ids: string[]
+  extra_aggregation_gene_ids?: string[]
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  include_artworks_by_followed_artists: boolean
+  include_artworks_by_followed_artists?: boolean
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  include_medium_filter_in_aggregation: boolean
+  include_medium_filter_in_aggregation?: boolean
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  inquireable_only: boolean
+  inquireable_only?: boolean
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  for_sale: boolean
+  for_sale?: boolean
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  gene_id: string
+  gene_id?: string
 
   @Field(type => [String], { nullable: true })
   @Column({ nullable: true })
-  gene_ids: string[]
+  gene_ids?: string[] = []
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  height: string
+  height?: string
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  width: string
+  width?: string
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  medium: string
+  medium?: string
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  period: string
+  period?: string
 
   @Field(type => [String], { nullable: true })
   @Column({ nullable: true })
-  periods: [string]
+  periods?: string[]
 
   @Field(type => [String], { nullable: true })
   @Column({ nullable: true })
-  major_periods: [string]
+  major_periods?: string[]
 
   @Field(type => ID, { nullable: true })
   @Column({ nullable: true })
-  partner_id: string
+  partner_id?: string
 
   @Field(type => [String], { nullable: true })
   @Column({ nullable: true })
-  partner_cities: [string]
+  partner_cities?: string[]
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  price_range: string
+  price_range?: string
 
   @Field(type => Int, { nullable: true })
   @Column({ nullable: true })
-  page: number
+  page?: number
 
   @Field(type => ID, { nullable: true })
   @Column({ nullable: true })
-  sale_id: string
+  sale_id?: string
 
   @Field(type => Int, { nullable: true })
   @Column({ nullable: true })
-  size: number
+  size?: number
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  sort: string
+  sort?: string
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  tag_id: string
+  tag_id?: string
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  keyword: string
+  keyword?: string
 }

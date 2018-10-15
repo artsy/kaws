@@ -30,7 +30,8 @@
     "start": "node -r dotenv/config build/index.js",
     "bootstrap-data": "node -r dotenv/config build/scripts/bootstrapData.js",
     "watch": "tsc --watch",
-    "dump-schema": "node build/scripts/dumpSchema.js"
+    "dump-schema": "node build/scripts/dumpSchema.js",
+    "test": "jest"
   },
   "jest": {
     "preset": "ts-jest"
