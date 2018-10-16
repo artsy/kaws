@@ -3,6 +3,7 @@ kaws
 
 Named after [the artist](https://artsy.net/artist/kaws), kaws is a backend service that powers [artsy.net](https://artsy.net) collection pages. What are collections you ask? A Collection is a prefiltered version of Artsy's [Collect](https://artsy.net/collect) page for marketing purposes.
 
+[![CircleCI](https://circleci.com/gh/artsy/kaws.svg?style=svg)](https://circleci.com/gh/artsy/kaws)
 * __State:__ in development
 * __Production:__ [k8s](https://kubernetes.artsy.net/#!/deployment/default/kaws-web?namespace=default)
 * __Staging:__  [http://kaws-staging.artsy.net](http://kaws-staging.artsy.net/playground) | [k8s](https://kubernetes-staging.artsy.net/#!/search?q=kaws&namespace=default)
