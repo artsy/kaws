@@ -62,6 +62,7 @@
   },
   "dependencies": {
     "class-transformer": "^0.1.9",
+    "dd-trace": "^0.6.0",
     "graphql-yoga": "^1.16.2",
     "lodash": "^4.17.11",
     "mongodb": "~3.0.8",

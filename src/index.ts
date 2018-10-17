@@ -5,6 +5,7 @@ import * as morgan from "morgan"
 import { Connection, createConnection } from "typeorm"
 import { createSchema } from "./createSchema"
 import { entities } from "./Entities"
+import { setupDataDog } from "./lib/setup"
 
 const { MONGOHQ_URL, NODE_ENV, PORT } = process.env
 
@@ -12,6 +13,7 @@ async function bootstrap() {
   const schema = await createSchema()
   const server = new GraphQLServer({ schema })
   const app = server.express
+  setupDataDog()
 
   const connection: Connection = await createConnection({
     type: "mongodb",
