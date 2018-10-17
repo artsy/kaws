@@ -180,6 +180,11 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
+"@types/mongodb-uri@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@types/mongodb-uri/-/mongodb-uri-0.9.0.tgz#f879d34279c7494f507722fc7660d0a5a6a32d72"
+  integrity sha512-N52kUCiYyH4H2xOMHV7lIDjv4ZLRcRgEiN0xut/BNKHD/dLox10Q6WVl1vjnfA+rvdL9rFZGUxs9EQunQosAlA==
+
 "@types/morgan@^1.7.35":
   version "1.7.35"
   resolved "https://registry.yarnpkg.com/@types/morgan/-/morgan-1.7.35.tgz#6358f502931cc2583d7a94248c41518baa688494"
@@ -5003,6 +5008,11 @@ mongodb-core@3.0.11:
     bson "~1.0.4"
     require_optional "^1.0.1"
 
+mongodb-uri@^0.9.7:
+  version "0.9.7"
+  resolved "https://registry.yarnpkg.com/mongodb-uri/-/mongodb-uri-0.9.7.tgz#0f771ad16f483ae65f4287969428e9fbc4aa6181"
+  integrity sha1-D3ca0W9IOuZfQoeWlCjp+8SqYYE=
+
 mongodb@~3.0.8:
   version "3.0.11"
   resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.0.11.tgz#f09163b8928e8eb2fc0240b5a0e557e806947954"
@@ -6299,7 +6309,7 @@ semver-diff@^2.0.0:
   dependencies:
     semver "^5.0.3"
 
-"semver@2 || 3 || 4 || 5", semver@5.5.1, semver@^5.0.1, semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5, semver@^5.5.0:
+"semver@2 || 3 || 4 || 5", semver@5.5.1, semver@^5.0.1, semver@^5.0.3, semver@^5.3.0, semver@^5.4.1, semver@^5.5, semver@^5.5.0:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.1.tgz#7dfdd8814bdb7cabc7be0fb1d734cfb66c940477"
   integrity sha512-PqpAxfrEhlSUWge8dwIp4tZnQ25DIOthpiaHNIthsjEFQD6EvqUKUDM7L8O2rShkFccYo1VjJR0coWfNkCubRw==
@@ -6308,6 +6318,11 @@ semver@5.4.1:
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
   integrity sha512-WfG/X9+oATh81XtllIo/I8gOiY9EXRdv1cQdyykeXK17YcUW3EXUAi2To4pcH6nZtJPr7ZOpM5OMyWJZm+8Rsg==
+
+semver@^5.1.0:
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.6.0.tgz#7e74256fbaa49c75aa7c7a205cc22799cac80004"
+  integrity sha512-RS9R6R35NYgQn++fkDWaOmqGoj4Ek9gGs+DPxNUZKuwE183xjJroKvyo1IzVFeXvUrvmALy6FWD5xrdJT25gMg==
 
 send@0.16.2:
   version "0.16.2"
