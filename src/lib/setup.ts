@@ -1,4 +1,4 @@
-import ddTracer from "dd-trace"
+import * as ddTracer from "dd-trace"
 
 export const setupDataDog = () => {
   if (process.env.DD_APM_ENABLED) {
