@@ -1,19 +1,86 @@
 [
   {
+    "title": "KAWS: Companions",
     "slug": "kaws-companions",
-    "title": "KAWS, Companions",
     "category": "Collectible Sculptures",
     "description": "<p>Brian Donnelly, better known as KAWS, spent the first year of his career as an animator for Disney. After leaving in 1997, KAWS took inspiration from the company&rsquo;s signature cartoon, Mickey Mouse, to create his own set of characters that he named &ldquo;Companions.&rdquo; With gloved hands and X&rsquo;s for eyes, &ldquo;Companions&rdquo; first appeared in KAWS&rsquo;s graffiti works across New York City in the late 1990s. By the end of the decade, the street artist created his first three-dimensional version, and his characters have since taken on a variety of colors, sizes, and poses. In 2017, his four-foot-tall Seated Companion (2011) broke the auction record for the series, selling for over $400,000. However, many of KAWS&rsquo;s &ldquo;Companions&rdquo; are considerably more affordable, such as his vinyl toys produced in collaboration with esteemed manufacturers including Bounty Hunter, Bape, Medicom, and his own brand OriginalFake, which was active between 2006 and 2013.</p>",
-    "keywords": "Companion, BFF, Passing Through, Astroboy, Astro Boy, Small Lie, Together, Accomplice, Twins, Stormtrooper, Boba Fett, Darth Vader, Undercover Bear, Tweety, Pinocchio, Resting Place, Along the Way, Final Day",
+    "image": "https://artsy-vanity-files-production.s3.amazonaws.com/images/kaws2.png",
     "credit": "<p>&copy; KAWS, Medicom Toy 2007.</p>",
     "query": {
-      "id": "123",
-      "tag_id": "companions"
-    },
-    "headerImage": {
-      "small": "https://artsy-vanity-files-production.s3.amazonaws.com/images/kaws2.png",
-      "medium": "https://artsy-vanity-files-production.s3.amazonaws.com/images/kaws2.png",
-      "large": "https://artsy-vanity-files-production.s3.amazonaws.com/images/kaws2.png"
+      "artist_ids": [],
+      "gene_ids": [],
+      "tag_id": "companion",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Big Artists, Small Sculptures",
+    "slug": "collectible-sculptures",
+    "category": "Collectible Sculptures",
+    "description": "<p>Today&rsquo;s collectible sculptures&mdash;from KAWS&rsquo;s cartoon Companions to Yayoi Kusama&rsquo;s miniature pumpkins&mdash;have roots in the 1980s New York art scene. The rise of street art filled the city&rsquo;s subways with original graffiti, making art more accessible to the public. This mentality&mdash;that art should be for everyone&mdash;motivated Keith Haring in 1987 to open the Pop Shop, a storefront in Manhattan where the biggest artists of the day like Jean-Michel Basquiat and Kenny Scharf could sell sculptures, prints, and merchandise at affordable prices. Contemporary art stars like Jeff Koons, Takashi Murakami, and Maurizio Cattelan all follow in Haring&rsquo;s tradition, creating small sculptures of their most iconic motifs, perfectly sized for tabletops and shelves in any collector&rsquo;s home.</p>",
+    "image": "http://files.artsy.net/images/pumpkinsbigartistsmallsculpture.png",
+    "credit": "<p>Yayoi Kusama, <em>Kusama Pumpkins Set</em>, 2015. Courtesy of Gin Huang Gallery.</p>",
+    "query": {
+      "artist_ids": [],
+      "gene_ids": ["big-artists-small-sculptures"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Minimalist Prints",
+    "slug": "minimalist-prints",
+    "category": "Abstract Art",
+    "description": "<p>Showcasing basic shapes and pared-down color palettes, minimalist prints follow <a href='https://www.artsy.net/artist/leonardo-da-vinci'>Leonardo da Vinci</a>&rsquo;s famous assertion: &ldquo;Simplicity is the ultimate sophistication.&rdquo; Beginning in the 1960s, artists like <a href='https://www.artsy.net/artist/frank-stella'>Frank Stella</a>, <a href='https://www.artsy.net/artist/carmen-herrera'>Carmen Herrera</a>, <a href='https://www.artsy.net/artist/robert-mangold'>Robert Mangold</a>, and <a href='https://www.artsy.net/artist/richard-serra'>Richard Serra</a> pioneered a new kind of abstraction that focused on simple geometric forms, looking to the previous generation of Modernists like <a href='https://www.artsy.net/artist/josef-albers'>Josef Albers</a> and <a href='https://www.artsy.net/artist/piet-mondrian'>Piet Mondrian</a> for inspiration. Minimalism, as the movement was later named, proved that circles, squares, and stripes could come together to create compositions that were both dynamic and timeless. &ldquo;The more stuff in it, the busier the work of art, the worse it is,&rdquo; the Minimalist <a href='https://www.artsy.net/artist/ad-reinhardt'>Ad Reinhardt</a> once wrote. &ldquo;More is less. Less is more.&rdquo;</p>",
+    "image": "http://files.artsy.net/images/minimalistprints.png",
+    "credit": "<p>Ellsworth Kelly, <em>Color Squares 2</em>, 2011. Courtesy of Gemini G.E.L. at Joni Moisant Weyl.</p>",
+    "query": {
+      "artist_ids": [],
+      "gene_ids": ["minimalist-prints"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Contemporary Limited Editions",
+    "slug": "contemporary-limited-editions",
+    "category": "Contemporary",
+    "description": "<p>&ldquo;Prints mimic what we are as humans: We are all the same and yet every one is different,&rdquo; explains the contemporary artist Kiki Smith. &ldquo;I think there&rsquo;s a spiritual power in repetition, a devotional quality, like saying rosaries.&rdquo; From Chuck Close to Yayoi Kusama, nearly all of today&rsquo;s leading artists journey into printmaking, creating original limited editions in collaboration with prominent print studios like Pace Prints and Two Palms. Since smaller editions are often more valuable, printers and artists will even destroy the materials that they use to create these works&mdash;whether that be printing plates or photographic negatives&mdash;to make sure that it is impossible to add to the edition later on.</span></p>",
+    "image": "http://files.artsy.net/images/contemporarylimitededition2.png",
+    "credit": "<p>Yayoi Kusama, <em>Pumpkin 2000 (Red)</em>, 2000. Courtesy of Lougher Contemporary.</p>",
+    "query": {
+      "artist_ids": [],
+      "gene_ids": ["contemporary-limited-editions"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Street Art Now",
+    "slug": "street-art-now",
+    "category": "Street Art",
+    "description": "<p>From <a href='https://www.artsy.net/artist/jean-michel-basquiat'>Jean-Michel Basquiat</a> to <a href='https://www.artsy.net/artist/shepard-fairey'>Shepard Fairey</a>, street artists are known for their creative expressions of rebellion. <a href='https://www.artsy.net/artist/keith-haring'>Keith Haring</a> famously turned the New York City subway system into his canvas, <a href='https://www.artsy.net/artist/kaws'>KAWS</a> broke into telephone booths and graffitied their advertising panels, and <a href='https://www.artsy.net/artist/banksy'>Banksy</a> played a trick on the art world when he <a href='https://www.artsy.net/article/artsy-editorial-banksy-worth-shredded-asked-experts'>shredded</a> his million-dollar canvas Girl With Balloon (2006) after it sold at auction. Today, there are more ways than ever to bring the defiant style of street art into the home, from salvaged graffitied walls from the 1980s to just-released print editions by emerging talent.</p>",
+    "image": "http://files.artsy.net/images/streetartnow.png",
+    "credit": "<p>Banksy, <em>Girl With Balloon</em>, 2004. Courtesy of Graffik Gallery / Banksy Editions.</p>",
+    "query": {
+      "artist_ids": [],
+      "gene_ids": ["graffiti-and-street-art"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Timeless Modern Prints",
+    "slug": "timeless-modern-prints",
+    "category": "Modern",
+    "description": "<p>&ldquo;A painting is a unique example for a single collector,&rdquo; the Surrealist Joan Mir&oacute; once said. &ldquo;But if I pull 75 examples, I increase by 75 times the number of people who can own a work of mine. I increase the reach of my message 75 times.&rdquo; Pablo Picasso, Salvador Dal&iacute;, and many other iconic Modernists shared Mir&oacute;&rsquo;s love of printmaking&mdash;and often put down their paintbrushes to create etchings, lithographs, and woodcuts instead. This era marked a renaissance for printmaking, welcoming new techniques (such as linocuts) and styles (such as abstract art), as well as collector fervor for limited editions. The rise of printmaking in the 20th century also ushered a standard practice: For the first time in art history, artists began to hand-sign all of their prints.</p>",
+    "image": "http://files.artsy.net/images/timelessmodernprints.png",
+    "credit": "<p>&copy; Joan Miró / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": [],
+      "gene_ids": ["timeless-modern-prints"],
+      "tag_id": "",
+      "keyword": ""
     }
   }
 ]
