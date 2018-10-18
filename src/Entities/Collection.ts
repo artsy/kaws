@@ -1,7 +1,6 @@
 import { Field, ID, ObjectType } from "type-graphql"
 import { Column, Entity, ObjectID, ObjectIdColumn } from "typeorm"
 import { CollectionQuery } from "./CollectionQuery"
-import { Image } from "./Image"
 
 @ObjectType({ description: "Object representing a collection page" })
 @Entity()
@@ -25,13 +24,24 @@ export class Collection {
   @Column({ nullable: true })
   description?: string
 
-  @Field(type => Image, { nullable: true, description: "Background image for the header of the collection page" })
-  @Column(type => Image)
-  headerImage?: Image
+  @Field(type => String, { nullable: true, description: "Background image for the header of the collection page" })
+  @Column()
+  headerImage?: string
 
   @Field(type => String, { description: "Set of keywords used for SEO purposes" })
   @Column()
   keywords: string
+
+  @Field({
+    nullable: true,
+    description: "Image credit for the header image",
+  })
+  @Column({ nullable: true })
+  credit?: string
+
+  @Field(type => String, { description: "Category of the collection" })
+  @Column()
+  category: string
 
   @Field(type => CollectionQuery, { description: "Structured object used to build filtered artworks query" })
   @Column(type => CollectionQuery)
