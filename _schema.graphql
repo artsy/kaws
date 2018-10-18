@@ -1,3 +1,8 @@
+type Category {
+  id: ID!
+  name: String!
+}
+
 # Object representing a collection page
 type Collection {
   id: ID!
@@ -16,6 +21,12 @@ type Collection {
 
   # Set of keywords used for SEO purposes
   keywords: String!
+
+  # Image credit for the header image
+  credit: String
+
+  # Category of the collection
+  category: Category!
 
   # Structured object used to build filtered artworks query
   query: CollectionQuery!
