@@ -1,8 +1,3 @@
-type Category {
-  id: ID!
-  name: String!
-}
-
 # Object representing a collection page
 type Collection {
   id: ID!
@@ -17,7 +12,7 @@ type Collection {
   description: String
 
   # Background image for the header of the collection page
-  headerImage: Image
+  headerImage: String
 
   # Set of keywords used for SEO purposes
   keywords: String!
@@ -26,7 +21,7 @@ type Collection {
   credit: String
 
   # Category of the collection
-  category: Category!
+  category: String!
 
   # Structured object used to build filtered artworks query
   query: CollectionQuery!
@@ -69,13 +64,6 @@ type CollectionQuery {
 
 # The javascript `Date` as string. Type represents date and time as the ISO Date string.
 scalar DateTime
-
-type Image {
-  id: ID!
-  small: String!
-  medium: String!
-  large: String!
-}
 
 type Query {
   collections: [Collection!]!
