@@ -56,12 +56,13 @@ workflows:
           filters:
             branches:
               ignore:
-                - release
                 - staging
       - push:
           filters:
             branches:
-              only: master
+              only:
+                - master
+                - release
           requires:
             - test
       - deploy-staging:
