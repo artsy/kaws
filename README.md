@@ -5,7 +5,7 @@ Named after [the artist](https://artsy.net/artist/kaws), kaws is a backend servi
 
 [![CircleCI](https://circleci.com/gh/artsy/kaws.svg?style=svg)](https://circleci.com/gh/artsy/kaws)
 * __State:__ in development
-* __Production:__ [k8s](https://kubernetes.artsy.net/#!/deployment/default/kaws-web?namespace=default)
+* __Production:__ [http://kaws.artsy.net](http://kaws.artsy.net/playground) | [k8s](https://kubernetes.artsy.net/#!/deployment/default/kaws-web?namespace=default)
 * __Staging:__  [http://kaws-staging.artsy.net](http://kaws-staging.artsy.net/playground) | [k8s](https://kubernetes-staging.artsy.net/#!/search?q=kaws&namespace=default)
 * __Github:__ [https://github.com/artsy/kaws/](https://github.com/artsy/kaws/)
 * __CI:__ [CircleCI](https://circleci.com/gh/artsy/kaws); merged PRs to artsy/kaws#master are automatically deployed to staging. PRs from `staging` to `release` are automatically deployed to production. [Start a deploy...](https://github.com/artsy/kaws/compare/release...staging?expand=1)
