@@ -1,8 +1,9 @@
+import "dotenv/config"
+
 import { writeFileSync } from "fs"
-import { graphql, introspectionQuery } from "graphql"
 import { printSchema } from "graphql/utilities"
 import { format } from "prettier"
-import { createSchema } from "../createSchema"
+import { createSchema } from "../src/createSchema"
 
 // Support both passing a folder or a filename
 const schemaPath = "_schema.graphql"

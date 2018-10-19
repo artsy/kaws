@@ -1,5 +1,6 @@
 import { Field, ID, Int, ObjectType } from "type-graphql"
 import { Column, Entity, ObjectID, ObjectIdColumn } from "typeorm"
+
 @ObjectType()
 @Entity()
 export class CollectionQuery {

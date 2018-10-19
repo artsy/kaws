@@ -1,7 +1,7 @@
-import { Arg, Mutation, Query, Resolver } from "type-graphql"
+import { Arg, Query, Resolver } from "type-graphql"
 import { getMongoRepository } from "typeorm"
 import { Collection } from "../Entities/Collection"
-import { AddCollectionInput } from "../Inputs/AddCollectionInput"
+
 @Resolver(of => Collection)
 export class CollectionsResolver {
   private readonly repository = getMongoRepository(Collection)

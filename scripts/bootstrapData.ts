@@ -1,16 +1,19 @@
-import { parse } from "mongodb-uri"
-import slugify from "slugify"
-import { Connection, createConnection, getMongoRepository } from "typeorm"
-import { Collection, entities } from "../Entities"
+import "dotenv/config"
 
-const data = require("../../fixtures/collections.json")
+import { parse } from "mongodb-uri"
+import { createConnection, getMongoRepository } from "typeorm"
+import { Collection, entities } from "../src/Entities"
+
+const data = require("../fixtures/collections.json")
 const { MONGOHQ_URL } = process.env
+
+bootstrap()
 
 async function bootstrap() {
   try {
     const { username, password, database, hosts, options } = parse(MONGOHQ_URL!)
 
-    const connection: Connection = await createConnection({
+    await createConnection({
       type: "mongodb",
       username,
       password,
@@ -26,10 +29,8 @@ async function bootstrap() {
     const collections = await repository.create(data as any)
 
     await repository.save(collections)
-  } catch (err) {
+  } catch (error) {
     // tslint:disable-next-line
-    console.error(err)
+    console.error("[kaws] Error bootstrapping data:", error)
   }
 }
-
-bootstrap()
