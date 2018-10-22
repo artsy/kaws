@@ -118,6 +118,13 @@
   dependencies:
     "@types/express" "*"
 
+"@types/dd-trace@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@types/dd-trace/-/dd-trace-0.6.1.tgz#2795fb5b3ab23db9d7b776ba13e99ddca2564db3"
+  integrity sha512-P3i9fQFrq6CbxCD55xd9Qv4cZ9eASOnh3PzZwhaOhm/lfjFLmgAyLol+J5pefj/J/HSPAWT78tyXKNurP8rcGw==
+  dependencies:
+    opentracing ">=0.14.1"
+
 "@types/events@*":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
@@ -1522,6 +1529,11 @@ class-utils@^0.3.5:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/class-utils/-/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
   integrity sha512-qOhPa/Fj7s6TY8H8esGu5QNpMMQxz79h+urzrNYN6mn+9BnxlDGf5QZ+XeCDsxSjPqsSR56XOZOJmpeurnLMeg==
+  dependencies:
+    arr-union "^3.1.0"
+    define-property "^0.2.5"
+    isobject "^3.0.0"
+    static-extend "^0.1.1"
 
 class-validator@>=0.9.1:
   version "0.9.1"
@@ -5407,6 +5419,11 @@ opentracing@0.14.1:
   version "0.14.1"
   resolved "https://registry.yarnpkg.com/opentracing/-/opentracing-0.14.1.tgz#40d278beea417660a35dd9d3ee76511ffa911dcd"
   integrity sha1-QNJ4vupBdmCjXdnT7nZRH/qRHc0=
+
+opentracing@>=0.14.1:
+  version "0.14.3"
+  resolved "https://registry.yarnpkg.com/opentracing/-/opentracing-0.14.3.tgz#23e3ad029fa66a653926adbe57e834469f8550aa"
+  integrity sha1-I+OtAp+mamU5Jq2+V+g0Rp+FUKo=
 
 optimist@^0.6.1:
   version "0.6.1"
