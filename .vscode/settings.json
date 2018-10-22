@@ -1,5 +1,19 @@
 {
-    "editor.formatOnSave": true,
-    "files.autoSave": "afterDelay",
-    "debug.node.autoAttach": "on"
+  "debug.node.autoAttach": "on",
+  "editor.rulers": [80],
+  "editor.tabSize": 2,
+  "javascript.validate.enable": true,
+  "files.exclude": {
+    "**/.git": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/graphql": true
+  },
+  "tslint.autoFixOnSave": true,
+  "editor.formatOnSave": true,
+  "[json]": {
+    "editor.formatOnSave": false
+  },
+  "typescript.tsdk": "./node_modules/typescript/lib"
 }
