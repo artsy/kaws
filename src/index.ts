@@ -1,5 +1,6 @@
-import * as ddTracer from "dd-trace"
 import "dotenv/config"
+
+import * as ddTracer from "dd-trace"
 
 const {
   DD_APM_ENABLED,
