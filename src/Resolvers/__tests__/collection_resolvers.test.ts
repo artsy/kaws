@@ -1,8 +1,9 @@
 import { buildSchema } from "type-graphql"
 import { getMongoRepository } from "typeorm"
-import { CollectionsResolver } from "../Resolvers/Collections"
-import { runQuery } from "../test/utils"
-import { mockCollectionRepository } from "./data"
+import { Collection } from "../../Entities"
+import { runQuery } from "../../test/utils"
+import { CollectionsResolver } from "../Collections"
+import { mockCollectionRepository } from "./fixtures/data"
 
 const mockedGetMongoRepository = getMongoRepository as jest.Mock
 
@@ -10,7 +11,9 @@ beforeEach(() => {
   mockedGetMongoRepository.mockReturnValue({
     find: () => mockCollectionRepository,
     findOne: ({ slug }) =>
-      mockCollectionRepository.find(collection => collection.slug === slug),
+      mockCollectionRepository.find(
+        (collection: Collection) => collection.slug === slug
+      ),
   })
 })
 
@@ -44,6 +47,7 @@ describe("Collection", () => {
 
     return runQuery(query, {}, createMockSchema).then(data => {
       expect((data as any).collections.length).toBe(2)
+      expect(mockedGetMongoRepository).toBeCalled()
       expect(data).toEqual({
         collections: [
           {

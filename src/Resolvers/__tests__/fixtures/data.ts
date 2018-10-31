@@ -1,6 +1,5 @@
 import { plainToClass } from "class-transformer"
-// import { MongoRepository, EntityRepository } from "typeorm"
-import { Collection } from "../Entities/Collection"
+import { Collection } from "../../../Entities/Collection"
 
 export const mockCollectionRepository = plainToClass(Collection, [
   {
@@ -30,12 +29,3 @@ export const mockCollectionRepository = plainToClass(Collection, [
     },
   },
 ])
-
-// @EntityRepository()
-// export class MockRepository extends MongoRepository<Collection> {}
-
-// export const MockCustomRepository = getCustomRepository(MockRepository)
-
-// mockCollectionRepository.manager = jest.fn()
-
-// mockCollectionRepository.findOne
