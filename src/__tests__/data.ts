@@ -1,0 +1,41 @@
+import { plainToClass } from "class-transformer"
+// import { MongoRepository, EntityRepository } from "typeorm"
+import { Collection } from "../Entities/Collection"
+
+export const mockCollectionRepository = plainToClass(Collection, [
+  {
+    id: 1,
+    slug: "kaws-companions",
+    title: "KAWS: Companions",
+    description: `<p>Brian Donnelly, better known as KAWS, spent the first year of his career as an animator for Disney.</p>`,
+    headerImage: "",
+    query: {
+      id: null,
+      tag_id: "companion",
+    },
+    createdAt: Date.now(),
+    updatedAt: Date.now(),
+  },
+  {
+    id: 2,
+    title: "Big Artists, Small Sculptures",
+    description:
+      "<p>Today&rsquo;s collectible sculptures&mdash;from KAWS&rsquo;s cartoon Companions to Yayoi Kusama&rsquo;s miniature pumpkins&mdash;have roots in the 1980s New York art scene.</p>",
+    slug: "collectible-sculptures",
+    headerImage:
+      "http://files.artsy.net/images/pumpkinsbigartistsmallsculpture.png",
+    query: {
+      id: null,
+      gene_id: null,
+    },
+  },
+])
+
+// @EntityRepository()
+// export class MockRepository extends MongoRepository<Collection> {}
+
+// export const MockCustomRepository = getCustomRepository(MockRepository)
+
+// mockCollectionRepository.manager = jest.fn()
+
+// mockCollectionRepository.findOne
