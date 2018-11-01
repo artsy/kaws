@@ -4,7 +4,7 @@ import { Collection } from "../Entities/Collection"
 
 @Resolver(of => Collection)
 export class CollectionsResolver {
-  private readonly repository = getMongoRepository(Collection)
+  protected readonly repository = getMongoRepository(Collection)
 
   // TODO: should return a connection
   @Query(returns => [Collection])
