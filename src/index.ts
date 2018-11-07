@@ -44,35 +44,8 @@ import { GraphQLServer, Options } from "graphql-yoga"
 import { parse } from "mongodb-uri"
 import * as morgan from "morgan"
 import { Connection, createConnection } from "typeorm"
-
+import { databaseConfig } from "./config/database"
 import { createSchema } from "./createSchema"
-import { entities } from "./Entities"
-
-export const mongoConnectArgs = () => {
-  // Get correct connection args based on NODE_ENV
-  const { username, password, database, hosts, options } = parse(MONGOHQ_URL!)
-  const hostName = hosts.map(a => a.host).join(",")
-
-  if (hostName === "localhost") {
-    return {
-      url: MONGOHQ_URL,
-      type: "mongodb",
-      entities,
-    }
-  } else {
-    return {
-      type: "mongodb",
-      username,
-      password,
-      database,
-      ...options,
-      host: hostName,
-      port: 27017,
-      ssl: true,
-      entities,
-    }
-  }
-}
 
 bootstrap()
 
@@ -80,7 +53,7 @@ async function bootstrap() {
   // Setup Database
   try {
     const { database } = parse(MONGOHQ_URL!)
-    const connectionArgs = mongoConnectArgs()
+    const connectionArgs = databaseConfig()
     const connection: Connection = await createConnection(connectionArgs)
 
     if (connection.isConnected) {

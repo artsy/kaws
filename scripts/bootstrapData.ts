@@ -1,15 +1,15 @@
 import "dotenv/config"
 
 import { Connection, createConnection, getMongoRepository } from "typeorm"
+import { databaseConfig } from "../src/config/database"
 import { Collection } from "../src/Entities"
-import { mongoConnectArgs } from "../src/index"
 const data = require("../fixtures/collections.json")
 
 bootstrap()
 
 async function bootstrap() {
   try {
-    const connection: Connection = await createConnection(mongoConnectArgs())
+    const connection: Connection = await createConnection(databaseConfig())
     if (connection.isConnected) {
       const repository = getMongoRepository(Collection)
       const collections = await repository.create(data as any)
