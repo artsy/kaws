@@ -14,6 +14,15 @@ beforeEach(() => {
       mockCollectionRepository.find(
         (collection: Collection) => collection.slug === slug
       ),
+    group: (_keys, _condition, _initial, reduce, _finalize, _command) => {
+      const result = {
+        category: mockCollectionRepository[0].category,
+      }
+      mockCollectionRepository.map(collection => {
+        return reduce(collection, result)
+      })
+      return [result]
+    },
   })
 })
 
@@ -28,7 +37,7 @@ async function createMockSchema() {
   return schema
 }
 
-describe("Collection", () => {
+describe("Collections", () => {
   it("returns the collections", () => {
     const query = `
       {
@@ -76,7 +85,37 @@ describe("Collection", () => {
       })
     })
   })
+})
 
+describe("Categories", () => {
+  it("returns collections grouped by category name", () => {
+    const query = `
+      {
+        categories {
+          name
+          collections {
+            title
+          }
+        }
+      }
+    `
+    return runQuery(query, {}, createMockSchema).then(data => {
+      expect(data).toEqual({
+        categories: [
+          {
+            name: "Collectible Sculptures",
+            collections: [
+              { title: "KAWS: Companions" },
+              { title: "Big Artists, Small Sculptures" },
+            ],
+          },
+        ],
+      })
+    })
+  })
+})
+
+describe("Collection", () => {
   it("returns finds collection by slug", () => {
     const query = `
       {
