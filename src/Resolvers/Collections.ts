@@ -33,7 +33,10 @@ export class CollectionsResolver {
 
     return data.map(({ category, collections }) => ({
       name: category,
-      collections,
+      collections: collections.map(col => ({
+        ...col,
+        id: col._id,
+      })),
     }))
   }
 

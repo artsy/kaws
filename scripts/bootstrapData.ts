@@ -21,8 +21,10 @@ async function bootstrap() {
         connection.close()
       }
     }
+    process.exit(0)
   } catch (error) {
     // tslint:disable-next-line
     console.error("[kaws] Error bootstrapping data:", error)
+    process.exit(1)
   }
 }

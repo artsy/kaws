@@ -1,5 +1,5 @@
 import { Field, ID, ObjectType } from "type-graphql"
-import { Column, Entity, ObjectID, ObjectIdColumn } from "typeorm"
+import { Column, Entity, Index, ObjectID, ObjectIdColumn } from "typeorm"
 import { CollectionQuery } from "./CollectionQuery"
 
 @ObjectType({ description: "Object representing a collection page" })
@@ -9,6 +9,7 @@ export class Collection {
   @ObjectIdColumn()
   id: ObjectID
 
+  @Index({ unique: true })
   @Field({
     description:
       "slug version of title, used for pretty URLs (e.g. `kaws-prints` for Kaws Prints ",
