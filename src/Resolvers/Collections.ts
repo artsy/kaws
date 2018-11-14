@@ -1,15 +1,43 @@
 import { Arg, Query, Resolver } from "type-graphql"
 import { getMongoRepository } from "typeorm"
 import { Collection } from "../Entities/Collection"
+import { CollectionCategory } from "../Entities/CollectionCategory"
 
 @Resolver(of => Collection)
 export class CollectionsResolver {
-  private readonly repository = getMongoRepository(Collection)
+  protected readonly repository = getMongoRepository(Collection)
 
   // TODO: should return a connection
   @Query(returns => [Collection])
   async collections(): Promise<Collection[]> {
     return await this.repository.find()
+  }
+
+  // TODO: should return a connection
+  @Query(returns => [CollectionCategory])
+  async categories(): Promise<CollectionCategory[]> {
+    const data = await this.repository.group(
+      { category: 1 },
+      { category: { $exists: true } },
+      {},
+      (curr, result) => {
+        if (!result.collections) {
+          result.collections = [curr]
+        } else {
+          result.collections.push(curr)
+        }
+      },
+      result => result,
+      true
+    )
+
+    return data.map(({ category, collections }) => ({
+      name: category,
+      collections: collections.map(col => ({
+        ...col,
+        id: col._id,
+      })),
+    }))
   }
 
   @Query(returns => Collection, { nullable: true })

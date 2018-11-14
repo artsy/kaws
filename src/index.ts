@@ -1,41 +1,11 @@
 import "dotenv/config"
-
-import * as ddTracer from "dd-trace"
-
-const {
-  DD_APM_ENABLED,
-  DD_TRACE_AGENT_HOSTNAME,
-  MONGOHQ_URL,
-  NODE_ENV,
-  PORT,
-} = process.env
+import { setupDataDog } from "./config/datadog"
+const { MONGOHQ_URL, NODE_ENV, PORT } = process.env
 
 // Setup DataDog before importing another modules,
 // so DataDog gets a chance to patch the integrations as per the documation.
 // https://github.com/DataDog/dd-trace-js/blob/f638dd66845806ed3ee06e8fbf32b0062b9d21d7/src/proxy.js#L33
-if (DD_APM_ENABLED) {
-  ddTracer.init({
-    hostname: DD_TRACE_AGENT_HOSTNAME,
-    service: "kaws",
-    plugins: false,
-    // TODO: figure out how to get the debugger working
-    // debug: true,
-    // logger: {
-    //   debug: console.log,
-    //   error: console.error,
-    // },
-  })
-  ddTracer.use("express", {
-    service: "kaws",
-    headers: ["User-Agent"],
-  })
-  ddTracer.use("graphql", {
-    service: "kaws.graphql",
-  })
-  ddTracer.use("http", {
-    service: `kaws.http-client`,
-  })
-}
+setupDataDog()
 
 // tslint:disable:no-console
 import "reflect-metadata"
@@ -44,27 +14,17 @@ import { GraphQLServer, Options } from "graphql-yoga"
 import { parse } from "mongodb-uri"
 import * as morgan from "morgan"
 import { Connection, createConnection } from "typeorm"
-
-import { createSchema } from "./createSchema"
-import { entities } from "./Entities"
+import { databaseConfig } from "./config/database"
+import { createSchema } from "./utils/createSchema"
 
 bootstrap()
 
 async function bootstrap() {
   // Setup Database
   try {
-    const { username, password, database, hosts, options } = parse(MONGOHQ_URL!)
-    const connection: Connection = await createConnection({
-      type: "mongodb",
-      username,
-      password,
-      database,
-      ...options,
-      host: hosts.map(a => a.host).join(","),
-      port: 27017,
-      ssl: true,
-      entities,
-    })
+    const { database } = parse(MONGOHQ_URL!)
+    const connectionArgs = databaseConfig()
+    const connection: Connection = await createConnection(connectionArgs)
 
     if (connection.isConnected) {
       console.log(

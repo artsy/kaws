@@ -1,36 +1,30 @@
 import "dotenv/config"
 
-import { parse } from "mongodb-uri"
-import { createConnection, getMongoRepository } from "typeorm"
-import { Collection, entities } from "../src/Entities"
-
+import { Connection, createConnection, getMongoRepository } from "typeorm"
+import { databaseConfig } from "../src/config/database"
+import { Collection } from "../src/Entities"
 const data = require("../fixtures/collections.json")
-const { MONGOHQ_URL } = process.env
 
 bootstrap()
 
 async function bootstrap() {
   try {
-    const { username, password, database, hosts, options } = parse(MONGOHQ_URL!)
+    const connection: Connection = await createConnection(databaseConfig())
+    if (connection.isConnected) {
+      const repository = getMongoRepository(Collection)
+      const collections = await repository.create(data as any)
 
-    await createConnection({
-      type: "mongodb",
-      username,
-      password,
-      database,
-      ...options,
-      host: hosts.map(a => a.host).join(","),
-      port: 27017,
-      ssl: true,
-      entities,
-    })
-
-    const repository = getMongoRepository(Collection)
-    const collections = await repository.create(data as any)
-
-    await repository.save(collections)
+      const isSaved = await repository.save(collections)
+      if (isSaved) {
+        // tslint:disable-next-line
+        console.log("Successfully bootstrapped collections")
+        connection.close()
+      }
+    }
+    process.exit(0)
   } catch (error) {
     // tslint:disable-next-line
     console.error("[kaws] Error bootstrapping data:", error)
+    process.exit(1)
   }
 }

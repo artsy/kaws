@@ -1,12 +1,11 @@
-import { Field, ID, ObjectType } from "type-graphql"
-import { ObjectID, ObjectIdColumn } from "typeorm"
+import { Field, ObjectType } from "type-graphql"
+import { Collection } from "./Collection"
 
 @ObjectType()
-export class Category {
-  @Field(type => ID)
-  @ObjectIdColumn()
-  id: ObjectID
-
+export class CollectionCategory {
   @Field()
   name: string
+
+  @Field(type => [Collection])
+  collections: [Collection]
 }

@@ -21,6 +21,9 @@
   },
   "jest": {
     "preset": "ts-jest",
+    "testMatch": [
+      "**/__tests__/**/*test.ts"
+    ],
     "roots": [
       "<rootDir>/src"
     ]

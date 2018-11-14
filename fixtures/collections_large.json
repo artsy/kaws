@@ -1,0 +1,870 @@
+[
+  {
+    "title": "KAWS: Toys",
+    "slug": "kaws-toys",
+    "category": "Collectible Sculptures",
+    "description": "<p>Brian Donnelly, the ex-Disney illustrator better known as KAWS, created his first vinyl toy in 1999: an eight-inch “<a href=\"https://www.artsy.net/collection/kaws-companions\">Companion</a>” whose round belly, noodly limbs, and white gloves immediately reminded viewers of the cartoons made famous by his former workplace. The limited edition toy, produced in collaboration with the Japanese brand Bounty Hunter, reflected KAWS’s desire to make his work more accessible to the public. In the years since, KAWS has rendered most of his signature characters in three dimensions, including Chum, Bendy, and Blitz, as well as his renditions of iconic cartoons like Tweety, <a href=\"https://www.artsy.net/collection/kaws-snoopy\">Snoopy</a>, and <a href=\"https://www.artsy.net/collection//kaws-pinocchio\">Pinocchio</a>. When first released, these sculptures often sell out in just seconds. When the Museum of Modern Art promoted KAWS’s toys in its design store, collector demand was so high that the museum’s website crashed multiple times.</p>",
+    "headerImage": "https://artsy-vanity-files-production.s3.amazonaws.com/images/kaws2.png",
+    "credit": "<p>&copy; KAWS, Medicom Toy 2007.</p>",
+    "query": {
+      "artist_ids": ["4e934002e340fa0001005336"],
+      "gene_ids": ["sculpture", "related-to-toys"],
+      "tag_id": "",
+      "keyword": "Companion, BFF, Passing Through, Astroboy, Astro Boy, Small Lie, Together, Accomplice, Twins, Stormtrooper, Boba Fett, Darth Vader, Undercover Bear, Tweety, Pinocchio, Resting Place, Along the Way, Final Days, Zooth, Tweety, Joe Kaws, Snoopy, Seeing Watching, Pinocchio, Jiminy Cricket, Partners, Milo, Kubrick, Zooth, Bounty Hunter, Bearbrick, Chum, JPP, Final Days, Chompers, Cat Teeth Bank, Bend, Blitz, Bendy, Accomplice"
+    }
+  },
+  {
+    "title": "Andy Warhol: Marilyn Monroe",
+    "slug": "andy-warhol-marilyn-monroe",
+    "category": "Pop Art",
+    "description": "<p>As a memorial to the late starlet, Andy Warhol created his first portrait of Marilyn Monroe, <i>Marilyn Diptych</i>, in the months after the actress tragically passed away in August 1962. Warhol revisited her image five years later, presenting 10 reproductions of the actress in high-contrast hues for his iconic “Marilyn Monroe” suite. Modeled after a publicity image of Monroe from the 1953 film <i>Niagara</i>, the <a href=\"https://www.artsy.net/collection/andy-warhol-portraits\">portraits</a> are a quintessential example of Warhol’s obsession with celebrity culture and repetition. The suite also marked a turning point in Warhol’s career as he embraced silkscreen printing—a technique that allowed him to mass-produce images of his muses, erasing the imperfections that made them human in the process. Warhol is often credited with making an idol out of Monroe, immortalizing her in youthful beauty for future generations.</p>",
+    "headerImage": "http://files.artsy.net/images/warholmarilyn.png",
+    "credit": "<p>&copy; Andy Warhol / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b92b34eb68a1b2c0003f4"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Marilyn, References to Marilyn Monroe"
+    }
+  },
+  {
+    "title": "KAWS: Snoopy",
+    "slug": "kaws-snoopy",
+    "category": "Collectible Sculptures",
+    "description": "<p>Since 1995, KAWS has incorporated Snoopy into every aspect of his artistic practice. He began by graffiti tagging <i>Peanuts</i> characters on a MetLife billboard in New Jersey. Later, he released vinyl <a href=\"https://www.artsy.net/collection/kaws-toys\">toys</a> of Snoopy and Woodstock, debuted limited edition prints of the pup at Art Basel in Miami Beach, and partnered with Uniqlo to design a collection of <i>Peanuts</i> clothing. KAWS’s fascination with Snoopy began at a young age. “I think <i>Peanuts</i> is part of being a kid in America,” the artist <a href=\"https://www.vogue.com/article/kaws-uniqlo-peanuts-interview-studio-visit\">has said</a> about Charles Schutz’s beloved comic strip.</p>",
+    "headerImage": "http://files.artsy.net/images/kaws-snoopy.png",
+    "credit": "<p>KAWS, <i>JOE KAWS SNOOPY</i>, 2012. Courtesy of Marcel Katz Art.</p>",
+    "query": {
+      "artist_ids": ["4e934002e340fa0001005336"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Snoopy, Woodstock, Man's Best Friend, No One's Home, Isolation Tower, Stay Steady, The Things that Comfort"
+    }
+  },
+  {
+    "title": "Jasper Johns: Flags",
+    "slug": "jasper-johns-flags",
+    "category": "Pop Art",
+    "description": "<p>In 1954, two years after being discharged from the United States Army, the 24-year-old Jasper Johns had a vivid dream of the American flag. The next morning, Johns gathered the materials to bring this dream to canvas, creating an encaustic version of the U.S. flag with hot wax, paint, fabric, and collaged newspapers. Johns would go on to return to the flag more than 40 times throughout his career, sometimes in its signature tri-color palette and others in muted gray and white monochromes. The resulting images are among the most celebrated works in American art, and made Johns one of the best-selling artists of all time. Johns’s flags are now in the permanent collections of the MoMA, the Whitney, and the Tate—though related works on paper can still be collected today. In 2010, <i>Flag</i> (1958), previously owned by Johns’ gallerist Leo Castelli,sold for $110 million to a private collection, making it one of the most expensive works ever sold.</p>",
+    "headerImage": "http://files.artsy.net/images/jasperjohnsflag.png",
+    "credit": "<p>Jasper Johns, <i>Three Flags</i>, 2004. Courtesy of ArtWise.</p>",
+    "query": {
+      "artist_ids": ["4db443766c0cee66480004ca"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Flag"
+    }
+  },
+  {
+    "title": "Jeff Koons: Balloon Dogs",
+    "slug": "jeff-koons-balloon-dogs",
+    "category": "Collectible Sculptures",
+    "description": "<p>Jeff Koons released Balloon Dogs as part of his “Celebration” series in 1993. These playful sculptures are now among the most iconic works of contemporary art. In 2013, his 10-foot-tall <i>Balloon Dog (Orange)</i> (1994-2000) was purchased for $58.4 million at Christie’s, setting a new record for the most expensive work ever sold at auction by a living artist. Koons has also created smaller, collectible versions of this sculpture, as well as balloon swans, rabbits, monkeys, and even Venuses. “I’ve always enjoyed balloon animals because they’re like us,” Koons <a href=\"http://newsfeed.time.com/2013/11/14/an-orange-balloon-dog-sold-for-58-4-million-so-here-are-10-cool-jeff-koons-balloon-pieces/\">has said</a> about the series, “We’re balloons. You take a breath and you inhale, it’s an optimism. You exhale, and it’s kind of a symbol of death.”</p>",
+    "headerImage": "http://files.artsy.net/images/jeffkoonsballoondogs.png",
+    "credit": "<p>Jeff Koons, <i>Balloon Dogs (Yellow, Magenta and Orange)</i>, 2015. Courtesy of Weng Contemporary.</p>",
+    "query": {
+      "artist_ids": ["4d8b92bb4eb68a1b2c00044a"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Balloon Dog, Balloon swan, Balloon monkey, Balloon Rabbit"
+    }
+  },
+  {
+    "title": "Robert Frank: The Americans",
+    "slug": "robert-frank-the-americans",
+    "category": "Modern",
+    "description": "<p>In 1955 with funding secured from the Guggenheim Foundation, Robert Frank set off to photograph America, 35mm Leica camera and Ford Business Coupe in tow. Of the 27,000 images Frank shot on his journey documenting the nation, 83 black-and-white photographs were chosen for his seminal monograph <i>The Americans</i>. Published in 1959 with an introduction by beatnik legend Jack Kerouac, the collection has had <a href=\"https://www.artsy.net/article/artsy-editorial-robert-franks-the-americans-matters-today\">seismic effects on American art and culture to this day</a>. Frank’s haunting images reveal a nation troubled by racism, classism, and an American dream that remains stubbornly inaccessible for many. <i>The Americans</i> inspired a generation of street photographers in the 1960s and ’70s who prioritized chance encounters and the universal narratives they could reveal through their subjects.</p>",
+    "headerImage": "http://files.artsy.net/images/robertfrankamericans.png",
+    "credit": "<p>Robert Frank, <i>Trolley - New Orleans/i>, 1955. Courtesy of Pace/MacGill Gallery.</p>",
+    "query": {
+      "artist_ids": ["4e677efff8597e000100743f"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "The Americans"
+    }
+  },
+  {
+    "title": "Salvador Dalí: Elephants",
+    "slug": "salvador-dali-elephants",
+    "category": "Modern",
+    "description": "<p>The mighty elephant, widely regarded as a symbol of strength and power, makes an appearance in many of the works of Salvador Dalí. In the Surrealist master’s prints, sculptures, and paintings, elephants have long, spindly, multi-jointed legs that appear structurally incapable of supporting the animal’s body. Although realistically-proportioned elephants are depicted in Dalí’s <i>Swans Reflecting Elephants</i> (1937), his iconic long-legged fantastical beasts were first seen in the artist’s painting <i><a href=\"https://www.artsy.net/artwork/507db1483d4d05000200291d\">Dream Caused by the Flight of a Bee Around a Pomegranate a Second Before Awakening</a></i> (1944). They would later appear in paintings The Temptation of St. Anthony (1946), and Elephants (1948), often towering over strange, barren landscapes. As with many of the recurring images in his work, such as his famous melting clocks, Dalí has transformed the noble elephant into a dream-like creature that seems fragile and ephemeral.</p>",
+    "headerImage": "http://files.artsy.net/images/dali-elephants.png",
+    "credit": "<p>&copy; Salvador Dalí / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4dadcce67129f059240009df"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "elephant"
+    }
+  },
+  {
+    "title": "Alexander Calder: Mobiles",
+    "slug": "alexander-calder-mobiles",
+    "category": "Collectible Sculptures",
+    "description": "<p>Trained as a mechanical engineer, Alexander Calder revolutionized the world of kinetic sculpture with his suspended and standing mobiles. In 1932, bored by the monotony of mechanized movement, Calder introduced a new element of chance to his mobiles (a name coined by Calder’s friend and peer, Marcel Duchamp). Without an internal motor, his abstract forms responded to wind or gentle touch, each floating element moving independently and constantly creating new arrangements. Inspired by Piet Mondrian and Joan Miró, Calder created simple curvilinear constructions in wood and metal, conjuring images of skeletons, tree branches, and celestial bodies. When MoMA acquired its first Calder in 1934, they paid a humble $60. Eighty years later, Calder’s large-scale mobile <i>Poisson Volant</i> sold at Christie’s for a record $25.9 million.</p>",
+    "headerImage": "http://files.artsy.net/images/caldermobile.png",
+    "credit": "<p>&copy; Alexander Calder / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4dde70a1306f6800010036ef"],
+      "gene_ids": ["kinetic-sculpture"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "KAWS: BFF",
+    "slug": "kaws-bff",
+    "category": "Collectible Sculptures",
+    "description": "<p>In 2016, KAWS debuted a new character at the Central Embassy in Bangkok, Thailand: a 26-foot tall, bright blue creature called <i>BFF</i>. Like KAWS’s signature “<a href=\"https://www.artsy.net/collection/kaws-companions\">Companion</a>” figures, <i>BFF</i> has crossed-out eyes, gloved hands, and oversized ears. But <i>BFF</i>’s furry exterior—reminiscent of the woolly texture of Sesame Street’s Elmo—was unprecedented for the street artist, whose sculptures typically had a smooth finish. To celebrate this public installation, KAWS released 1,000 plush versions of the character, which sold out in just two and a half hours. One year later, KAWS designed a vinyl blue <i>BFF</i> in collaboration with the MoMA design store—once again, it was met with viral success, driving so much traffic to the museum's website that it crashed. In the years since, the family of <i>BFFs</i> has only grown: vinyl standing <i>BFFs</i> in black and pink, a blue seated <i>BFF</i> that doubles as a glow-in-the-dark lamp, large-scale public sculptures in Los Angeles and Hunan, China, and a plush pink <i>BFF</i> clad in a Dior suite to celebrate the brand’s 2018 showing at Paris Fashion Week.</p>",
+    "headerImage": "http://files.artsy.net/images/kawsbff.png",
+    "credit": "<p>KAWS, <i>BFF (SET OF 3),</i>, 2017-2018. Courtesy of Marcel Katz Art.</p>",
+    "query": {
+      "artist_ids": ["4e934002e340fa0001005336"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "BFF"
+    }
+  },
+  {
+    "title": "Robert Indiana: Love",
+    "slug": "robert-indiana-love",
+    "category": "Pop Art",
+    "description": "<p>Since first appearing on the Museum of Modern Art’s 1965 Christmas card, Robert Indiana’s “LOVE” quickly permeated the popular imagination, appearing everywhere from life-size sculptures to government-issued stamps. The design’s appeal was timeless, yet also emblematic of the idealistic and free-loving 1960s. As art legend has it, Indiana was first bemused and later conflicted about the instant runaway success of his design, worried that it may have ruined his reputation among the art world elite as a one-hit wonder. Despite the artist’s private insecurities, “LOVE” remains one of the most treasured works in 20th-century American sculpture—breaking $4.1 million at auction in 2011.</p>",
+    "headerImage": "http://files.artsy.net/images/robertindianalove.png",
+    "credit": "<p>&copy; Robert Indiana / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b92784eb68a1b2c00013e"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Ahava, Amor, Love"
+    }
+  },
+  {
+    "title": "Salvador Dalí: Melting Clocks",
+    "slug": "salvador-dali-melting-clocks",
+    "category": "Modern",
+    "description": "<p>Salvador Dalí’s surrealist masterpiece <i>The Persistence of Memory</i> (1931) showcases one of the artist’s most iconic motifs: melting clocks. On permanent display at the Museum of Modern Art in New York, the hallucinatory painting features the limp clocks draped across branches, furniture, and even a sleeping human face. These melting clocks, sometimes referred to as soft or droopy watches, make repeated appearances throughout Dalí’s career, generating a variety of interpretations. Some scholars associate this symbol with the omnipresence of time and its mastery over humans. Others believe Dalí’s melting clocks are a symbol for Albert Einstein’s groundbreaking Theory of Relativity, while some art historians attribute Dalí’s inspiration to a much simpler moment: when the artist watched cheese melt in the sun.</p>",
+    "headerImage": "http://files.artsy.net/images/salvadordaliclocks.png",
+    "credit": "<p>&copy; Salvador Dalí / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4dadcce67129f059240009df"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Clock, Time"
+    }
+  },
+  {
+    "title": "Chuck Close: Self-Portraits",
+    "slug": "chuck-close-self-portraits",
+    "category": "Contemporary",
+    "description": "<p>Renowned for his photorealistic portraits, Chuck Close has been depicting his own likeness since the late 1960s, and he has completed more than 80 during the last 50 years. Beginning with a photograph of himself, Close divides the portrait into a grid and then transfers, cell by cell, the image onto a larger matrix. The first work completed with this technique was <i>Big Self-Portrait</i> (1968), a massive black-and-white depiction of the artist with a cigarette hanging from his lips. Studies for his paintings and prints have become celebrated works on their own, showing both the artist’s working process and the virtuosity of his skill when compared with the final product. Close works in a variety of styles and mediums, often taking advantage of the grid, giving his self-portraits the appearance of <a href=\"https://www.artsy.net/artwork/chuck-close-self-portrait-2032\">pixelation</a>, or even <a href=\"https://www.artsy.net/artwork/chuck-close-self-portrait-45\">abstraction</a>. In 2007, a toned-down abstract self-portrait of Close fetched $2.4 million at Christie’s, breaking the auction record for the series.</p>",
+    "headerImage": "http://files.artsy.net/images/chuckcloseselfportrait.png",
+    "credit": "<p>Chuck Close, <i>Self-Portrait Screenprint 2012</i>, 2012. Courtesy of Hamilton-Selway Fine Art.</p>",
+    "query": {
+      "artist_ids": ["4db345146c0cee6648000027"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Self-Portrait"
+    }
+  },
+  {
+    "title": "Andy Warhol: Flowers",
+    "slug": "andy-warhol-flowers",
+    "category": "Pop Art",
+    "description": "<p>Instead of observing flowers in nature, Andy Warhol found his botanical inspiration in a 1964 issue of <i>Modern Photography</i>. He transformed a photograph of hibiscus blossoms into a technicolor series of silkscreens, each simply titled <i>Flowers</i> and debuted at the influential Leo Castelli Gallery later that same year. Silkscreens from that exhibition have since sold for over $2 million at auction. While they evoke the Flower Power movement of the 1960s, Warhol’s <i>Flowers</i> have also be interpreted as a symbol of mourning, as the artist created these works just after President John F. Kennedy’s assassination.</p>",
+    "headerImage": "http://files.artsy.net/images/andy-warhol-flowers.png",
+    "credit": "<p>&copy; Andy Warhol / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b92b34eb68a1b2c0003f4"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Flower, Flowers"
+    }
+  },
+  {
+    "title": "Jim Dine: Hearts",
+    "slug": "jim-dine-hearts",
+    "category": "Pop Art",
+    "description": "<p>How many hearts has Jim Dine drawn over the course of his career? “Millions…I have no idea but it’s mine and I use it as a template for all my emotions,” Dine <a href=\"https://www.artsy.net/article/editorial-why-jim-dine-is-the-undisputed-king\">has said</a>. According to Dine, the heart is a simple shape with limitless potential to represent friends, family, poetry, travel, and more. To showcase these different sentiments, the Pop artist renders his hearts with an expressive touch, filled with patchworks of colors and energetic brushstrokes. While Dine is perhaps best known for his hearts, he’s also dedicated his career to other popular symbols, including tools, plants, robes, the Venus de Milo, and Pinocchio.</p>",
+    "headerImage": "http://files.artsy.net/images/heartsjimdine.png",
+    "credit": "<p>&copy; Jim Dine / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8d1266876c697ae1000050"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Heart, Watercolor in Galilee, Heart, A Smaller Fortress, Jam and Jelly, 5 Gottingen songs, 6 Days of Gold, Aldo at Pere Lachaise, And The Cherry Trees, At Sea, Best Buddies, Big Wave, Blue Point, Blue Sunday, Bright Colors, Brown and Fog, Delhi, Called by Sake, Carnegie Hall Heart, Chartres, Clear Eden, Desert Wings, Dogwood Spring, Drunk Running, Dynamite, Foundry at Night, French Hot Dog, Gay Laughter at the Wake, Ginger and Uni, Hand Painting on the Mandala, Hart in Blu, Hawaiian Dream, Imogen, Iris, Yellow Marks, Years Ago, Winter Windows on Chapel Street, Wind and Violet, Wiener Herzen, Watercolored By Jim, Using White Over Black, Two Tomatoes, Two bells in the sand, To the Lake, Tomatoes Under the Water, The World (for Anne Waldman), The Townships, The Space Between Black and White, The Sea Behind, The Red Patch, The Pressure from the Left, The Pale Blue Line, The Orchard, The New Year, The New Building, The Memory, The Magnets, The Little Great One, The Handkerchief, The Grand Carpet, The Blue-Sky Wingo, The Big One, The Big Island, Teeth and Lips, Teal Sonata, Sunflower"
+    }
+  },
+  {
+    "title": "KAWS: Small Lie",
+    "slug": "kaws-small-lie",
+    "category": "Collectible Sculptures",
+    "description": "<p>Among KAWS’s signature “<a href=\"https://www.artsy.net/collection/kaws-companions\">Companion</a>,” <i>Small Lie</i> has the most childlike charm. Clad in overall shorts, the Pinocchio-inspired figure bows its head in shame as if hiding from a parent after getting in trouble. KAWS debuted the character at Yorkshire Sculpture Park in 2016, presenting a 30-foot-tall version made of African hardwood. The following year, KAWS released 11-inch grey, brown, and black editions of the figure, produced in collaboration with Medicom Toy.</p>",
+    "headerImage": "http://files.artsy.net/images/kawssmalllie.png",
+    "credit": "<p>KAWS, <i>SMALL LIE (SET OF 3),</i>, 2017. Courtesy of Marcel Katz Art.</p>",
+    "query": {
+      "artist_ids": ["4e934002e340fa0001005336"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Small Lie"
+    }
+  },
+  {
+    "title": "Pablo Picasso: Portraits",
+    "slug": "pablo-picasso-portraits",
+    "category": "Modern",
+    "description": "<p>Although Pablo Picasso worked in a variety of different styles and mediums throughout his prolific career, he never stopped creating portraits of those in his inner circle. Even in his most abstract portraits, Picasso captures his sitters’ personalities. For example, his cubist portrait of his friend and art dealer <i><a href=\"https://www.artsy.net/artwork/pablo-picasso-portrait-of-art-dealer-ambroise-vollard-1867-1939\">Ambroise Vollard</a></i> (1910), shows the figure broken down into geometric, angled shapes, although the viewer can still discover that Vollard was a serious and somewhat gruff individual with his downcast eyes and frown. Picasso is also famous for his portraits of his lovers, which often distort their features into playful abstractions. His sultry sleeping portrait of Marie-Thérèse Walter, <i>Le Rêve</i> (1932) is among the world’s most expensive paintings ever sold, reaching $155 million through a private sale in 2013. Regarding his outlook on portraiture, Picasso was often elusive. “When you start with a portrait and search for a pure form, a clear volume, through successive eliminations, you arrive inevitably at the egg,” he once said, “Likewise, starting with the egg and following the same process in reverse, one finishes with the portrait.”</p>",
+    "headerImage": "http://files.artsy.net/images/picasso-portraits.png",
+    "credit": "<p>&copy; Pablo Picasso / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b928b4eb68a1b2c0001f2"],
+      "gene_ids": ["portrait"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Andy Warhol: Campbell's Soup Cans",
+    "slug": "andy-warhol-campbells-soup-can",
+    "category": "Pop Art",
+    "description": "<p>Andy Warhol’s Soup Cans have become synonymous with the Pop Art movement, and are responsible for propelling Warhol into a celebrated career in fine art from his day job as a comic illustrator. The motif made their debut in 1962 when Warhol mounted his first solo show featuring 32 canvases painted with Campbell’s Soup Cans—one for each flavor the company sold at the time. But the cans weren’t instantly beloved as they are now. Most critics snubbed the work for its commercial and mundane subject matter, and when the show closed, the gallery’s owner Irving Blum <a href=\"https://www.artsy.net/article/artsy-editorial-la-gallerist-bought-warhols-first-painting-1-000-ended-15-million\">purchased</a> the entire collection for $1,000. Before long, Warhol was using silkscreen to mint the celebrity <a href=\"https://www.artsy.net/collection/andy-warhol-portraits\">portraits</a> that would make him a household name. Today, Warhol’s Soup Cans fetch a much higher price—the auction record for the series, $11.8 million, was set by <i>Small Torn Campbell’s Soup Can (Pepper Pot)</i> (1962) in 2006.</p>",
+    "headerImage": "http://files.artsy.net/images/andywarholsoupcan.png",
+    "credit": "<p>&copy; Andy Warhol / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b92b34eb68a1b2c0003f4"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Soup, Can, Campbell"
+    }
+  },
+  {
+    "title": "Andy Warhol: Self-Portraits",
+    "slug": "andy-warhol-self-portraits",
+    "category": "Pop Art",
+    "description": "<p>“I paint pictures of myself to remind myself that I’m still around,” Andy Warhol once <a href=\"https://www.warhol.org/andy-warhol-selfies/\">said</a>. Created between 1964 and 1987, Warhol’s numerous self-portraits trace the Pop artist’s rise from a self-conscious emerging talent to a celebrity-obsessed starlet to an aging man haunted by the possibility of death. Warhol often portrayed himself with a sense of vulnerability—a departure from his glamorous, idealized <a href=\"https://www.artsy.net/collection/andy-warhol-portraits\">portraits</a> of celebrities. Many of his self-portraits contain explicit symbols of mortality, such as skulls or ghostly facial expressions. Created just months before his own death, Warhol’s <i>Six Self-Portraits</i> (also known as <i>Freight Wigs</i>) portrays the artist with a skeletal face, gazing through hollow eyes at the viewer. Among the artist’s most popular self-portraits on the market, the full set of <i>Six Self-Portraits</i> broke its auction record in 2018, selling for over $31 million.</p>",
+    "headerImage": "http://files.artsy.net/images/andywarholselfportrait.png",
+    "credit": "<p>&copy; Andy Warhol / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b92b34eb68a1b2c0003f4"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Self-Portrait"
+    }
+  },
+  {
+    "title": "Banksy: Girl with Balloon",
+    "slug": "banksy-girl-with-balloon",
+    "category": "Street Art",
+    "description": "<p>A stenciled painting of a little girl reaching for a red, heart-shaped balloon first appeared under the Waterloo Bridge in London in 2002. Banksy, the popular street artist behind the image, included in his initial rendition the caption: “There is Always Hope.” While the iconic mural was later destroyed, the motif quickly grew in popularity, earning the title of the favorite piece of British art, according to a <a href=\"https://news.samsung.com/uk/streets-ahead-graffiti-triumphs-over-classics-as-the-art-of-the-nation\">Samsung study</a> in 2017. To spread this message of hope, Banksy released limited edition prints of <i>Girl with Balloon</i> in 2003, reproduced the image in the West Bank in 2005, and projected the motif onto the Eiffel Tower to spread awareness about the Syrian conflict in 2014 (a showing that inspired Justin Bieber to get a tattoo of <i>Girl with Balloon</i> on his arm). <i>Girl with Balloon</i> is now best known for a 2018 spectacle at Sotheby’s auction house, where a 2006 painting of the image self-destructed through a shredder embedded in its frame after selling for over $1 million. “We got Banksy-ed,” Alex Branczik, Sotheby’s head of contemporary art in Europe<a href=\"https://www.artsy.net/news/artsy-editorial-artwork-banksy-shredded-selling-13-million-sothebys\">said</a> after the spectacle.</p>",
+    "headerImage": "http://files.artsy.net/images/streetartnow.png",
+    "credit": "<p>Banksy, <i>Girl With Balloon</i>, 2004. Courtesy of Graffik Gallery / Banksy Editions.</p>",
+    "query": {
+      "artist_ids": ["4dd1584de0091e000100207c"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Girl with Balloon"
+    }
+  },
+  {
+    "title": "David Hockney: Pools",
+    "slug": "david-hockney-pools",
+    "category": "Pop Art",
+    "description": "<p>David Hockney’s obsession with swimming pools began when he moved to Southern California in the 1960s. For the British Pop artist, California’s poolside culture was a new form of paradise, filled with glistening chlorine waters and lounging socialites. Hockney’s utopian depictions of swimming pools often featured scenes of gay domestic life—and this marked a sharp contrast to the artist’s experience in England where homosexuality was still illegal. For example, Hockney’s <i>Portrait of an Artist (Pool with Two Figures)</i> (1972) showcases the couple Christopher Isherwood and Don Bachardy, meeting at the pool with an idyllic backdrop of rolling hills behind them. This seminal painting might also earn Hockney the title of the most expensive living artist, as the work received a sizable pre-sale auction estimate of $80 million in 2018.</p>",
+    "headerImage": "http://files.artsy.net/images/hockney-pools.png",
+    "credit": "<p>David Hockney, <i>Lithograph of Water Made of Lines and a Green Wash</i>. Courtesy of Lyndsey Ingram.</p>",
+    "query": {
+      "artist_ids": ["4d8b92854eb68a1b2c0001b6"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Pool, Swimming, Diver, Olympics"
+    }
+  },
+  {
+    "title": "Jeff Koons: Puppies",
+    "slug": "jeff-koons-puppies",
+    "category": "Collectible Sculptures",
+    "description": "<p>Jeff Koons’s <i>Puppy</i> was first unveiled in 1992, as a mammoth 40-foot-tall flower-covered topiary. The colorful and ever-changing sculpture is now on permanent display at the Guggenheim Bilbao. Modeled after a West Highland Terrier, <i>Puppy</i> exemplifies the artist’s childlike fascination with everyday objects such as balloon dogs and vacuum cleaners, and his ability to transmit the wonder with which he looks at the banal to the viewers of his works. Koons released 3,000 original editions of a vase version of <i>Puppy</i> in 1998, and an additional 100 editions were released on May 30, 2018 to celebrate the sculpture’s twentieth anniversary.</p>",
+    "headerImage": "http://files.artsy.net/images/puppy-koons.png",
+    "credit": "<p>Jeff Koons, <i>Puppy Vase</i>, 1998. Courtesy of Artware Editions.</p>",
+    "query": {
+      "artist_ids": ["4d8b92bb4eb68a1b2c00044a"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Puppy"
+    }
+  },
+  {
+    "title": "KAWS: Bearbricks",
+    "slug": "kaws-bearbrick",
+    "category": "Collectible Sculptures",
+    "description": "<p>Brian Donnelly—better known as KAWS, the street artist made famous by his small vinyl sculptures—has collaborated with the viral toy brand BE@RBRICK to produce some of the most collectible versions of the teddy bear-like figurine. KAWS was an early artistic partner for the brand, and released his first BE@RBRICK in 2002, just one year after the toy company Medicom introduced the character to the public. KAWS’s B@ARBRICK showcased the artist’s signature figure, the “<a href=\"https://www.artsy.net/collection/kaws-companions\">Companion</a>,” with rounded teddy ears and Xs in place of eyes. In the world of BE@RBRICK <a href=\"https://www.artsy.net/collection/kaws-toys\">toys</a>, sizes are listed as percentages, ranging from 50% to 1,000%, with the standard size of 100% measuring 70 millimeters high. Today, KAWS’s most sought-after BE@RBRICKs include the vibrant blue <i>Chomper</i> (2003), the karimoku wood <i>BBWT</i> (2005), the colorful <i>Dissected Companion</i> (2008–2010), and the brightly patterned <i>BBWW Tour</i> (2012).</p>",
+    "headerImage": "http://files.artsy.net/images/kawsbearbrick.png",
+    "credit": "<p>KAWS, <i>1000% Bearbrick (Grey)</i>, 2002. Courtesy of ATSA Design.</p>",
+    "query": {
+      "artist_ids": ["4e934002e340fa0001005336"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Bearbrick"
+    }
+  },
+  {
+    "title": "Shepard Fairey: Barack Obama",
+    "slug": "shepard-fairey-barack-obama",
+    "category": "Street Art",
+    "description": "<p>“I wanted strong. I wanted wise, but not intimidating,” Shepard Fairey <a href=\"http://www.washingtonpost.com/wp-dyn/content/story/2008/05/16/ST2008051602005.html\">said</a> of his iconic poster design for Barack Obama’s 2008 presidential campaign. Set in Fairey’s signature graphic style with a patriotic palette of red, white, and blue, the portrait portrays Obama looking into the distance with a sense of hopeful determination. The street artist based this expression on a photograph of the candidate, taken by Mannie Garcia two years prior, that he discovered through a Google Image Search. Fairey is said to have completed the poster design in a single day, and he began selling the posters on the street himself before Super Tuesday. The image quickly went viral and became inseparable from the campaign, featured on t-shirts, bumper stickers, buttons, and more.</p>",
+    "headerImage": "http://files.artsy.net/images/shepardfaireyobama.png",
+    "credit": "<p>Shepard Fairey, <i>HOPE</i>, 2008. Courtesy of EHC Fine Art.</p>",
+    "query": {
+      "artist_ids": ["4ddd81b9ff91ce00010012c8"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Obama, Hope, Vote, Barack Obama, Yes We Did"
+    }
+  },
+  {
+    "title": "Takashi Murakami: Flowers",
+    "slug": "takashi-murakami-flowers",
+    "category": "Contemporary",
+    "description": "<p>With 12 rounded petals and smiling faces, Takashi Murakami’s flowers are celebrated for their display of joy and innocence. The Japanese artist’s fascination with flowers began when he worked as a school teacher in the 1980s. Every other day, the artist would buy fresh blooms for his students to practice drawing. After repeating this lesson plan for nine years, he found himself enchanted by the individual personalities of flowers. With their beaming smiles, Murakami’s flowers are now his most recognizable motif, having been featured everywhere from the Versailles Palace to Vans sneakers.</p>",
+    "headerImage": "http://files.artsy.net/images/takashimurakamiflowers.png",
+    "credit": "<p>Takashi Murakami, <i>If I Could Reach that Field of Flowers, I Would Die</i>, 2010. Courtesy of Lougher Contemporary.</p>",
+    "query": {
+      "artist_ids": ["4d8b92bb4eb68a1b2c000452"],
+      "gene_ids": ["flora"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Wayne Thiebaud: Cakes",
+    "slug": "wayne-thiebaud-cakes",
+    "category": "Pop Art",
+    "description": "<p>Wayne Thiebaud is best known for depicting rows and rows of candy-colored frosted cakes, each with different layers, heights, shapes, and decorations. The Pop artist typically paints cakes, pastries, and pies from memory, evoking nostalgia for mid-20th-century American diner culture and his adolescent days spent working in restaurants. But Thiebaud never expected his confectionary paintings and prints to become icons of American art. “Look, a row of pies—that’ll be the end of me trying to be a serious artist,” he <a href=\"https://www.newyorker.com/magazine/2014/11/10/oldies-goodies\">remembers</a> thinking. “But I couldn’t leave it alone. It meant something to me.” But Thiebaud didn’t draw a line at these sugar-dusted confections—the artist also portrayed salty snacks like olives, sardines, and deli meats through works on paper. Whether savory or sweet, Thiebaud’s playful depictions of food capture a distinct moment in American ready-made culture of the 1950s and ’60s.</p>",
+    "headerImage": "http://files.artsy.net/images/waynethiebaudcakes.png",
+    "credit": "<p>Wayne Thiebaud <i>Dark Cakes and Pies</i>, 2006. Courtesy of Susan Sheehan Gallery.</p>",
+    "query": {
+      "artist_ids": ["4d8d12a3876c697ae1000059"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Cake"
+    }
+  },
+  {
+    "title": "Yayoi Kusama: Pumpkins",
+    "slug": "yayoi-kusama-pumpkins",
+    "category": "Pop Art",
+    "description": "<p>Yayoi Kusama’s instantly recognizable pumpkins have become fixtures of contemporary art and popular culture—and have helped make her one of the world’s most expensive living female artists. Kusama began drawing pumpkins as a child in pre-war Japan, where her family owned a plant nursery that farmed kabocha squash. Her obsession only grew with time. Kusama’s signature dotted pumpkins have since appeared as works on paper, handheld figurines, towering sculptures, and in the artist’s immersive infinity room installations. To Kusama, the pumpkins are warm and humorous motifs with figures that, at times, feel human. “I was enchanted by their charming and winsome form,” Kusama once <a href=\"http://www.thecallalilydialogues.com/the-dialogues/2015/6/2/the-polka-dot-super-star-yayoi-kusama\">said</a>. “What appealed to me most was the pumpkin’s generous unpretentiousness.”</p>",
+    "headerImage": "http://files.artsy.net/images/pumpkinsbigartistsmallsculpture.png",
+    "credit": "<p>Yayoi Kusama, <i>Kusama Pumpkins Set</i>, 2015. Courtesy of Gin Huang Gallery.</p>",
+    "query": {
+      "artist_ids": ["4d8b92bb4eb68a1b2c00044c"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Pumpkin"
+    }
+  },
+  {
+    "title": "Andy Warhol: Brillo Boxes",
+    "slug": "andy-warhol-brillo-boxes",
+    "category": "Pop Art",
+    "description": "<p>With their bold red and blue lettering, Andy Warhol’s <i>Brillo Boxes</i> are exact replicas of the popular soap pad product of the 1950s. One of the country’s most recognizable household brands, it was no surprise that Warhol chose Brillo when he began producing works featuring iconic product labels in the 1960s. Made from plywood and silkscreen ink, Warhol employed multiple assistants and made dozens of sculptures at a time, mimicking the commercial manufacturing of actual cardboard Brillo boxes. First exhibited at the Stable Gallery in 1964, the artist grouped the <i>Brillo Boxes</i> in large stacks around the gallery, to mimic supermarket displays. Warhol envisioned dozens of gallery-goers carrying out his <i>Brillo Boxes</i> as though departing a grocery store. Although this vision never played out, <i>Brillo Box</i> is now one of Warhol’s most iconic works—and fetched just over $3 million at auction in 2010.</p>",
+    "headerImage": "http://files.artsy.net/images/brilloboxandywarhol.png",
+    "credit": "<p>&copy; Andy Warhol / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b92b34eb68a1b2c0003f4"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Brillo Box"
+    }
+  },
+  {
+    "title": "Andy Warhol: Portraits",
+    "slug": "andy-warhol-portraits",
+    "category": "Pop Art",
+    "description": "<p>“I’ve never met a person I couldn’t call a beauty,” Andy Warhol famously wrote in 1975. Indeed, Warhol’s silkscreen portraits are almost always idealized, portraying his subject’s features in simplified, colorful shapes. Muses for Warhol’s iconic portraits include the actresses <a href=\"https://www.artsy.net/collection/andy-warhol-marilyn-monroe\">Marilyn Monroe</a>, Elizabeth Taylor, and Ingrid Bergman; the musicians Elvis Presley, <a href=\"https://www.artsy.net/collection/andy-warhol-mick-jagger\">Mick Jagger</a>, and Aretha Franklin; the political figures John F. Kennedy, Chairman <a href=\"https://www.artsy.net/collection/andy-warhol-mao\">Mao</a>, and Queen Elizabeth; and the New York socialites Olga Berde Mahl, Cindy Pritzker, and Georges Marciano. In addition to his celebrity portraits, Warhol also produced a number of <a href=\"https://www.artsy.net/collection/andy-warhol-self-portraits\">self-portraits</a>. Created just months before his death, his <i>Fright Wig</i> (1986) self-portraits are perhaps the most famous example, capturing the artist with a shocked expression staring at the viewer. The series is also among Warhol’s top auction highlights, surpassing $30 million in a Christie’s sale in 2018.</p>",
+    "headerImage": "http://files.artsy.net/images/warholmarilyn.png",
+    "credit": "<p>&copy; Andy Warhol / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b92b34eb68a1b2c0003f4"],
+      "gene_ids": ["portrait"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Banksy: Rats",
+    "slug": "banksy-rats",
+    "category": "Street Art",
+    "description": "<p>Banksy, the elusive British street artist famous for his simple stencil designs that convey powerful political messages, has long used rats as a means of social commentary. Drawing inspiration from French graffiti artist Blek le Rat, Banksy began his career stenciling rats across the streets of England with phrases like “Because I’m Worthless” and “Our Time Will Come.” Banksy’s rats can be interpreted as a symbol for the regenerative nature of street art—despite massive efforts by city governments to remove graffiti, a fresh wall won’t stay that way for long before new tags appear. The same can be said for rats, whose population is notoriously uncontrollable.</p>",
+    "headerImage": "http://files.artsy.net/images/banksyrat.png",
+    "credit": "<p>Banksy, <i>Radar Rat</i>, 2008. Courtesy of EHC Fine Art.</p>",
+    "query": {
+      "artist_ids": ["4dd1584de0091e000100207c"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Rat"
+    }
+  },
+  {
+    "title": "KAWS: Posters",
+    "slug": "kaws-posters",
+    "category": "Artist Posters",
+    "description": "<p>In 1996, Brian Donnelly, now known by his moniker KAWS, moved to New York and met fellow street artist Barry McGee, who had a key to the city’s phone booths. KAWS soon devised a strategy: break into the booths, remove their advertising posters, add his own graffiti to the posters, and then reinstall them back in the booth another night. “When I started painting on advertisements, it occurred to me that the ad really set the work in a specific time,” KAWS <a href=\"https://www.interviewmagazine.com/art/kaws\">once said</a>. Indeed, his takes on Calvin Klein advertisements, featuring a young Kate Moss and Christy Turlington, capture the cultural moment of the late 1990s. These early works also reveal KAWS’s first experimentation with his now-signature skull and bones motif, seen on his “<a href=\"https://www.artsy.net/collection/kaws-companions\">Companion</a>” characters and other vinyl <a href=\"https://www.artsy.net/collection/kaws-toys\">toys</a>. While many of these original advertisements are now lost or destroyed, KAWS released a series of collectible posters featuring this body of work in 1999.</p>",
+    "headerImage": "http://files.artsy.net/images/kawsposter.png",
+    "credit": "<p>KAWS, <i>Untitled (from Undercover set)</i>, 1999. Courtesy of EHC Fine Art.</p>",
+    "query": {
+      "artist_ids": ["4e934002e340fa0001005336"],
+      "gene_ids": ["poster"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Andy Warhol: Polaroids",
+    "slug": "andy-warhol-polaroids",
+    "category": "Pop Art",
+    "description": "<p>“I’ve never met a person I couldn’t call a beauty,” Andy Warhol famously said—and the rise of instant Polaroid photography in the 1950s gave him endless opportunities to capture any beauty he encountered. From 1958 until his death in 1987, Warhol kept his SX-70 Polaroid close at hand, relentlessly documenting the muses in his artist studio The Factory, the characters he encountered around New York City, and the celebrities he met in Hollywood, California. Among the 20,000 Polaroids left behind are <a href=\"https://www.artsy.net/collection/andy-warhol-portraits\">portraits</a> of stars including Grace Jones, Jane Fonda, and Jack Nicholson, as well as fellow artists like Jean-Michel Basquiat, Keith Haring, and David Hockney. Warhol’s Polaroids were instrumental in his process of creating his master silkscreen portraits and have garnered strong attention at auction, most notably his <i>Self-Portrait (Eyes Closed)</i>, which fetched over $250,000 at Sotheby’s in 2010.</p>",
+    "headerImage": "http://files.artsy.net/images/andywarholpolaroids.png",
+    "credit": "<p>&copy; Andy Warhol / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b92b34eb68a1b2c0003f4"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Polaroid"
+    }
+  },
+  {
+    "title": "Damien Hirst: Butterflies",
+    "slug": "damien-hirst-butterflies",
+    "category": "Contemporary",
+    "description": "<p>For Damien Hirst, butterflies symbolize death and resurrection. The British artist debuted this motif when he was 26 years old, with his ambitious installation “In and Out of Love”(1991). To showcase the insects’ short lifespan, Hirst invited viewers to watch butterflies emerge from their cocoons, fly around the gallery space, and die before the show’s end. Decades after this career-defining exhibition, Hirst remains fascinated by butterflies. He’s arranged their wings into psychedelic patterns in his kaleidoscope paintings, turned them into stained glass windows in his cathedral prints, presented them neatly in rows for his entomology cabinets, and more. “You have to find universal triggers,” the artist <a href=\"http://www.damienhirst.com/texts1/series/butterfly-colour-paintings\">explains</a>, “Everyone’s frightened of glass, everyone’s frightened of sharks, everyone loves butterflies.”</p>",
+    "headerImage": "http://files.artsy.net/images/hirst-butterfly-1.png",
+    "credit": "<p>Damien Hirst, <i>Your Beauty</i>, 2015. Courtesy of Reuben Colley Fine Art.</p>",
+    "query": {
+      "artist_ids": ["4d8b926a4eb68a1b2c0000ae"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Butterfly"
+    }
+  },
+  {
+    "title": "Damien Hirst: Skulls",
+    "slug": "damien-hirst-skulls",
+    "category": "Contemporary",
+    "description": "<p>In 2007, Damien Hirst made headlines with <i>For the Love of God</i>, a platinum cast human skull covered in 8,601 flawless diamonds. The bejeweled skull, which was bought for $100 million by an investment group that same year, is widely acknowledged to be the most expensive contemporary artwork ever made. Hirst’s fascination with skulls began at a young age—at 16, the artist began visiting the anatomy department of Leeds Medical School to draw the cadavers. “[Death is] just something that inspires me, not something that pulls me down,” Hirst <a href=\"https://www.interviewmagazine.com/culture/damien-hirst\">once explained</a>. “And every day your relationship with death changes.”</p>",
+    "headerImage": "http://files.artsy.net/images/damienhirstskulls.png",
+    "credit": "<p>Damien Hirst, <i>For the Love of God,</i>, 2012. Courtesy of Paul Stolper Gallery.</p>",
+    "query": {
+      "artist_ids": ["4d8b926a4eb68a1b2c0000ae"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Skull, For the Love of God, Victory Over Death, Till Death Do Us Part, The Sick Dead, The Dead"
+    }
+  },
+  {
+    "title": "KAWS: Together",
+    "slug": "kaws-together",
+    "category": "Collectible Sculptures",
+    "description": "<p>KAWS’s iconic “<a href=\"https://www.artsy.net/collection/kaws-companions\">Companions</a>” are interlocked in a permanent hug in <i>Together</i>. The street artist debuted this embracing duo in 2016, presenting large-scale wooden versions at More Gallery in Switzerland and at the Modern Art Museum of Fort Worth in Texas. Two years later, KAWS released an open edition of <i>Together</i> to the public in brown, grey, and black vinyl <a href=\"https://www.artsy.net/collection/kaws-toys\">toys</a>.</p>",
+    "headerImage": "http://files.artsy.net/images/kawstogether.png",
+    "credit": "<p>KAWS, <i>Together Grey</i>, 2018. Courtesy of Marcel Katz Art.</p>",
+    "query": {
+      "artist_ids": ["4e934002e340fa0001005336"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Together"
+    }
+  },
+  {
+    "title": "Keith Haring: Posters",
+    "slug": "keith-haring-posters",
+    "category": "Artist Posters",
+    "description": "<p>Keith Haring, the street artist who famously declared that “art is for everybody,” started designing posters in 1982, while he was still a student at the School of Visual Arts in New York. Haring was drawn to posters because they were a democratic medium—a great way to share his bright designs and graphic characters with the public on a large scale. Over the next eight years, Haring created over 80 unique posters, from corporate advertisements for Absolut and Lucky Strike to cultural announcements for the Montreux Jazz Festival and the World Breakdance Championship. Haring also used posters as a means for social activism, spreading awareness about the crack cocaine epidemic in the United States, apartheid in South Africa, global nuclear disarmament, and the devastation of AIDS—a disease Haring would eventually face. Together, these posters feature nearly all of Haring’s signature icons, including his radiant baby, flying angel, and barking dog.</p>",
+    "headerImage": "http://files.artsy.net/images/keithharingposter.png",
+    "credit": "<p>Keith Haring, <i>American Music Festival Poster</i>, 1988. Courtesy of MSP Modern.</p>",
+    "query": {
+      "artist_ids": ["4db5b2717798a61695000259"],
+      "gene_ids": ["poster"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Andy Warhol: Mao",
+    "slug": "andy-warhol-mao",
+    "category": "Pop Art",
+    "description": "<p>Andy Warhol modeled his now-iconic <a href=\"https://www.artsy.net/collection/andy-warhol-portraits\">portraits</a> of Mao Zedong off of the official state portrait of the Chinese Communist leader. Using silkscreen printing, Warhol was able to produce many versions of the portrait, changing only the color palette. Warhol’s <i>Mao</i> transformed a serious portrait of a world leader into a provocatively playful and colorful image, with some renditions depicting Mao wearing eyeshadow, blush, or lipstick. It was Warhol’s longtime dealer, Bruno Bischofberger, who first suggested that he create a portrait of the most important figure of the 20th century. Fascinated by fame and celebrity culture, Warhol had recently read in <i>Life</i> magazine that Mao Zedong was the most famous person in the world, making him an appealing subject. <i>Mao</i> is among Warhol’s most popular portraits: The auction record for the work is $47.5 million, sold at Sotheby’s in 2015.</p>",
+    "headerImage": "http://files.artsy.net/images/andywarholmao2.png",
+    "credit": "<p>&copy; Andy Warhol / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b92b34eb68a1b2c0003f4"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Mao"
+    }
+  },
+  {
+    "title": "Andy Warhol: Shoes",
+    "slug": "andy-warhol-shoes",
+    "category": "Pop Art",
+    "description": "<p>In the mid-1950s, Andy Warhol worked as an illustrator for the popular shoe manufacturer I. Miller. For three years, Warhol drew shoes for advertisements, a cultural symbol that would fascinate him throughout his career. The stately high-heeled shoe, usually depicted in profile, was Warhol’s favorite, which he portrayed in a range of colors and materials. Early drawings of shoes often featured cheeky captions written by his mother, Julia Warhola, such as “Uncle Sam wants shoe” or “You can lead a shoe to water, but you can’t make it drink.” Later shoes appear stylized in Warhol’s signature silkscreen prints, some of which famously incorporate diamond dust for added sparkle. Intended to mimic advertisements, Warhol’s shoes are emblematic of his interests in commercialism and reproduction.</p>",
+    "headerImage": "http://files.artsy.net/images/andywarholshoes.png",
+    "credit": "<p>&copy; Andy Warhol / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b92b34eb68a1b2c0003f4"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Shoes"
+    }
+  },
+  {
+    "title": "Banksy: Dismaland",
+    "slug": "banksy-dismaland",
+    "category": "Street Art",
+    "description": "<p>In 2015, the internationally renowned anonymous street artist Banksy conceived of Dismaland, a month-long pop-up exhibition held in Somerset, England. A dark twist on the original Disneyland brought to life by Walt Disney, the “theme park” featured scenes and artworks characteristic of Banksy’s satirical and subversive street art. Although Dismaland has long been dismantled, artworks from the project have survived, including the artist’s manipulation of various forms of currency, and <i>Police Riot Van</i>, a print that features children playing on a derelict police riot van. Banksy also invited other artists to exhibit works at Dismaland, including <a href=\"https://www.artsy.net/artist/jenny-holzer\">Jenny Holzer</a>, <a href=\"https://www.artsy.net/artist/damien-hirst\">Damien Hirst</a>, and <a href=\"https://www.artsy.net/artist/david-shrigley\">David Shrigley</a>. Dismaland attracted over 150,000 visitors from all over the world, with visitors often waiting for hours to get in and experience the “magic” for themselves.</p>",
+    "headerImage": "http://files.artsy.net/images/banksydismaland.png",
+    "credit": "<p>Banksy, <i>Dismaland</i>. Courtesy of Rhodes.</p>",
+    "query": {
+      "artist_ids": ["4dd1584de0091e000100207c"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Dismaland"
+    }
+  },
+  {
+    "title": "Chuck Close: Portraits",
+    "slug": "chuck-close-portraits",
+    "category": "Contemporary",
+    "description": "<p>Chuck Close, a contemporary master of portraiture, was born with a rare neurological disorder called prosopagnosia, which leaves him unable to recognize faces—including his own. “Everything I do is driven by my learning disabilities,” Close once <a href=\"https://www.telegraph.co.uk/culture/art/art-news/9724849/Chuck-Close-gets-up-close-and-personal.html\">said</a>. “I’m sure I was driven to paint portraits to commit images to memory, because once I flatten them out and scan them I remember them much better.” Whether as tapestries, photographs, or larger-than-life oil paintings, Close’s portraits often feature himself or his inner circle of friends, including the artists Richard Serra, Alex Katz, Diane von Furstenberg, Cindy Sherman, and Cecily Brown. Notable exceptions include his portraits of celebrities Brad Pitt and Kate Moss, as well as former presidents Bill Clinton and Barack Obama. Close's <i>John</i> (1971-72), an early photorealistic painting of his friend John Roy, set the artist’s auction record at $4.8 million.</p>",
+    "headerImage": "http://files.artsy.net/images/chuckcloseselfportrait.png",
+    "credit": "<p>Chuck Close, <i>Self-Portrait Screenprint 2012</i>, 2012. Courtesy of Hamilton-Selway Fine Art.</p>",
+    "query": {
+      "artist_ids": ["4db345146c0cee6648000027"],
+      "gene_ids": ["portrait"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "David Hockney: Portraits",
+    "slug": "david-hockney-portraits",
+    "category": "Pop Art",
+    "description": "<p>When making a portrait, “it’s their mood and your mood together that creates whatever’s there,” David Hockney <a href=\"http://www.latimes.com/entertainment/arts/la-ca-cm-david-hockney-20180429-htmlstory.html\">once said</a>. An avid portraitist throughout his entire career, David Hockney has painted, drawn, or printed hundreds of portraits since the mid-1960s. Frequently drawn to the same subjects, Hockney often depicts himself or his relatives, friends, and employees—many of whom are famous artists, fashion designers, and dancers. In 2013, he dove into an intensive period of portraiture, producing 82 paintings over the course of three years, featuring titans of the art world like architect Frank Gehry and art dealer Larry Gagosian. Hockney depicted each of his subjects in the same setting—sitting on a yellow armchair against a blue or green background—in order to better highlight their unique qualities. Hockney’s portraits are also fitting bookends to his presence in the art market. His first painting ever sold was a portrait of his father from 1955. <i>Portrait of an Artist (Pool with Two Figures)</i> (1972), featuring his former lover Peter Schlesinger, is expected to make him the most expensive living artist at a Christie’s sale on November 15, 2018</p>",
+    "headerImage": "http://files.artsy.net/images/hockney-portrait.png",
+    "credit": "<p>David Hockney, <i>Celia, Paris, Black Stockings</i>, 1980. Courtesy of Graves International Art.</p>",
+    "query": {
+      "artist_ids": ["4d8b92854eb68a1b2c0001b6"],
+      "gene_ids": ["portrait"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Henri Matisse: Dancers",
+    "slug": "henri-matisse-dancers",
+    "category": "Modern",
+    "description": "<p>Henri Matisse painted one of his most iconic works, <i>Dance (I)</i>, in 1909 when Russian industrialist and art collector Sergei Shchukin commissioned the work for his Moscow mansion. For the project, Matisse re-envisioned the circling nude dancers of his brightly colored <i>Joy of Life</i> (1906), in a pared-down palette and simplified lines. This monumental canvas, though completed in just one week and considered a study by Matisse, is among the most significant works of 20th-century art, now held in the permanent collection of the Museum of Modern Art in New York. In the 1920s, Matisse’s obsession with dancers continued. He met the ballerina Henriette Darricarrère who became his most beloved muse, depicting her again and again in paintings, etchings, lithography, and works on paper. Her sculpted body and ability to transform herself into dozens of characters mesmerized Matisse for over seven years, providing an essential study of the human form for the artist.</p>",
+    "headerImage": "http://files.artsy.net/images/matissedancer.png",
+    "credit": "<p>Henri Matisse, <i>Reclining Dancer,</i>. Courtesy of Gallery Neptune & Brown.</p>",
+    "query": {
+      "artist_ids": ["4d8b92934eb68a1b2c00025a"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "dance, dancer, danseuse"
+    }
+  },
+  {
+    "title": "Jean-Michel Basquiat: Crowns",
+    "slug": "jean-michel-basquiat-crowns",
+    "category": "Street Art",
+    "description": "<p>Jean-Michel Basquiat’s enduring legacy in street art and popular culture is thanks, in part, to his unmistakable signature motif—the three-pointed crown. The simple design, a cartoon-like drawing outlined in black and often colored in yellow, was adopted by Basquiat from greater street art culture in the 1980s—the three-pointed crown was historically used as a tag to show respect for another artist’s work. Basquiat borrowed the motif for his own politically-charged visual language, transforming the crown into a symbol of Black power and excellence. Whether sitting atop a head or floating in space, the crown signified monarchy and ascendence. Adorning images of himself, Basquiat mimicked royal portraiture from European art history and anointed himself king. After Basquiat’s death in 1988 at the age of 27, the artist Keith Haring created a painting in tribute to his friend: <i>A Pile of Crowns, for Jean-Michel Basquiat</i>—and in the years since, the crown has become an interchangeable symbol for the artist himself.</p>",
+    "headerImage": "http://files.artsy.net/images/jeanmichelbasquiatcrowns.png",
+    "credit": "<p>&copy; Jean-Michel Basquiat / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4db455226c0cee664800053c"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Crown"
+    }
+  },
+  {
+    "title": "KAWS: Astroboy",
+    "slug": "kaws-astroboy",
+    "category": "Collectible Sculptures",
+    "description": "<p>Brian Donnelly, the ex-Disney illustrator better known as KAWS, created his first vinyl <a href=\"https://www.artsy.net/collection/kaws-toys\">toy</a> in 1999: an eight-inch “<a href=\"https://www.artsy.net/collection/kaws-companions\">Companion</a>” whose round belly, noodly limbs, and white gloves immediately reminded viewers of the cartoons made famous by his former workplace. The limited edition toy, produced in collaboration with the Japanese brand Bounty Hunter, reflected KAWS’s desire to make his work more accessible to the public. In the years since, KAWS has rendered most of his signature characters in three dimensions, including Chum, Bendy, and Blitz, as well as his renditions of iconic cartoons like Tweety, <a href=\"https://www.artsy.net/collection/kaws-snoopy\">Snoopy</a>, and <a href=\"https://www.artsy.net/collection//kaws-pinocchio\">Pinocchio</a>. When first released, these sculptures often sell out in just seconds. When the Museum of Modern Art promoted KAWS’s toys in its design store, collector demand was so high that the museum’s website crashed multiple times.</p>",
+    "headerImage": "http://files.artsy.net/images/kaws-astro-boy.png",
+    "credit": "<p>KAWS, <i>Astroboy (Grey)</i>, 2013. Courtesy of Lougher Contemporary.</p>",
+    "query": {
+      "artist_ids": ["4e934002e340fa0001005336"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Astroboy"
+    }
+  },
+  {
+    "title": "KAWS: Bape",
+    "slug": "kaws-bape",
+    "category": "Collectible Sculptures",
+    "description": "<p>Brian Donnelly, the ex-Disney illustrator better known as KAWS, created his first vinyl <a href=\"https://www.artsy.net/collection/kaws-toys\">toy</a> in 1999: an eight-inch “<a href=\"https://www.artsy.net/collection/kaws-companions\">Companion</a>” whose round belly, noodly limbs, and white gloves immediately reminded viewers of the cartoons made famous by his former workplace. The limited edition toy, produced in collaboration with the Japanese brand Bounty Hunter, reflected KAWS’s desire to make his work more accessible to the public. In the years since, KAWS has rendered most of his signature characters in three dimensions, including Chum, Bendy, and Blitz, as well as his renditions of iconic cartoons like Tweety, <a href=\"https://www.artsy.net/collection/kaws-snoopy\">Snoopy</a>, and <a href=\"https://www.artsy.net/collection//kaws-pinocchio\">Pinocchio</a>. When first released, these sculptures often sell out in just seconds. When the Museum of Modern Art promoted KAWS’s toys in its design store, collector demand was so high that the museum’s website crashed multiple times.</p>",
+    "headerImage": "http://files.artsy.net/images/kaws-bape.png",
+    "credit": "<p>KAWS, <i>KAWS X BAPE DISSECTED BABY MILO (GREY)</i>, 2011. Courtesy of Marcel Katz Art.</p>",
+    "query": {
+      "artist_ids": ["4e934002e340fa0001005336"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Bape, JPP, Milo"
+    }
+  },
+  {
+    "title": "KAWS: Pinocchio",
+    "slug": "kaws-pinocchio",
+    "category": "Collectible Sculptures",
+    "description": "<p>Brian Donnelly, the ex-Disney illustrator better known as KAWS, created his first vinyl <a href=\"https://www.artsy.net/collection/kaws-toys\">toy</a> in 1999: an eight-inch “<a href=\"https://www.artsy.net/collection/kaws-companions\">Companion</a>” whose round belly, noodly limbs, and white gloves immediately reminded viewers of the cartoons made famous by his former workplace. The limited edition toy, produced in collaboration with the Japanese brand Bounty Hunter, reflected KAWS’s desire to make his work more accessible to the public. In the years since, KAWS has rendered most of his signature characters in three dimensions, including Chum, Bendy, and Blitz, as well as his renditions of iconic cartoons like Tweety, <a href=\"https://www.artsy.net/collection/kaws-snoopy\">Snoopy</a>, and Pinocchio. When first released, these sculptures often sell out in just seconds. When the Museum of Modern Art promoted KAWS’s toys in its design store, collector demand was so high that the museum’s website crashed multiple times.</p>",
+    "headerImage": "http://files.artsy.net/images/kaws-pinocchio.png",
+    "credit": "<p>KAWS, <i>Pinocchio)</i>, 2018. Courtesy of Gin Huang Gallery.</p>",
+    "query": {
+      "artist_ids": ["4e934002e340fa0001005336"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Pinocchio"
+    }
+  },
+  {
+    "title": "Pablo Picasso: Weeping Women",
+    "slug": "pablo-picasso-weeping-woman",
+    "category": "Modern",
+    "description": "<p>During the Spanish Civil War, Picasso created a series of agonizing protest works, including his masterwork <i>Guernica</i> and several “Weeping Women” who represented the nation’s collective suffering after the 1937 Nazi aerial attack on the village of Guernica. The “Weeping Women” are Picasso’s take on the Mater Dolorosa (Latin for “Sorrowful Mother”), which historically depicts a tearful Virgin Mary over the body of her dead son—though the twisted features of Picasso’s tortured figures were based on his muse and mistress Dora Maar, a raven-haired photographer he often <a href=\"https://www.tate.org.uk/context-comment/blogs/work-week-pablo-picassos-weeping-woman\">called</a> his own weeping woman. Picasso’s paintings and works on paper depict her features as agonized knots of cubist shapes, and they remain highly sought after. In 2011, a 1937 etching of a suffering Maar fetched $5.1 million at a Christie’s auction.</p>",
+    "headerImage": "http://files.artsy.net/images/picassoweepingwoman.png",
+    "credit": "<p>&copy; Pablo Picasso / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b928b4eb68a1b2c0001f2"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Weeping"
+    }
+  },
+  {
+    "title": "Andy Warhol: Mickey Mouse",
+    "slug": "andy-warhol-mickey-mouse",
+    "category": "Pop Art",
+    "description": "<p>Andy Warhol’s <a href=\"https://www.artsy.net/collection/andy-warhol-portraits\">portraits</a> typically depict real-life individuals, with the exceptions of the figures in the “<a href=\"https://www.artsy.net/collection/andy-warhol-myths\">Myths</a>” portfolio—a group of 10 prints published in 1981 that feature American pop culture icons from the 1950s, including Superman, Howdy Doody, Santa Claus, and Mickey Mouse. Walt Disney’s iconic mouse is depicted in profile, surrounded by a background covered in diamond dust, adding a touch of Hollywood glamour to the beloved cartoon character. Warhol later created other renditions of Mickey Mouse, with images of the character repeated twice or in a grid—a treatment Warhol reserved for other iconic figures like Elvis Presley and <a href=\"https://www.artsy.net/collection/andy-warhol-marilyn-monroe\">Marilyn Monroe</a>—perhaps a sign that Warhol regarded Mickey Mouse as much a celebrity as other starlets and musicians he depicted.</p>",
+    "headerImage": "http://files.artsy.net/images/andywarholmickey.png",
+    "credit": "<p>&copy; Andy Warhol / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b92b34eb68a1b2c0003f4"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Mickey Mouse"
+    }
+  },
+  {
+    "title": "Keith Haring: Pop Shop",
+    "slug": "keith-haring-pop-shop",
+    "category": "Street Art",
+    "description": "<p>Keith Haring’s Pop Shops were born out of the artist’s desire to make his whimsical aesthetic accessible to the widest audience possible. “I wanted it to be a place where, yes, not only collectors could come, but also kids from the Bronx,” Haring <a href=\"https://www.nyclgbtsites.org/site/keith-haring-studio-foundation/\">said</a> of the Pop Shops. The street artist opened two Pop Shops—one in Manhattan in 1986 and another in Tokyo in 1987—where art, clothes, posters, other ephemera, and drawings by peers like Jean-Michel Basquiat could be purchased at affordable prices. Haring painted floor to ceiling murals at both boutiques, creating an immersive environment for visitors to browse and enjoy his beloved art. Today, Haring enthusiasts make the pilgrimage to see the original New York Pop Shop ceiling installed in the entryway of the New York Historical Society.</p>",
+    "headerImage": "http://files.artsy.net/images/popshopkeithharing.png",
+    "credit": "<p>Keith Haring, <i>Pop Shop Quad II (1)</i>, 1988. Courtesy of Taglialatella Galleries.</p>",
+    "query": {
+      "artist_ids": ["4db5b2717798a61695000259"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Pop Shop"
+    }
+  },
+  {
+    "title": "Shepard Fairey: We the People",
+    "slug": "shepard-fairey-we-the-people",
+    "category": "Street Art",
+    "description": "<p>The day before the inauguration of President Donald Trump on January 20, 2017, Shepard Fairey—who also created the iconic “Hope” portrait of President Barack Obama in 2008—released a series of posters called “We the People” that featured Muslim, Latina, and African-American women. The prints, with inscriptions including “Defend Dignity” and “Protect Each Other,” were intended to uplift those whose “needs would be neglected in a Trump administration,” <a href=\"https://www.cnn.com/style/article/shepard-fairey-trump-inauguration-posters-trnd/index.html\">noted</a> Fairey. Borrowing their titles from the U.S. Constitution and their color schemes from the nation’s flag, these posters were intended to be used in peaceful protests at the time, especially the historic 2017 Women’s March. Fairey released “We the People” to the public by making the images temporarily available to download for free, but also created collectible limited edition versions of the prints.</p>",
+    "headerImage": "http://files.artsy.net/images/shepardfaireywethepeople.png",
+    "credit": "<p>Shepard Fairey, <i>We the People, Suite of Three (3) Hand Signed Lithographs</i>, 2017. Courtesy of Alpha 137 Gallery.</p>",
+    "query": {
+      "artist_ids": ["4ddd81b9ff91ce00010012c8"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Defend Dignity, We the People, Protect Each Other, Are Greater Than Fear"
+    }
+  },
+  {
+    "title": "Andy Warhol: Mick Jagger",
+    "slug": "andy-warhol-mick-jagger",
+    "category": "Pop Art",
+    "description": "<p>Although Andy Warhol admired many of his <a href=\"https://www.artsy.net/collection/andy-warhol-portraits\">portrait</a> subjects from afar, it was his personal relationship with Mick Jagger that culminated in Warhol’s iconic 10-print portfolio of Jagger’s face in 1975. Depicting the rock star in a variety of poses, the portraits feature abstract swaths of opaque color, sometimes obscuring the singer’s face, giving the prints a collage-like appearance. Warhol and Jagger met in 1964, when the Rolling Stones were relatively unknown in the United States. Their creative collaboration was solidified when Jagger asked Warhol to design the album cover for <i>Sticky Fingers</i> (1971). Ever the provocateur, Warhol’s album cover design featured the image of a man’s denim-clad crotch with an exposed zipper.  </p>",
+    "headerImage": "http://files.artsy.net/images/mick-jaggerxandy-warhole.png",
+    "credit": "<p>&copy; Andy Warhol / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b92b34eb68a1b2c0003f4"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Mick Jagger"
+    }
+  },
+  {
+    "title": "Andy Warhol: Ladies and Gentleman",
+    "slug": "andy-warhol-ladies-and-gentleman",
+    "category": "Pop Art",
+    "description": "<p>In 1975, <i>Interview</i> magazine editor Bob Colacello strolled into The Gilded Grape, a dive nightclub in New York City’s Hell’s Kitchen, with one question. He approached a group of glamorous drag queens, asking them if they’d be willing to model for “a friend” for $50. That friend happened to be Andy Warhol, who later photographed the queens just like any of his other iconic muses—at a three-fourths angle with his Polaroid camera. Of these <a href=\"https://www.artsy.net/collection/andy-warhol-polaroids\">Polaroids</a>, Warhol chose 10 photographs for his silkscreen series “Ladies and Gentlemen,” which portray the queens as confident, coy, and vulnerable. Fascinated by the queens’ exhibitionism and meticulous grooming, Warhol once mused, “They do all the things: They think about shaving and not shaving, of primping and not primping, of buying men’s clothes and women’s clothes. I guess it’s interesting to try to be another sex.”</p>",
+    "headerImage": "http://files.artsy.net/images/andy-warhol-ladies-and-gentlemen.png",
+    "credit": "<p>&copy; Andy Warhol / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b92b34eb68a1b2c0003f4"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Ladies and Gentlemen, Transvestite"
+    }
+  },
+  {
+    "title": "Andy Warhol: Myths",
+    "slug": "andy-warhol-myths",
+    "category": "Pop Art",
+    "description": "<p>Andy Warhol’s 1981 “Myths” portfolio is among the artist’s most sought-after print series. The 10 silkscreens showcase a variety of fictional characters, from Santa Claus to Superman, that Warhol viewed as essential components of American culture. While Warhol often used found images for his <a href=\"https://www.artsy.net/collection/andy-warhol-portraits\">portraits</a> of celebrities, he took a different approach for the “Myths” portfolio. The Pop artist invited friends and actors into his studio to pose for his Polaroid camera, dressed up as Dracula, Uncle Sam, the mammy archetype, and the Wicked Witch of the West from the film <i>The Wizard of Oz</i>. Warhol even cast himself as The Shadow, the crime-fighting hero made famous by a series of novels, radio, and comic strips. These <a href=\"https://www.artsy.net/collection/andy-warhol-polaroids\">Polaroids</a> and the resulting silkscreens—released in a variety of colors with some adorned with diamond dust—are quintessential Warhols, showcasing the power and persuasion of popular culture. “Everybody has their own America,” the Pop artist once <a href=\"https://www.phaidon.com/agenda/art/articles/2016/july/04/when-warhol-painted-uncle-sam/\">explained</a>. “You live in your dream America that you’ve custom-made from art and schmaltz and emotions just as much as you live in your real one.”</p>",
+    "headerImage": "http://files.artsy.net/images/andywarholmyths.png",
+    "credit": "<p>&copy; Andy Warhol / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b92b34eb68a1b2c0003f4"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Uncle Sam, Howdy doody, santa claus, Mammy, the shadow, the witch, the star, superman, dracula, Myths"
+    }
+  },
+  {
+    "title": "Mel Bochner: Text",
+    "slug": "mel-bochner-text",
+    "category": "Contemporary",
+    "description": "<p>“Blah blah blah,” Mel Bochner’s seminal 2008 work of the same name says to viewers. Bochner’s conceptual work invites viewers to investigate the differences between “seeing” and “reading” art, superimposing words and colors in combinations that make viewers pause. For example, the Conceptual artist will cover canvases in obscenities painted in innocent hues of baby pink and blue or sweet words rendered in soiled browns and inky blacks. Bochner is perhaps most celebrated for his “Thesaurus” pieces that feature lists of synonyms—such as “Amazing! Awesome! Breathtaking!”—and encourage viewers to think about their day-to-day word choices. This series began when Bochner was in his twenties, creating word-based portraits of his friends and fellow burgeoning artists Eva Hesse, Robert Smithson, and Dan Flavin.</p>",
+    "headerImage": "http://files.artsy.net/images/mel-bochner-text.png",
+    "credit": "<p>Mel Bochner, <i>Amazing</i>, 2016. Courtesy of Two Palms.</p>",
+    "query": {
+      "artist_ids": ["4e8f63c8f0caa8000100407f"],
+      "gene_ids": ["text"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Pablo Picasso: Ceramics",
+    "slug": "pablo-picasso-ceramics",
+    "category": "Collectible Sculptures",
+    "description": "<p>Pablo Picasso became enamored by ceramics in 1946, when the 60-year-old artist stumbled upon a pottery fair near his summer home in the South of France. There, Picasso met the owners of the Madoura Pottery workshop and began a collaboration with the studio that lasted until his death in 1973. Picasso, known for his prolific output, designed 633 different ceramic works, ranging from carved editioned plates to unique bird-shaped pitchers. Since Picasso created his ceramics while on holiday, his creations often feature a sense of joy and wit. Picasso also met his second wife, Jacqueline Roque, at the Madoura Pottery workshop, further contributing to his uplifting motifs during this time. Passionate about expanding his collector base, Picasso created many ceramics in large editions with accessible prices, though the market for some of his unique ceramics has since skyrocketed. <i>Le Hibou (Rouge et Blanc)</i> (1953), a one-of-a-kind earthenware sculpture of a patterned owl, set the auction record for Picasso’s ceramics, selling for over $2.4 million at Christie’s in 2016.</p>",
+    "headerImage": "http://files.artsy.net/images/picassoceramics.png",
+    "credit": "<p>&copy; Pablo Picasso / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b928b4eb68a1b2c0001f2"],
+      "gene_ids": ["ceramic"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Salvador Dalí: Signs of the Zodiac",
+    "slug": "salvador-dali-signs-of-the-zodiac",
+    "category": "Modern",
+    "description": "<p>Salvador Dalí (himself a Taurus) created this whimsical series of lithographs in 1967, depicting all 12 signs of the zodiac in a limited edition of 250 prints each. Drawing on Western astrology, Dalí’s prints depict all but one zodiac sign true to form—he swapped Cancer’s crab for a lobster, an homage to his earlier surrealist kinetic sculpture series, the “Lobster Telephones.”</p>",
+    "headerImage": "http://files.artsy.net/images/dali-zodiac.png",
+    "credit": "<p>&copy; Salvador Dalí / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4dadcce67129f059240009df"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Zodiac, Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Saggitarius, Capricorn, Aquarious, Pisces"
+    }
+  },
+  {
+    "title": "Robert Rauschenberg: Posters",
+    "slug": "robert-rauschenberg-posters",
+    "category": "Artist Posters",
+    "description": "<p>Robert Rauschenberg was drawn to poster design throughout his career, viewing the medium as a unique opportunity to collaborate with printmakers and reach a larger audience. Rauschenberg’s posters are rarely legible at first glance and require repeat viewing to uncover their many hidden symbols and details. Composed of layered images and text, Rauschenberg’s first poster was a black-and-white advertisement for his first retrospective at the Jewish Museum in 1963, and he continued to create exhibition posters throughout his life. “We were doing a poster for every show, and those posters were going out all over the country, and people were thinking we must be this amazing gallery instead of a freight elevator,” Rauschenberg remembered of this era. Over the next 35 years, the artist created over 100 posters celebrating iconic historical moments, including the first landing on the moon and the first Earth Day, in his signature collage aesthetic.</p>",
+    "headerImage": "http://files.artsy.net/images/rauschenbergposter.png",
+    "credit": "<p>Robert Rauschenberg, <i>St Louis Symphony Orchestra</i>, 1968. Courtesy of ArtWise.</p>",
+    "query": {
+      "artist_ids": ["4db441cc2a7e0b78df000450"],
+      "gene_ids": ["poster"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Collect by Color: Orange",
+    "slug": "collect-by-color-orange",
+    "category": "Contemporary",
+    "description": "<p>From the polka-dot master <a href=\"https://www.artsy.net/artist/yayoi-kusama\">Yayoi Kusama</a> to the wordsmith <a href=\"https://www.artsy.net/artist/mel-bochner\">Mel Bochner</a>, many artists have been captivated by the color orange. Below, discover a variety of tangerine prints and paintings, including <a href=\"https://www.artsy.net/artist/damien-hirst\">Damien Hirst</a>’s butterflies, <a href=\"https://www.artsy.net/artist/beau-carey\">Beau Carey</a>’s desert landscapes, <a href=\"https://www.artsy.net/artist/salvador-dali\">Salvador Dalí</a>’s flowers, and <a href=\"https://www.artsy.net/artist/richard-anuszkiewicz\">Richard Anuszkiewicz</a>’s optical abstractions. For a blank wall or neutral space, these orange works can be an unexpected and refreshing pop of color.</p>",
+    "headerImage": "http://files.artsy.net/images/orange.png",
+    "credit": "<p>&copy; Josef Albers / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": [],
+      "gene_ids": ["collect-by-color-orange"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Black and White",
+    "slug": "collect-by-color-black-and-white",
+    "category": "Contemporary",
+    "description": "<p>From the beginning of art history, artists have been drawn to the simple palette of black and white. Even <a href=\"https://www.artsy.net/artist/henri-matisse\">Henri Matisse</a>, a painter famous for his experimentation with color, believed in the power of neutrals. “I’ve been forty years discovering that the queen of all colors is black,” he famously said. For Matisse, along with many others, black and white works boast a certain timelessness, showcasing the impact of light and shadow. Below, explore whimsical etchings by <a href=\"https://www.artsy.net/artist/wayne-thiebaud\">Wayne Thiebaud</a>, abstract lithographs by <a href=\"https://www.artsy.net/artist/robert-motherwell\">Robert Motherwell</a>, and more classic black and white works that are available now.</p>",
+    "headerImage": "http://files.artsy.net/images/blackandwhiteopie.png",
+    "credit": "<p>Julian Opie, <i>Walking In Melbourne 5</i>, 2018. Courtesy of Vertu Fine Art.</p>",
+    "query": {
+      "artist_ids": [],
+      "gene_ids": ["collect-by-color-black-and-white"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Art Gifts",
+    "slug": "art-gifts",
+    "category": "Contemporary",
+    "description": "<p>A beach towel by <a href=\"https://www.artsy.net/artist/yayoi-kusama\">Yayoi Kusama</a>, a classic print by <a href=\"https://www.artsy.net/artist/alexander-calder\">Alexander Calder</a>, or a piggy bank by <a href=\"https://www.artsy.net/artist/yoshitomo-nara\">Yoshitomo Nara</a>—there are many ways to give the gift of art. Below, discover creative presents that your loved ones will treasure for years to come.</p>",
+    "headerImage": "http://files.artsy.net/images/artgiftkusamatowel.png",
+    "credit": "<p>Yayoi Kusama, <i>Beach Towel</i>, 2014. Courtesy of Artware Editions.</p>",
+    "query": {
+      "artist_ids": [],
+      "gene_ids": ["art-gifts"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Artist Skateboard Decks",
+    "slug": "artist-skateboard-decks",
+    "category": "Collectible Sculptures",
+    "description": "<p>In the early 1970s, skate culture and street art became deeply intertwined, and a new medium for artists was born: the skate deck. In earlier days, when skateboarding was a still a subculture on the fringe, simply being a skater was enough to set oneself apart from the crowd. However, the growing popularity of the sport pushed many creative skaters to find ways to individualize their boards. Borrowing from motifs and styles popularized by graffiti artists, skaters designed the undersides of their boards an extension of themselves. In the decades since, fine art, street art, and skate culture have become inseparable, with renowned artists like Keith Haring, Shepard Fairey, Yayoi Kusama, and Yoshitomo Nara reproducing some of their most famous works on the decks of skateboards. </p>",
+    "headerImage": "http://files.artsy.net/images/skateboards.png",
+    "credit": "<p>Keith Haring, <i>Set of 10</i>, 2012. Courtesy of EHC Fine Art.</p>",
+    "query": {
+      "artist_ids": [],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Skateboard, Skatedeck"
+    }
+  },
+  {
+    "title": "Joan Miró: Lithographs",
+    "slug": "joan-miro-lithographs",
+    "category": "Modern",
+    "description": "<p>Joan Miró—the Surrealist famous for his biomorphic and abstract paintings—was also a prolific printmaker, creating over 1,000 lithographs over the course of his career. Indeed, Miró’s first prints were lithographs, a printmaking method that enables artists to draw directly on a stone slab or metal plate. Created in 1930, these early lithographs accompanied a book of poetry by Tristan Tzara and jumpstarted Miró’s lifelong love of the lithography technique. From from 1954 to 1958, Miró nearly gave up painting altogether to focus on these prints, earning him the Grand Prize for Graphic Work at the Venice Biennale in 1954. Some of Miró’s lithographs, such as his collaborations with the fine art publisher <i>Derrière le Miroir</i>, recreate his paintings on paper, while many others, such as his 1944 “Barcelona” series, are entirely new designs that explore the possibilities of the lithography technique.</p>",
+    "headerImage": "http://files.artsy.net/images/joan-miro-lithograph.png",
+    "credit": "<p>&copy; Joan Miró / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4d8b927f4eb68a1b2c00017c"],
+      "gene_ids": ["lithograph"],
+      "tag_id": "",
+      "keyword": ""
+    }
+  },
+  {
+    "title": "Tracey Emin: Neon Sculptures and Prints",
+    "slug": "tracey-emin-neon-sculptures-and-prints",
+    "category": "Contemporary",
+    "description": "<p>“Neon is emotional for everybody,” Tracey Emin has <a href=\"https://www.theartstory.org/artist-emin-tracey-artworks.htm\">said</a>. The feminist artist began working with neon gas lights in the early 1990s, using the industrial medium to share her passing thoughts and her deepest desires. With her own messy handwriting as the font, Emin’s neon sculptures and prints feature phrases that are deeply personal, but also universally relatable, such as “I fell in love here” and “Trust yourself.” More recently, Emin has expanded the scale of her neon writings by installing them in public spaces with the goal of bringing strangers together. In 2013, to celebrate Valentine’s Day in New York City, Emin was commissioned to bring her romantic neon phrases to Time Square, flashing declarations like “I promise to love you” and “You touch my soul” to passersby. Five years later, Emin unveiled a 20-meter-long neon sculpture in London’s St. Pancras station, which read, “I want my time with you”—a political message intended for immigrants arriving in Britain amidst Brexit concerns and a European migrant crisis.</p>",
+    "headerImage": "http://files.artsy.net/images/traceyeminhearts.png",
+    "credit": "<p>&copy; Tracey Emin / Artist Rights Society (ARS), New York, NY.</p>",
+    "query": {
+      "artist_ids": ["4ddd5c9b77b61a00010099f8"],
+      "gene_ids": [],
+      "tag_id": "",
+      "keyword": "Neon"
+    }
+  }
+]
