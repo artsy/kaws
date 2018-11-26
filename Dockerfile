@@ -1,4 +1,4 @@
-FROM node:10.11.0
+FROM node:10.13.0
 
 ADD . /app
 WORKDIR /app
