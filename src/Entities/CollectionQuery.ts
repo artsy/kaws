@@ -74,6 +74,10 @@ export class CollectionQuery {
 
   @Field({ nullable: true })
   @Column({ nullable: true })
+  marketable?: boolean
+
+  @Field({ nullable: true })
+  @Column({ nullable: true })
   medium?: string
 
   @Field({ nullable: true })

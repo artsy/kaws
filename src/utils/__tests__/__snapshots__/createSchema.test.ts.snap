@@ -55,6 +55,7 @@ type CollectionQuery {
   gene_ids: [String!]
   height: String
   width: String
+  marketable: Boolean
   medium: String
   period: String
   periods: [String!]
