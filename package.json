@@ -9,7 +9,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "bootstrap-data": "ts-node scripts/bootstrapData.ts",
+    "bootstrap-data": "ts-node scripts/bootstrapOrUpdate.ts",
     "build": "tsc",
     "dump-schema": "ts-node scripts/dumpSchema.ts",
     "lint": "tslint 'src/**/*.{ts,tsx}'",
