@@ -28,3 +28,5 @@ export const databaseConfig = () => {
     }
   }
 }
+
+export const databaseURL = MONGOHQ_URL
