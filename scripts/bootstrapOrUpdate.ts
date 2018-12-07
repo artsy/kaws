@@ -10,37 +10,40 @@ import { Collection } from "../src/Entities"
 
 const csvFile = process.argv[2]
 const results: any[] = []
-let formattedCollections: Collection[]
 
-if (!csvFile) {
-  console.error("Please pass a collections csv file")
+const convertCSVToJson = (file, bootstrapFunc) => {
+  if (!file) {
+    console.error("Please pass a collections csv file")
+  }
+
+  fs.createReadStream(file)
+    .pipe(csv())
+    .on("data", data => results.push(data))
+    .on("end", () => {
+      if (results.length > 0) {
+        const formattedCollections = results.map(result => {
+          return {
+            title: result.title,
+            slug: result.slug,
+            category: result.category,
+            description: result.description,
+            headerImage: result.headerImage,
+            credit: result.credit,
+            query: {
+              artist_ids: result.artist_ids,
+              gene_ids: result.gene_ids,
+              tag_id: result.tag_id,
+              keyword: result.keyword,
+            },
+          } as Collection
+        })
+
+        bootstrapFunc(formattedCollections)
+      }
+    })
 }
 
-fs.createReadStream(csvFile)
-  .pipe(csv())
-  .on("data", data => results.push(data))
-  .on("end", () => {
-    if (results.length > 0) {
-      formattedCollections = results.map(result => {
-        return {
-          title: result.title,
-          slug: result.slug,
-          category: result.category,
-          description: result.description,
-          headerImage: result.headerImage,
-          credit: result.credit,
-          query: {
-            artist_ids: result.artist_ids,
-            gene_ids: result.gene_ids,
-            tag_id: result.tag_id,
-            keyword: result.keyword,
-          },
-        } as Collection
-      })
-    }
-  })
-
-bootstrapOrUpdate()
+convertCSVToJson(csvFile, bootstrapOrUpdate)
 
 /**
  * This script allows us to bootstrap or update a database on the configured MongoDB database
@@ -48,14 +51,14 @@ bootstrapOrUpdate()
  *
  * @usage yarn update-database ./fixtures/collections.json
  */
-async function bootstrapOrUpdate() {
+async function bootstrapOrUpdate(data: Collection[]) {
   const connection = await MongoClient.connect(databaseURL!)
   const database = connection.db()
   const collection = database.collection("Collections")
 
   try {
-    if (connection.isConnected && formattedCollections) {
-      for (const entry of formattedCollections) {
+    if (connection.isConnected) {
+      for (const entry of data) {
         await collection.update({ slug: entry.slug }, entry, { upsert: true })
         console.log("Successfully updated: ", entry.title)
       }
