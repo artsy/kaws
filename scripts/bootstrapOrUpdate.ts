@@ -13,7 +13,7 @@ const results: any[] = []
 
 const convertCSVToJson = (file, bootstrapFunc) => {
   if (!file) {
-    console.error("Please pass a collections csv file")
+    throw new Error("Must pass a collections csv file as an argument")
   }
 
   fs.createReadStream(file)
