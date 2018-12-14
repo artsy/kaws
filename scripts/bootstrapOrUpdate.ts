@@ -5,7 +5,7 @@ import { databaseURL } from "../src/config/database"
 import { MongoClient } from "mongodb"
 import { Collection } from "../src/Entities"
 
-const data: [Collection] = require("../fixtures/collections.json")
+const data: [Collection] = require("../fixtures/collections_batch3.json")
 
 bootstrapOrUpdate()
 
@@ -18,13 +18,13 @@ bootstrapOrUpdate()
 async function bootstrapOrUpdate() {
   const connection = await MongoClient.connect(databaseURL!)
   const database = connection.db()
-  const collection = database.collection("Collections")
+  const collection = database.collection("collection")
 
   try {
     if (connection.isConnected) {
       for (const entry of data) {
         await collection.update({ slug: entry.slug }, entry, { upsert: true })
-        console.log("Successfully updated: ", entry.title)
+        console.log("Successfully updated: ", entry.slug, entry.title)
       }
 
       console.log("Successfully updated collections database")
