@@ -54,13 +54,13 @@ convertCSVToJson(csvFile, bootstrapOrUpdate)
 async function bootstrapOrUpdate(data: Collection[]) {
   const connection = await MongoClient.connect(databaseURL!)
   const database = connection.db()
-  const collection = database.collection("Collections")
+  const collection = database.collection("collection")
 
   try {
     if (connection.isConnected) {
       for (const entry of data) {
         await collection.update({ slug: entry.slug }, entry, { upsert: true })
-        console.log("Successfully updated: ", entry.title)
+        console.log("Successfully updated: ", entry.slug, entry.title)
       }
 
       console.log("Successfully updated collections database")
