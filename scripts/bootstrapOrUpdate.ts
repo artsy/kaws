@@ -1,49 +1,11 @@
 import "dotenv/config"
 
-import * as csv from "csv-parser"
-import * as fs from "fs"
-
 import { databaseURL } from "../src/config/database"
 
 import { MongoClient } from "mongodb"
-import { Collection } from "../src/Entities"
+import { convertCSVToJSON } from "../src/utils/convertCSVToJSON"
 
 const csvFile = process.argv[2]
-const results: any[] = []
-
-const convertCSVToJson = (file, bootstrapFunc) => {
-  if (!file) {
-    throw new Error("Must pass a collections csv file as an argument")
-  }
-
-  fs.createReadStream(file)
-    .pipe(csv())
-    .on("data", data => results.push(data))
-    .on("end", () => {
-      if (results.length > 0) {
-        const formattedCollections = results.map(result => {
-          return {
-            title: result.title,
-            slug: result.slug,
-            category: result.category,
-            description: result.description,
-            headerImage: result.headerImage,
-            credit: result.credit,
-            query: {
-              artist_ids: result.artist_ids,
-              gene_ids: result.gene_ids,
-              tag_id: result.tag_id,
-              keyword: result.keyword,
-            },
-          } as Collection
-        })
-
-        bootstrapFunc(formattedCollections)
-      }
-    })
-}
-
-convertCSVToJson(csvFile, bootstrapOrUpdate)
 
 /**
  * This script allows us to bootstrap or update a database on the configured MongoDB database
@@ -51,7 +13,8 @@ convertCSVToJson(csvFile, bootstrapOrUpdate)
  *
  * @usage yarn update-database ./fixtures/collections.json
  */
-async function bootstrapOrUpdate(data: Collection[]) {
+export async function bootstrapOrUpdate(path: string) {
+  const data = await convertCSVToJSON(path)
   const connection = await MongoClient.connect(databaseURL!)
   const database = connection.db()
   const collection = database.collection("collection")
@@ -72,3 +35,5 @@ async function bootstrapOrUpdate(data: Collection[]) {
     process.exit(1)
   }
 }
+
+bootstrapOrUpdate(csvFile)
