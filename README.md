@@ -45,13 +45,13 @@ cp .env.example .env
 Usually you do not have to change them, but if you need, update the variables to
 match your local development setup.
 
-Once this is done, the next step would be to load test data. This repository
-[also hosts fixtures](https://github.com/artsy/kaws/tree/master/fixtures) that
-could be used in development. Try running the command below to load the fixture
-data to your local MongoDB instance:
+Once this is done, the next step would be to load test data. The collection data is maintained by Artsy's marketing team
+[in Google Drive as a spreadsheet](https://docs.google.com/spreadsheets/d/1K-FBuIQYiU75ETBEgU0YuexznElKCLi5Tr_P2bqkFZw/edit#gid=23745674)
+(you need an `@artsymail.com` account). Download it as a CSV file (in this case saved as `collections.csv`) and try
+running the command below to load the data to your local MongoDB instance:
 
 ```bash
-yarn bootstrap-data
+yarn bootstrap-data ./collections.csv
 ```
 
 > As of writing, this command doesn't exit automatically. You can kill the
@@ -75,6 +75,17 @@ query {
     title
   }
 }
+```
+
+## Syncing Kaws' database with the data in Google Spreadsheet
+
+When we update the production database with the `bootstrap-data` command, we also need to inform Google of the updates
+so newly added collections will be crawled and removed collections will be ignored. You will also need your
+`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to update an object in S3. Download the same CSV file from Google Drive
+and try running the command below:
+
+```bash
+AWS_ACCESS_KEY_ID=... AWS_SECRET_ACCESS_KEY=... yarn update-sitemap ./collections.csv
 ```
 
 ## Testing
