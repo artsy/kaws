@@ -1,4 +1,5 @@
 jest.mock("../../Entities", () => ({ Collection: jest.fn() }))
+jest.mock("../../config/database", () => ({ databaseConfig: jest.fn() }))
 jest.mock("aws-sdk", () => ({ S3: jest.fn() }))
 jest.mock("typeorm", () => {
   return {
