@@ -11,13 +11,14 @@
   "scripts": {
     "bootstrap-data": "ts-node scripts/bootstrapOrUpdate.ts",
     "build": "tsc",
+    "dev": "node --inspect -r ts-node/register src/index.ts",
     "dump-schema": "ts-node scripts/dumpSchema.ts",
     "lint": "tslint 'src/**/*.{ts,tsx}'",
     "release": "release-it",
-    "dev": "node --inspect -r ts-node/register src/index.ts",
     "start": "node build/index.js",
     "test": "jest",
     "type-check": "tsc --noEmit",
+    "update-sitemap": "ts-node scripts/updateSitemap.ts",
     "watch": "tsc --watch"
   },
   "jest": {
@@ -50,6 +51,7 @@
     ]
   },
   "dependencies": {
+    "aws-sdk": "^2.377.0",
     "class-transformer": "^0.1.9",
     "csv-parser": "^2.1.0",
     "dd-trace": "^0.6.0",

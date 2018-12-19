@@ -33,6 +33,10 @@ export async function bootstrapOrUpdate(path: string) {
   } catch (error) {
     console.error("[kaws] Error bootstrapping data:", error)
     process.exit(1)
+  } finally {
+    /* tslint:disable:no-unused-expression */
+    connection && connection.close()
+    /* tslint:enable:no-unused-expression */
   }
 }
 
