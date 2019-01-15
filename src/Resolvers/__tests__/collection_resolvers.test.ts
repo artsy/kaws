@@ -9,19 +9,13 @@ const mockedGetMongoRepository = getMongoRepository as jest.Mock
 
 beforeEach(() => {
   mockedGetMongoRepository.mockReturnValue({
-    find: () => mockCollectionRepository,
+    find: () => Promise.resolve(mockCollectionRepository),
     findOne: ({ slug }) =>
       mockCollectionRepository.find(
         (collection: Collection) => collection.slug === slug
       ),
-    group: (_keys, _condition, _initial, reduce, _finalize, _command) => {
-      const result = {
-        category: mockCollectionRepository[0].category,
-      }
-      mockCollectionRepository.map(collection => {
-        return reduce(collection, result)
-      })
-      return [result]
+    distinct: _key => {
+      return ["Collectible Sculptures"]
     },
   })
 })
