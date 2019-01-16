@@ -9,6 +9,7 @@
     "object-literal-sort-keys": false,
     "switch-default": false,
     "variable-name": false,
-    "no-var-requires": false
+    "no-var-requires": false,
+    "no-console": false
   }
 }

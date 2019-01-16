@@ -16,27 +16,12 @@ export class CollectionsResolver {
   // TODO: should return a connection
   @Query(returns => [CollectionCategory])
   async categories(): Promise<CollectionCategory[]> {
-    const data = await this.repository.group(
-      { category: 1 },
-      { category: { $exists: true } },
-      {},
-      (curr, result) => {
-        if (!result.collections) {
-          result.collections = [curr]
-        } else {
-          result.collections.push(curr)
-        }
-      },
-      result => result,
-      true
-    )
-
-    return data.map(({ category, collections }) => ({
+    const categories = await this.repository.distinct("category", {
+      category: { $ne: null },
+    })
+    return categories.map(category => ({
       name: category,
-      collections: collections.map(col => ({
-        ...col,
-        id: col._id,
-      })),
+      collections: this.repository.find({ category }),
     }))
   }
 

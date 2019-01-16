@@ -9,14 +9,16 @@
   ],
   "license": "MIT",
   "scripts": {
-    "bootstrap-data": "ts-node scripts/bootstrapData.ts",
+    "bootstrap-data": "ts-node scripts/bootstrapOrUpdate.ts && yarn update-sitemap",
     "build": "tsc",
+    "dev": "node --inspect -r ts-node/register src/index.ts",
     "dump-schema": "ts-node scripts/dumpSchema.ts",
     "lint": "tslint 'src/**/*.{ts,tsx}'",
     "release": "release-it",
     "start": "node build/index.js",
     "test": "jest",
     "type-check": "tsc --noEmit",
+    "update-sitemap": "ts-node scripts/updateSitemap.ts",
     "watch": "tsc --watch"
   },
   "jest": {
@@ -25,7 +27,8 @@
       "**/__tests__/**/*test.ts"
     ],
     "roots": [
-      "<rootDir>/src"
+      "<rootDir>/src",
+      "<rootDir>/scripts"
     ]
   },
   "prettier": {
@@ -48,7 +51,9 @@
     ]
   },
   "dependencies": {
+    "aws-sdk": "^2.377.0",
     "class-transformer": "^0.1.9",
+    "csv-parser": "^2.1.0",
     "dd-trace": "^0.6.0",
     "graphql-yoga": "^1.16.2",
     "lodash": "^4.17.11",
