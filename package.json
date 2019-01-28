@@ -9,7 +9,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "bootstrap-data": "ts-node scripts/bootstrapOrUpdate.ts && yarn update-sitemap",
+    "update-database": "ts-node scripts/bootstrapOrUpdate.ts && yarn update-sitemap",
     "build": "tsc",
     "dev": "node --inspect -r ts-node/register src/index.ts",
     "dump-schema": "ts-node scripts/dumpSchema.ts",
