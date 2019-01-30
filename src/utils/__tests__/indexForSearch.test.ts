@@ -68,6 +68,8 @@ describe("indexForSearch", () => {
     expect(firstCollection.body.featured_names).toBe("Contemporary")
     expect(firstCollection.body.alternate_names).toBe("Cats, Awesome, Art")
     expect(firstCollection.body.slug).toBe("cat-pictures")
+    expect(firstCollection.body.visible_to_public).toBe(true)
+    expect(firstCollection.body.search_boost).toBe(1000)
     const secondCollection = SearchClientMock.index.mock.calls[1][0]
     expect(secondCollection.index).toBe("marketing_collections_development")
     expect(secondCollection.type).toBe("marketing_collection")
@@ -76,5 +78,7 @@ describe("indexForSearch", () => {
     expect(secondCollection.body.featured_names).toBe("Abstract")
     expect(secondCollection.body.alternate_names).toBe("Dogs, Also Cool")
     expect(secondCollection.body.slug).toBe("dog-pictures")
+    expect(secondCollection.body.visible_to_public).toBe(true)
+    expect(secondCollection.body.search_boost).toBe(1000)
   })
 })
