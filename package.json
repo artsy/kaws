@@ -20,7 +20,8 @@
     "test": "jest",
     "type-check": "tsc --noEmit",
     "update-sitemap": "ts-node scripts/updateSitemap.ts",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "update-sailthru": "ts-node scripts/pushCollectionsToSailthru.ts"
   },
   "jest": {
     "preset": "ts-jest",
@@ -63,6 +64,7 @@
     "mongodb-uri": "^0.9.7",
     "morgan": "^1.9.1",
     "reflect-metadata": "^0.1.12",
+    "sailthru-client": "^3.0.2",
     "slugify": "^1.3.1",
     "type-graphql": "^0.14.0",
     "typeorm": "^0.2.7"
