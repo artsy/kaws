@@ -9,8 +9,16 @@ export class CollectionsResolver {
 
   // TODO: should return a connection
   @Query(returns => [Collection])
-  async collections(): Promise<Collection[]> {
-    return await this.repository.find()
+  async collections(
+    @Arg("artistID", { nullable: true }) artistID: string
+  ): Promise<Collection[]> {
+    if (artistID) {
+      return await this.repository.find({
+        where: { "query.artist_ids": { $in: [artistID] } },
+      })
+    } else {
+      return await this.repository.find()
+    }
   }
 
   // TODO: should return a connection
