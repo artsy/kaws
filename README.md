@@ -52,7 +52,7 @@ saved as `collections.csv`) and try running the command below to load the data
 to your local MongoDB instance:
 
 ```bash
-yarn bootstrap-data ./collections.csv
+yarn update-database ./collections.csv
 ```
 
 Finally, start the server by running the command below:
@@ -77,7 +77,7 @@ query {
 
 ## Syncing Kaws' database with the data in Google Spreadsheet
 
-When we update the production database with the `bootstrap-data` command, we
+When we update the production database with the `update-database` command, we
 also need to inform Google of the updates so newly added collections will be
 crawled. You will need your `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to
 update an object in S3 to run the command below:
@@ -91,3 +91,15 @@ AWS_ACCESS_KEY_ID=... AWS_SECRET_ACCESS_KEY=... yarn update-sitemap
 ```sh
 yarn jest
 ```
+
+## Did you change the GraphQL schema?
+Metaphysics is the current consumer of Kaws GraphQL schema, and keeps a copy of its latest schema in https://github.com/artsy/metaphysics/tree/master/src/data. If you have made changes to the Kaws GraphQL schema, make sure you also update the copy of this schema in Metaphysics. In order to do so follow these steps:
+1) In kaws run
+```shell
+yarn dump-schema
+```
+2) copy the `_schema.graphql` file generated ☝🏼 to `kaws.graphql`
+```shell
+cp _schema.graphql kaws.graphql
+```
+3) move the file above to your local Metaphysics under `src/data` and make a PR to Metaphysics with this change.

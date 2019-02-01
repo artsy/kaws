@@ -11,7 +11,7 @@ const csvFile = process.argv[2]
  * This script allows us to bootstrap or update a database on the configured MongoDB database
  * with collections data. It will then update the collection MongoDB objects with the data in a specified JSON file
  *
- * @usage yarn update-database ./fixtures/collections.json
+ * @usage yarn update-database ./fixtures/collections.csv
  */
 export async function bootstrapOrUpdate(path: string) {
   const data = await convertCSVToJSON(path)

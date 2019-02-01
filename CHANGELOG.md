@@ -1,5 +1,7 @@
 ### Master
 
+- Return collections for an artist - [@mzikherman]
+- Enable text search - [@mzikherman]
 - Initial setup - [@l2succes]
 - Sets up TypeORM + mongodb - [@l2succes]
 - Light project cleanup - [@damassi]
