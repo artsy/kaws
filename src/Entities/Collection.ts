@@ -71,6 +71,6 @@ export class Collection {
     nullable: true,
     description: "Suggested average price for included works",
   })
-  @Column()
+  @Column({ nullable: true })
   price_guidance?: number
 }
