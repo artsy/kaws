@@ -66,4 +66,11 @@ export class Collection {
   @Field()
   @Column()
   updatedAt: Date
+
+  @Field(type => Number, {
+    nullable: true,
+    description: "Suggested average price for included works",
+  })
+  @Column()
+  price_guidance?: number
 }

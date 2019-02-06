@@ -44,6 +44,7 @@ describe("Collections", () => {
             id
             tag_id
           }
+          price_guidance
         }
       }
     `
@@ -63,6 +64,7 @@ describe("Collections", () => {
               id: null,
               tag_id: "companion",
             },
+            price_guidance: null,
           },
           {
             id: "2",
@@ -74,6 +76,7 @@ describe("Collections", () => {
               id: null,
               tag_id: null,
             },
+            price_guidance: 1000,
           },
         ],
       })
