@@ -5,7 +5,7 @@
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es2016", "esnext.asynciterable"],
+    "lib": ["es2016", "esnext.asynciterable", "dom"],
     "module": "commonjs",
     "noUnusedLocals": true,
     "outDir": "build",
