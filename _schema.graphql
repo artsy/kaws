@@ -27,6 +27,9 @@ type Collection {
   query: CollectionQuery!
   createdAt: DateTime!
   updatedAt: DateTime!
+
+  # Suggested average price for included works
+  price_guidance: Float
 }
 
 type CollectionCategory {
