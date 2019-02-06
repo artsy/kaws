@@ -45,6 +45,7 @@ describe("Collections", () => {
             tag_id
           }
           price_guidance
+          show_on_editorial
         }
       }
     `
@@ -65,6 +66,7 @@ describe("Collections", () => {
               tag_id: "companion",
             },
             price_guidance: null,
+            show_on_editorial: false,
           },
           {
             id: "2",
@@ -77,6 +79,7 @@ describe("Collections", () => {
               tag_id: null,
             },
             price_guidance: 1000,
+            show_on_editorial: true,
           },
         ],
       })

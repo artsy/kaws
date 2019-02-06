@@ -30,6 +30,7 @@ export const convertCSVToJSON: (string) => Promise<Collection[]> = (
               tag_id,
               keyword,
               price_guidance,
+              show_on_editorial,
             }) =>
               ({
                 title,
@@ -39,6 +40,7 @@ export const convertCSVToJSON: (string) => Promise<Collection[]> = (
                 headerImage,
                 credit,
                 price_guidance,
+                show_on_editorial,
                 query: (artist_ids || gene_ids || tag_id || keyword) && {
                   artist_ids: artist_ids
                     ? artist_ids.split(",").map(a => a.trim())
