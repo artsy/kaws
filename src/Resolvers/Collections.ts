@@ -7,21 +7,52 @@ import { CollectionCategory } from "../Entities/CollectionCategory"
 export class CollectionsResolver {
   protected readonly repository = getMongoRepository(Collection)
 
-  // TODO: should return a connection
   @Query(returns => [Collection])
   async collections(
-    @Arg("artistID", { nullable: true }) artistID: string
-    // @Arg("show_on_editorial", { nullable: true }) show_on_editorial: boolean
+    @Arg("artistID", { nullable: true }) artistID: string,
+    @Arg("showOnEditorial", { nullable: true }) showOnEditorial: boolean
   ): Promise<Collection[]> {
-    const query: any = {}
-    if (artistID) {
+    if (showOnEditorial !== undefined) {
       return await this.repository.find({
-        where: { "query.artist_ids": { $in: [artistID] } },
-      })
+        where: {
+          // show_on_editorial: showOnEditorial,
+          "query.artist_ids": { $in: ["5c5b1fa7e754a9d2d390c119"] },
+        },
+      } as any)
     } else {
-      return await this.repository.find(query)
+      return await this.repository.find()
     }
   }
+
+  // TODO: should return a connection
+  // @Query(returns => [Collection])
+  // async collections(
+  //   @Arg("artistID", { nullable: true }) artistID: string,
+  //   @Arg("showOnEditorial", { nullable: true }) showOnEditorial: boolean
+  // ): Promise<Collection[]> {
+  //   const query: any = {}
+  //   const hasArguments =
+  //     [].filter.call(arguments, a => a !== undefined).length > 0
+
+  //   if (hasArguments) {
+  //     // query.where = []
+  //     if (artistID) {
+  //       query.where.push({ "query.artist_ids": { $in: [artistID] } })
+  //       // return await this.repository.find({
+  //       //   where: { "query.artist_ids": { $in: [artistID] } },
+  //       // })
+  //     }
+  //     if (showOnEditorial !== undefined) {
+  //       query.show_on_editoral = showOnEditorial
+  //       // query.where.push({ show_on_editoral: showOnEditorial })
+  //       console.log("query", query)
+  //     }
+  //   }
+  //   const result = await this.repository.find(query)
+  //   console.log("RESULT", result)
+
+  //   return result
+  // }
 
   // TODO: should return a connection
   @Query(returns => [CollectionCategory])

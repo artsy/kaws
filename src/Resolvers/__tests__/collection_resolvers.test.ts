@@ -119,8 +119,8 @@ describe("Collections", () => {
               id: null,
               tag_id: null,
             },
-            price_guidance: null,
             show_on_editorial: true,
+            price_guidance: 1000,
           },
         ],
       })

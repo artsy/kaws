@@ -75,17 +75,6 @@ query {
 }
 ```
 
-## Syncing Kaws' database with the data in Google Spreadsheet
-
-When we update the production database with the `update-database` command, we
-also need to inform Google of the updates so newly added collections will be
-crawled. You will need your `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to
-update an object in S3 to run the command below:
-
-```bash
-AWS_ACCESS_KEY_ID=... AWS_SECRET_ACCESS_KEY=... yarn update-sitemap
-```
-
 ## Testing
 
 ```sh
@@ -103,3 +92,15 @@ yarn dump-schema
 cp _schema.graphql kaws.graphql
 ```
 3) move the file above to your local Metaphysics under `src/data` and make a PR to Metaphysics with this change.
+
+## Updating the sitemap for Collect
+
+When we update the production database with the `update-database` command, we
+also need to inform Google of the updates so newly added collections will be
+crawled. This could be done with the `update-sitemap` command. This comamnd
+needs to be run in the k8s container as it neeeds to point to the production
+databse:
+
+```bash
+hokusai production run 'yarn update-sitemap'
+```

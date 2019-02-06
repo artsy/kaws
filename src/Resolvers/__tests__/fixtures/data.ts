@@ -32,5 +32,6 @@ export const mockCollectionRepository = plainToClass(Collection, [
       gene_id: null,
     },
     show_on_editorial: true,
+    price_guidance: 1000,
   },
 ])

@@ -71,12 +71,12 @@ export class Collection {
     nullable: true,
     description: "Suggested average price for included works",
   })
-  @Column()
+  @Column({ nullable: true })
   price_guidance?: number
 
-  // @Field(type => Boolean, {
-  //   description: "Collection can be surfaced on editorial pages",
-  // })
-  // @Column({ default: false })
-  // show_on_editorial: boolean
+  @Field(type => Boolean, {
+    description: "Collection can be surfaced on editorial pages",
+  })
+  @Column({ default: false })
+  show_on_editorial: boolean = false
 }
