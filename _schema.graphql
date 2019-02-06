@@ -30,9 +30,6 @@ type Collection {
 
   # Suggested average price for included works
   price_guidance: Float
-
-  # Collection can be surfaced on editorial pages
-  show_on_editorial: Boolean!
 }
 
 type CollectionCategory {
