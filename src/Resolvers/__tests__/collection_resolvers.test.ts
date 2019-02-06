@@ -44,6 +44,8 @@ describe("Collections", () => {
             id
             tag_id
           }
+          price_guidance
+          show_on_editorial
         }
       }
     `
@@ -63,6 +65,8 @@ describe("Collections", () => {
               id: null,
               tag_id: "companion",
             },
+            price_guidance: 1000,
+            show_on_editorial: false,
           },
           {
             id: "2",
@@ -74,6 +78,49 @@ describe("Collections", () => {
               id: null,
               tag_id: null,
             },
+            price_guidance: null,
+            show_on_editorial: true,
+          },
+        ],
+      })
+    })
+  })
+
+  it("can query collections by show_on_editorial", () => {
+    const query = `
+      {
+        collections(show_on_editorial: true) {
+          id
+          title
+          description
+          slug
+          query {
+            id
+            tag_id
+          }
+          price_guidance
+          show_on_editorial
+        }
+      }
+    `
+
+    return runQuery(query, {}, createMockSchema).then(data => {
+      expect((data as any).collections.length).toBe(1)
+      expect(mockedGetMongoRepository).toBeCalled()
+      expect(data).toEqual({
+        collections: [
+          {
+            id: "2",
+            title: "Big Artists, Small Sculptures",
+            description:
+              "<p>Today&rsquo;s collectible sculptures&mdash;from KAWS&rsquo;s cartoon Companions to Yayoi Kusama&rsquo;s miniature pumpkins&mdash;have roots in the 1980s New York art scene.</p>",
+            slug: "collectible-sculptures",
+            query: {
+              id: null,
+              tag_id: null,
+            },
+            price_guidance: null,
+            show_on_editorial: true,
           },
         ],
       })

@@ -66,4 +66,17 @@ export class Collection {
   @Field()
   @Column()
   updatedAt: Date
+
+  @Field(type => Number, {
+    nullable: true,
+    description: "Suggested average price for included works",
+  })
+  @Column()
+  price_guidance?: number
+
+  // @Field(type => Boolean, {
+  //   description: "Collection can be surfaced on editorial pages",
+  // })
+  // @Column({ default: false })
+  // show_on_editorial: boolean
 }

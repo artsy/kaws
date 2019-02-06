@@ -11,13 +11,15 @@ export class CollectionsResolver {
   @Query(returns => [Collection])
   async collections(
     @Arg("artistID", { nullable: true }) artistID: string
+    // @Arg("show_on_editorial", { nullable: true }) show_on_editorial: boolean
   ): Promise<Collection[]> {
+    const query: any = {}
     if (artistID) {
       return await this.repository.find({
         where: { "query.artist_ids": { $in: [artistID] } },
       })
     } else {
-      return await this.repository.find()
+      return await this.repository.find(query)
     }
   }
 
