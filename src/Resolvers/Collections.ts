@@ -12,47 +12,15 @@ export class CollectionsResolver {
     @Arg("artistID", { nullable: true }) artistID: string,
     @Arg("showOnEditorial", { nullable: true }) showOnEditorial: boolean
   ): Promise<Collection[]> {
+    const query: any = {}
     if (showOnEditorial !== undefined) {
-      return await this.repository.find({
-        where: {
-          // show_on_editorial: showOnEditorial,
-          "query.artist_ids": { $in: ["5c5b1fa7e754a9d2d390c119"] },
-        },
-      } as any)
-    } else {
-      return await this.repository.find()
+      query.show_on_editorial = showOnEditorial
     }
+    if (artistID) {
+      query.where = { "query.artist_ids": { $in: [artistID] } }
+    }
+    return await this.repository.find(query)
   }
-
-  // TODO: should return a connection
-  // @Query(returns => [Collection])
-  // async collections(
-  //   @Arg("artistID", { nullable: true }) artistID: string,
-  //   @Arg("showOnEditorial", { nullable: true }) showOnEditorial: boolean
-  // ): Promise<Collection[]> {
-  //   const query: any = {}
-  //   const hasArguments =
-  //     [].filter.call(arguments, a => a !== undefined).length > 0
-
-  //   if (hasArguments) {
-  //     // query.where = []
-  //     if (artistID) {
-  //       query.where.push({ "query.artist_ids": { $in: [artistID] } })
-  //       // return await this.repository.find({
-  //       //   where: { "query.artist_ids": { $in: [artistID] } },
-  //       // })
-  //     }
-  //     if (showOnEditorial !== undefined) {
-  //       query.show_on_editoral = showOnEditorial
-  //       // query.where.push({ show_on_editoral: showOnEditorial })
-  //       console.log("query", query)
-  //     }
-  //   }
-  //   const result = await this.repository.find(query)
-  //   console.log("RESULT", result)
-
-  //   return result
-  // }
 
   // TODO: should return a connection
   @Query(returns => [CollectionCategory])
