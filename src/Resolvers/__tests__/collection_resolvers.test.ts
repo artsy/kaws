@@ -6,10 +6,13 @@ import { CollectionsResolver } from "../Collections"
 import { mockCollectionRepository } from "./fixtures/data"
 
 const mockedGetMongoRepository = getMongoRepository as jest.Mock
+const find = jest.fn(() =>
+  Promise.resolve(mockCollectionRepository)
+) as jest.Mock
 
 beforeEach(() => {
   mockedGetMongoRepository.mockReturnValue({
-    find: () => Promise.resolve(mockCollectionRepository),
+    find,
     findOne: ({ slug }) =>
       mockCollectionRepository.find(
         (collection: Collection) => collection.slug === slug
@@ -22,6 +25,7 @@ beforeEach(() => {
 
 afterEach(() => {
   mockedGetMongoRepository.mockClear()
+  find.mockClear()
 })
 
 async function createMockSchema() {
@@ -86,43 +90,56 @@ describe("Collections", () => {
     })
   })
 
-  xit("can query collections by show_on_editorial", () => {
-    const query = `
-      {
-        collections(showOnEditorial: true) {
-          id
-          title
-          description
-          slug
-          query {
+  describe("queries", () => {
+    it("can construct queries with showOnEditorial", () => {
+      const query = `
+        {
+          collections(showOnEditorial: true) {
             id
-            tag_id
           }
-          price_guidance
-          show_on_editorial
         }
-      }
-    `
+      `
 
-    return runQuery(query, {}, createMockSchema).then(data => {
-      expect((data as any).collections.length).toBe(1)
-      expect(mockedGetMongoRepository).toBeCalled()
-      expect(data).toEqual({
-        collections: [
-          {
-            id: "2",
-            title: "Big Artists, Small Sculptures",
-            description:
-              "<p>Today&rsquo;s collectible sculptures&mdash;from KAWS&rsquo;s cartoon Companions to Yayoi Kusama&rsquo;s miniature pumpkins&mdash;have roots in the 1980s New York art scene.</p>",
-            slug: "collectible-sculptures",
-            query: {
-              id: null,
-              tag_id: null,
-            },
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(find).toBeCalledWith({ where: { show_on_editorial: true } })
+        expect((data as any).collections.length).toBeTruthy()
+      })
+    })
+
+    it("can construct queries with artistID", () => {
+      const query = `
+        {
+          collections(artistID: "123") {
+            id
+          }
+        }
+      `
+
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(find).toBeCalledWith({
+          where: { "query.artist_ids": { $in: ["123"] } },
+        })
+        expect((data as any).collections.length).toBeTruthy()
+      })
+    })
+
+    it("can construct queries with multiple args", () => {
+      const query = `
+        {
+          collections(showOnEditorial: true, artistID: "123") {
+            id
+          }
+        }
+      `
+
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(find).toBeCalledWith({
+          where: {
             show_on_editorial: true,
-            price_guidance: 1000,
+            "query.artist_ids": { $in: ["123"] },
           },
-        ],
+        })
+        expect((data as any).collections.length).toBeTruthy()
       })
     })
   })

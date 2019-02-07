@@ -16,7 +16,7 @@ export const mockCollectionRepository = plainToClass(Collection, [
     createdAt: Date.now(),
     updatedAt: Date.now(),
     show_on_editorial: false,
-    price_guidance: 1000,
+    price_guidance: null,
   },
   {
     id: 2,

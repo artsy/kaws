@@ -12,12 +12,15 @@ export class CollectionsResolver {
     @Arg("artistID", { nullable: true }) artistID: string,
     @Arg("showOnEditorial", { nullable: true }) showOnEditorial: boolean
   ): Promise<Collection[]> {
-    const query: any = {}
+    const hasArguments =
+      [].filter.call(arguments, arg => arg !== undefined).length > 0
+    const query: any = hasArguments ? { where: {} } : {}
+
     if (showOnEditorial !== undefined) {
-      query.show_on_editorial = showOnEditorial
+      query.where.show_on_editorial = showOnEditorial
     }
     if (artistID) {
-      query.where = { "query.artist_ids": { $in: [artistID] } }
+      query.where["query.artist_ids"] = { $in: [artistID] }
     }
     return await this.repository.find(query)
   }
