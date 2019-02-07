@@ -1,5 +1,5 @@
 const { NODE_ENV, ELASTICSEARCH_URL } = process.env
-import * as elasticsearch from "elasticsearch"
+const elasticsearch = require("elasticsearch")
 
 if (!ELASTICSEARCH_URL) {
   throw new Error("ELASTICSEARCH_URL not defined, skipping...")

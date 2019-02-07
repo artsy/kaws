@@ -53,7 +53,6 @@
     ]
   },
   "dependencies": {
-    "@types/elasticsearch": "^5.0.30",
     "aws-sdk": "^2.377.0",
     "class-transformer": "^0.1.9",
     "csv-parser": "^2.1.0",
@@ -71,6 +70,7 @@
     "typeorm": "^0.2.7"
   },
   "devDependencies": {
+    "@types/elasticsearch": "^5.0.30",
     "@types/dd-trace": "^0.6.1",
     "@types/jest": "^23.3.2",
     "@types/lodash": "^4.14.116",

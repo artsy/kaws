@@ -20,7 +20,6 @@ export const pushContentToSailthru = async () => {
       const collections = await repository.find()
       for (const collection of collections) {
         const name = collection.title
-        const alternate_names = collection.query.keyword
         const featured_names = collection.category
         const collection_slug = collection.slug
         const image = collection.headerImage
@@ -32,7 +31,6 @@ export const pushContentToSailthru = async () => {
           vars: {
             slug: collection_slug,
             collection_category: featured_names,
-            collection_keyword: alternate_names,
             description: body_text,
           },
           images: {
