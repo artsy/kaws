@@ -20,7 +20,8 @@
     "test": "jest",
     "type-check": "tsc --noEmit",
     "update-sitemap": "ts-node scripts/updateSitemap.ts",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "update-sailthru": "ts-node scripts/pushCollectionsToSailthru.ts"
   },
   "jest": {
     "preset": "ts-jest",
@@ -63,11 +64,13 @@
     "mongodb-uri": "^0.9.7",
     "morgan": "^1.9.1",
     "reflect-metadata": "^0.1.12",
+    "sailthru-client": "^3.0.2",
     "slugify": "^1.3.1",
     "type-graphql": "^0.14.0",
     "typeorm": "^0.2.7"
   },
   "devDependencies": {
+    "@types/elasticsearch": "^5.0.30",
     "@types/dd-trace": "^0.6.1",
     "@types/jest": "^23.3.2",
     "@types/lodash": "^4.14.116",
