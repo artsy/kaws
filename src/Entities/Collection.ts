@@ -73,4 +73,10 @@ export class Collection {
   })
   @Column({ nullable: true })
   price_guidance?: number
+
+  @Field(type => Boolean, {
+    description: "Collection can be surfaced on editorial pages",
+  })
+  @Column({ default: false })
+  show_on_editorial: boolean = false
 }
