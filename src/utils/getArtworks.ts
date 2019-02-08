@@ -1,15 +1,12 @@
 import metaphysics from "../lib/metaphysics"
 
-// ah ok artistsearchresponse is the type. What is my type here?
-export const searchForQuery = async (query: string) => {
-  const results = await metaphysics(`${query}`)
-  console.log(results)
-}
-
-searchForQuery(`
-query {
-  artist(id:"kaws") {
-    bio
+export const getArtworks = async (query: string) => {
+  const results: any = await metaphysics(`${query}`)
+  let artworkArray
+  try {
+    artworkArray = results.marketingCollection.artworks.hits.map(x => x.id)
+  } catch (error) {
+    throw error
   }
+  return artworkArray
 }
-`)
