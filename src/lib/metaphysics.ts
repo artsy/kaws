@@ -1,7 +1,7 @@
 import "dotenv/config"
 import { NetworkError } from "./utils/errors"
 
-const { METAPHYSICS_URL, X_USER_ID, X_ACCESS_TOKEN } = process.env
+const { METAPHYSICS_URL } = process.env
 const fetch = require("node-fetch")
 
 type Payload =
@@ -17,8 +17,6 @@ export function request(
     headers: {
       "Content-Type": "application/json",
       "User-Agent": "KAWS",
-      "X-USER-ID": X_USER_ID,
-      "X-ACCESS-TOKEN": X_ACCESS_TOKEN,
     },
     body: JSON.stringify(payload),
   }).then(response => {
