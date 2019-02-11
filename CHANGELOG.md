@@ -1,5 +1,6 @@
 ### Master
 
+- Adds ability to send collections to Sailthru w/ artist + artwork data [@mdole]
 - Return collections for an artist - [@mzikherman]
 - Enable text search - [@mzikherman]
 - Initial setup - [@l2succes]

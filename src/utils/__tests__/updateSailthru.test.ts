@@ -1,8 +1,9 @@
 jest.mock("../../Entities", () => ({ Collection: jest.fn() }))
 jest.mock("../../config/database", () => ({ databaseConfig: jest.fn() }))
-// Create a mock sailthru-client module that has a mock function called
-// createSailthruClient
 const pushContent = jest.fn()
+
+jest.mock("../getArtists", () => ({ getArtists: jest.fn() }))
+jest.mock("../getArtworks", () => ({ getArtworks: jest.fn() }))
 
 jest.mock("sailthru-client", () => ({
   createSailthruClient: jest.fn().mockReturnValue({
@@ -65,7 +66,7 @@ describe("pushContentToSailthru", () => {
       "https://www.artsy.net/collection/cat-pictures"
     )
     // 2nd argument: tags, vars, and images being passed to Sailthru
-    expect(argumentsForPushToSailthru[2].tags).toEqual(["collection"])
+    expect(argumentsForPushToSailthru[2].tags[0]).toEqual("collection")
     expect(argumentsForPushToSailthru[2].vars).toEqual({
       slug: "cat-pictures",
       collection_category: "Contemporary",

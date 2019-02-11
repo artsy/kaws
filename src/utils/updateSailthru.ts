@@ -3,6 +3,8 @@ import * as SailthruAPI from "sailthru-client"
 import { Connection, createConnection, getMongoRepository } from "typeorm"
 import { databaseConfig } from "../config/database"
 import { Collection } from "../Entities"
+import { getArtists } from "./getArtists"
+import { getArtworks } from "./getArtworks"
 
 const { SAILTHRU_KEY, SAILTHRU_SECRET } = process.env
 
@@ -25,13 +27,37 @@ export const pushContentToSailthru = async () => {
         const image = collection.headerImage
         const body_text = collection.description
         const full_url = `https://www.artsy.net/collection/${collection_slug}`
+        const all_artworks = await getArtworks(
+          `{marketingCollection(slug: "${collection.slug}") {
+            artworks { 
+               hits {
+                  id
+                }
+              }
+            }
+          }`
+        )
+        const all_artists = await getArtists(`
+        {
+          marketingCollection(slug: "${collection.slug}") {
+            artworks {
+              hits {
+                artist {
+                  id
+                }
+              }
+            }
+          }
+        }
+        `)
 
         const options = {
-          tags: ["collection"],
+          tags: ["collection"].concat(all_artists),
           vars: {
             slug: collection_slug,
             collection_category: featured_names,
             description: body_text,
+            artworks_slugs: all_artworks,
           },
           images: {
             full: {
