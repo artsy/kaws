@@ -7,18 +7,22 @@ import { CollectionCategory } from "../Entities/CollectionCategory"
 export class CollectionsResolver {
   protected readonly repository = getMongoRepository(Collection)
 
-  // TODO: should return a connection
   @Query(returns => [Collection])
   async collections(
-    @Arg("artistID", { nullable: true }) artistID: string
+    @Arg("artistID", { nullable: true }) artistID: string,
+    @Arg("showOnEditorial", { nullable: true }) showOnEditorial: boolean
   ): Promise<Collection[]> {
-    if (artistID) {
-      return await this.repository.find({
-        where: { "query.artist_ids": { $in: [artistID] } },
-      })
-    } else {
-      return await this.repository.find()
+    const hasArguments =
+      [].filter.call(arguments, arg => arg !== undefined).length > 0
+    const query: any = hasArguments ? { where: {} } : {}
+
+    if (showOnEditorial !== undefined) {
+      query.where.show_on_editorial = showOnEditorial
     }
+    if (artistID) {
+      query.where["query.artist_ids"] = { $in: [artistID] }
+    }
+    return await this.repository.find(query)
   }
 
   // TODO: should return a connection

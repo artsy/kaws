@@ -80,7 +80,7 @@ type CollectionQuery {
 scalar DateTime
 
 type Query {
-  collections(artistID: String): [Collection!]!
+  collections(showOnEditorial: Boolean, artistID: String): [Collection!]!
   categories: [CollectionCategory!]!
   collection(slug: String!): Collection
 }
