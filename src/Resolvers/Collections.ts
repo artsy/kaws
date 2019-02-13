@@ -1,4 +1,4 @@
-import { Arg, Query, Resolver } from "type-graphql"
+import { Arg, Int, Query, Resolver } from "type-graphql"
 import { getMongoRepository } from "typeorm"
 import { Collection } from "../Entities/Collection"
 import { CollectionCategory } from "../Entities/CollectionCategory"
@@ -10,7 +10,8 @@ export class CollectionsResolver {
   @Query(returns => [Collection])
   async collections(
     @Arg("artistID", { nullable: true }) artistID: string,
-    @Arg("showOnEditorial", { nullable: true }) showOnEditorial: boolean
+    @Arg("showOnEditorial", { nullable: true }) showOnEditorial: boolean,
+    @Arg("size", () => Int, { nullable: true }) size: number
   ): Promise<Collection[]> {
     const hasArguments =
       [].filter.call(arguments, arg => arg !== undefined).length > 0
@@ -21,6 +22,9 @@ export class CollectionsResolver {
     }
     if (artistID) {
       query.where["query.artist_ids"] = { $in: [artistID] }
+    }
+    if (size) {
+      query.take = size
     }
     return await this.repository.find(query)
   }
