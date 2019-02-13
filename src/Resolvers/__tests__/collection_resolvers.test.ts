@@ -142,6 +142,24 @@ describe("Collections", () => {
         expect((data as any).collections.length).toBeTruthy()
       })
     })
+
+    it("can restrict via size", () => {
+      const query = `
+        {
+          collections(size: 1) {
+            id
+          }
+        }
+      `
+
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(find).toBeCalledWith({
+          take: 1,
+          where: {},
+        })
+        expect((data as any).collections.length).toBeTruthy()
+      })
+    })
   })
 })
 
