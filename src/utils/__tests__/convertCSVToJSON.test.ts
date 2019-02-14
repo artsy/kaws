@@ -27,6 +27,8 @@ describe("bootstrapOrUpdate", () => {
           tag_id: "",
           keyword: "",
         },
+        price_guidance: 1000,
+        show_on_editorial: true,
       },
       {
         title: "Andy Warhol: Bananas",
@@ -43,6 +45,7 @@ describe("bootstrapOrUpdate", () => {
           tag_id: "",
           keyword: "Banana",
         },
+        show_on_editorial: false,
       },
     ])
   })

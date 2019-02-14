@@ -6,10 +6,13 @@ import { CollectionsResolver } from "../Collections"
 import { mockCollectionRepository } from "./fixtures/data"
 
 const mockedGetMongoRepository = getMongoRepository as jest.Mock
+const find = jest.fn(() =>
+  Promise.resolve(mockCollectionRepository)
+) as jest.Mock
 
 beforeEach(() => {
   mockedGetMongoRepository.mockReturnValue({
-    find: () => Promise.resolve(mockCollectionRepository),
+    find,
     findOne: ({ slug }) =>
       mockCollectionRepository.find(
         (collection: Collection) => collection.slug === slug
@@ -22,6 +25,7 @@ beforeEach(() => {
 
 afterEach(() => {
   mockedGetMongoRepository.mockClear()
+  find.mockClear()
 })
 
 async function createMockSchema() {
@@ -44,6 +48,8 @@ describe("Collections", () => {
             id
             tag_id
           }
+          price_guidance
+          show_on_editorial
         }
       }
     `
@@ -63,6 +69,8 @@ describe("Collections", () => {
               id: null,
               tag_id: "companion",
             },
+            price_guidance: null,
+            show_on_editorial: false,
           },
           {
             id: "2",
@@ -74,8 +82,82 @@ describe("Collections", () => {
               id: null,
               tag_id: null,
             },
+            price_guidance: 1000,
+            show_on_editorial: true,
           },
         ],
+      })
+    })
+  })
+
+  describe("queries", () => {
+    it("can construct queries with showOnEditorial", () => {
+      const query = `
+        {
+          collections(showOnEditorial: true) {
+            id
+          }
+        }
+      `
+
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(find).toBeCalledWith({ where: { show_on_editorial: true } })
+        expect((data as any).collections.length).toBeTruthy()
+      })
+    })
+
+    it("can construct queries with artistID", () => {
+      const query = `
+        {
+          collections(artistID: "123") {
+            id
+          }
+        }
+      `
+
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(find).toBeCalledWith({
+          where: { "query.artist_ids": { $in: ["123"] } },
+        })
+        expect((data as any).collections.length).toBeTruthy()
+      })
+    })
+
+    it("can construct queries with multiple args", () => {
+      const query = `
+        {
+          collections(showOnEditorial: true, artistID: "123") {
+            id
+          }
+        }
+      `
+
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(find).toBeCalledWith({
+          where: {
+            show_on_editorial: true,
+            "query.artist_ids": { $in: ["123"] },
+          },
+        })
+        expect((data as any).collections.length).toBeTruthy()
+      })
+    })
+
+    it("can restrict via size", () => {
+      const query = `
+        {
+          collections(size: 1) {
+            id
+          }
+        }
+      `
+
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(find).toBeCalledWith({
+          take: 1,
+          where: {},
+        })
+        expect((data as any).collections.length).toBeTruthy()
       })
     })
   })
