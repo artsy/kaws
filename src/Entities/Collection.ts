@@ -72,7 +72,7 @@ export class Collection {
     description: "Suggested average price for included works",
   })
   @Column({ nullable: true })
-  price_guidance?: number
+  price_guidance: number | null = null
 
   @Field(type => Boolean, {
     description: "Collection can be surfaced on editorial pages",

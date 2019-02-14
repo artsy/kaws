@@ -46,6 +46,7 @@ describe("bootstrapOrUpdate", () => {
           keyword: "Banana",
         },
         show_on_editorial: false,
+        price_guidance: null,
       },
     ])
   })
