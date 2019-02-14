@@ -71,8 +71,8 @@ export class Collection {
     nullable: true,
     description: "Suggested average price for included works",
   })
-  @Column({ nullable: true, default: null })
-  price_guidance: number | null
+  @Column({ nullable: true })
+  price_guidance: number | null = null
 
   @Field(type => Boolean, {
     description: "Collection can be surfaced on editorial pages",
