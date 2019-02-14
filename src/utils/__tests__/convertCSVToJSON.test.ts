@@ -1,8 +1,8 @@
 import * as path from "path"
 
-import { convertCSVToJSON } from "../convertCSVToJSON"
+import { convertCSVToJSON, sanitizeSlug } from "../convertCSVToJSON"
 
-describe("bootstrapOrUpdate", () => {
+describe("convertCSVToJSON", () => {
   it("converts csv to json correctly", async () => {
     const csvFile = path.resolve(
       __dirname,
@@ -49,5 +49,19 @@ describe("bootstrapOrUpdate", () => {
         price_guidance: null,
       },
     ])
+  })
+})
+
+describe("sanitizeSlug", () => {
+  it("Removes spaces from slugs", () => {
+    const cleanedSlug = sanitizeSlug(" alexander- calder-lithographs ")
+    expect(cleanedSlug).toBe("alexander-calder-lithographs")
+  })
+
+  it("Removes punctuation from slugs", () => {
+    const cleanedSlug = sanitizeSlug(
+      ".,&:/#!$%^*;{}=_`’~()alexander-calder-lithographs/"
+    )
+    expect(cleanedSlug).toBe("alexander-calder-lithographs")
   })
 })

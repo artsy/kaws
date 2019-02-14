@@ -34,7 +34,7 @@ export const convertCSVToJSON: (string) => Promise<Collection[]> = (
             }) =>
               ({
                 title,
-                slug,
+                slug: sanitizeSlug(slug),
                 category,
                 description,
                 headerImage,
@@ -61,4 +61,8 @@ export const convertCSVToJSON: (string) => Promise<Collection[]> = (
       })
       .on("err", reject)
   })
+}
+
+export const sanitizeSlug = (slug: string) => {
+  return slug.replace(/ /g, "").replace(/[.,&:\/#!$%\^\*;{}=_`’~()]/g, "")
 }
