@@ -64,5 +64,8 @@ export const convertCSVToJSON: (string) => Promise<Collection[]> = (
 }
 
 export const sanitizeSlug = (slug: string) => {
-  return slug.replace(/ /g, "").replace(/[.,&:\/#!$%\^\*;{}=_`’~()]/g, "")
+  const cleanedSlug = slug
+    .replace(/ /g, "")
+    .replace(/[.,&:\/#!$%\^\*;{}=_`’~()]/g, "")
+  return cleanedSlug.toLowerCase()
 }

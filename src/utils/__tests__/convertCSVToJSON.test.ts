@@ -64,4 +64,9 @@ describe("sanitizeSlug", () => {
     )
     expect(cleanedSlug).toBe("alexander-calder-lithographs")
   })
+
+  it("Sets casing to lowercase", () => {
+    const cleanedSlug = sanitizeSlug("Alexander-Calder-Lithographs/")
+    expect(cleanedSlug).toBe("alexander-calder-lithographs")
+  })
 })
