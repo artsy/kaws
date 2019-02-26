@@ -208,7 +208,7 @@ describe("Collections", () => {
 
     return runQuery(query, {}, createMockSchema).then(data => {
       expect(mockAggregate).toBeCalledWith([
-        { $match: { where: { show_on_editorial: true } } },
+        { $match: { show_on_editorial: true } },
         { $sample: { size: 2 } },
       ])
     })

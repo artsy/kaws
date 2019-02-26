@@ -32,7 +32,7 @@ export class CollectionsResolver {
     if (randomize) {
       const aggregatePipeline: any = []
       if (!isEmpty(query.where)) {
-        aggregatePipeline.push({ $match: query })
+        aggregatePipeline.push({ $match: query.where })
       }
       const randomizeBy = size ? size : 4
       aggregatePipeline.push({ $sample: { size: randomizeBy } })
