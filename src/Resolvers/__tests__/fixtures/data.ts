@@ -4,6 +4,7 @@ import { Collection } from "../../../Entities/Collection"
 export const mockCollectionRepository = plainToClass(Collection, [
   {
     id: 1,
+    _id: 1,
     slug: "kaws-companions",
     title: "KAWS: Companions",
     category: "Collectible Sculptures",
@@ -19,6 +20,7 @@ export const mockCollectionRepository = plainToClass(Collection, [
   },
   {
     id: 2,
+    _id: 2,
     title: "Big Artists, Small Sculptures",
     category: "Collectible Sculptures",
     description:
@@ -31,6 +33,22 @@ export const mockCollectionRepository = plainToClass(Collection, [
       gene_id: null,
     },
     show_on_editorial: true,
+    price_guidance: 1000,
+  },
+  {
+    id: 3,
+    _id: 3,
+    title: "Jasper Johns: Flags",
+    category: "Pop Art",
+    description:
+      '<p>In 1954, two years after being discharged from the United States Army, the 24-year-old <a href="https://www.artsy.net/artist/jasper-johns">Jasper Johns</a> had a vivid dream of the American flag.</p>',
+    slug: "jasper-johns-flags",
+    headerImage: "http://files.artsy.net/images/jasperjohnsflag.png",
+    query: {
+      id: null,
+      tag_id: null,
+    },
+    show_on_editorial: false,
     price_guidance: 1000,
   },
 ])

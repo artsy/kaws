@@ -10,8 +10,16 @@ const find = jest.fn(() =>
   Promise.resolve(mockCollectionRepository)
 ) as jest.Mock
 
+const mockAggregate = jest.fn(() => ({
+  toArray: () =>
+    new Promise(resolve => {
+      resolve(mockCollectionRepository)
+    }),
+}))
+
 beforeEach(() => {
   mockedGetMongoRepository.mockReturnValue({
+    aggregate: mockAggregate,
     find,
     findOne: ({ slug }) =>
       mockCollectionRepository.find(
@@ -55,7 +63,7 @@ describe("Collections", () => {
     `
 
     return runQuery(query, {}, createMockSchema).then(data => {
-      expect((data as any).collections.length).toBe(2)
+      expect((data as any).collections.length).toBe(3)
       expect(mockedGetMongoRepository).toBeCalled()
       expect(data).toEqual({
         collections: [
@@ -84,6 +92,19 @@ describe("Collections", () => {
             },
             price_guidance: 1000,
             show_on_editorial: true,
+          },
+          {
+            id: "3",
+            title: "Jasper Johns: Flags",
+            description:
+              '<p>In 1954, two years after being discharged from the United States Army, the 24-year-old <a href="https://www.artsy.net/artist/jasper-johns">Jasper Johns</a> had a vivid dream of the American flag.</p>',
+            slug: "jasper-johns-flags",
+            query: {
+              id: null,
+              tag_id: null,
+            },
+            price_guidance: 1000,
+            show_on_editorial: false,
           },
         ],
       })
@@ -160,6 +181,37 @@ describe("Collections", () => {
         expect((data as any).collections.length).toBeTruthy()
       })
     })
+
+    it("can return collections in random order via randomize", () => {
+      const query = `
+        {
+          collections(randomize: true) {
+            id
+          }
+        }
+      `
+
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(mockAggregate).toBeCalledWith([{ $sample: { size: 4 } }])
+      })
+    })
+  })
+
+  it("can return collections in random order via randomize with query", () => {
+    const query = `
+      {
+        collections(randomize: true, size: 2, showOnEditorial: true) {
+          id
+        }
+      }
+    `
+
+    return runQuery(query, {}, createMockSchema).then(data => {
+      expect(mockAggregate).toBeCalledWith([
+        { $match: { where: { show_on_editorial: true } } },
+        { $sample: { size: 2 } },
+      ])
+    })
   })
 })
 
@@ -183,6 +235,7 @@ describe("Categories", () => {
             collections: [
               { title: "KAWS: Companions" },
               { title: "Big Artists, Small Sculptures" },
+              { title: "Jasper Johns: Flags" },
             ],
           },
         ],
