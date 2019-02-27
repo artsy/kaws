@@ -1,3 +1,4 @@
+import { isEmpty } from "lodash"
 import { Arg, Int, Query, Resolver } from "type-graphql"
 import { getMongoRepository } from "typeorm"
 import { Collection } from "../Entities/Collection"
@@ -11,7 +12,8 @@ export class CollectionsResolver {
   async collections(
     @Arg("artistID", { nullable: true }) artistID: string,
     @Arg("showOnEditorial", { nullable: true }) showOnEditorial: boolean,
-    @Arg("size", () => Int, { nullable: true }) size: number
+    @Arg("size", () => Int, { nullable: true }) size: number,
+    @Arg("randomize", { nullable: true }) randomize: boolean
   ): Promise<Collection[]> {
     const hasArguments =
       [].filter.call(arguments, arg => arg !== undefined).length > 0
@@ -23,10 +25,27 @@ export class CollectionsResolver {
     if (artistID) {
       query.where["query.artist_ids"] = { $in: [artistID] }
     }
-    if (size) {
+    if (!randomize && size) {
       query.take = size
     }
-    return await this.repository.find(query)
+
+    if (randomize) {
+      const aggregatePipeline: any = []
+      if (!isEmpty(query.where)) {
+        aggregatePipeline.push({ $match: query.where })
+      }
+      const randomizeBy = size ? size : 4
+      aggregatePipeline.push({ $sample: { size: randomizeBy } })
+
+      const data = await this.repository.aggregate(aggregatePipeline).toArray()
+
+      data.forEach(item => (item.id = item._id))
+
+      return data
+    } else {
+      const data = await this.repository.find(query)
+      return data
+    }
   }
 
   // TODO: should return a connection
