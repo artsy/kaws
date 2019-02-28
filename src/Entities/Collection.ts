@@ -79,4 +79,10 @@ export class Collection {
   })
   @Column({ default: false })
   show_on_editorial: boolean = false
+
+  @Field(type => Boolean, {
+    description: "Collection has prioritized connection to artist",
+  })
+  @Column({ default: false })
+  is_featured_artist_content: boolean = false
 }

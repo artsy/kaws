@@ -12,6 +12,8 @@ export class CollectionsResolver {
   async collections(
     @Arg("artistID", { nullable: true }) artistID: string,
     @Arg("showOnEditorial", { nullable: true }) showOnEditorial: boolean,
+    @Arg("isFeaturedArtistContent", { nullable: true })
+    isFeaturedArtistContent: boolean,
     @Arg("size", () => Int, { nullable: true }) size: number,
     @Arg("randomize", { nullable: true }) randomize: boolean
   ): Promise<Collection[]> {
@@ -19,6 +21,9 @@ export class CollectionsResolver {
       [].filter.call(arguments, arg => arg !== undefined).length > 0
     const query: any = hasArguments ? { where: {} } : {}
 
+    if (isFeaturedArtistContent !== undefined) {
+      query.where.is_featured_artist_content = isFeaturedArtistContent
+    }
     if (showOnEditorial !== undefined) {
       query.where.show_on_editorial = showOnEditorial
     }
