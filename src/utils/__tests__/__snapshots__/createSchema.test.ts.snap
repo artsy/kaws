@@ -80,7 +80,7 @@ type CollectionQuery {
 scalar DateTime
 
 type Query {
-  collections(randomize: Boolean, size: Int, showOnEditorial: Boolean, artistID: String): [Collection!]!
+  collections(randomizationSeed: String, size: Int, showOnEditorial: Boolean, artistID: String): [Collection!]!
   categories: [CollectionCategory!]!
   collection(slug: String!): Collection
 }
