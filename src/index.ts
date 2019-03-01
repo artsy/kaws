@@ -17,7 +17,7 @@ import * as morgan from "morgan"
 import { Connection, createConnection } from "typeorm"
 import { databaseConfig } from "./config/database"
 import { createSchema } from "./utils/createSchema"
-const enableSentry = !!SENTRY_PRIVATE_DSN
+const enableSentry = Boolean(SENTRY_PRIVATE_DSN)
 
 bootstrap()
 
@@ -53,7 +53,7 @@ async function bootstrap() {
     // Setup Sentry
     if (enableSentry) {
       Sentry.init({
-        dsn: "https://caca4ef0651e4adbbd1f099702dbb779@sentry.io/1405985",
+        dsn: SENTRY_PRIVATE_DSN,
       })
 
       // The request handler must be the first middleware on the app
