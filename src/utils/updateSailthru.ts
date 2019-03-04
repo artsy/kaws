@@ -3,7 +3,6 @@ import * as SailthruAPI from "sailthru-client"
 import { Connection, createConnection, getMongoRepository } from "typeorm"
 import { databaseConfig } from "../config/database"
 import { Collection } from "../Entities"
-import { getArtists } from "./getArtists"
 import { getArtworks } from "./getArtworks"
 
 const { SAILTHRU_KEY, SAILTHRU_SECRET } = process.env
@@ -27,51 +26,46 @@ export const pushContentToSailthru = async () => {
         const image = collection.headerImage
         const body_text = collection.description
         const full_url = `https://www.artsy.net/collection/${collection_slug}`
-        const all_artworks = await getArtworks(
-          `{marketingCollection(slug: "${collection.slug}") {
-            artworks { 
-               hits {
-                  id
+        try {
+          const [all_artworks, all_artists] = await getArtworks(
+            `{
+              marketingCollection(slug: "${collection.slug}") {
+                artworks { 
+                  hits {
+                      id
+                      artist {
+                        id
+                      }
+                    }
+                  }
                 }
-              }
-            }
-          }`
-        )
-        const all_artists = await getArtists(`
-        {
-          marketingCollection(slug: "${collection.slug}") {
-            artworks {
-              hits {
-                artist {
-                  id
-                }
-              }
-            }
-          }
-        }
-        `)
+            }`
+          )
 
-        const options = {
-          tags: ["collection"].concat(all_artists),
-          vars: {
-            slug: collection_slug,
-            collection_category: featured_names,
-            description: body_text,
-            artworks_slugs: all_artworks,
-          },
-          images: {
-            full: {
-              url: image,
+          const options = {
+            tags: ["collection"].concat(all_artists),
+            vars: {
+              slug: collection_slug,
+              collection_category: featured_names,
+              description: body_text,
+              artworks_slugs: all_artworks,
             },
-          },
-        }
-        sailthru.pushContent(name, full_url, options, (err, response) => {
-          if (err) {
-            console.log(`Error: ${err}`)
-            return
+            images: {
+              full: {
+                url: image,
+              },
+            },
           }
-          console.log(`Success: collection ${name} posted`)
-        })
+          sailthru.pushContent(name, full_url, options, (err, response) => {
+            if (err) {
+              console.log(`Error: ${err}`)
+              return
+            }
+            console.log(`Success: collection ${name} posted`)
+          })
+        } catch (e) {
+          console.log(e)
+        }
       }
     } else {
       throw new Error("Could not connect to database")

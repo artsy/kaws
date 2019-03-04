@@ -12,24 +12,29 @@ export class CollectionsResolver {
   async collections(
     @Arg("artistID", { nullable: true }) artistID: string,
     @Arg("showOnEditorial", { nullable: true }) showOnEditorial: boolean,
+    @Arg("isFeaturedArtistContent", { nullable: true })
+    isFeaturedArtistContent: boolean,
     @Arg("size", () => Int, { nullable: true }) size: number,
-    @Arg("randomize", { nullable: true }) randomize: boolean
+    @Arg("randomizationSeed", { nullable: true }) randomizationSeed: string
   ): Promise<Collection[]> {
     const hasArguments =
       [].filter.call(arguments, arg => arg !== undefined).length > 0
     const query: any = hasArguments ? { where: {} } : {}
 
+    if (isFeaturedArtistContent !== undefined) {
+      query.where.is_featured_artist_content = isFeaturedArtistContent
+    }
     if (showOnEditorial !== undefined) {
       query.where.show_on_editorial = showOnEditorial
     }
     if (artistID) {
       query.where["query.artist_ids"] = { $in: [artistID] }
     }
-    if (!randomize && size) {
+    if (!randomizationSeed && size) {
       query.take = size
     }
 
-    if (randomize) {
+    if (randomizationSeed) {
       const aggregatePipeline: any = []
       if (!isEmpty(query.where)) {
         aggregatePipeline.push({ $match: query.where })
