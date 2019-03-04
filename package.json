@@ -53,6 +53,7 @@
     ]
   },
   "dependencies": {
+    "@sentry/node": "^4.6.4",
     "aws-sdk": "^2.377.0",
     "class-transformer": "^0.1.9",
     "csv-parser": "^2.1.0",

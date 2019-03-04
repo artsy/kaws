@@ -1,6 +1,6 @@
 import "dotenv/config"
 import { setupDataDog } from "./config/datadog"
-const { MONGOHQ_URL, NODE_ENV, PORT } = process.env
+const { MONGOHQ_URL, NODE_ENV, PORT, SENTRY_PRIVATE_DSN } = process.env
 
 // Setup DataDog before importing another modules,
 // so DataDog gets a chance to patch the integrations as per the documation.
@@ -10,12 +10,14 @@ setupDataDog()
 // tslint:disable:no-console
 import "reflect-metadata"
 
+import * as Sentry from "@sentry/node"
 import { GraphQLServer, Options } from "graphql-yoga"
 import { parse } from "mongodb-uri"
 import * as morgan from "morgan"
 import { Connection, createConnection } from "typeorm"
 import { databaseConfig } from "./config/database"
 import { createSchema } from "./utils/createSchema"
+const enableSentry = Boolean(SENTRY_PRIVATE_DSN)
 
 bootstrap()
 
@@ -46,6 +48,19 @@ async function bootstrap() {
       endpoint: "/graphql",
       playground: "/playground",
       debug: NODE_ENV === "development",
+    }
+
+    // Setup Sentry
+    if (enableSentry) {
+      Sentry.init({
+        dsn: SENTRY_PRIVATE_DSN,
+      })
+
+      // The request handler must be the first middleware on the app
+      app.use(Sentry.Handlers.requestHandler())
+
+      // The error handler must be before any other error middleware
+      app.use(Sentry.Handlers.errorHandler())
     }
 
     // Setup middleware
