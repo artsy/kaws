@@ -58,6 +58,7 @@ describe("Collections", () => {
           }
           price_guidance
           show_on_editorial
+          is_featured_artist_content
         }
       }
     `
@@ -79,6 +80,7 @@ describe("Collections", () => {
             },
             price_guidance: null,
             show_on_editorial: false,
+            is_featured_artist_content: true,
           },
           {
             id: "2",
@@ -92,6 +94,7 @@ describe("Collections", () => {
             },
             price_guidance: 1000,
             show_on_editorial: true,
+            is_featured_artist_content: false,
           },
           {
             id: "3",
@@ -105,6 +108,7 @@ describe("Collections", () => {
             },
             price_guidance: 1000,
             show_on_editorial: false,
+            is_featured_artist_content: true,
           },
         ],
       })
@@ -112,6 +116,23 @@ describe("Collections", () => {
   })
 
   describe("queries", () => {
+    it("can construct queries with isFeaturedArtistContent", () => {
+      const query = `
+        {
+          collections(isFeaturedArtistContent: true) {
+            id
+          }
+        }
+      `
+
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(find).toBeCalledWith({
+          where: { is_featured_artist_content: true },
+        })
+        expect((data as any).collections.length).toBeTruthy()
+      })
+    })
+
     it("can construct queries with showOnEditorial", () => {
       const query = `
         {
