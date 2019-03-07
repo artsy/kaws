@@ -21,7 +21,8 @@
     "type-check": "tsc --noEmit",
     "update-sitemap": "ts-node scripts/updateSitemap.ts",
     "watch": "tsc --watch",
-    "update-sailthru": "ts-node scripts/pushCollectionsToSailthru.ts"
+    "update-sailthru": "ts-node scripts/pushCollectionsToSailthru.ts",
+    "update-collection-data": "ts-node scripts/updateCollectionData.ts"
   },
   "jest": {
     "preset": "ts-jest",

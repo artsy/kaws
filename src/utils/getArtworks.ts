@@ -1,6 +1,7 @@
 import metaphysics from "../lib/metaphysics"
 
 export const getArtworks = async (query: string) => {
+  console.log("query", query)
   const results: any = await metaphysics(`${query}`)
   let artworkArray
   let artistArray
