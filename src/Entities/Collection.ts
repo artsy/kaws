@@ -89,7 +89,7 @@ export class Collection {
 
   @Field(type => [CollectionFeaturedArtwork], {
     nullable: true,
-    description: "Array of top 3 merchandisabile artworks with images",
+    description: "Array of top merchandisabile artworks and associated image",
   })
   @Column("simple-array")
   featuredArtworks: CollectionFeaturedArtwork[]

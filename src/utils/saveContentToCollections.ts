@@ -39,11 +39,15 @@ export const saveContentToCollection = async collection => {
           artworks(sort: "merchandisability", size: 3) {
             hits {
               id
+              _id
               image {
                 aspect_ratio
                 height
                 width
                 url(version: "medium")
+                position
+                image_url
+                versions
               }
             }
           }

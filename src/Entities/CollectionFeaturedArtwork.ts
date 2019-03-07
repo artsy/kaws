@@ -16,9 +16,21 @@ export class CollectionFeaturedArtworkImage {
   @Column({ nullable: true })
   width?: number
 
+  @Field(type => Int, { nullable: true })
+  @Column({ nullable: true })
+  position?: number
+
   @Field({ nullable: true })
   @Column({ nullable: true })
   url?: string
+
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  image_url?: string
+
+  @Field(type => [String], { nullable: true })
+  @Column("simple-array")
+  versions?: string[]
 }
 
 @ObjectType()
@@ -26,7 +38,11 @@ export class CollectionFeaturedArtworkImage {
 export class CollectionFeaturedArtwork {
   @Field(type => ID, { nullable: true })
   @ObjectIdColumn()
-  id: ObjectID
+  _id: ObjectID
+
+  @Field({ nullable: true })
+  @Column()
+  id: string
 
   @Field(type => CollectionFeaturedArtworkImage, {
     description: "Artwork image data",
