@@ -4,7 +4,10 @@ import { databaseConfig } from "../config/database"
 import { Collection } from "../Entities"
 import metaphysics from "../lib/metaphysics"
 
-export const saveContentToCollections = async () => {
+/**
+ * Cycle through all collections in DB to fetch and save featuredArtworks
+ */
+export const saveFeaturedArtworks = async () => {
   let connection: Connection | undefined
 
   try {
@@ -16,15 +19,13 @@ export const saveContentToCollections = async () => {
       const collections = await repository.find()
 
       for (const collection of collections) {
+        const { slug } = collection
         try {
           const collectionWithImages = await attachFeaturedArtworks(collection)
-          await repository.update(
-            { slug: collectionWithImages.slug },
-            collectionWithImages
-          )
-          console.log("Successfully updated: ", collection.slug)
+          await repository.update({ slug }, collectionWithImages)
+          console.log("Successfully updated: ", slug)
         } catch (e) {
-          console.log(`Error saving ${collection.slug}`, e)
+          console.log(`Error saving ${slug}`, e)
         }
       }
     } else {
@@ -37,9 +38,12 @@ export const saveContentToCollections = async () => {
   }
 }
 
+/**
+ * For a given collection, attach top 3 artworks ranked by merchandisability
+ */
 export const attachFeaturedArtworks = async collection => {
   try {
-    const [all_artworks] = await getFeaturedArtworks(
+    const featuredArtworks = await getFeaturedArtworks(
       `{
         marketingCollection(slug: "${collection.slug}") {
           artworks(sort: "merchandisability", size: 3) {
@@ -60,14 +64,16 @@ export const attachFeaturedArtworks = async collection => {
         }
       }`
     )
-    // attach fetched artworks to collection
-    collection.featuredArtworks = all_artworks
+    collection.featuredArtworks = featuredArtworks
     return collection
   } catch (e) {
     console.log("Error", e)
   }
 }
 
+/**
+ * Pass in a query to recieve an array of artworks from metaphysics
+ */
 export const getFeaturedArtworks = async (query: string) => {
   const results: any = await metaphysics(`${query}`)
   let artworkArray
@@ -76,5 +82,5 @@ export const getFeaturedArtworks = async (query: string) => {
   } catch (error) {
     throw error
   }
-  return [artworkArray]
+  return artworkArray
 }
