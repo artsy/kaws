@@ -60,7 +60,7 @@ type CollectionFeaturedArtworkImage {
   width: Int
   position: Int
   url: String
-  image_url: String
+  imageUrl: String
   versions: [String!]
 }
 

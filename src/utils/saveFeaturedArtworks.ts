@@ -64,7 +64,8 @@ export const attachFeaturedArtworks = async collection => {
         }
       }`
     )
-    collection.featuredArtworks = featuredArtworks
+
+    collection.featuredArtworks = sanitizeArtworkArray(featuredArtworks)
     return collection
   } catch (e) {
     console.log("Error", e)
@@ -83,4 +84,17 @@ export const getFeaturedArtworks = async (query: string) => {
     throw error
   }
   return artworkArray
+}
+
+export const sanitizeArtworkArray = (artworks: any[]) => {
+  return artworks.map(artwork => {
+    const { image } = artwork
+    image.aspectRatio = image.aspect_ratio
+    delete image.aspect_ratio
+
+    image.imageUrl = image.image_url
+    delete image.image_url
+
+    return artwork
+  })
 }

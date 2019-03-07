@@ -26,7 +26,7 @@ export class CollectionFeaturedArtworkImage {
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  image_url?: string
+  imageUrl?: string
 
   @Field(type => [String], { nullable: true })
   @Column("simple-array")
