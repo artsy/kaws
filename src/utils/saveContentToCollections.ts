@@ -14,9 +14,15 @@ export const saveContentToCollections = async () => {
     if (connection.isConnected) {
       const repository = getMongoRepository(Collection)
       const collections = await repository.find()
+
       for (const collection of collections) {
         try {
-          await saveContentToCollection(collection)
+          const collectionWithImages = await attachFeaturedArtworks(collection)
+          await repository.update(
+            { slug: collectionWithImages.slug },
+            collectionWithImages
+          )
+          console.log("Successfully updated: ", collection.slug)
         } catch (e) {
           console.log(`Error saving ${collection.slug}`, e)
         }
@@ -31,9 +37,9 @@ export const saveContentToCollections = async () => {
   }
 }
 
-export const saveContentToCollection = async collection => {
+export const attachFeaturedArtworks = async collection => {
   try {
-    const [all_artworks] = await getFeaturedArtworkImages(
+    const [all_artworks] = await getFeaturedArtworks(
       `{
         marketingCollection(slug: "${collection.slug}") {
           artworks(sort: "merchandisability", size: 3) {
@@ -54,18 +60,15 @@ export const saveContentToCollection = async collection => {
         }
       }`
     )
-    // save data to collection
-    console.log("Going to save")
+    // attach fetched artworks to collection
     collection.featuredArtworks = all_artworks
-    console.log(collection.featuredArtworks)
-    // await collection.update({ slug: collection.slug }, collection, { upsert: true })
-    // console.log("Successfully updated: ", collection.slug)
+    return collection
   } catch (e) {
     console.log("Error", e)
   }
 }
 
-export const getFeaturedArtworkImages = async (query: string) => {
+export const getFeaturedArtworks = async (query: string) => {
   const results: any = await metaphysics(`${query}`)
   let artworkArray
   try {
