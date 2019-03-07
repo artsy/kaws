@@ -33,7 +33,6 @@ export const saveContentToCollections = async () => {
 
 export const saveContentToCollection = async collection => {
   try {
-    console.log("collection", collection.title)
     const [all_artworks] = await getFeaturedArtworkImages(
       `{
         marketingCollection(slug: "${collection.slug}") {
@@ -44,16 +43,19 @@ export const saveContentToCollection = async collection => {
                 aspect_ratio
                 height
                 width
-                url(version: "small")
+                url(version: "medium")
               }
             }
           }
         }
       }`
     )
-    console.log("fetchedData", all_artworks)
     // save data to collection
     console.log("Going to save")
+    collection.featuredArtworks = all_artworks
+    console.log(collection.featuredArtworks)
+    // await collection.update({ slug: collection.slug }, collection, { upsert: true })
+    // console.log("Successfully updated: ", collection.slug)
   } catch (e) {
     console.log("Error", e)
   }
@@ -63,7 +65,7 @@ export const getFeaturedArtworkImages = async (query: string) => {
   const results: any = await metaphysics(`${query}`)
   let artworkArray
   try {
-    artworkArray = results.marketingCollection.artworks.hits.map(x => x)
+    artworkArray = results.marketingCollection.artworks.hits
   } catch (error) {
     throw error
   }

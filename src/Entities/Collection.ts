@@ -1,5 +1,6 @@
 import { Field, ID, ObjectType } from "type-graphql"
 import { Column, Entity, Index, ObjectID, ObjectIdColumn } from "typeorm"
+import { CollectionFeaturedArtwork } from "./CollectionFeaturedArtwork"
 import { CollectionQuery } from "./CollectionQuery"
 
 @ObjectType({ description: "Object representing a collection page" })
@@ -85,4 +86,11 @@ export class Collection {
   })
   @Column({ default: false })
   is_featured_artist_content: boolean = false
+
+  @Field(type => [CollectionFeaturedArtwork], {
+    nullable: true,
+    description: "Array of top 3 merchandisabile artworks with images",
+  })
+  @Column("simple-array")
+  featuredArtworks: CollectionFeaturedArtwork[]
 }
