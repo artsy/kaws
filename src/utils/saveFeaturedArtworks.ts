@@ -80,21 +80,24 @@ export const getFeaturedArtworks = async (query: string) => {
   let artworkArray
   try {
     artworkArray = results.marketingCollection.artworks.hits
+    return artworkArray
   } catch (error) {
     throw error
   }
-  return artworkArray
 }
 
 export const sanitizeArtworkArray = (artworks: any[]) => {
-  return artworks.map(artwork => {
+  const newArtworks = artworks.map(artwork => {
     const { image } = artwork
-    image.aspectRatio = image.aspect_ratio
-    delete image.aspect_ratio
-
-    image.imageUrl = image.image_url
-    delete image.image_url
-
+    if (image.aspect_ratio) {
+      image.aspectRatio = image.aspect_ratio
+      delete image.aspect_ratio
+    }
+    if (image.image_url) {
+      image.imageUrl = image.image_url
+      delete image.image_url
+    }
     return artwork
   })
+  return newArtworks
 }
