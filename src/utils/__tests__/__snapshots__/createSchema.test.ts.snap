@@ -39,11 +39,32 @@ type Collection {
 
   # Collection has prioritized connection to artist
   is_featured_artist_content: Boolean!
+
+  # Array of top merchandisabile artworks and associated image
+  featuredArtworks: [CollectionFeaturedArtwork!]
 }
 
 type CollectionCategory {
   name: String!
   collections: [Collection!]!
+}
+
+type CollectionFeaturedArtwork {
+  _id: ID
+  id: String
+
+  # Artwork image data
+  image: CollectionFeaturedArtworkImage!
+}
+
+type CollectionFeaturedArtworkImage {
+  aspectRatio: Int
+  height: Int
+  width: Int
+  position: Int
+  url: String
+  image_url: String
+  versions: [String!]
 }
 
 type CollectionQuery {
