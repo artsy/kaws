@@ -3,7 +3,7 @@ import { Column, Entity, ObjectID, ObjectIdColumn } from "typeorm"
 
 @ObjectType()
 @Entity()
-export class CollectionFeaturedArtworkImage {
+export class ArtworkImage {
   @Field(type => Int, { nullable: true })
   @Column({ nullable: true })
   aspectRatio?: number
@@ -44,9 +44,9 @@ export class CollectionFeaturedArtwork {
   @Column()
   id: string
 
-  @Field(type => CollectionFeaturedArtworkImage, {
+  @Field(type => ArtworkImage, {
     description: "Artwork image data",
   })
-  @Column(type => CollectionFeaturedArtworkImage)
-  image: CollectionFeaturedArtworkImage
+  @Column(type => ArtworkImage)
+  image: ArtworkImage
 }

@@ -1,7 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`creates an SDL 1`] = `
-"# Object representing a collection page
+"type ArtworkImage {
+  aspectRatio: Int
+  height: Int
+  width: Int
+  position: Int
+  url: String
+  imageUrl: String
+  versions: [String!]
+}
+
+# Object representing a collection page
 type Collection {
   id: ID!
 
@@ -54,17 +64,7 @@ type CollectionFeaturedArtwork {
   id: String
 
   # Artwork image data
-  image: CollectionFeaturedArtworkImage!
-}
-
-type CollectionFeaturedArtworkImage {
-  aspectRatio: Int
-  height: Int
-  width: Int
-  position: Int
-  url: String
-  imageUrl: String
-  versions: [String!]
+  image: ArtworkImage!
 }
 
 type CollectionQuery {

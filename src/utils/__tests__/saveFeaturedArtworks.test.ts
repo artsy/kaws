@@ -9,6 +9,7 @@ import { mockCollectionRepository } from "../../Resolvers/__tests__/fixtures/dat
 import {
   attachFeaturedArtworks,
   getFeaturedArtworks,
+  mapQueryToString,
   sanitizeArtworkArray,
 } from "../saveFeaturedArtworks"
 
@@ -106,6 +107,33 @@ describe("saveFeaturedArtworks", () => {
       const newArtworks = sanitizeArtworkArray(metaphysicsArtworks)
       expect(newArtworks[0].image.imageUrl).toMatch(
         "https://d32dm0rphc51dk.cloudfront.net/J95rqjn5Gq8Y1HyyKKMj2g/:version.jpg"
+      )
+    })
+  })
+
+  describe("#mapQueryToString", () => {
+    it("converts a query to a string for graphql", () => {
+      const query = {
+        aggregations: [],
+        artist_ids: ["4d8b92934eb68a1b2c00025a"],
+        gene_ids: ["paper-cut-outs"],
+        keyword: "shard, shards",
+      }
+      expect(mapQueryToString(query)).toBe(
+        'artist_ids: ["4d8b92934eb68a1b2c00025a"], gene_ids: ["paper-cut-outs"], keyword: "shard, shards"'
+      )
+    })
+
+    it("correctly formats arrays", () => {
+      const query = {
+        aggregations: [],
+        artist_ids: ["4d8b92934eb68a1b2c00025a", "561449627261691dc1000084"],
+        gene_ids: ["paper-cut-outs", "polka-dots"],
+        keyword: "shard, shards",
+      }
+
+      expect(mapQueryToString(query)).toBe(
+        'artist_ids: ["4d8b92934eb68a1b2c00025a","561449627261691dc1000084"], gene_ids: ["paper-cut-outs","polka-dots"], keyword: "shard, shards"'
       )
     })
   })

@@ -76,9 +76,7 @@ export const metaphysicsFeaturedArtworks = [
 ]
 
 export const metaphysicsFeaturedArtworksFetch = {
-  marketingCollection: {
-    artworks: {
-      hits: metaphysicsFeaturedArtworks,
-    },
+  filter_artworks: {
+    hits: metaphysicsFeaturedArtworks,
   },
 }

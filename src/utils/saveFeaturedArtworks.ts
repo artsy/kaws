@@ -1,4 +1,5 @@
 import "dotenv/config"
+import { compact } from "lodash"
 import { Connection, createConnection, getMongoRepository } from "typeorm"
 import { databaseConfig } from "../config/database"
 import { Collection } from "../Entities"
@@ -43,22 +44,24 @@ export const saveFeaturedArtworks = async () => {
  */
 export const attachFeaturedArtworks = async collection => {
   try {
+    const queryAsString = mapQueryToString(collection.query)
+
     const featuredArtworks = await getFeaturedArtworks(
       `{
-        marketingCollection(slug: "${collection.slug}") {
-          artworks(sort: "merchandisability", size: 3) {
-            hits {
-              id
-              _id
-              image {
-                aspect_ratio
-                height
-                width
-                url(version: "medium")
-                position
-                image_url
-                versions
-              }
+        filter_artworks(sort: "merchandisability", size: 3 ${
+          queryAsString ? `, ${queryAsString}` : ""
+        }) {
+          hits {
+            id
+            _id
+            image {
+              aspect_ratio
+              height
+              width
+              url(version: "medium")
+              position
+              image_url
+              versions
             }
           }
         }
@@ -77,15 +80,16 @@ export const attachFeaturedArtworks = async collection => {
  */
 export const getFeaturedArtworks = async (query: string) => {
   const results: any = await metaphysics(`${query}`)
-  let artworkArray
   try {
-    artworkArray = results.marketingCollection.artworks.hits
-    return artworkArray
+    return results.filter_artworks.hits
   } catch (error) {
     throw error
   }
 }
 
+/**
+ * Convert snake_case field names to camelCase
+ */
 export const sanitizeArtworkArray = (artworks: any[]) => {
   const newArtworks = artworks.map(artwork => {
     const { image } = artwork
@@ -100,4 +104,25 @@ export const sanitizeArtworkArray = (artworks: any[]) => {
     return artwork
   })
   return newArtworks
+}
+
+/**
+ * Convert collection.query to digestible string for graphql
+ */
+export const mapQueryToString = query => {
+  const queryStrings = Object.keys(query).map(key => {
+    const value = query[key]
+    if (value && value.length) {
+      if (Array.isArray(value)) {
+        const keysAsString = value.map(val => `"${val}"`)
+        return `${key}: [${keysAsString}]`
+      } else {
+        return `${key}: "${query[key]}"`
+      }
+    }
+  })
+  const cleanQuery = compact(queryStrings)
+  if (cleanQuery && cleanQuery.length) {
+    return compact(queryStrings).join(", ")
+  }
 }
