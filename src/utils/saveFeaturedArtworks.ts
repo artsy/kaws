@@ -1,5 +1,5 @@
 import "dotenv/config"
-import { compact } from "lodash"
+import { cloneDeep, compact } from "lodash"
 import { Connection, createConnection, getMongoRepository } from "typeorm"
 import { databaseConfig } from "../config/database"
 import { Collection } from "../Entities"
@@ -91,16 +91,16 @@ export const getFeaturedArtworks = async (query: string) => {
  * Convert snake_case field names to camelCase
  */
 export const sanitizeArtworkArray = (artworks: any[]) => {
-  const newArtworks = artworks.map(artwork => {
+  const newArtworks = cloneDeep(artworks).map(artwork => {
     const { image } = artwork
     if (image.aspect_ratio) {
       image.aspectRatio = image.aspect_ratio
-      delete image.aspect_ratio
     }
     if (image.image_url) {
       image.imageUrl = image.image_url
-      delete image.image_url
     }
+    delete image.aspect_ratio
+    delete image.image_url
     return artwork
   })
   return newArtworks
