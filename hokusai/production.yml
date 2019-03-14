@@ -44,8 +44,9 @@ spec:
               httpHeaders:
                 - name: X-FORWARDED-PROTO
                   value: https
-            initialDelaySeconds: 5
-            periodSeconds: 5
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
       dnsPolicy: ClusterFirst
       dnsConfig:
         options:
