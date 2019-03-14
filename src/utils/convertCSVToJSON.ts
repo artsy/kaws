@@ -1,5 +1,6 @@
 import * as csv from "csv-parser"
 import * as fs from "fs"
+import slugify from "slugify"
 import { Collection } from "../Entities/Collection"
 
 export const convertCSVToJSON: (string) => Promise<Collection[]> = (
@@ -66,8 +67,10 @@ export const convertCSVToJSON: (string) => Promise<Collection[]> = (
 }
 
 export const sanitizeSlug = (slug: string) => {
-  const cleanedSlug = slug
-    .replace(/ /g, "")
-    .replace(/[.,&:\/#!$%\^\*;{}=_`’~()]/g, "")
-  return cleanedSlug.toLowerCase()
+  const cleanedSlug = slugify(slug, {
+    remove: /[.'",&:\/#!$%\^\*;{}=_`’~()]/g,
+    lower: true,
+  })
+
+  return cleanedSlug
 }
