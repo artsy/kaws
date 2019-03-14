@@ -1,5 +1,4 @@
----
-version: '2'
+version: "2"
 services:
   kaws:
     extends:
@@ -7,3 +6,10 @@ services:
       service: kaws
     ports:
       - 3000:3000
+    environment:
+      - MONGOHQ_URL=mongodb://kaws-mongodb:27017/kaws
+  kaws-mongodb:
+    image: mongo:4.0
+    ports:
+      - "27017:27017"
+    command: ["--storageEngine=mmapv1", "--quiet", "--nojournal"]
