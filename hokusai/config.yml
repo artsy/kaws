@@ -1,4 +1,2 @@
----
-aws-account-id: '585031190124'
-aws-ecr-region: us-east-1
 project-name: kaws
+hokusai-required-version: ">=0.5.3"
