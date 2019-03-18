@@ -4,7 +4,6 @@ metadata:
   name: kaws-web
   namespace: default
 spec:
-  replicas: 2
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -45,9 +44,14 @@ spec:
               httpHeaders:
                 - name: X-FORWARDED-PROTO
                   value: https
-            initialDelaySeconds: 5
-            periodSeconds: 5
-      dnsPolicy: Default
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+      dnsPolicy: ClusterFirst
+      dnsConfig:
+        options:
+          - name: ndots
+            value: "1"
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -57,6 +61,21 @@ spec:
                     operator: In
                     values:
                       - foreground
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: kaws-web
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: kaws-web
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 70
 
 ---
 apiVersion: v1
