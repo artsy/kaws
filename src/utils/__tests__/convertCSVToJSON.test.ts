@@ -58,11 +58,16 @@ describe("sanitizeSlug", () => {
     expect(cleanedSlug).toBe("alexander-calder-lithographs")
   })
 
-  it("Removes punctuation from slugs", () => {
+  it("Converts symbols to text", () => {
     const cleanedSlug = sanitizeSlug(
       ".,&:/#!$%^*;{}=_`’~()alexander-calder-lithographs/"
     )
-    expect(cleanedSlug).toBe("alexander-calder-lithographs")
+    expect(cleanedSlug).toBe("anddollarpercentalexander-calder-lithographs")
+  })
+
+  it("Removes special characters", () => {
+    const cleanedSlug = sanitizeSlug("salvador-dalí-casanova")
+    expect(cleanedSlug).toBe("salvador-dali-casanova")
   })
 
   it("Sets casing to lowercase", () => {
