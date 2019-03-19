@@ -28,6 +28,7 @@ export const indexForSearch = async () => {
         const name = collection.title
         const alternate_names = collection.query.keyword
         const featured_names = collection.category
+        const description = collection.description
         const slug = collection.slug
         const visible_to_public = true
         const search_boost = 1000
@@ -40,6 +41,7 @@ export const indexForSearch = async () => {
             name,
             alternate_names,
             featured_names,
+            description,
             slug,
             visible_to_public,
             search_boost,
