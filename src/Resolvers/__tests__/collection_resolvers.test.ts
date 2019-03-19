@@ -221,7 +221,7 @@ describe("Collections", () => {
   it("can return collections in random order via randomize with query", () => {
     const query = `
       {
-        collections(randomizationSeed: "1234", size: 2, showOnEditorial: true) {
+        collections(randomizationSeed: "1234", showOnEditorial: true) {
           id
         }
       }
