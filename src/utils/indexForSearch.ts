@@ -40,7 +40,7 @@ export const indexForSearch = async () => {
           const resp: any = await metaphysics({
             query: `query FetchArtworks($slug: String!) {
             marketingCollection(slug: $slug) {
-              artworks(size: 1) {
+              artworks(size: 1, sort: "-decayed_merch") {
                 hits {
                   imageUrl
                 }
