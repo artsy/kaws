@@ -3,6 +3,7 @@ import { Connection, createConnection, getMongoRepository } from "typeorm"
 
 import { databaseConfig } from "../config/database"
 import { Collection } from "../Entities"
+import { metaphysics } from "../lib/metaphysics"
 import { search } from "../lib/search"
 
 /**
@@ -33,6 +34,30 @@ export const indexForSearch = async () => {
         const visible_to_public = true
         const search_boost = 1000
 
+        let image_url: string = ""
+
+        try {
+          const resp: any = await metaphysics({
+            query: `query FetchArtworks($slug: String!) {
+            marketingCollection(slug: $slug) {
+              artworks(size: 1) {
+                hits {
+                  imageUrl
+                }
+              }
+            }
+          }`,
+            variables: { slug: collection.slug },
+          })
+
+          image_url = resp.data.marketingCollection.artworks.hits[0].imageUrl
+        } catch (error) {
+          console.log(
+            `${collection.slug} - error fetching artworks: `,
+            error.message
+          )
+        }
+
         await search.client.index({
           index: search.index,
           type: "marketing_collection",
@@ -45,6 +70,7 @@ export const indexForSearch = async () => {
             slug,
             visible_to_public,
             search_boost,
+            image_url,
           },
         })
 

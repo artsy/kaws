@@ -13,8 +13,12 @@ jest.mock("typeorm", () => {
     getMongoRepository: jest.fn(),
   }
 })
+jest.mock("../../lib/metaphysics", () => ({
+  metaphysics: jest.fn(),
+}))
 
 import { createConnection, getMongoRepository } from "typeorm"
+import { metaphysics as MetaphysicsMock } from "../../lib/metaphysics"
 import { search as SearchMock } from "../../lib/search"
 import { indexForSearch } from "../indexForSearch"
 
@@ -32,6 +36,15 @@ describe("indexForSearch", () => {
       close: jest.fn(),
       isConnected: true,
     })
+    ;(MetaphysicsMock as any).mockImplementation(() =>
+      Promise.resolve({
+        data: {
+          marketingCollection: {
+            artworks: { hits: [{ imageUrl: "/path/to/happy/cats.jpg" }] },
+          },
+        },
+      })
+    )
   })
 
   it("indexes collections for search", async () => {
@@ -70,6 +83,7 @@ describe("indexForSearch", () => {
     expect(firstCollection.body.slug).toBe("cat-pictures")
     expect(firstCollection.body.visible_to_public).toBe(true)
     expect(firstCollection.body.search_boost).toBe(1000)
+    expect(firstCollection.body.image_url).toBe("/path/to/happy/cats.jpg")
     const secondCollection = SearchClientMock.index.mock.calls[1][0]
     expect(secondCollection.index).toBe("marketing_collections_development")
     expect(secondCollection.type).toBe("marketing_collection")
@@ -80,5 +94,6 @@ describe("indexForSearch", () => {
     expect(secondCollection.body.slug).toBe("dog-pictures")
     expect(secondCollection.body.visible_to_public).toBe(true)
     expect(secondCollection.body.search_boost).toBe(1000)
+    expect(firstCollection.body.image_url).toBe("/path/to/happy/cats.jpg")
   })
 })
