@@ -1,4 +1,4 @@
-import { reduce, trim } from "lodash"
+import { reduce } from "lodash"
 const { metaphysics } = require("../lib/metaphysics")
 const currency = require("currency.js")
 
@@ -14,14 +14,14 @@ export const getBasePrice = async (slug: string) => {
       ) { 
         hits {
           price
-          is_price_range
         }
       }
     }
   }`)
   let avgPrice
+  let artworks
   try {
-    const artworks = results.marketingCollection.artworks.hits
+    artworks = results.marketingCollection.artworks.hits
 
     if (artworks.length !== 3) {
       avgPrice = null
@@ -29,12 +29,8 @@ export const getBasePrice = async (slug: string) => {
       avgPrice =
         reduce(
           artworks,
-          (sum, { is_price_range, price }) => {
-            const formatablePrice = !is_price_range
-              ? price
-              : // handle price range by grabbing the first price in the range
-                trim(price.split("-")[0])
-            return sum + parseInt(formatCurrency(formatablePrice), 10)
+          (sum, { price }) => {
+            return sum + parseInt(formatCurrency(price), 10)
           },
           0
         ) / artworks.length
@@ -43,5 +39,5 @@ export const getBasePrice = async (slug: string) => {
     throw error
   }
 
-  return parseInt(avgPrice, 10)
+  return artworks.length === 3 ? parseInt(avgPrice, 10) : avgPrice
 }

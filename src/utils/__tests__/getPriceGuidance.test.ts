@@ -13,15 +13,12 @@ describe("#getPriceGuidance", () => {
           hits: [
             {
               price: "$295",
-              is_price_range: false,
             },
             {
               price: "$550",
-              is_price_range: false,
             },
             {
               price: "$650",
-              is_price_range: false,
             },
           ],
         },
@@ -33,5 +30,21 @@ describe("#getPriceGuidance", () => {
 
     expect(mockMetaphysics.mock.calls[0][0]).toContain("kaws-companions")
     expect(avgPrice).toEqual(498)
+  })
+
+  it("returns null when the artworks in the collection are not acquireable", async () => {
+    const results = {
+      marketingCollection: {
+        artworks: {
+          hits: [],
+        },
+      },
+    }
+
+    mockMetaphysics.mockResolvedValue(results)
+    const avgPrice = await getBasePrice("josef-albers-never-before")
+
+    expect(mockMetaphysics.mock.calls[0][0]).toContain("kaws-companions")
+    expect(avgPrice).toEqual(null)
   })
 })
