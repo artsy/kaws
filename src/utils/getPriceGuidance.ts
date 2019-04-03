@@ -1,10 +1,13 @@
 import { reduce } from "lodash"
-const { metaphysics } = require("../lib/metaphysics")
+import metaphysics from "../lib/metaphysics"
+// I notice when I don't require the metaphysics module
+// like below the test git satfails
+// const metaphysics = require("../lib/metaphysics").metaphysics
 const currency = require("currency.js")
 
 const formatCurrency = value => currency(value, { separator: "" }).format()
 
-export const getBasePrice = async (slug: string) => {
+export const getPriceGuidance = async (slug: string) => {
   const results: any = await metaphysics(`{
     marketingCollection(slug: "${slug}") {
       artworks(
@@ -19,25 +22,27 @@ export const getBasePrice = async (slug: string) => {
     }
   }`)
   let avgPrice
-  let artworks
+  let hasNoBasePrice
   try {
-    artworks = results.marketingCollection.artworks.hits
+    hasNoBasePrice =
+      !results.marketingCollection ||
+      results.marketingCollection.artworks.hits.length !== 3
 
-    if (artworks.length !== 3) {
+    if (hasNoBasePrice) {
       avgPrice = null
     } else {
       avgPrice =
         reduce(
-          artworks,
+          results.marketingCollection.artworks.hits,
           (sum, { price }) => {
             return sum + parseInt(formatCurrency(price), 10)
           },
           0
-        ) / artworks.length
+        ) / results.marketingCollection.artworks.hits.length
     }
   } catch (error) {
     throw error
   }
 
-  return artworks.length === 3 ? parseInt(avgPrice, 10) : avgPrice
+  return hasNoBasePrice ? avgPrice : parseInt(avgPrice, 10)
 }

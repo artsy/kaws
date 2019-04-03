@@ -1,4 +1,4 @@
-import { getBasePrice } from "../getPriceGuidance"
+import { getPriceGuidance } from "../getPriceGuidance"
 jest.mock("../../lib/metaphysics", () => ({
   metaphysics: jest.fn(),
 }))
@@ -26,7 +26,7 @@ describe("#getPriceGuidance", () => {
     }
 
     mockMetaphysics.mockResolvedValue(results)
-    const avgPrice = await getBasePrice("kaws-companions")
+    const avgPrice = await getPriceGuidance("kaws-companions")
 
     expect(mockMetaphysics.mock.calls[0][0]).toContain("kaws-companions")
     expect(avgPrice).toEqual(498)
@@ -42,7 +42,7 @@ describe("#getPriceGuidance", () => {
     }
 
     mockMetaphysics.mockResolvedValue(results)
-    const avgPrice = await getBasePrice("josef-albers-never-before")
+    const avgPrice = await getPriceGuidance("josef-albers-never-before")
 
     expect(mockMetaphysics.mock.calls[0][0]).toContain("kaws-companions")
     expect(avgPrice).toEqual(null)
