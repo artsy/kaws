@@ -1,8 +1,5 @@
 import { reduce } from "lodash"
 import metaphysics from "../lib/metaphysics"
-// I notice when I don't require the metaphysics module
-// like below the test git satfails
-// const metaphysics = require("../lib/metaphysics").metaphysics
 const currency = require("currency.js")
 
 const formatCurrency = value => currency(value, { separator: "" }).format()

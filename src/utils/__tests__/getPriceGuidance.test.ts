@@ -1,9 +1,10 @@
 import { getPriceGuidance } from "../getPriceGuidance"
+
 jest.mock("../../lib/metaphysics", () => ({
-  metaphysics: jest.fn(),
+  default: jest.fn(),
 }))
 
-const mockMetaphysics = require("../../lib/metaphysics").metaphysics
+const mockMetaphysics = require("../../lib/metaphysics").default
 
 describe("#getPriceGuidance", () => {
   it("calculates the average of the 3 lowest artworks of a collection", async () => {
