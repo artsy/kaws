@@ -32,6 +32,10 @@ jobs:
             hokusai configure --kubectl-version 1.10.7 --s3-bucket artsy-citadel
             --s3-key k8s/config --platform linux
       - run:
+          name: Validate Kubernetes Yaml
+          command: |
+            kubectl --context staging apply -f ./hokusai/staging.yml --dry-run
+      - run:
           name: Update staging branch
           command:
             git push git@github.com:artsy/kaws.git $CIRCLE_SHA1:staging --force
@@ -50,6 +54,10 @@ jobs:
             hokusai configure --kubectl-version 1.10.7 --s3-bucket artsy-citadel
             --s3-key k8s/config --platform linux
       - run:
+          name: Validate Kubernetes Yaml
+          command: |
+            kubectl --context production apply -f ./hokusai/production.yml --dry-run
+      - run:
           name: Deploy production assets
           command: hokusai production deploy $CIRCLE_SHA1 --git-remote origin
 
@@ -58,6 +66,7 @@ workflows:
   default:
     jobs:
       - test:
+          context: hokusai
           filters:
             branches:
               ignore:
