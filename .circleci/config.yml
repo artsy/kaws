@@ -72,7 +72,6 @@ workflows:
               ignore:
                 - staging
       - push:
-          context: hokusai
           filters:
             branches:
               only:
@@ -81,14 +80,12 @@ workflows:
           requires:
             - test
       - deploy-staging:
-          context: hokusai
           filters:
             branches:
               only: master
           requires:
             - push
       - deploy-production:
-          context: hokusai
           filters:
             branches:
               only: release
