@@ -13,13 +13,19 @@ describe("#getPriceGuidance", () => {
         artworks: {
           hits: [
             {
+              price: "$225",
+            },
+            {
+              price: "$225",
+            },
+            {
               price: "$295",
             },
             {
-              price: "$550",
+              price: "$350",
             },
             {
-              price: "$650",
+              price: "$360",
             },
           ],
         },
@@ -30,7 +36,7 @@ describe("#getPriceGuidance", () => {
     const avgPrice = await getPriceGuidance("kaws-companions")
 
     expect(mockMetaphysics.mock.calls[0][0]).toContain("kaws-companions")
-    expect(avgPrice).toEqual(498)
+    expect(avgPrice).toEqual(300)
   })
 
   it("returns null when the artworks in the collection are not acquireable", async () => {

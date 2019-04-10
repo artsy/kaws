@@ -8,9 +8,9 @@ export const getPriceGuidance = async (slug: string) => {
   const results: any = await metaphysics(`{
     marketingCollection(slug: "${slug}") {
       artworks(
-        size: 3,
+        size: 5,
         sort: "prices",
-        acquireable: true
+        price_price: "10-*"
       ) { 
         hits {
           price
@@ -23,7 +23,7 @@ export const getPriceGuidance = async (slug: string) => {
   try {
     hasNoBasePrice =
       !results.marketingCollection ||
-      results.marketingCollection.artworks.hits.length !== 3
+      results.marketingCollection.artworks.hits.length !== 5
 
     if (hasNoBasePrice) {
       avgPrice = null
@@ -41,5 +41,5 @@ export const getPriceGuidance = async (slug: string) => {
     throw error
   }
 
-  return hasNoBasePrice ? avgPrice : parseInt(avgPrice, 10)
+  return hasNoBasePrice ? avgPrice : Math.ceil(avgPrice / 10) * 10
 }
