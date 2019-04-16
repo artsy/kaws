@@ -10,7 +10,7 @@ export const getPriceGuidance = async (slug: string) => {
       artworks(
         size: 5,
         sort: "prices",
-        price_price: "10-*"
+        price_range: "10-*"
       ) { 
         hits {
           price
