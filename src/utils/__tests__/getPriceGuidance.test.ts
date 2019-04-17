@@ -1,4 +1,4 @@
-import { getPriceGuidance } from "../getPriceGuidance"
+import { getPriceGuidance, getPriceInDollars } from "../getPriceGuidance"
 
 jest.mock("../../lib/metaphysics", () => ({
   default: jest.fn(),
@@ -7,25 +7,43 @@ jest.mock("../../lib/metaphysics", () => ({
 const mockMetaphysics = require("../../lib/metaphysics").default
 
 describe("#getPriceGuidance", () => {
-  it("calculates the average of the 3 lowest artworks of a collection", async () => {
+  afterEach(() => {
+    mockMetaphysics.mockClear()
+  })
+  it("calculates the average of the 5 lowest artworks of a collection rounded to the nearest 100th", async () => {
     const results = {
       marketingCollection: {
         artworks: {
           hits: [
             {
-              price: "$225",
+              priceCents: {
+                min: 22500,
+                max: 22500,
+              },
             },
             {
-              price: "$225",
+              priceCents: {
+                min: 22500,
+                max: 22500,
+              },
             },
             {
-              price: "$295",
+              priceCents: {
+                min: 29500,
+                max: 29500,
+              },
             },
             {
-              price: "$350",
+              priceCents: {
+                min: 35000,
+                max: 35000,
+              },
             },
             {
-              price: "$360",
+              priceCents: {
+                min: 36000,
+                max: 36000,
+              },
             },
           ],
         },
@@ -39,7 +57,7 @@ describe("#getPriceGuidance", () => {
     expect(avgPrice).toEqual(300)
   })
 
-  it("returns null when the artworks in the collection are not acquireable", async () => {
+  it("returns null when no hits are returned for the collections", async () => {
     const results = {
       marketingCollection: {
         artworks: {
@@ -51,7 +69,131 @@ describe("#getPriceGuidance", () => {
     mockMetaphysics.mockResolvedValue(results)
     const avgPrice = await getPriceGuidance("josef-albers-never-before")
 
-    expect(mockMetaphysics.mock.calls[0][0]).toContain("kaws-companions")
+    expect(mockMetaphysics.mock.calls[0][0]).toContain(
+      "josef-albers-never-before"
+    )
     expect(avgPrice).toEqual(null)
+  })
+
+  it("returns null if priceCents for an artwork is null", async () => {
+    const results = {
+      marketingCollection: {
+        artworks: {
+          hits: [
+            {
+              priceCents: {
+                min: 22500,
+                max: 22500,
+              },
+            },
+            {
+              priceCents: {
+                min: 22500,
+                max: 22500,
+              },
+            },
+            {
+              priceCents: null,
+            },
+            {
+              priceCents: {
+                min: 35000,
+                max: 35000,
+              },
+            },
+            {
+              priceCents: null,
+            },
+          ],
+        },
+      },
+    }
+
+    mockMetaphysics.mockResolvedValue(results)
+    const avgPrice = await getPriceGuidance("kaws-toys")
+
+    expect(mockMetaphysics.mock.calls[0][0]).toContain("kaws-toys")
+    expect(avgPrice).toEqual(null)
+  })
+
+  it("returns null if there not at least 5 values for priceCents", async () => {
+    const results = {
+      marketingCollection: {
+        artworks: {
+          hits: [
+            {
+              priceCents: {
+                min: 22500,
+                max: 22500,
+              },
+            },
+            {
+              priceCents: {
+                min: 22500,
+                max: 22500,
+              },
+            },
+            {
+              priceCents: {
+                min: 35000,
+                max: 35000,
+              },
+            },
+          ],
+        },
+      },
+    }
+
+    mockMetaphysics.mockResolvedValue(results)
+    const avgPrice = await getPriceGuidance("kaws-snoopy")
+
+    expect(mockMetaphysics.mock.calls[0][0]).toContain("kaws-snoopy")
+    expect(avgPrice).toEqual(null)
+  })
+})
+
+describe("#getPriceInDollars", () => {
+  it("returns the min price in dollars when available", () => {
+    const artwork = {
+      priceCents: {
+        min: 22500,
+        max: 40000,
+      },
+    }
+
+    expect(getPriceInDollars(artwork.priceCents)).toBe(225)
+  })
+
+  it("returns the max price in dollars when min price in cents is not available", () => {
+    const artwork = {
+      priceCents: {
+        min: null,
+        max: 36900,
+      },
+    }
+
+    expect(getPriceInDollars(artwork.priceCents)).toBe(369)
+  })
+
+  it("returns returns null when the min and max are null", () => {
+    const artwork = {
+      priceCents: {
+        min: null,
+        max: null,
+      },
+    }
+
+    expect(getPriceInDollars(artwork.priceCents)).toBe(null)
+  })
+
+  it("returns returns null when the min and max are empty strings", () => {
+    const artwork = {
+      priceCents: {
+        min: "",
+        max: "",
+      },
+    }
+
+    expect(getPriceInDollars(artwork.priceCents)).toBe(null)
   })
 })

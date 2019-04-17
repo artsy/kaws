@@ -1,8 +1,15 @@
-import { reduce } from "lodash"
+import { flatMap, reduce } from "lodash"
 import metaphysics from "../lib/metaphysics"
-const currency = require("currency.js")
 
-const formatCurrency = value => currency(value, { separator: "" }).format()
+export const getPriceInDollars = priceCents => {
+  if (priceCents && priceCents.min) {
+    return priceCents.min / 100
+  } else if (priceCents && priceCents.max) {
+    return priceCents.max / 100
+  } else {
+    return null
+  }
+}
 
 export const getPriceGuidance = async (slug: string) => {
   const results: any = await metaphysics(`{
@@ -14,6 +21,10 @@ export const getPriceGuidance = async (slug: string) => {
       ) { 
         hits {
           price
+          priceCents {
+            min
+            max
+          }
         }
       }
     }
@@ -21,25 +32,35 @@ export const getPriceGuidance = async (slug: string) => {
   let avgPrice
   let hasNoBasePrice
   try {
+    const collectionPricesInDollars = flatMap(
+      results.marketingCollection.artworks.hits,
+      artwork => {
+        return getPriceInDollars(artwork.priceCents)
+      }
+    )
     hasNoBasePrice =
       !results.marketingCollection ||
-      results.marketingCollection.artworks.hits.length !== 5
+      results.marketingCollection.artworks.hits.length !== 5 ||
+      collectionPricesInDollars.includes(null)
 
     if (hasNoBasePrice) {
       avgPrice = null
     } else {
       avgPrice =
         reduce(
-          results.marketingCollection.artworks.hits,
-          (sum, { price }) => {
-            return sum + parseInt(formatCurrency(price), 10)
+          collectionPricesInDollars,
+          (sum, price) => {
+            // @ts-ignore
+            return sum + price
           },
           0
-        ) / results.marketingCollection.artworks.hits.length
+        ) / collectionPricesInDollars.length
     }
   } catch (error) {
     throw error
   }
 
-  return hasNoBasePrice ? avgPrice : Math.ceil(avgPrice / 10) * 10
+  return hasNoBasePrice ? avgPrice : Math.ceil(avgPrice / 100) * 100
 }
+
+// getPriceGuidance("kaws-bearbrick")
