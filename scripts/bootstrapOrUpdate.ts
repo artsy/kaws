@@ -2,8 +2,10 @@ import "dotenv/config"
 
 import { databaseURL } from "../src/config/database"
 
+import { extend } from "lodash"
 import { MongoClient } from "mongodb"
 import { convertCSVToJSON } from "../src/utils/convertCSVToJSON"
+import { getPriceGuidance } from "../src/utils/getPriceGuidance"
 
 const csvFile = process.argv[2]
 
@@ -22,6 +24,10 @@ export async function bootstrapOrUpdate(path: string) {
   try {
     if (connection.isConnected) {
       for (const entry of data) {
+        if (!entry.price_guidance) {
+          const priceGuidance = await getPriceGuidance(entry.slug)
+          extend(entry, { price_guidance: priceGuidance })
+        }
         await collection.update({ slug: entry.slug }, entry, { upsert: true })
         console.log("Successfully updated: ", entry.slug, entry.title)
       }
