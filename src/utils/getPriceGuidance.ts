@@ -62,5 +62,3 @@ export const getPriceGuidance = async (slug: string) => {
 
   return hasNoBasePrice ? avgPrice : Math.ceil(avgPrice / 100) * 100
 }
-
-// getPriceGuidance("kaws-bearbrick")
