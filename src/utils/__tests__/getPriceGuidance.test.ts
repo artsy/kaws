@@ -75,7 +75,7 @@ describe("#getPriceGuidance", () => {
     expect(avgPrice).toEqual(null)
   })
 
-  it("returns null if priceCents for an artwork is null", async () => {
+  it("returns an avgPrice even when priceCents for one or more artworks is null", async () => {
     const results = {
       marketingCollection: {
         artworks: {
@@ -113,10 +113,10 @@ describe("#getPriceGuidance", () => {
     const avgPrice = await getPriceGuidance("kaws-toys")
 
     expect(mockMetaphysics.mock.calls[0][0]).toContain("kaws-toys")
-    expect(avgPrice).toEqual(null)
+    expect(avgPrice).toEqual(300)
   })
 
-  it("returns null if there not at least 5 values for priceCents", async () => {
+  it("returns an average price even when there are less than 5 values for priceCents", async () => {
     const results = {
       marketingCollection: {
         artworks: {
@@ -148,7 +148,7 @@ describe("#getPriceGuidance", () => {
     const avgPrice = await getPriceGuidance("kaws-snoopy")
 
     expect(mockMetaphysics.mock.calls[0][0]).toContain("kaws-snoopy")
-    expect(avgPrice).toEqual(null)
+    expect(avgPrice).toEqual(300)
   })
 })
 
