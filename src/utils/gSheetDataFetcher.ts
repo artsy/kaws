@@ -11,27 +11,32 @@ if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET) {
 
 export const gSheetDataFetcher = async (
   spreadsheetID: string,
-  sheetID: string
+  sheetName: string
 ) => {
   const jwtClient = await authorize()
   const sheets = google.sheets({ version: "v4", auth: jwtClient })
-  sheets.spreadsheets.values.get(
-    {
-      spreadsheetId: spreadsheetID,
-      range: sheetID,
-    },
-    (err, res) => {
-      if (err) {
-        return console.log("The API returned an error: " + err)
+
+  return new Promise<object[]>((resolve, reject) => {
+    sheets.spreadsheets.values.get(
+      {
+        spreadsheetId: spreadsheetID,
+        range: `'${sheetName}'`,
+      },
+      (err, res) => {
+        if (err) {
+          reject(err)
+          return console.log("The API returned an error: " + err)
+        }
+        const rows = res.data.values
+        if (rows.length) {
+          resolve(rows)
+          console.log(rows)
+        } else {
+          console.log("No data found.")
+        }
       }
-      const rows = res.data.values
-      if (rows.length) {
-        console.log(rows)
-      } else {
-        console.log("No data found.")
-      }
-    }
-  )
+    )
+  })
 }
 
 const authorize = () => {
@@ -53,4 +58,4 @@ const authorize = () => {
   })
 }
 
-gSheetDataFetcher("1_lyvVK8Bz-qt3l_kcR2-2xbfr9lz_q3i1G9W77sTcvQ", "'Batch 10'")
+// gSheetDataFetcher("1_lyvVK8Bz-qt3l_kcR2-2xbfr9lz_q3i1G9W77sTcvQ", "'Batch 10'")
