@@ -1,11 +1,7 @@
 import "dotenv/config"
 
-import { databaseURL } from "../src/config/database"
-
-import { extend } from "lodash"
-import { MongoClient } from "mongodb"
 import { convertCSVToJSON } from "../src/utils/convertCSVToJSON"
-import { getPriceGuidance } from "../src/utils/getPriceGuidance"
+import { updateDatabase } from "../src/utils/updateDatabase"
 
 const csvFile = process.argv[2]
 
@@ -17,32 +13,11 @@ const csvFile = process.argv[2]
  */
 export async function bootstrapOrUpdate(path: string) {
   const data = await convertCSVToJSON(path)
-  const connection = await MongoClient.connect(databaseURL!)
-  const database = connection.db()
-  const collection = database.collection("collection")
-
   try {
-    if (connection.isConnected) {
-      for (const entry of data) {
-        if (!entry.price_guidance) {
-          const priceGuidance = await getPriceGuidance(entry.slug)
-          extend(entry, { price_guidance: priceGuidance })
-        }
-        await collection.update({ slug: entry.slug }, entry, { upsert: true })
-        console.log("Successfully updated: ", entry.slug, entry.title)
-      }
-
-      console.log("Successfully updated collections database")
-      connection.close()
-    }
+    updateDatabase(data)
     process.exit(0)
-  } catch (error) {
-    console.error("[kaws] Error bootstrapping data:", error)
+  } catch (e) {
     process.exit(1)
-  } finally {
-    /* tslint:disable:no-unused-expression */
-    connection && connection.close()
-    /* tslint:enable:no-unused-expression */
   }
 }
 

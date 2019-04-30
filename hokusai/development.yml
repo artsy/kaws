@@ -5,9 +5,12 @@ services:
       file: build.yml
       service: kaws
     ports:
-      - 3000:3000
+      - 4000:4000
+    env_file: ../.env
     environment:
       - MONGOHQ_URL=mongodb://kaws-mongodb:27017/kaws
+    depends_on:
+      - kaws-mongodb
   kaws-mongodb:
     image: mongo:4.0
     ports:
