@@ -15,7 +15,8 @@ export class CollectionsResolver {
     @Arg("isFeaturedArtistContent", { nullable: true })
     isFeaturedArtistContent: boolean,
     @Arg("size", () => Int, { nullable: true }) size: number,
-    @Arg("randomizationSeed", { nullable: true }) randomizationSeed: string
+    @Arg("randomizationSeed", { nullable: true }) randomizationSeed: string,
+    @Arg("category", { nullable: true }) category: string
   ): Promise<Collection[]> {
     const hasArguments =
       [].filter.call(arguments, arg => arg !== undefined).length > 0
@@ -32,6 +33,10 @@ export class CollectionsResolver {
     }
     if (!randomizationSeed && size) {
       query.take = size
+    }
+
+    if (category !== undefined) {
+      query.where.category = { $in: [category] }
     }
 
     if (randomizationSeed) {
