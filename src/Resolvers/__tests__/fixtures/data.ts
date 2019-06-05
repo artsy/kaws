@@ -12,6 +12,7 @@ export const mockCollectionRepository = plainToClass(Collection, [
     headerImage: "",
     query: {
       id: null,
+      artist_ids: ["123"],
       tag_id: "companion",
     },
     createdAt: Date.now(),

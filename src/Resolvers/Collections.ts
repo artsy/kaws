@@ -1,5 +1,5 @@
-import { isEmpty } from "lodash"
-import { Arg, Int, Query, Resolver } from "type-graphql"
+import { isEmpty, reject } from "lodash"
+import { Arg, FieldResolver, Int, Query, Resolver, Root } from "type-graphql"
 import { getMongoRepository } from "typeorm"
 import { Collection } from "../Entities/Collection"
 import { CollectionCategory } from "../Entities/CollectionCategory"
@@ -73,6 +73,36 @@ export class CollectionsResolver {
   @Query(returns => Collection, { nullable: true })
   async collection(@Arg("slug") slug: string): Promise<Collection | undefined> {
     return await this.repository.findOne({ slug })
+  }
+
+  @FieldResolver(type => [Collection])
+  async relatedCollections(
+    @Root() collection: Collection
+  ): Promise<Collection[]> {
+    const isArtistBased =
+      collection.query.artist_ids && collection.query.artist_ids.length > 0
+
+    if (isArtistBased) {
+      const artistResults = await this.repository.find({
+        where: { "query.artist_ids": { $in: collection.query.artist_ids } },
+      })
+
+      const relatedArtistCollections = reject(artistResults, {
+        id: collection.id,
+      })
+
+      if (relatedArtistCollections.length > 4) {
+        return relatedArtistCollections
+      }
+    }
+
+    const relatedCategoryResults = await this.repository.find({
+      where: { category: { $in: [collection.category] } },
+    })
+    const relatedCategoryCollections = reject(relatedCategoryResults, {
+      id: collection.id,
+    })
+    return relatedCategoryCollections
   }
 
   // @Mutation(type => Collection)
