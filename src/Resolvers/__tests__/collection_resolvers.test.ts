@@ -316,4 +316,64 @@ describe("Collection", () => {
       })
     })
   })
+  it("returns related artist collections", () => {
+    const query = `
+      {
+        collection(slug: "kaws-companions") {
+          id
+          title
+          slug
+          category
+          query {
+            id
+            artist_ids
+          }
+          relatedCollections {
+            id
+            slug
+            title
+          }
+        }
+      }
+    `
+
+    return runQuery(query, {}, createMockSchema).then(data => {
+      expect(find).toBeCalledWith({
+        where: {
+          "query.artist_ids": { $in: ["123"] },
+        },
+      })
+    })
+  })
+
+  it("returns related category collections", () => {
+    const query = `
+      {
+        collection(slug: "jasper-johns-flags") {
+          id
+          title
+          slug
+          category
+          query {
+            id
+            artist_ids
+          }
+          relatedCollections {
+            id
+            slug
+            title
+          }
+        }
+      }
+    `
+
+    return runQuery(query, {}, createMockSchema).then(data => {
+      expect(find).toBeCalledWith({
+        where: {
+          category: { $in: ["Pop Art"] },
+          show_on_editorial: true,
+        },
+      })
+    })
+  })
 })
