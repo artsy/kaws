@@ -371,6 +371,7 @@ describe("Collection", () => {
       expect(find).toBeCalledWith({
         where: {
           category: { $in: ["Pop Art"] },
+          show_on_editorial: true,
         },
       })
     })

@@ -97,7 +97,10 @@ export class CollectionsResolver {
     }
 
     const relatedCategoryResults = await this.repository.find({
-      where: { category: { $in: [collection.category] } },
+      where: {
+        category: { $in: [collection.category] },
+        show_on_editorial: true,
+      },
     })
     const relatedCategoryCollections = reject(relatedCategoryResults, {
       id: collection.id,
