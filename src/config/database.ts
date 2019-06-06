@@ -8,7 +8,7 @@ export const databaseConfig = () => {
   const { username, password, database, hosts, options } = parse(MONGOHQ_URL!)
   const hostName = hosts.map(a => a.host).join(",")
 
-  if (hostName === "localhost") {
+  if (hostName === "localhost" || hostName === "kaws-mongodb") {
     return {
       url: MONGOHQ_URL,
       type: "mongodb",

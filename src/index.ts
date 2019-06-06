@@ -11,15 +11,20 @@ setupDataDog()
 import "reflect-metadata"
 
 import * as Sentry from "@sentry/node"
+import * as express from "express"
 import { GraphQLServer, Options } from "graphql-yoga"
 import { parse } from "mongodb-uri"
 import * as morgan from "morgan"
 import { Connection, createConnection } from "typeorm"
 import { databaseConfig } from "./config/database"
+import GSheetImportApp from "./Routes/GSheetImport"
 import { createSchema } from "./utils/createSchema"
+
 const enableSentry = Boolean(SENTRY_PRIVATE_DSN)
 
 bootstrap()
+
+export let app: express.Application
 
 async function bootstrap() {
   // Setup Database
@@ -42,7 +47,7 @@ async function bootstrap() {
   try {
     const schema = await createSchema()
     const server = new GraphQLServer({ schema })
-    const app = server.express
+    app = server.express
     const serverOptions: Options = {
       port: PORT,
       endpoint: "/graphql",
@@ -68,6 +73,9 @@ async function bootstrap() {
 
     // Setup endpoints
     app.get("/health", (req, res) => res.status(200).end())
+
+    // Google sheet script endpoint
+    app.use(GSheetImportApp)
 
     // Start the server
     server.start(serverOptions, ({ port, playground }) => {

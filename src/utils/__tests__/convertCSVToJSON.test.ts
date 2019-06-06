@@ -1,6 +1,7 @@
 import * as path from "path"
 
-import { convertCSVToJSON, sanitizeSlug } from "../convertCSVToJSON"
+import { convertCSVToJSON } from "../convertCSVToJSON"
+import { sanitizeSlug } from "../sanitizeRow"
 
 describe("convertCSVToJSON", () => {
   it("converts csv to json correctly", async () => {

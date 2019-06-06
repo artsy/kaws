@@ -234,6 +234,24 @@ describe("Collections", () => {
       ])
     })
   })
+
+  it("can filter collections by category", () => {
+    const query = `
+      {
+        collections(category: "Pop Art") {
+          id
+        }
+      }
+    `
+
+    return runQuery(query, {}, createMockSchema).then(data => {
+      expect(find).toBeCalledWith({
+        where: {
+          category: { $in: ["Pop Art"] },
+        },
+      })
+    })
+  })
 })
 
 describe("Categories", () => {
