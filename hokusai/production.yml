@@ -20,6 +20,8 @@ spec:
       containers:
         - name: kaws-web
           env:
+            - name: PORT
+              value: "4000"
             - name: DD_TRACE_AGENT_HOSTNAME
               valueFrom:
                 fieldRef:
@@ -30,7 +32,8 @@ spec:
           image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/kaws:production
           imagePullPolicy: Always
           ports:
-            - containerPort: 4000
+            - name: kaws-http
+              containerPort: 4000
           resources:
             requests:
               cpu: 500m
@@ -39,7 +42,7 @@ spec:
               memory: 1Gi
           readinessProbe:
             httpGet:
-              port: 4000
+              port: kaws-http
               path: /health
               httpHeaders:
                 - name: X-FORWARDED-PROTO
@@ -99,11 +102,11 @@ spec:
     - port: 443
       protocol: TCP
       name: https
-      targetPort: 4000
+      targetPort: kaws-http
     - port: 80
       protocol: TCP
       name: http
-      targetPort: 4000
+      targetPort: kaws-http
   selector:
     app: kaws
     layer: application
