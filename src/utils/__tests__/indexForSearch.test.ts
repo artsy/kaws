@@ -28,6 +28,7 @@ const SearchClientMock = SearchMock.client
 
 describe("indexForSearch", () => {
   let repositoryMock
+  let originalConsoleLog
 
   beforeEach(() => {
     repositoryMock = { find: jest.fn() }
@@ -45,6 +46,12 @@ describe("indexForSearch", () => {
         },
       })
     )
+    originalConsoleLog = console.log
+    console.log = jest.fn()
+  })
+
+  afterEach(() => {
+    console.log = originalConsoleLog
   })
 
   it("indexes collections for search", async () => {
