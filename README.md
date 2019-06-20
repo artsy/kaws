@@ -7,7 +7,7 @@ collections you ask? A Collection is a prefiltered version of Artsy's
 
 [![CircleCI](https://circleci.com/gh/artsy/kaws.svg?style=svg)](https://circleci.com/gh/artsy/kaws)
 
-- **State:** in development
+- **State:** production
 - **Production:** [http://kaws.artsy.net](http://kaws.artsy.net/playground) |
   [k8s](https://kubernetes.artsy.net/#!/deployment/default/kaws-web?namespace=default)
 - **Staging:**
