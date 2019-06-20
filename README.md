@@ -62,8 +62,8 @@ yarn dev
 ```
 
 Then open http://localhost:4000/playground and you should see Apollo's GraphQL
-Playground. Try running the GraphQL query below, and if you see
-`"KAWS, Companions"` and `"Pablo Picasso, Lithographs"` you are good to go!
+Playground. Try running the GraphQL query below, and if you see real collections
+data coming back from the database you are good to go!
 
 ```graphql
 query {
