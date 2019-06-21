@@ -14,7 +14,7 @@ const csvFile = process.argv[2]
 export async function bootstrapOrUpdate(path: string) {
   const data = await convertCSVToJSON(path)
   try {
-    updateDatabase(data)
+    await updateDatabase(data)
     process.exit(0)
   } catch (e) {
     process.exit(1)
