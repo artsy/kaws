@@ -30,6 +30,7 @@ describe("convertCSVToJSON", () => {
         },
         price_guidance: 1000,
         show_on_editorial: true,
+        subcollections: [],
       },
       {
         title: "Andy Warhol: Bananas",
@@ -48,8 +49,102 @@ describe("convertCSVToJSON", () => {
         },
         show_on_editorial: false,
         price_guidance: null,
+        subcollections: [],
       },
     ])
+  })
+
+  it("respects hub data", async () => {
+    const csvFile = path.resolve(
+      __dirname,
+      "../../../fixtures/hub_collection_test_data.csv"
+    )
+
+    const result = await convertCSVToJSON(csvFile)
+    const expected = [
+      {
+        title: "Agnes Martin: Lithographs",
+        slug: "agnes-martin-lithographs",
+        category: "Abstract Art",
+        description: "",
+        headerImage:
+          "http://files.artsy.net/images/agnes_martin_lithographs.png",
+        credit:
+          "<p>&copy; Agnes Martin / Artist Rights Society (ARS), New York, NY.</p>",
+        price_guidance: null,
+        show_on_editorial: false,
+        is_featured_artist_content: false,
+        subcollections: [
+          {
+            name: "Artist Series",
+            members: ["artist-series-1", "artist-series-2", "artist-series-3"],
+          },
+          {
+            name: "Featured Collections",
+            members: ["featured-collection-1", "featured-collection-2"],
+          },
+          {
+            name: "Other Collections",
+            members: ["other-collection-1", "other-collection-2"],
+          },
+        ],
+        query: {
+          artist_ids: ["4ddbb20eb773bf00010031ea"],
+          gene_ids: ["lithograph-1", "lithograph-2"],
+          tag_id: "",
+          keyword: "lithograph",
+        },
+      },
+      {
+        title: "Agnes Martin: Praise",
+        slug: "agnes-martin-praise",
+        category: "Abstract Art",
+        description: "",
+        headerImage: "http://files.artsy.net/images/agnes_martin_praise.png",
+        credit:
+          "<p>&copy; Agnes Martin / Artist Rights Society (ARS), New York, NY.</p>",
+        price_guidance: null,
+        show_on_editorial: false,
+        is_featured_artist_content: false,
+        subcollections: [
+          { name: "Artist Series", members: ["artist-series-3"] },
+          {
+            name: "Other Collections",
+            members: ["other-collection-2", "other-collection-3"],
+          },
+        ],
+        query: {
+          artist_ids: ["4ddbb20eb773bf00010031ea"],
+          gene_ids: [],
+          tag_id: "",
+          keyword: "praise",
+        },
+      },
+      {
+        title: "Alberto Giacometti: Busts",
+        slug: "alberto-giacometti-busts",
+        category: "Modern",
+        description: "",
+        headerImage:
+          "http://files.artsy.net/images/alberto_giacometti_busts.png",
+        credit:
+          "<p>&copy; Alberto Giacometti / Artist Rights Society (ARS), New York, NY.</p>",
+        price_guidance: null,
+        show_on_editorial: false,
+        is_featured_artist_content: false,
+        subcollections: [
+          { name: "Featured Collections", members: ["featured-collection-2"] },
+        ],
+        query: {
+          artist_ids: ["4e1716d0f1bf8f00010023d8"],
+          gene_ids: [],
+          tag_id: "",
+          keyword: "bust",
+        },
+      },
+    ]
+
+    expect(result).toMatchObject(expected)
   })
 })
 

@@ -1,6 +1,7 @@
 import { Field, ID, ObjectType } from "type-graphql"
 import { Column, Entity, Index, ObjectID, ObjectIdColumn } from "typeorm"
 import { CollectionQuery } from "./CollectionQuery"
+import { Subcollection } from "./Subcollection"
 
 @ObjectType({ description: "Object representing a collection page" })
 @Entity()
@@ -85,4 +86,10 @@ export class Collection {
   })
   @Column({ default: false })
   is_featured_artist_content: boolean = false
+
+  @Field(type => [Subcollection], {
+    description: "Subcollections of this collection",
+  })
+  @Column({ default: [] })
+  subcollections: Subcollection[]
 }

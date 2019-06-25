@@ -39,6 +39,9 @@ type Collection {
 
   # Collection has prioritized connection to artist
   is_featured_artist_content: Boolean!
+
+  # Subcollections of this collection
+  subcollections: [Subcollection!]!
   relatedCollections: [Collection!]!
 }
 
@@ -87,6 +90,11 @@ type Query {
   collections(category: String, randomizationSeed: String, size: Int, isFeaturedArtistContent: Boolean, showOnEditorial: Boolean, artistID: String): [Collection!]!
   categories: [CollectionCategory!]!
   collection(slug: String!): Collection
+}
+
+type Subcollection {
+  name: String!
+  members: [String!]!
 }
 "
 `;
