@@ -30,7 +30,7 @@ describe("convertCSVToJSON", () => {
         },
         price_guidance: 1000,
         show_on_editorial: true,
-        subcollections: [],
+        linked_collections: [],
       },
       {
         title: "Andy Warhol: Bananas",
@@ -49,7 +49,7 @@ describe("convertCSVToJSON", () => {
         },
         show_on_editorial: false,
         price_guidance: null,
-        subcollections: [],
+        linked_collections: [],
       },
     ])
   })
@@ -74,7 +74,7 @@ describe("convertCSVToJSON", () => {
         price_guidance: null,
         show_on_editorial: false,
         is_featured_artist_content: false,
-        subcollections: [
+        linked_collections: [
           {
             name: "Artist Series",
             members: ["artist-series-1", "artist-series-2", "artist-series-3"],
@@ -106,7 +106,7 @@ describe("convertCSVToJSON", () => {
         price_guidance: null,
         show_on_editorial: false,
         is_featured_artist_content: false,
-        subcollections: [
+        linked_collections: [
           { name: "Artist Series", members: ["artist-series-3"] },
           {
             name: "Other Collections",
@@ -132,7 +132,7 @@ describe("convertCSVToJSON", () => {
         price_guidance: null,
         show_on_editorial: false,
         is_featured_artist_content: false,
-        subcollections: [
+        linked_collections: [
           { name: "Featured Collections", members: ["featured-collection-2"] },
         ],
         query: {

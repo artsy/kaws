@@ -3,7 +3,7 @@ import { Column, Entity } from "typeorm"
 
 @ObjectType()
 @Entity()
-export class Subcollection {
+export class CollectionGroup {
   @Field(type => String!, { nullable: false })
   @Column()
   name: string

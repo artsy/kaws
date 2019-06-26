@@ -1,5 +1,5 @@
 import slugify from "slugify"
-import { Collection, Subcollection } from "../Entities"
+import { Collection, CollectionGroup } from "../Entities"
 
 export const sanitizeRow = ({
   title,
@@ -29,7 +29,7 @@ export const sanitizeRow = ({
     price_guidance: price_guidance ? Number(price_guidance) : null,
     show_on_editorial: Boolean(show_on_editorial),
     is_featured_artist_content: Boolean(is_featured_artist_content),
-    subcollections: build_subcollections(
+    linked_collections: build_linked_collections(
       artist_series,
       featured_collections,
       other_collections
@@ -45,12 +45,12 @@ export const sanitizeRow = ({
 
 const splitmap = text => (text ? text.split(",").map(a => a.trim()) : [])
 
-const build_subcollections = (
+const build_linked_collections = (
   artist: string,
   featured: string,
   other: string
 ) => {
-  const output: Subcollection[] = []
+  const output: CollectionGroup[] = []
   if (artist && artist.length > 0) {
     output.push({ name: "Artist Series", members: splitmap(artist) })
   }

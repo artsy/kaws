@@ -37,14 +37,19 @@ type Collection {
   # Collection has prioritized connection to artist
   is_featured_artist_content: Boolean!
 
-  # Subcollections of this collection
-  subcollections: [Subcollection!]!
+  # CollectionGroups of this collection
+  linked_collections: [CollectionGroup!]!
   relatedCollections: [Collection!]!
 }
 
 type CollectionCategory {
   name: String!
   collections: [Collection!]!
+}
+
+type CollectionGroup {
+  name: String!
+  members: [String!]!
 }
 
 type CollectionQuery {
@@ -94,9 +99,4 @@ type Query {
   ): [Collection!]!
   categories: [CollectionCategory!]!
   collection(slug: String!): Collection
-}
-
-type Subcollection {
-  name: String!
-  members: [String!]!
 }
