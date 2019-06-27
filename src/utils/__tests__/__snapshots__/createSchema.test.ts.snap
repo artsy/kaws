@@ -51,6 +51,8 @@ type CollectionCategory {
 }
 
 type CollectionGroup {
+  id: ID!
+  groupType: GroupTypes!
   name: String!
   members: [String!]!
 }
@@ -90,6 +92,13 @@ type CollectionQuery {
 
 # The javascript \`Date\` as string. Type represents date and time as the ISO Date string.
 scalar DateTime
+
+# Available types of CollectionGroup
+enum GroupTypes {
+  ArtistSeries
+  FeaturedCollections
+  OtherCollections
+}
 
 type Query {
   collections(category: String, randomizationSeed: String, size: Int, isFeaturedArtistContent: Boolean, showOnEditorial: Boolean, artistID: String): [Collection!]!

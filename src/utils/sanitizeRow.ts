@@ -1,5 +1,5 @@
 import slugify from "slugify"
-import { Collection, CollectionGroup } from "../Entities"
+import { Collection, CollectionGroup, GroupType } from "../Entities"
 
 export const sanitizeRow = ({
   title,
@@ -52,13 +52,25 @@ const buildLinkedCollections = (
 ) => {
   const output: CollectionGroup[] = []
   if (artist && artist.length > 0) {
-    output.push({ name: "Artist Series", members: splitmap(artist) })
+    output.push({
+      name: "Artist Series",
+      members: splitmap(artist),
+      groupType: GroupType.ArtistSeries,
+    } as CollectionGroup)
   }
   if (featured && featured.length > 0) {
-    output.push({ name: "Featured Collections", members: splitmap(featured) })
+    output.push({
+      name: "Featured Collections",
+      members: splitmap(featured),
+      groupType: GroupType.FeaturedCollections,
+    } as CollectionGroup)
   }
   if (other && other.length > 0) {
-    output.push({ name: "Other Collections", members: splitmap(other) })
+    output.push({
+      name: "Other Collections",
+      members: splitmap(other),
+      groupType: GroupType.OtherCollections,
+    } as CollectionGroup)
   }
   return output
 }

@@ -1,3 +1,4 @@
+import { GroupType } from "../../Entities"
 import { updateDatabase } from "../../utils/updateDatabase"
 import { upload } from "../GSheetImport"
 
@@ -101,10 +102,15 @@ describe("GSheetImport", () => {
               "Yosemite, El Capitan, Half Dome, Sentinel Dome, fern spring, Half Dome, nevada falls, Tuolomne Meadows",
           },
           linkedCollections: [
-            { name: "Artist Series", members: ["foo", "bar", "baz"] },
+            {
+              name: "Artist Series",
+              members: ["foo", "bar", "baz"],
+              groupType: GroupType.ArtistSeries,
+            },
             {
               name: "Other Collections",
               members: ["random-collection-slug-1", "random-collection-slug-2"],
+              groupType: GroupType.OtherCollections,
             },
           ],
         },
