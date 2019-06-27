@@ -17,6 +17,7 @@ export async function bootstrapOrUpdate(path: string) {
     await updateDatabase(data)
     process.exit(0)
   } catch (e) {
+    console.log(e.message)
     process.exit(1)
   }
 }

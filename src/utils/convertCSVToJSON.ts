@@ -33,6 +33,9 @@ export const convertCSVToJSON: (string) => Promise<Collection[]> = (
               price_guidance,
               show_on_editorial = false,
               is_featured_artist_content = false,
+              artist_series,
+              featured_collections,
+              other_collections,
             }) =>
               sanitizeRow({
                 title,
@@ -48,6 +51,9 @@ export const convertCSVToJSON: (string) => Promise<Collection[]> = (
                 price_guidance,
                 show_on_editorial,
                 is_featured_artist_content,
+                artist_series,
+                featured_collections,
+                other_collections,
               })
           )
 

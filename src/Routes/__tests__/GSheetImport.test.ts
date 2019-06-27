@@ -1,3 +1,4 @@
+import { GroupType } from "../../Entities"
 import { updateDatabase } from "../../utils/updateDatabase"
 import { upload } from "../GSheetImport"
 
@@ -62,6 +63,7 @@ describe("GSheetImport", () => {
             tag_id: "",
             keyword: "Superman",
           },
+          linkedCollections: [],
         },
         {
           title: "Anish Kapoor: Etchings",
@@ -79,6 +81,7 @@ describe("GSheetImport", () => {
             artist_ids: ["4de528068236f6000100070b"],
             gene_ids: ["etching-slash-engraving"],
           },
+          linkedCollections: [],
         },
         {
           title: "Ansel Adams: Yosemite",
@@ -98,6 +101,18 @@ describe("GSheetImport", () => {
             keyword:
               "Yosemite, El Capitan, Half Dome, Sentinel Dome, fern spring, Half Dome, nevada falls, Tuolomne Meadows",
           },
+          linkedCollections: [
+            {
+              name: "Artist Series",
+              members: ["foo", "bar", "baz"],
+              groupType: GroupType.ArtistSeries,
+            },
+            {
+              name: "Other Collections",
+              members: ["random-collection-slug-1", "random-collection-slug-2"],
+              groupType: GroupType.OtherCollections,
+            },
+          ],
         },
       ])
 
@@ -121,6 +136,9 @@ const rows = [
     "price_guidance",
     "show_on_editorial",
     "is_featured_artist_content",
+    "artist_series",
+    "featured_artists",
+    "other_collections",
   ],
   [
     "Andy Warhol: Superman",
@@ -158,5 +176,8 @@ const rows = [
     "",
     "",
     "TRUE",
+    "foo,bar,baz",
+    "",
+    "random-collection-slug-1,random-collection-slug-2",
   ],
 ]
