@@ -91,5 +91,5 @@ export class Collection {
     description: "CollectionGroups of this collection",
   })
   @Column({ default: [] })
-  linked_collections: CollectionGroup[]
+  linkedCollections: CollectionGroup[]
 }

@@ -29,7 +29,7 @@ export const sanitizeRow = ({
     price_guidance: price_guidance ? Number(price_guidance) : null,
     show_on_editorial: Boolean(show_on_editorial),
     is_featured_artist_content: Boolean(is_featured_artist_content),
-    linked_collections: build_linked_collections(
+    linkedCollections: buildLinkedCollections(
       artist_series,
       featured_collections,
       other_collections
@@ -45,7 +45,7 @@ export const sanitizeRow = ({
 
 const splitmap = text => (text ? text.split(",").map(a => a.trim()) : [])
 
-const build_linked_collections = (
+const buildLinkedCollections = (
   artist: string,
   featured: string,
   other: string

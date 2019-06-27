@@ -41,7 +41,7 @@ type Collection {
   is_featured_artist_content: Boolean!
 
   # CollectionGroups of this collection
-  linked_collections: [CollectionGroup!]!
+  linkedCollections: [CollectionGroup!]!
   relatedCollections: [Collection!]!
 }
 

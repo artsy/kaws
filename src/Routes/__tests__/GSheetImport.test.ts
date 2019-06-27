@@ -62,7 +62,7 @@ describe("GSheetImport", () => {
             tag_id: "",
             keyword: "Superman",
           },
-          linked_collections: [],
+          linkedCollections: [],
         },
         {
           title: "Anish Kapoor: Etchings",
@@ -80,7 +80,7 @@ describe("GSheetImport", () => {
             artist_ids: ["4de528068236f6000100070b"],
             gene_ids: ["etching-slash-engraving"],
           },
-          linked_collections: [],
+          linkedCollections: [],
         },
         {
           title: "Ansel Adams: Yosemite",
@@ -100,7 +100,7 @@ describe("GSheetImport", () => {
             keyword:
               "Yosemite, El Capitan, Half Dome, Sentinel Dome, fern spring, Half Dome, nevada falls, Tuolomne Meadows",
           },
-          linked_collections: [
+          linkedCollections: [
             { name: "Artist Series", members: ["foo", "bar", "baz"] },
             {
               name: "Other Collections",
