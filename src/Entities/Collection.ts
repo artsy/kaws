@@ -38,6 +38,14 @@ export class Collection {
   headerImage?: string
 
   @Field(type => String, {
+    nullable: true,
+    description:
+      "URL for Thumbnail image to be used when this collection is displayed.",
+  })
+  @Column()
+  thumbnail: string | null = null
+
+  @Field(type => String, {
     description: "Set of keywords used for SEO purposes",
   })
   @Column()

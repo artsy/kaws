@@ -15,8 +15,12 @@ export const sanitizeRow = ({
   price_guidance,
   show_on_editorial,
   is_featured_artist_content,
+  thumbnail,
+  artist_series_label,
   artist_series,
+  featured_collections_label,
   featured_collections,
+  other_collections_label,
   other_collections,
 }) => {
   return {
@@ -25,14 +29,24 @@ export const sanitizeRow = ({
     category,
     description,
     headerImage,
+    thumbnail,
     credit,
     price_guidance: price_guidance ? Number(price_guidance) : null,
     show_on_editorial: Boolean(show_on_editorial),
     is_featured_artist_content: Boolean(is_featured_artist_content),
     linkedCollections: buildLinkedCollections(
-      artist_series,
-      featured_collections,
-      other_collections
+      {
+        label: artist_series_label || "Artist Series",
+        collection: artist_series,
+      },
+      {
+        label: featured_collections_label || "Featured Collections",
+        collection: featured_collections,
+      },
+      {
+        label: other_collections_label || "Other Collections",
+        collection: other_collections,
+      }
     ),
     query: (artist_ids || gene_ids || tag_id || keyword) && {
       artist_ids: splitmap(artist_ids),
@@ -46,28 +60,28 @@ export const sanitizeRow = ({
 const splitmap = text => (text ? text.split(",").map(a => a.trim()) : [])
 
 const buildLinkedCollections = (
-  artist: string,
-  featured: string,
-  other: string
+  { label: artistLabel, collection: artist },
+  { label: featuredLabel, collection: featured },
+  { label: otherLabel, collection: other }
 ) => {
   const output: CollectionGroup[] = []
   if (artist && artist.length > 0) {
     output.push({
-      name: "Artist Series",
+      name: artistLabel,
       members: splitmap(artist),
       groupType: GroupType.ArtistSeries,
     } as CollectionGroup)
   }
   if (featured && featured.length > 0) {
     output.push({
-      name: "Featured Collections",
+      name: featuredLabel,
       members: splitmap(featured),
       groupType: GroupType.FeaturedCollections,
     } as CollectionGroup)
   }
   if (other && other.length > 0) {
     output.push({
-      name: "Other Collections",
+      name: otherLabel,
       members: splitmap(other),
       groupType: GroupType.OtherCollections,
     } as CollectionGroup)
