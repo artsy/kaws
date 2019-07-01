@@ -37,6 +37,7 @@ export const upload = async (
       category,
       description,
       headerImage,
+      thumbnail,
       credit,
       artist_ids,
       gene_ids,
@@ -45,8 +46,11 @@ export const upload = async (
       price_guidance,
       show_on_editorial,
       is_featured_artist_content,
+      artist_series_label,
       artist_series,
+      featured_collections_label,
       featured_collections,
+      other_collections_label,
       other_collections,
     ] = row
 
@@ -56,6 +60,7 @@ export const upload = async (
       category,
       description,
       headerImage,
+      thumbnail,
       credit,
       artist_ids,
       gene_ids,
@@ -64,8 +69,11 @@ export const upload = async (
       price_guidance,
       show_on_editorial,
       is_featured_artist_content,
+      artist_series_label,
       artist_series,
+      featured_collections_label,
       featured_collections,
+      other_collections_label,
       other_collections,
     })
   })

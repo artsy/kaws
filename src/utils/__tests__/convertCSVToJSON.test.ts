@@ -20,6 +20,7 @@ describe("convertCSVToJSON", () => {
           '<p>Although <a href="https://www.artsy.net/artist/alexander-calder">Alexander Calder</a> might be best known for his <a href="https://www.artsy.net/collection/alexander-calder-mobiles">wire mobiles</a>, the artist was also an avid printmaker at the end of his career. Featuring primary colors, geometric lines and spirals, and flattened biomorphic shapes, the imagery in Calder’s lithographs is often reminiscent of his sculptural work. While many of Calder’s prints may initially appear abstract, a closer look will reveal symbols of people, plants, and animals. Calder even used his prints for political activism—in 1967 and 1969, Calder produced posters protesting the Vietnam War.</p>',
         headerImage:
           "http://files.artsy.net/images/alexandercalderlithographs.png",
+        thumbnail: "http://files.artsy.net/images/thumb1.png",
         credit:
           "<p>&copy; Alexander Calder / Artist Rights Society (ARS), New York, NY.</p>",
         query: {
@@ -39,6 +40,7 @@ describe("convertCSVToJSON", () => {
         description:
           '<p>In 1967, <a href="https://www.artsy.net/artist/andy-warhol">Andy Warhol</a> designed one of the most iconic album covers of all time, featuring a simple yellow banana on the sleeve of The Velvet Underground’s debut record. Warhol, undeterred by his lack of experience in the music industry, had become the band’s manager two years prior and even introduced the German vocalist Nico to the group. Early editions of the record cover featured removable stickers, allowing music fans to peel the banana’s yellow skin to reveal a pink fruit underneath. These early covers, now a rare collector’s item, also included the titillating suggestion, “Peel Slowly and See.” Though Warhol cut ties with The Velvet Underground in 1968, he continued experimenting with the banana motif in silkscreens and polaroids, favoring the fruit for its phallic shape and ubiquity in American daily life.</p>',
         headerImage: "http://files.artsy.net/images/andywarholbanana.png",
+        thumbnail: "http://files.artsy.net/images/thumb2.png",
         credit:
           "<p>&copy; Andy Warhol / Artist Rights Society (ARS), New York, NY.</p>",
         query: {
@@ -69,6 +71,7 @@ describe("convertCSVToJSON", () => {
         description: "",
         headerImage:
           "http://files.artsy.net/images/agnes_martin_lithographs.png",
+        thumbnail: "http://files.artsy.net/images/thumb1.png",
         credit:
           "<p>&copy; Agnes Martin / Artist Rights Society (ARS), New York, NY.</p>",
         price_guidance: null,
@@ -84,7 +87,7 @@ describe("convertCSVToJSON", () => {
             members: ["featured-collection-1", "featured-collection-2"],
           },
           {
-            name: "Other Collections",
+            name: "Related Collections",
             members: ["other-collection-1", "other-collection-2"],
           },
         ],
@@ -101,6 +104,7 @@ describe("convertCSVToJSON", () => {
         category: "Abstract Art",
         description: "",
         headerImage: "http://files.artsy.net/images/agnes_martin_praise.png",
+        thumbnail: "http://files.artsy.net/images/thumb2.png",
         credit:
           "<p>&copy; Agnes Martin / Artist Rights Society (ARS), New York, NY.</p>",
         price_guidance: null,
@@ -127,6 +131,7 @@ describe("convertCSVToJSON", () => {
         description: "",
         headerImage:
           "http://files.artsy.net/images/alberto_giacometti_busts.png",
+        thumbnail: "http://files.artsy.net/images/thumb3.png",
         credit:
           "<p>&copy; Alberto Giacometti / Artist Rights Society (ARS), New York, NY.</p>",
         price_guidance: null,
