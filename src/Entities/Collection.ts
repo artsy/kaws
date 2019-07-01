@@ -43,7 +43,7 @@ export class Collection {
       "URL for Thumbnail image to be used when this collection is displayed.",
   })
   @Column()
-  thumbnail: string | null = null
+  thumbnail?: string | null = null
 
   @Field(type => String, {
     description: "Set of keywords used for SEO purposes",
