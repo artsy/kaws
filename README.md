@@ -7,7 +7,7 @@ collections you ask? A Collection is a prefiltered version of Artsy's
 
 [![CircleCI](https://circleci.com/gh/artsy/kaws.svg?style=svg)](https://circleci.com/gh/artsy/kaws)
 
-- **State:** in development
+- **State:** production
 - **Production:** [http://kaws.artsy.net](http://kaws.artsy.net/playground) |
   [k8s](https://kubernetes.artsy.net/#!/deployment/default/kaws-web?namespace=default)
 - **Staging:**
@@ -46,7 +46,8 @@ Usually you do not have to change them, but if you need, update the variables to
 match your local development setup.
 
 Once this is done, the next step would be to load test data. The collection data
-is maintained by Artsy's marketing team [in Google Drive as a spreadsheet](https://docs.google.com/spreadsheets/d/1K-FBuIQYiU75ETBEgU0YuexznElKCLi5Tr_P2bqkFZw/edit#gid=23745674)
+is maintained by Artsy's marketing team
+[in Google Drive as a spreadsheet](https://docs.google.com/spreadsheets/d/1K-FBuIQYiU75ETBEgU0YuexznElKCLi5Tr_P2bqkFZw/edit#gid=23745674)
 (you need an `@artsymail.com` account). Download it as a CSV file (in this case
 saved as `collections.csv`) and try running the command below to load the data
 to your local MongoDB instance:
@@ -62,8 +63,8 @@ yarn dev
 ```
 
 Then open http://localhost:4000/playground and you should see Apollo's GraphQL
-Playground. Try running the GraphQL query below, and if you see
-`"KAWS, Companions"` and `"Pablo Picasso, Lithographs"` you are good to go!
+Playground. Try running the GraphQL query below, and if you see real collections
+data coming back from the database you are good to go!
 
 ```graphql
 query {
@@ -82,16 +83,26 @@ yarn jest
 ```
 
 ## Did you change the GraphQL schema?
-Metaphysics is the current consumer of Kaws GraphQL schema, and keeps a copy of its latest schema in https://github.com/artsy/metaphysics/tree/master/src/data. If you have made changes to the Kaws GraphQL schema, make sure you also update the copy of this schema in Metaphysics. In order to do so follow these steps:
-1) In kaws run
+
+Metaphysics is the current consumer of Kaws GraphQL schema, and keeps a copy of
+its latest schema in https://github.com/artsy/metaphysics/tree/master/src/data.
+If you have made changes to the Kaws GraphQL schema, make sure you also update
+the copy of this schema in Metaphysics. In order to do so follow these steps:
+
+1. In kaws run
+
 ```shell
 yarn dump-schema
 ```
-2) copy the `_schema.graphql` file generated ☝🏼 to `kaws.graphql`
+
+2. copy the `_schema.graphql` file generated ☝🏼 to `kaws.graphql`
+
 ```shell
 cp _schema.graphql kaws.graphql
 ```
-3) move the file above to your local Metaphysics under `src/data` and make a PR to Metaphysics with this change.
+
+3. move the file above to your local Metaphysics under `src/data` and make a PR
+   to Metaphysics with this change.
 
 ## Updating the sitemap for Collect
 

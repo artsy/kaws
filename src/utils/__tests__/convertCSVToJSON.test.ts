@@ -20,6 +20,7 @@ describe("convertCSVToJSON", () => {
           '<p>Although <a href="https://www.artsy.net/artist/alexander-calder">Alexander Calder</a> might be best known for his <a href="https://www.artsy.net/collection/alexander-calder-mobiles">wire mobiles</a>, the artist was also an avid printmaker at the end of his career. Featuring primary colors, geometric lines and spirals, and flattened biomorphic shapes, the imagery in Calder’s lithographs is often reminiscent of his sculptural work. While many of Calder’s prints may initially appear abstract, a closer look will reveal symbols of people, plants, and animals. Calder even used his prints for political activism—in 1967 and 1969, Calder produced posters protesting the Vietnam War.</p>',
         headerImage:
           "http://files.artsy.net/images/alexandercalderlithographs.png",
+        thumbnail: "http://files.artsy.net/images/thumb1.png",
         credit:
           "<p>&copy; Alexander Calder / Artist Rights Society (ARS), New York, NY.</p>",
         query: {
@@ -30,6 +31,7 @@ describe("convertCSVToJSON", () => {
         },
         price_guidance: 1000,
         show_on_editorial: true,
+        linkedCollections: [],
       },
       {
         title: "Andy Warhol: Bananas",
@@ -38,6 +40,7 @@ describe("convertCSVToJSON", () => {
         description:
           '<p>In 1967, <a href="https://www.artsy.net/artist/andy-warhol">Andy Warhol</a> designed one of the most iconic album covers of all time, featuring a simple yellow banana on the sleeve of The Velvet Underground’s debut record. Warhol, undeterred by his lack of experience in the music industry, had become the band’s manager two years prior and even introduced the German vocalist Nico to the group. Early editions of the record cover featured removable stickers, allowing music fans to peel the banana’s yellow skin to reveal a pink fruit underneath. These early covers, now a rare collector’s item, also included the titillating suggestion, “Peel Slowly and See.” Though Warhol cut ties with The Velvet Underground in 1968, he continued experimenting with the banana motif in silkscreens and polaroids, favoring the fruit for its phallic shape and ubiquity in American daily life.</p>',
         headerImage: "http://files.artsy.net/images/andywarholbanana.png",
+        thumbnail: "http://files.artsy.net/images/thumb2.png",
         credit:
           "<p>&copy; Andy Warhol / Artist Rights Society (ARS), New York, NY.</p>",
         query: {
@@ -48,8 +51,105 @@ describe("convertCSVToJSON", () => {
         },
         show_on_editorial: false,
         price_guidance: null,
+        linkedCollections: [],
       },
     ])
+  })
+
+  it("respects hub data", async () => {
+    const csvFile = path.resolve(
+      __dirname,
+      "../../../fixtures/hub_collection_test_data.csv"
+    )
+
+    const result = await convertCSVToJSON(csvFile)
+    const expected = [
+      {
+        title: "Agnes Martin: Lithographs",
+        slug: "agnes-martin-lithographs",
+        category: "Abstract Art",
+        description: "",
+        headerImage:
+          "http://files.artsy.net/images/agnes_martin_lithographs.png",
+        thumbnail: "http://files.artsy.net/images/thumb1.png",
+        credit:
+          "<p>&copy; Agnes Martin / Artist Rights Society (ARS), New York, NY.</p>",
+        price_guidance: null,
+        show_on_editorial: false,
+        is_featured_artist_content: false,
+        linkedCollections: [
+          {
+            name: "Artist Series",
+            members: ["artist-series-1", "artist-series-2", "artist-series-3"],
+          },
+          {
+            name: "Featured Collections",
+            members: ["featured-collection-1", "featured-collection-2"],
+          },
+          {
+            name: "Related Collections",
+            members: ["other-collection-1", "other-collection-2"],
+          },
+        ],
+        query: {
+          artist_ids: ["4ddbb20eb773bf00010031ea"],
+          gene_ids: ["lithograph-1", "lithograph-2"],
+          tag_id: "",
+          keyword: "lithograph",
+        },
+      },
+      {
+        title: "Agnes Martin: Praise",
+        slug: "agnes-martin-praise",
+        category: "Abstract Art",
+        description: "",
+        headerImage: "http://files.artsy.net/images/agnes_martin_praise.png",
+        thumbnail: "http://files.artsy.net/images/thumb2.png",
+        credit:
+          "<p>&copy; Agnes Martin / Artist Rights Society (ARS), New York, NY.</p>",
+        price_guidance: null,
+        show_on_editorial: false,
+        is_featured_artist_content: false,
+        linkedCollections: [
+          { name: "Artist Series", members: ["artist-series-3"] },
+          {
+            name: "Other Collections",
+            members: ["other-collection-2", "other-collection-3"],
+          },
+        ],
+        query: {
+          artist_ids: ["4ddbb20eb773bf00010031ea"],
+          gene_ids: [],
+          tag_id: "",
+          keyword: "praise",
+        },
+      },
+      {
+        title: "Alberto Giacometti: Busts",
+        slug: "alberto-giacometti-busts",
+        category: "Modern",
+        description: "",
+        headerImage:
+          "http://files.artsy.net/images/alberto_giacometti_busts.png",
+        thumbnail: "http://files.artsy.net/images/thumb3.png",
+        credit:
+          "<p>&copy; Alberto Giacometti / Artist Rights Society (ARS), New York, NY.</p>",
+        price_guidance: null,
+        show_on_editorial: false,
+        is_featured_artist_content: false,
+        linkedCollections: [
+          { name: "Featured Collections", members: ["featured-collection-2"] },
+        ],
+        query: {
+          artist_ids: ["4e1716d0f1bf8f00010023d8"],
+          gene_ids: [],
+          tag_id: "",
+          keyword: "bust",
+        },
+      },
+    ]
+
+    expect(result).toMatchObject(expected)
   })
 })
 

@@ -21,7 +21,14 @@ export const upload = async (
       .send("A valid spreadSheetID and sheetName is required")
   }
 
-  const data: object[] = await gSheetDataFetcher(spreadSheetID, sheetName)
+  let data: object[]
+  try {
+    data = await gSheetDataFetcher(spreadSheetID, sheetName)
+  } catch (e) {
+    console.log(e.message)
+    console.dir(e)
+    return res.status(500).send(e.message)
+  }
 
   const rows = data.slice(1).map((row: string[]) => {
     const [
@@ -30,6 +37,7 @@ export const upload = async (
       category,
       description,
       headerImage,
+      thumbnail,
       credit,
       artist_ids,
       gene_ids,
@@ -38,6 +46,12 @@ export const upload = async (
       price_guidance,
       show_on_editorial,
       is_featured_artist_content,
+      artist_series_label,
+      artist_series,
+      featured_collections_label,
+      featured_collections,
+      other_collections_label,
+      other_collections,
     ] = row
 
     return sanitizeRow({
@@ -46,6 +60,7 @@ export const upload = async (
       category,
       description,
       headerImage,
+      thumbnail,
       credit,
       artist_ids,
       gene_ids,
@@ -54,6 +69,12 @@ export const upload = async (
       price_guidance,
       show_on_editorial,
       is_featured_artist_content,
+      artist_series_label,
+      artist_series,
+      featured_collections_label,
+      featured_collections,
+      other_collections_label,
+      other_collections,
     })
   })
   updateDatabase(rows)

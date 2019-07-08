@@ -25,6 +25,7 @@ export const convertCSVToJSON: (string) => Promise<Collection[]> = (
               category,
               description,
               headerImage,
+              thumbnail,
               credit,
               artist_ids,
               gene_ids,
@@ -33,6 +34,12 @@ export const convertCSVToJSON: (string) => Promise<Collection[]> = (
               price_guidance,
               show_on_editorial = false,
               is_featured_artist_content = false,
+              artist_series_label,
+              artist_series,
+              featured_collections_label,
+              featured_collections,
+              other_collections_label,
+              other_collections,
             }) =>
               sanitizeRow({
                 title,
@@ -40,6 +47,7 @@ export const convertCSVToJSON: (string) => Promise<Collection[]> = (
                 category,
                 description,
                 headerImage,
+                thumbnail,
                 credit,
                 artist_ids,
                 gene_ids,
@@ -48,6 +56,12 @@ export const convertCSVToJSON: (string) => Promise<Collection[]> = (
                 price_guidance,
                 show_on_editorial,
                 is_featured_artist_content,
+                artist_series_label,
+                artist_series,
+                featured_collections_label,
+                featured_collections,
+                other_collections_label,
+                other_collections,
               })
           )
 

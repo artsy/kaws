@@ -1,5 +1,6 @@
 import { Field, ID, ObjectType } from "type-graphql"
 import { Column, Entity, Index, ObjectID, ObjectIdColumn } from "typeorm"
+import { CollectionGroup } from "./CollectionGroup"
 import { CollectionQuery } from "./CollectionQuery"
 
 @ObjectType({ description: "Object representing a collection page" })
@@ -35,6 +36,14 @@ export class Collection {
   })
   @Column()
   headerImage?: string
+
+  @Field(type => String, {
+    nullable: true,
+    description:
+      "URL for Thumbnail image to be used when this collection is displayed.",
+  })
+  @Column()
+  thumbnail?: string | null = null
 
   @Field(type => String, {
     description: "Set of keywords used for SEO purposes",
@@ -85,4 +94,10 @@ export class Collection {
   })
   @Column({ default: false })
   is_featured_artist_content: boolean = false
+
+  @Field(type => [CollectionGroup], {
+    description: "CollectionGroups of this collection",
+  })
+  @Column({ default: [] })
+  linkedCollections: CollectionGroup[]
 }
