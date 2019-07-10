@@ -25,6 +25,7 @@
   },
   "jest": {
     "preset": "ts-jest",
+    "setupFiles": ["<rootDir>/src/test/config.ts"],
     "testMatch": [
       "**/__tests__/**/*test.ts"
     ],

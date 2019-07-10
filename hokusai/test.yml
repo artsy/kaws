@@ -1,8 +1,27 @@
----
-version: '2'
+version: "2"
 services:
   kaws:
     command: ["yarn", "test"]
     extends:
       file: build.yml
       service: kaws
+    environment:
+      - ELASTICSEARCH_URL=http://kaws-elasticsearch:9200
+      - MONGOHQ_URL=mongodb://kaws-mongodb:27017/kaws-test
+    depends_on:
+      - kaws-mongodb
+      - kaws-elasticsearch
+  kaws-elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.6.16
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+  kaws-mongodb:
+    image: mongo:4.0
+    ports:
+      - "27017:27017"
+    command: ["--storageEngine=mmapv1", "--quiet", "--nojournal"]
