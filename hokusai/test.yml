@@ -8,6 +8,7 @@ services:
     environment:
       - ELASTICSEARCH_URL=http://kaws-elasticsearch:9200
       - MONGOHQ_URL=mongodb://kaws-mongodb:27017/kaws-test
+    env_file: ../.env.test
     depends_on:
       - kaws-mongodb
       - kaws-elasticsearch

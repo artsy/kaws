@@ -19,13 +19,14 @@ describe.only("CRUD operations work", () => {
   })
   beforeEach(async () => {
     try {
-      connection.getRepository(Collection).clear()
+      await connection.getRepository(Collection).clear()
     } catch (e) {
-      console.warn(e.message)
+      // This will fail the first time it runs because there's nothing to clear.
+      // it's no big.
     }
   })
   afterAll(async () => {
-    connection.close()
+    await connection.close()
   })
   it("can retrieve a saved entity", async () => {
     const collectionRepository = connection.getRepository(Collection)
