@@ -75,6 +75,20 @@ export class CollectionsResolver {
     return await this.repository.findOne({ slug })
   }
 
+  @Query(returns => [Collection])
+  async hubCollections() {
+    const hubslugs = [
+      "contemporary-art",
+      "post-war-art",
+      "impressionist-and-modern-art",
+      "pre-twentieth-century",
+      "photography",
+      "street-art",
+    ]
+
+    return await hubslugs.map(async slug => await this.collection(slug))
+  }
+
   @FieldResolver(type => [Collection])
   async relatedCollections(
     @Root() collection: Collection
