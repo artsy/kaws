@@ -107,6 +107,7 @@ type Query {
   collections(category: String, randomizationSeed: String, size: Int, isFeaturedArtistContent: Boolean, showOnEditorial: Boolean, artistID: String): [Collection!]!
   categories: [CollectionCategory!]!
   collection(slug: String!): Collection
+  hubCollections: [Collection!]!
 }
 "
 `;
