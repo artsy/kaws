@@ -1,5 +1,6 @@
-import { Field, ID, ObjectType, registerEnumType } from "type-graphql"
+import { Field, ObjectType, registerEnumType } from "type-graphql"
 import { Column, Entity, ObjectID, ObjectIdColumn } from "typeorm"
+import { Collection } from "./Collection"
 
 export enum GroupType {
   ArtistSeries,
@@ -15,7 +16,6 @@ registerEnumType(GroupType, {
 @ObjectType()
 @Entity()
 export class CollectionGroup {
-  @Field(type => ID)
   @ObjectIdColumn()
   id: ObjectID
 
@@ -27,7 +27,7 @@ export class CollectionGroup {
   @Column()
   name: string
 
-  @Field(type => [String!]!, { nullable: false })
+  @Field(type => [Collection], { nullable: false })
   @Column()
-  members: string[] = []
+  members: Collection[] = []
 }
