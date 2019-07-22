@@ -39,7 +39,7 @@ describe("GSheetImport", () => {
 
     it("Calls updateDatabase with downloaded rows data", async () => {
       req.body = {
-        spreadSheetID: "123",
+        spreadSheetID: "test_id123",
         sheetName: "'All'",
       }
 
@@ -123,6 +123,18 @@ describe("GSheetImport", () => {
       ])
 
       expect(res.send).toBeCalledWith(200)
+    })
+
+    it("responds with 500 if spreadsheetID is not in whitelist", async () => {
+      req.body = {
+        spreadSheetID: "not_in_whitelist_123",
+        sheetName: "'All'",
+      }
+
+      await upload(req, res, next)
+
+      expect(res.status).toBeCalledWith(500)
+      expect(res.send).toBeCalledWith("A valid spreadSheetID is required")
     })
   })
 })
