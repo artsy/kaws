@@ -4,6 +4,8 @@ import { gSheetDataFetcher } from "../utils/gSheetDataFetcher"
 import { sanitizeRow } from "../utils/sanitizeRow"
 import { updateDatabase } from "../utils/updateDatabase"
 
+const { SPREADSHEET_IDS_WHITELIST } = process.env
+
 const app = express()
 
 app.use(bodyParser.json())
@@ -14,11 +16,16 @@ export const upload = async (
   next: express.NextFunction
 ) => {
   const { spreadSheetID, sheetName } = req.body
+  const authorizedIDs = (SPREADSHEET_IDS_WHITELIST || "").split(",")
 
   if (!spreadSheetID || !sheetName) {
     return res
       .status(500)
       .send("A valid spreadSheetID and sheetName is required")
+  }
+
+  if (!authorizedIDs.includes(spreadSheetID)) {
+    return res.status(500).send("A valid spreadSheetID is required")
   }
 
   let data: object[]
