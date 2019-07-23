@@ -51,10 +51,9 @@ type CollectionCategory {
 }
 
 type CollectionGroup {
-  id: ID!
   groupType: GroupTypes!
   name: String!
-  members: [String!]!
+  members: [Collection!]!
 }
 
 type CollectionQuery {
@@ -100,6 +99,13 @@ enum GroupTypes {
   OtherCollections
 }
 
+type Image {
+  id: ID!
+  small: String!
+  medium: String!
+  large: String!
+}
+
 type Query {
   collections(
     category: String
@@ -111,4 +117,5 @@ type Query {
   ): [Collection!]!
   categories: [CollectionCategory!]!
   collection(slug: String!): Collection
+  hubCollections: [Collection!]!
 }

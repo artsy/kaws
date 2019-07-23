@@ -98,6 +98,6 @@ export class Collection {
   @Field(type => [CollectionGroup], {
     description: "CollectionGroups of this collection",
   })
-  @Column({ default: [] })
+  @Column(type => CollectionGroup)
   linkedCollections: CollectionGroup[]
 }

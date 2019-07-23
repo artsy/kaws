@@ -1,6 +1,7 @@
 import { isEmpty, reject } from "lodash"
 import { Arg, FieldResolver, Int, Query, Resolver, Root } from "type-graphql"
 import { getMongoRepository } from "typeorm"
+import { CollectionGroup } from "../Entities"
 import { Collection } from "../Entities/Collection"
 import { CollectionCategory } from "../Entities/CollectionCategory"
 
@@ -75,6 +76,20 @@ export class CollectionsResolver {
     return await this.repository.findOne({ slug })
   }
 
+  @Query(returns => [Collection])
+  async hubCollections() {
+    const hubslugs = [
+      "contemporary-art",
+      "post-war-art",
+      "impressionist-and-modern-art",
+      "pre-twentieth-century",
+      "photography",
+      "street-art",
+    ]
+
+    return await hubslugs.map(async slug => await this.collection(slug))
+  }
+
   @FieldResolver(type => [Collection])
   async relatedCollections(
     @Root() collection: Collection
@@ -108,12 +123,21 @@ export class CollectionsResolver {
     return relatedCategoryCollections
   }
 
-  // @Mutation(type => Collection)
-  // async createCollection(@Arg("collectionInput") collectionInput: AddCollectionInput): Promise<Collection> {
-  //   const collection = this.repository.create(collectionInput)
+  @FieldResolver(type => [CollectionGroup])
+  async linkedCollections(
+    @Root() collection: Collection
+  ): Promise<CollectionGroup[]> {
+    const groups = await collection.linkedCollections.map(
+      async linkedCollection => {
+        return {
+          ...linkedCollection,
+          members: await this.repository.find({
+            where: { slug: { $in: linkedCollection.members } },
+          }),
+        } as CollectionGroup
+      }
+    )
 
-  //   // TODO: validate input
-
-  //   return await this.repository.save(collection)
-  // }
+    return await Promise.all(groups)
+  }
 }
