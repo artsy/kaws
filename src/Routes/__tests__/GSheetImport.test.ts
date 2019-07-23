@@ -125,9 +125,9 @@ describe("GSheetImport", () => {
       expect(res.send).toBeCalledWith(200)
     })
 
-    it("responds with 500 if spreadsheetID is not in whitelist", async () => {
+    it("responds with 500 if spreadsheetID is not in allowlist", async () => {
       req.body = {
-        spreadSheetID: "not_in_whitelist_123",
+        spreadSheetID: "not_in_allowlist_123",
         sheetName: "'All'",
       }
 

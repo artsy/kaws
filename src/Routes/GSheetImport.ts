@@ -4,7 +4,7 @@ import { gSheetDataFetcher } from "../utils/gSheetDataFetcher"
 import { sanitizeRow } from "../utils/sanitizeRow"
 import { updateDatabase } from "../utils/updateDatabase"
 
-const { SPREADSHEET_IDS_WHITELIST } = process.env
+const { SPREADSHEET_IDS_ALLOWLIST } = process.env
 
 const app = express()
 
@@ -16,7 +16,7 @@ export const upload = async (
   next: express.NextFunction
 ) => {
   const { spreadSheetID, sheetName } = req.body
-  const authorizedIDs = (SPREADSHEET_IDS_WHITELIST || "").split(",")
+  const authorizedIDs = (SPREADSHEET_IDS_ALLOWLIST || "").split(",")
 
   if (!spreadSheetID || !sheetName) {
     return res
