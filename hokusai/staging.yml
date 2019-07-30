@@ -148,3 +148,38 @@ spec:
                         values:
                           - background
       backoffLimit: 2
+---
+apiVersion: batch/v2alpha1
+kind: CronJob
+metadata:
+  name: kaws-update-elastic-search
+spec:
+  schedule: 7 15 * * *
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: kaws-update-elastic-search
+              image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/kaws:staging
+              args:
+                - "yarn"
+                - "run"
+                - "index-for-search"
+              imagePullPolicy: Always
+              envFrom:
+                - configMapRef:
+                    name: kaws-environment
+          restartPolicy: Never
+          affinity:
+            nodeAffinity:
+              preferredDuringSchedulingIgnoredDuringExecution:
+                - weight: 1
+                  preference:
+                    matchExpressions:
+                      - key: tier
+                        operator: In
+                        values:
+                          - background
+      backoffLimit: 2
