@@ -137,7 +137,6 @@ spec:
                 - configMapRef:
                     name: kaws-environment
           restartPolicy: Never
-          backoffLimit: 2
           affinity:
             nodeAffinity:
               preferredDuringSchedulingIgnoredDuringExecution:
@@ -148,3 +147,4 @@ spec:
                         operator: In
                         values:
                           - background
+      backoffLimit: 2
