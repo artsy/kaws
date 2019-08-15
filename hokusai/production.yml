@@ -113,3 +113,38 @@ spec:
     component: web
   sessionAffinity: None
   type: LoadBalancer
+---
+apiVersion: batch/v2alpha1
+kind: CronJob
+metadata:
+  name: kaws-update-sailthu
+spec:
+  schedule: 13 13 * * *
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: kaws-update-sailthru
+              image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/kaws:production
+              args:
+                - "yarn"
+                - "run"
+                - "update-sailthru"
+              imagePullPolicy: Always
+              envFrom:
+                - configMapRef:
+                    name: kaws-environment
+          restartPolicy: Neve
+          affinity:
+            nodeAffinity:
+              preferredDuringSchedulingIgnoredDuringExecution:
+                - weight: 1
+                  preference:
+                    matchExpressions:
+                      - key: tier
+                        operator: In
+                        values:
+                          - background
+      backoffLimit: 2
