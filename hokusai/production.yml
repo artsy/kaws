@@ -136,7 +136,7 @@ spec:
               envFrom:
                 - configMapRef:
                     name: kaws-environment
-          restartPolicy: Neve
+          restartPolicy: Never
           affinity:
             nodeAffinity:
               preferredDuringSchedulingIgnoredDuringExecution:
