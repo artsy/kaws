@@ -1,7 +1,7 @@
 import * as path from "path"
 
 import { convertCSVToJSON } from "../convertCSVToJSON"
-import { sanitizeSlug } from "../sanitizeRow"
+import { sanitizeSlug } from "../processInput"
 
 describe("convertCSVToJSON", () => {
   it("converts csv to json correctly", async () => {
@@ -138,10 +138,7 @@ describe("convertCSVToJSON", () => {
         show_on_editorial: false,
         is_featured_artist_content: false,
         linkedCollections: [
-          {
-            name: "Featured Collections",
-            members: ["agnes-martin-lithographs"],
-          },
+          { name: "Featured Collections", members: ["agnes-martin-lithographs"] },
         ],
         query: {
           artist_ids: ["4e1716d0f1bf8f00010023d8"],
@@ -153,40 +150,6 @@ describe("convertCSVToJSON", () => {
     ]
 
     expect(result).toMatchObject(expected)
-  })
-
-  it("validates that hub data resolves correctly", async () => {
-    expect.assertions(2)
-    const goodSlugs = path.resolve(
-      __dirname,
-      "../../../fixtures/hub_collection_test_data.csv"
-    )
-
-    const badSlugs = path.resolve(
-      __dirname,
-      "../../../fixtures/invalid_hub_collection_test_data.csv"
-    )
-
-    const data = await convertCSVToJSON(goodSlugs)
-    expect(data.length).toBe(3)
-
-    try {
-      await convertCSVToJSON(badSlugs)
-    } catch (e) {
-      expect(e).toEqual({
-        error: "Unable to resolve one or more linked slugs",
-        unresolvable_slugs: [
-          "artist-series-1",
-          "artist-series-2",
-          "artist-series-3",
-          "featured-collection-1",
-          "featured-collection-2",
-          "other-collection-1",
-          "other-collection-2",
-          "other-collection-3",
-        ],
-      })
-    }
   })
 })
 

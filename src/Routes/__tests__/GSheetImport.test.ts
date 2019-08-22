@@ -110,12 +110,12 @@ describe("GSheetImport", () => {
           linkedCollections: [
             {
               name: "ARTISTS",
-              members: ["foo", "bar", "baz"],
+              members: ["anish-kapoor-etchings"],
               groupType: GroupType.ArtistSeries,
             },
             {
               name: "OTHER",
-              members: ["random-collection-slug-1", "random-collection-slug-2"],
+              members: ["andy-warhol-superman"],
               groupType: GroupType.OtherCollections,
             },
           ],
@@ -202,10 +202,10 @@ const rows = [
     "",
     "TRUE",
     "ARTISTS",
-    "foo,bar,baz",
+    "anish-kapoor-etchings",
     "FEATURED",
     "",
     "OTHER",
-    "random-collection-slug-1,random-collection-slug-2",
+    "andy-warhol-superman",
   ],
 ]
