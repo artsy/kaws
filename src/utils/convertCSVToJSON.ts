@@ -1,7 +1,7 @@
 import * as csv from "csv-parser"
 import * as fs from "fs"
 import { Collection } from "../Entities/Collection"
-import { sanitizeRow } from "./sanitizeRow"
+import { validateAndSanitizeInput } from "./processInput"
 
 export const convertCSVToJSON: (string) => Promise<Collection[]> = (
   path: string
@@ -16,55 +16,9 @@ export const convertCSVToJSON: (string) => Promise<Collection[]> = (
     fs.createReadStream(path)
       .pipe(csv())
       .on("data", data => results.push(data))
-      .on("end", () => {
+      .on("end", async () => {
         if (results.length > 0) {
-          const formattedCollections = results.map(
-            ({
-              title,
-              slug,
-              category,
-              description,
-              headerImage,
-              thumbnail,
-              credit,
-              artist_ids,
-              gene_ids,
-              tag_id,
-              keyword,
-              price_guidance,
-              show_on_editorial = false,
-              is_featured_artist_content = false,
-              artist_series_label,
-              artist_series,
-              featured_collections_label,
-              featured_collections,
-              other_collections_label,
-              other_collections,
-            }) =>
-              sanitizeRow({
-                title,
-                slug,
-                category,
-                description,
-                headerImage,
-                thumbnail,
-                credit,
-                artist_ids,
-                gene_ids,
-                tag_id,
-                keyword,
-                price_guidance,
-                show_on_editorial,
-                is_featured_artist_content,
-                artist_series_label,
-                artist_series,
-                featured_collections_label,
-                featured_collections,
-                other_collections_label,
-                other_collections,
-              })
-          )
-
+          const formattedCollections = validateAndSanitizeInput(results)
           resolve(formattedCollections)
         } else {
           resolve([])

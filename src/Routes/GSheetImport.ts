@@ -1,7 +1,7 @@
 import * as bodyParser from "body-parser"
 import * as express from "express"
 import { gSheetDataFetcher } from "../utils/gSheetDataFetcher"
-import { sanitizeRow } from "../utils/sanitizeRow"
+import { validateAndSanitizeInput } from "../utils/processInput"
 import { updateDatabase } from "../utils/updateDatabase"
 
 const { SPREADSHEET_IDS_ALLOWLIST } = process.env
@@ -37,7 +37,7 @@ export const upload = async (
     return res.status(500).send(e.message)
   }
 
-  const rows = data.slice(1).map((row: string[]) => {
+  const input = data.slice(1).map((row: string[]) => {
     const [
       title,
       slug,
@@ -61,7 +61,7 @@ export const upload = async (
       other_collections,
     ] = row
 
-    return sanitizeRow({
+    return {
       title,
       slug,
       category,
@@ -82,8 +82,9 @@ export const upload = async (
       featured_collections,
       other_collections_label,
       other_collections,
-    })
+    }
   })
+  const rows = validateAndSanitizeInput(input)
   updateDatabase(rows)
 
   res.send(200)
