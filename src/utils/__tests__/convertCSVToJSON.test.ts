@@ -1,7 +1,7 @@
 import * as path from "path"
 
 import { convertCSVToJSON } from "../convertCSVToJSON"
-import { sanitizeSlug } from "../sanitizeRow"
+import { sanitizeSlug } from "../processInput"
 
 describe("convertCSVToJSON", () => {
   it("converts csv to json correctly", async () => {
@@ -80,15 +80,15 @@ describe("convertCSVToJSON", () => {
         linkedCollections: [
           {
             name: "Artist Series",
-            members: ["artist-series-1", "artist-series-2", "artist-series-3"],
+            members: ["agnes-martin-lithographs", "alberto-giacometti-busts"],
           },
           {
             name: "Featured Collections",
-            members: ["featured-collection-1", "featured-collection-2"],
+            members: ["agnes-martin-lithographs", "alberto-giacometti-busts"],
           },
           {
             name: "Related Collections",
-            members: ["other-collection-1", "other-collection-2"],
+            members: ["agnes-martin-lithographs", "alberto-giacometti-busts"],
           },
         ],
         query: {
@@ -111,10 +111,10 @@ describe("convertCSVToJSON", () => {
         show_on_editorial: false,
         is_featured_artist_content: false,
         linkedCollections: [
-          { name: "Artist Series", members: ["artist-series-3"] },
+          { name: "Artist Series", members: ["agnes-martin-lithographs"] },
           {
             name: "Other Collections",
-            members: ["other-collection-2", "other-collection-3"],
+            members: ["agnes-martin-lithographs", "alberto-giacometti-busts"],
           },
         ],
         query: {
@@ -138,7 +138,7 @@ describe("convertCSVToJSON", () => {
         show_on_editorial: false,
         is_featured_artist_content: false,
         linkedCollections: [
-          { name: "Featured Collections", members: ["featured-collection-2"] },
+          { name: "Featured Collections", members: ["agnes-martin-lithographs"] },
         ],
         query: {
           artist_ids: ["4e1716d0f1bf8f00010023d8"],
