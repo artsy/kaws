@@ -18,8 +18,12 @@ export const convertCSVToJSON: (string) => Promise<Collection[]> = (
       .on("data", data => results.push(data))
       .on("end", async () => {
         if (results.length > 0) {
-          const formattedCollections = validateAndSanitizeInput(results)
-          resolve(formattedCollections)
+          try {
+            const formattedCollections = validateAndSanitizeInput(results)
+            resolve(formattedCollections)
+          } catch (e) {
+            reject(e)
+          }
         } else {
           resolve([])
         }

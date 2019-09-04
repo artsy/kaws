@@ -84,10 +84,16 @@ export const upload = async (
       other_collections,
     }
   })
-  const rows = validateAndSanitizeInput(input)
-  updateDatabase(rows)
 
-  res.send(200)
+  try {
+    const rows = validateAndSanitizeInput(input)
+    await updateDatabase(rows)
+    res.send(200)
+  } catch (e) {
+    console.log("There was an error uploading collection data.")
+    console.log(e.message)
+    res.status(500).send(e.message)
+  }
 }
 
 app.post("/upload", upload)

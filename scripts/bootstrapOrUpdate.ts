@@ -12,8 +12,8 @@ const csvFile = process.argv[2]
  * @usage yarn update-database ./fixtures/collections.csv
  */
 export async function bootstrapOrUpdate(path: string) {
-  const data = await convertCSVToJSON(path)
   try {
+    const data = await convertCSVToJSON(path)
     await updateDatabase(data)
     process.exit(0)
   } catch (e) {
