@@ -1,41 +1,7 @@
 import slugify from "slugify"
 import { Collection, CollectionGroup, GroupType } from "../Entities"
 
-const validate = input => {
-  const by_slug = input.reduce((acc, val) => ({ ...acc, [val.slug]: true }), {})
-  const bad_slugs = new Set()
-
-  const process_link = slug_string =>
-    slug_string.split(",").forEach(slug => {
-      if (slug && !by_slug[slug]) {
-        bad_slugs.add(slug)
-      }
-    })
-
-  input.forEach(
-    ({ artist_series, featured_collections, other_collections }) => {
-      artist_series && process_link(artist_series)
-      featured_collections && process_link(featured_collections)
-      other_collections && process_link(other_collections)
-    }
-  )
-
-  return bad_slugs
-}
-
-export const validateAndSanitizeInput = rows => {
-  const bad_slugs = validate(rows)
-  console.log("Validation errors found:", bad_slugs.size)
-  if (bad_slugs.size > 0) {
-    throw new Error(
-      "Unable to resolve one or more linked slugs: " +
-        Array.from(bad_slugs).join(" | ")
-    )
-  }
-  return rows.map(sanitizeRow)
-}
-
-const sanitizeRow = ({
+export const sanitizeRow = ({
   title,
   slug,
   category,
