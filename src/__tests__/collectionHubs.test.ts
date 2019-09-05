@@ -7,10 +7,10 @@ import { createSchema } from "../utils/createSchema"
 jest.unmock("typeorm")
 
 const hub_slugs = [
-  "contemporary-art",
-  "post-war-art",
-  "impressionist-and-modern-art",
-  "pre-twentieth-century",
+  "contemporary",
+  "post-war",
+  "impressionist-and-modern",
+  "pre-20th-century",
   "photography",
   "street-art",
 ]
