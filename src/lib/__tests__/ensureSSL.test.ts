@@ -15,7 +15,6 @@ describe("Ensure SSL middleware", () => {
     req.protocol = "http:"
 
     ensureSSL(req, res, next)
-    console.log("redirect:", res.redirect.mock.calls)
     expect(res.redirect.mock.calls[0]).toEqual([
       301,
       "https://foobar.com/terms",
