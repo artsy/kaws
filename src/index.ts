@@ -17,7 +17,6 @@ import { parse } from "mongodb-uri"
 import * as morgan from "morgan"
 import { Connection, createConnection } from "typeorm"
 import { databaseConfig } from "./config/database"
-import { ensureSSL } from "./lib/ensureSSL"
 import GSheetImportApp from "./Routes/GSheetImport"
 import { createSchema } from "./utils/createSchema"
 
@@ -71,9 +70,6 @@ async function bootstrap() {
 
     // Setup middleware
     app.use(morgan("combined"))
-
-    // Make sure we're using SSL
-    app.use(ensureSSL)
 
     // Setup endpoints
     app.get("/health", (req, res) => res.status(200).end())
