@@ -21,7 +21,7 @@ spec:
         - name: kaws-web
           env:
             - name: PORT
-              value: "4000"
+              value: "8080"
             - name: DD_TRACE_AGENT_HOSTNAME
               valueFrom:
                 fieldRef:
@@ -33,7 +33,7 @@ spec:
           imagePullPolicy: Always
           ports:
             - name: kaws-http
-              containerPort: 4000
+              containerPort: 8080
           resources:
             requests:
               cpu: 500m
@@ -50,6 +50,35 @@ spec:
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 5
+        - name: kaws-nginx
+          image: artsy/docker-nginx:1.14.2
+          ports:
+            - name: nginx-http
+              containerPort: 80
+          readinessProbe:
+            tcpSocket:
+              port: nginx-http
+            initialDelaySeconds: 5
+            periodSeconds: 15
+            timeoutSeconds: 10
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/usr/sbin/nginx", "-s", "quit"]
+          env:
+            - name: "NGINX_DEFAULT_CONF"
+              valueFrom:
+                configMapKeyRef:
+                  name: nginx-config
+                  key: default
+          volumeMounts:
+            - name: nginx-secrets
+              mountPath: /etc/nginx/ssl
+      volumes:
+        - name: nginx-secrets
+          secret:
+            secretName: nginx-secrets
+            defaultMode: 420
       dnsPolicy: ClusterFirst
       dnsConfig:
         options:
@@ -102,11 +131,11 @@ spec:
     - port: 443
       protocol: TCP
       name: https
-      targetPort: kaws-http
+      targetPort: nginx-http
     - port: 80
       protocol: TCP
       name: http
-      targetPort: kaws-http
+      targetPort: nginx-http
   selector:
     app: kaws
     layer: application
