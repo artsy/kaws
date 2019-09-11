@@ -29,10 +29,11 @@ export const gSheetDataFetcher = async (
         }
         const rows = res.data.values
         if (rows.length) {
+          console.log(`Processing ${rows.length} rows.`)
           resolve(rows)
-          console.log(rows)
         } else {
           console.log("No data found.")
+          reject([])
         }
       }
     )

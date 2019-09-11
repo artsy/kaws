@@ -1,7 +1,7 @@
 import * as csv from "csv-parser"
 import * as fs from "fs"
 import { Collection } from "../Entities/Collection"
-import { validateAndSanitizeInput } from "./processInput"
+import { sanitizeRow } from "./processInput"
 
 export const convertCSVToJSON: (string) => Promise<Collection[]> = (
   path: string
@@ -18,8 +18,12 @@ export const convertCSVToJSON: (string) => Promise<Collection[]> = (
       .on("data", data => results.push(data))
       .on("end", async () => {
         if (results.length > 0) {
-          const formattedCollections = validateAndSanitizeInput(results)
-          resolve(formattedCollections)
+          try {
+            const formattedCollections = results.map(sanitizeRow)
+            resolve(formattedCollections)
+          } catch (e) {
+            reject(e)
+          }
         } else {
           resolve([])
         }
