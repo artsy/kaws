@@ -73,7 +73,7 @@ async function bootstrap() {
     app.use(morgan("combined"))
 
     // Make sure we're using SSL
-    if (process.env.NODE_ENV !== "development") {
+    if (NODE_ENV !== "development") {
       app.use(ensureSSL)
       app.set("trust proxy", true)
     }
