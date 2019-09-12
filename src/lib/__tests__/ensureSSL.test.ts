@@ -6,7 +6,7 @@ describe("Ensure SSL middleware", () => {
   let next
 
   beforeEach(() => {
-    req = { params: {}, logout: jest.fn(), url: "/terms" }
+    req = { params: {}, logout: jest.fn(), url: "/health" }
     res = { redirect: jest.fn() }
     next = jest.fn()
   })
@@ -17,7 +17,7 @@ describe("Ensure SSL middleware", () => {
     ensureSSL(req, res, next)
     expect(res.redirect.mock.calls[0]).toEqual([
       301,
-      "https://foobar.com/terms",
+      "https://kaws-staging.artsy.net/health",
     ])
   })
 
