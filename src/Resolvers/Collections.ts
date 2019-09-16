@@ -73,7 +73,7 @@ export class CollectionsResolver {
 
   @Query(returns => Collection, { nullable: true })
   async collection(@Arg("slug") slug: string): Promise<Collection | undefined> {
-    return await this.repository.findOne({ slug })
+    return await this.repository.findOneOrFail({ slug })
   }
 
   @Query(returns => [Collection])
