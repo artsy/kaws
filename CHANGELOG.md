@@ -1,5 +1,7 @@
 ### Master
 
+- Return `errors` with a 404 status code in `extensions` when a collection is
+  not found by slug [@mzikherman]
 - Adds ability to send collections to Sailthru w/ artist + artwork data [@mdole]
 - Return collections for an artist - [@mzikherman]
 - Enable text search - [@mzikherman]

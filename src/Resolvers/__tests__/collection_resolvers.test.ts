@@ -21,7 +21,7 @@ beforeEach(() => {
   mockedGetMongoRepository.mockReturnValue({
     aggregate: mockAggregate,
     find,
-    findOne: ({ slug }) =>
+    findOneOrFail: ({ slug }) =>
       mockCollectionRepository.find(
         (collection: Collection) => collection.slug === slug
       ),

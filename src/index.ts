@@ -20,6 +20,7 @@ import { Connection, createConnection } from "typeorm"
 import { databaseConfig } from "./config/database"
 import GSheetImportApp from "./Routes/GSheetImport"
 import { createSchema } from "./utils/createSchema"
+import { formatError } from "./utils/errorHandling"
 
 const enableSentry = Boolean(SENTRY_PRIVATE_DSN)
 
@@ -54,6 +55,7 @@ async function bootstrap() {
       endpoint: "/graphql",
       playground: "/playground",
       debug: NODE_ENV === "development",
+      formatError,
     }
 
     // Setup Sentry
