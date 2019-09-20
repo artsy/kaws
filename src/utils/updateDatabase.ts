@@ -26,6 +26,9 @@ export async function updateDatabase(collections: Collection[]) {
 
       console.log("Successfully updated collections database")
       connection.close()
+    } else {
+      console.log("connection.isConnected === false, throwing error!")
+      throw new Error("The database connection is not currently active!")
     }
   } catch (error) {
     console.error("[kaws] Error bootstrapping data:", error)
