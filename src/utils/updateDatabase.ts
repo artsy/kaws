@@ -17,8 +17,15 @@ export async function updateDatabase(collections: Collection[]) {
     if (connection.isConnected) {
       for (const entry of collections) {
         if (!entry.price_guidance) {
-          const priceGuidance = await getPriceGuidance(entry.slug)
-          extend(entry, { price_guidance: priceGuidance })
+          try {
+            const priceGuidance = await getPriceGuidance(entry.slug)
+            extend(entry, { price_guidance: priceGuidance })
+          } catch (e) {
+            console.log(
+              "[PriceGuidance] Unable to set price guidance on " + entry.slug
+            )
+            console.log(e.message)
+          }
         }
         await collection.update({ slug: entry.slug }, entry, { upsert: true })
         console.log("Successfully updated: ", entry.slug, entry.title)
