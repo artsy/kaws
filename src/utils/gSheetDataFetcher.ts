@@ -1,8 +1,6 @@
 import { google } from "googleapis"
 
-const { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } = process.env
-
-if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET) {
+if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
   console.error(
     "[kaws] Please set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET in env variables"
   )
@@ -13,7 +11,16 @@ export const gSheetDataFetcher = async (
   spreadsheetID: string,
   sheetName: string
 ) => {
-  const jwtClient = await authorize()
+  let jwtClient
+  try {
+    jwtClient = await authorize()
+  } catch (e) {
+    console.dir(e.message)
+    throw new Error(
+      "Error generating JWT client for google - ensure your GOOGLE_CLIENT_SECRET is a single string with `\\n` for each linebreak. See console output for full error message."
+    )
+  }
+
   const sheets = google.sheets({ version: "v4", auth: jwtClient })
 
   return new Promise<object[]>((resolve, reject) => {
@@ -41,11 +48,13 @@ export const gSheetDataFetcher = async (
 }
 
 const authorize = () => {
+  const { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } = process.env
+
   return new Promise((resolve, reject) => {
     const jwtClient = new google.auth.JWT(
       GOOGLE_CLIENT_ID,
       "",
-      GOOGLE_CLIENT_SECRET,
+      (GOOGLE_CLIENT_SECRET as string).replace(/\\n/g, "\n"),
       ["https://www.googleapis.com/auth/spreadsheets"]
     )
     jwtClient.authorize((err, tokens) => {
