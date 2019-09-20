@@ -26,6 +26,12 @@ collections you ask? A Collection is a prefiltered version of Artsy's
 - yarn 1.10.1 or newer
 - MongoDB 4.x
 
+## Note on Google API Access
+KAWS exposes an `/upload` endpoint meant to be invoked from a google sheet. In order for this process to work a few constraints have to hold:
+1. `GOOGLE_CLIENT_ID` must be set
+1. `GOOGLE_CLIENT_SECRET` must be set - this is a private key, and as such contains line-breaks. Those line-breaks must be represented in the .env file as simple `\n` characters!
+1. The client ID and client secret you're working with must be associated with a service account on google cloud. That service account's email address **must be invited as a participant in the document via the share button** or your credentials won't work.
+
 ## Getting started
 
 First, make sure to install dependencies:
