@@ -86,8 +86,14 @@ export const upload = async (
   })
 
   try {
-    await updateDatabase(rows)
-    res.send(200)
+    updateDatabase(rows)
+    res
+      .status(200)
+      .send(
+        `Updating ${
+          rows.length
+        } records in the database, please wait a few minutes!`
+      )
   } catch (e) {
     console.log("There was an error uploading collection data.")
     console.log(e.message)
