@@ -122,7 +122,10 @@ describe("GSheetImport", () => {
         },
       ])
 
-      expect(res.send).toBeCalledWith(200)
+      expect(res.status).toBeCalledWith(200)
+      expect(res.send).toBeCalledWith(
+        "Updating 3 records in the database, please wait a few minutes!"
+      )
     })
 
     it("responds with 500 if spreadsheetID is not in allowlist", async () => {
