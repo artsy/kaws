@@ -10,18 +10,36 @@ import { search } from "../lib/search"
  * This indexes an ElasticSearch cluster with collections data.
  */
 
+interface DebugRecord {
+  slug: string
+  reason: string
+  data: string
+}
+
 export const indexForSearch = async () => {
   let connection: Connection | undefined
-
+  const bogus_collections: DebugRecord[] = []
   try {
     const connectionArgs = databaseConfig()
     connection = await createConnection(connectionArgs)
 
     if (connection.isConnected) {
       const repository = getMongoRepository(Collection)
-
       const collections = await repository.find()
       for (const collection of collections) {
+        console.log(`Now processing ${collection.slug}`)
+
+        if (!collection.query) {
+          console.log(
+            `\t[error] ${collection.slug} - no query found, skipping!`
+          )
+          bogus_collections.push({
+            slug: collection.slug,
+            reason: "no query found",
+            data: "",
+          })
+          continue
+        }
         // Schema assumes fields named `name`, `featured_names`, `alternate_names`
         // to be present for text search through those fields.
         // Additionally, `visible_to_public` and `search_boost` are required for
@@ -53,28 +71,49 @@ export const indexForSearch = async () => {
           image_url = resp.data.marketingCollection.artworks.hits[0].imageUrl
         } catch (error) {
           console.log(
-            `${collection.slug} - error fetching artworks: `,
+            `\t[error] - ${collection.slug} - error fetching artworks: `,
             error.message
           )
+          bogus_collections.push({
+            slug: collection.slug,
+            reason: "error fetching artworks",
+            data: error.message,
+          })
+          continue
         }
 
-        await search.client.index({
-          index: search.index,
-          type: "marketing_collection",
-          id: collection.id.toString(),
-          body: {
-            name,
-            alternate_names,
-            featured_names,
-            description,
-            slug,
-            visible_to_public,
-            search_boost,
-            image_url,
-          },
-        })
+        try {
+          await search.client.index({
+            index: search.index,
+            type: "marketing_collection",
+            id: collection.id.toString(),
+            body: {
+              name,
+              alternate_names,
+              featured_names,
+              description,
+              slug,
+              visible_to_public,
+              search_boost,
+              image_url,
+            },
+          })
+        } catch (e) {
+          console.log(
+            `\t[error] - ${
+              collection.slug
+            } - error writing collection to database: `,
+            e.message
+          )
+          bogus_collections.push({
+            slug: collection.slug,
+            reason: "error writing to database",
+            data: e.message,
+          })
+          continue
+        }
 
-        console.log("Successfully updated: ", collection.title)
+        console.log(`\t${collection.slug} - successfully updated!`)
       }
     } else {
       throw new Error("could not connect to database")
@@ -83,5 +122,11 @@ export const indexForSearch = async () => {
     /* tslint:disable:no-unused-expression */
     connection && connection.close()
     /* tslint:enable:no-unused-expression */
+    if (bogus_collections.length > 0) {
+      console.log("The following collections were unable to be indexed:")
+      bogus_collections.map(({ slug, reason }) =>
+        console.log(`${slug} - ${reason}`)
+      )
+    }
   }
 }

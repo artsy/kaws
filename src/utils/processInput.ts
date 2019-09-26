@@ -48,7 +48,7 @@ export const sanitizeRow = ({
         collection: other_collections,
       }
     ),
-    query: (artist_ids || gene_ids || tag_id || keyword) && {
+    query: {
       artist_ids: splitmap(artist_ids),
       gene_ids: splitmap(gene_ids),
       tag_id,
