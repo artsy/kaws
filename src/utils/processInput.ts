@@ -49,8 +49,8 @@ export const sanitizeRow = ({
       }
     ),
     query: {
-      artist_ids: artist_ids && splitmap(artist_ids),
-      gene_ids: gene_ids && splitmap(gene_ids),
+      artist_ids: splitmap(artist_ids),
+      gene_ids: splitmap(gene_ids),
       tag_id,
       keyword,
     },
