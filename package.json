@@ -21,11 +21,14 @@
     "type-check": "tsc --noEmit",
     "update-sitemap": "ts-node scripts/updateSitemap.ts",
     "watch": "tsc --watch",
-    "update-sailthru": "ts-node scripts/pushCollectionsToSailthru.ts"
+    "update-sailthru": "ts-node scripts/pushCollectionsToSailthru.ts",
+    "test-google-config": "node scripts/test_google_config.js"
   },
   "jest": {
     "preset": "ts-jest",
-    "setupFiles": ["<rootDir>/src/test/config.ts"],
+    "setupFiles": [
+      "<rootDir>/src/test/config.ts"
+    ],
     "testMatch": [
       "**/__tests__/**/*test.ts"
     ],
@@ -55,7 +58,7 @@
   },
   "dependencies": {
     "@sentry/node": "4.6.4",
-    "aws-sdk": "2.377.0",
+    "aws-sdk": "2.377.0",    
     "body-parser": "1.18.3",
     "class-transformer": "0.1.9",
     "csv-parser": "2.1.0",
@@ -82,6 +85,7 @@
     "@types/mongodb-uri": "0.9.0",
     "@types/morgan": "1.7.35",
     "@types/node": "10.11.3",
+    "bash-color": "0.0.4",
     "danger": "4.0.2",
     "dotenv": "6.1.0",
     "husky": "1.1.2",
