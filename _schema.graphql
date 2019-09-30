@@ -32,13 +32,23 @@ type Collection {
   updatedAt: DateTime!
 
   # Suggested average price for included works
-  price_guidance: Float
+  price_guidance: Float @deprecated(reason: "Prefer priceGuidance")
+
+  # Suggested average price for included works
+  priceGuidance: Float
 
   # Collection can be surfaced on editorial pages
-  show_on_editorial: Boolean!
+  show_on_editorial: Boolean! @deprecated(reason: "Prefer showOnEditorial")
+
+  # Collection can be surfaced on editorial pages
+  showOnEditorial: Boolean!
 
   # Collection has prioritized connection to artist
   is_featured_artist_content: Boolean!
+    @deprecated(reason: "Prefer isFeaturedArtistContent")
+
+  # Collection has prioritized connection to artist
+  isFeaturedArtistContent: Boolean!
 
   # CollectionGroups of this collection
   linkedCollections: [CollectionGroup!]!
