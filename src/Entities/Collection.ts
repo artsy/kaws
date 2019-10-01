@@ -79,21 +79,43 @@ export class Collection {
   @Field(type => Number, {
     nullable: true,
     description: "Suggested average price for included works",
+    deprecationReason: "Prefer priceGuidance",
   })
   @Column({ nullable: true })
   price_guidance: number | null = null
 
+  @Field(type => Number, {
+    nullable: true,
+    description: "Suggested average price for included works",
+  })
+  @Column({ name: "price_guidance", nullable: true })
+  priceGuidance: number | null = null
+
   @Field(type => Boolean, {
     description: "Collection can be surfaced on editorial pages",
+    deprecationReason: "Prefer showOnEditorial",
   })
   @Column({ default: false })
   show_on_editorial: boolean = false
 
   @Field(type => Boolean, {
+    description: "Collection can be surfaced on editorial pages",
+  })
+  @Column({ name: "show_on_editorial", default: false })
+  showOnEditorial: boolean = false
+
+  @Field(type => Boolean, {
     description: "Collection has prioritized connection to artist",
+    deprecationReason: "Prefer isFeaturedArtistContent",
   })
   @Column({ default: false })
   is_featured_artist_content: boolean = false
+
+  @Field(type => Boolean, {
+    description: "Collection has prioritized connection to artist",
+  })
+  @Column({ name: "is_featured_artist_content", default: false })
+  isFeaturedArtistContent: boolean = false
 
   @Field(type => [CollectionGroup], {
     description: "CollectionGroups of this collection",
