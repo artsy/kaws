@@ -19,6 +19,9 @@ export class CollectionGroup {
   @ObjectIdColumn()
   id: ObjectID
 
+  @ObjectIdColumn({ name: "id" })
+  internalID: ObjectID
+
   @Field(type => GroupType)
   @Column()
   groupType: GroupType
