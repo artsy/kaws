@@ -55,6 +55,7 @@ type CollectionCategory {
 }
 
 type CollectionGroup {
+  internalID: ID
   groupType: GroupTypes!
   name: String!
   members: [Collection!]!
