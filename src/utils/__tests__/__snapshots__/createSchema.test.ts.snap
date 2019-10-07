@@ -4,6 +4,7 @@ exports[`creates an SDL 1`] = `
 "# Object representing a collection page
 type Collection {
   id: ID!
+  internalID: ID!
 
   # slug version of title, used for pretty URLs (e.g. \`kaws-prints\` for Kaws Prints 
   slug: String!
@@ -63,6 +64,7 @@ type CollectionCategory {
 }
 
 type CollectionGroup {
+  internalID: ID
   groupType: GroupTypes!
   name: String!
   members: [Collection!]!
@@ -70,6 +72,7 @@ type CollectionGroup {
 
 type CollectionQuery {
   id: ID
+  internalID: ID
   acquireable: Boolean
   aggregations: [String!]
   artist_ids: [String!] @deprecated(reason: \\"Prefer artistIDs\\")

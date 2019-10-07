@@ -8,6 +8,10 @@ export class CollectionQuery {
   @ObjectIdColumn()
   id: ObjectID
 
+  @Field(type => ID, { nullable: true })
+  @ObjectIdColumn({ name: "id" })
+  internalID: ObjectID
+
   @Field({ nullable: true, description: "" })
   @Column({ nullable: true })
   acquireable?: boolean

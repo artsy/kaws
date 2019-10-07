@@ -10,6 +10,10 @@ export class Collection {
   @ObjectIdColumn()
   id: ObjectID
 
+  @Field(type => ID)
+  @ObjectIdColumn({ name: "id" })
+  internalID: ObjectID
+
   @Index({ unique: true })
   @Field({
     description:
