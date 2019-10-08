@@ -83,7 +83,11 @@ describe("CollectionHubs", () => {
 
   it("returns a list of collectionHub instances where the slug is equal to one of the selected hub slugs.", async () => {
     const foundCollections = await collectionRepository.find()
-    expect(foundCollections.length).toBe(6)
+    hub_slugs.forEach(root_slug => {
+      expect(
+        foundCollections.map(({ slug }) => slug).indexOf(root_slug)
+      ).not.toBe(-1)
+    })
   })
 
   it("respects graphql top-level query", async () => {

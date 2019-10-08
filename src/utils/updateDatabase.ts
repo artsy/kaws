@@ -15,23 +15,8 @@ export async function updateDatabase(collections: Collection[]) {
 
   try {
     if (connection.isConnected) {
-      for (const entry of collections) {
-        if (!entry.price_guidance) {
-          try {
-            const priceGuidance = await getPriceGuidance(entry.slug)
-            extend(entry, { price_guidance: priceGuidance })
-          } catch (e) {
-            console.log(
-              "[PriceGuidance] Unable to set price guidance on " + entry.slug
-            )
-            console.log(e.message)
-          }
-        }
-        await collection.update({ slug: entry.slug }, entry, { upsert: true })
-        console.log("Successfully updated: ", entry.slug, entry.title)
-      }
-
-      console.log("Successfully updated collections database")
+      await upsert_data(collection, collections)
+      await update_price_guidance(collection)
       connection.close()
     } else {
       console.log("connection.isConnected === false, throwing error!")
@@ -45,4 +30,49 @@ export async function updateDatabase(collections: Collection[]) {
     connection && connection.close()
     /* tslint:enable:no-unused-expression */
   }
+}
+
+const upsert_data = async (collection, collections) => {
+  try {
+    for (const entry of collections) {
+      // if an entry's `price_guidance` is left null in the dataset, null
+      // it out in the database - after this is finished we will compute price
+      // guidance for all collections that have a null value for it.
+      if (!entry.price_guidance) {
+        extend(entry, { price_guidance: null })
+      }
+      await collection.update({ slug: entry.slug }, entry, { upsert: true })
+    }
+  } catch (e) {
+    console.log("Error upserting data!")
+    console.log(e.message)
+    throw e
+  }
+}
+
+const update_price_guidance = async collection => {
+  const query = { price_guidance: null }
+  const projection = { slug: 1, _id: 0 }
+  const data = await collection.find(query, projection).toArray()
+  const slugs = data.map(({ slug }) => slug)
+
+  const error_slugs: string[] = []
+  for (const slug of slugs) {
+    try {
+      const price_guidance = await getPriceGuidance(slug)
+      if (price_guidance) {
+        await collection.update({ slug }, { $set: { price_guidance } })
+      }
+    } catch (e) {
+      console.log(
+        `Unable to set price guidance for ${slug} due to error: [${
+          e.message
+        }].Skipping!`
+      )
+      error_slugs.push(slug)
+      continue
+    }
+  }
+
+  return error_slugs
 }

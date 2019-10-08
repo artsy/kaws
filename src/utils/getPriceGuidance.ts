@@ -15,16 +15,20 @@ export const getPriceGuidance = async (slug: string) => {
   try {
     const results: any = await metaphysics(`{
       marketingCollection(slug: "${slug}") {
-        artworks(
-          size: 5,
-          sort: "prices",
-          price_range: "10-*"
-        ) { 
-          hits {
-            price
-            priceCents {
-              min
-              max
+        artworks(aggregations: [TOTAL], price_range: "10-*", sort: "-has_price,-prices") {
+          artworks_connection(first: 5) {
+            edges {
+              node {
+                artist {
+                  name
+                }
+                title
+                price
+                priceCents {
+                  min
+                  max
+                }
+              }
             }
           }
         }
@@ -33,7 +37,7 @@ export const getPriceGuidance = async (slug: string) => {
     let avgPrice
     let hasNoBasePrice
     const collectionPricesInDollars = flatMap(
-      results.marketingCollection.artworks.hits,
+      results.marketingCollection.artworks.artworks_connection.edges,
       artwork => {
         return getPriceInDollars(artwork.priceCents)
       }
