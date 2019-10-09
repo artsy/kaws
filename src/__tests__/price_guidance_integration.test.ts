@@ -46,12 +46,17 @@ describe("priceGuidance", () => {
 
   const openDatabaseConnection = async () => {
     const connectionArgs = databaseConfig()
-    return createConnection(connectionArgs)
+    return await createConnection(connectionArgs)
   }
 
   const getRepo = async activeConnection => {
     const repository = await activeConnection.getMongoRepository(Collection)
-    await repository.clear()
+    try {
+      await repository.clear()
+    } catch (e) {
+      // no worries if this fails, just means it's the first time it ran
+    }
+
     return repository
   }
 

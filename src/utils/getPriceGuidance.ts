@@ -36,10 +36,11 @@ export const getPriceGuidance = async (slug: string) => {
     }`)
     let avgPrice
     let hasNoBasePrice
+
     const collectionPricesInDollars = flatMap(
       results.marketingCollection.artworks.artworks_connection.edges,
-      artwork => {
-        return getPriceInDollars(artwork.priceCents)
+      ({ node }) => {
+        return getPriceInDollars(node.priceCents)
       }
     ).filter(Boolean)
 

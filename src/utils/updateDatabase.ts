@@ -6,17 +6,17 @@ import { getPriceGuidance } from "../utils/getPriceGuidance"
 
 /**
  * Updates the KAWS db with collection objects passed through
- * @param collections Collection[]
+ * @param inputData Collection[]
  */
-export async function updateDatabase(collections: Collection[]) {
+export async function updateDatabase(inputData: Collection[]) {
   const connection = await MongoClient.connect(databaseURL!)
   const database = connection.db()
   const collection = database.collection("collection")
 
   try {
     if (connection.isConnected) {
-      await upsert_data(collection, collections)
-      await update_price_guidance(collection)
+      await upsertData(collection, inputData)
+      await updatePriceGuidance(collection)
       connection.close()
     } else {
       console.log("connection.isConnected === false, throwing error!")
@@ -32,12 +32,12 @@ export async function updateDatabase(collections: Collection[]) {
   }
 }
 
-const upsert_data = async (collection, collections) => {
+const upsertData = async (collection, inputData) => {
   try {
-    for (const entry of collections) {
+    for (const entry of inputData) {
       // if an entry's `price_guidance` is left null in the dataset, null
       // it out in the database - after this is finished we will compute price
-      // guidance for all collections that have a null value for it.
+      // guidance for all inputData that have a null value for it.
       if (!entry.price_guidance) {
         extend(entry, { price_guidance: null })
       }
@@ -50,7 +50,7 @@ const upsert_data = async (collection, collections) => {
   }
 }
 
-const update_price_guidance = async collection => {
+const updatePriceGuidance = async collection => {
   const query = { price_guidance: null }
   const projection = { slug: 1, _id: 0 }
   const data = await collection.find(query, projection).toArray()
@@ -67,7 +67,7 @@ const update_price_guidance = async collection => {
       console.log(
         `Unable to set price guidance for ${slug} due to error: [${
           e.message
-        }].Skipping!`
+        }]. Skipping!`
       )
       error_slugs.push(slug)
       continue

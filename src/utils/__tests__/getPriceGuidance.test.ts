@@ -15,44 +15,52 @@ describe("#getPriceGuidance", () => {
       marketingCollection: {
         artworks: {
           artworks_connection: {
-            edges:
-              [
-                {
+            edges: [
+              {
+                node: {
                   priceCents: {
                     min: 22500,
                     max: 22500,
                   },
                 },
-                {
+              },
+              {
+                node: {
                   priceCents: {
                     min: 22500,
                     max: 22500,
                   },
                 },
-                {
+              },
+              {
+                node: {
                   priceCents: {
                     min: 29500,
                     max: 29500,
                   },
                 },
-                {
+              },
+              {
+                node: {
                   priceCents: {
                     min: 35000,
                     max: 35000,
                   },
                 },
-                {
+              },
+              {
+                node: {
                   priceCents: {
                     min: 36000,
                     max: 36000,
                   },
-                }
-              ]
-          }
-        }
+                },
+              },
+            ],
+          },
+        },
       },
     }
-
 
     mockMetaphysics.mockResolvedValue(results)
     const avgPrice = await getPriceGuidance("kaws-companions")
@@ -86,28 +94,38 @@ describe("#getPriceGuidance", () => {
           artworks_connection: {
             edges: [
               {
-                priceCents: {
-                  min: 22500,
-                  max: 22500,
+                node: {
+                  priceCents: {
+                    min: 22500,
+                    max: 22500,
+                  },
                 },
               },
               {
-                priceCents: {
-                  min: 22500,
-                  max: 22500,
+                node: {
+                  priceCents: {
+                    min: 22500,
+                    max: 22500,
+                  },
                 },
               },
               {
-                priceCents: null,
-              },
-              {
-                priceCents: {
-                  min: 35000,
-                  max: 35000,
+                node: {
+                  priceCents: null,
                 },
               },
               {
-                priceCents: null,
+                node: {
+                  priceCents: {
+                    min: 35000,
+                    max: 35000,
+                  },
+                },
+              },
+              {
+                node: {
+                  priceCents: null,
+                },
               },
             ],
           },
@@ -129,25 +147,31 @@ describe("#getPriceGuidance", () => {
           artworks_connection: {
             edges: [
               {
-                priceCents: {
-                  min: 22500,
-                  max: 22500,
+                node: {
+                  priceCents: {
+                    min: 22500,
+                    max: 22500,
+                  },
                 },
               },
               {
-                priceCents: {
-                  min: 22500,
-                  max: 22500,
+                node: {
+                  priceCents: {
+                    min: 22500,
+                    max: 22500,
+                  },
                 },
               },
               {
-                priceCents: {
-                  min: 35000,
-                  max: 35000,
+                node: {
+                  priceCents: {
+                    min: 35000,
+                    max: 35000,
+                  },
                 },
               },
             ],
-          }
+          },
         },
       },
     }
