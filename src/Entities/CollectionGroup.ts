@@ -1,4 +1,4 @@
-import { Field, ObjectType, registerEnumType } from "type-graphql"
+import { Field, ID, ObjectType, registerEnumType } from "type-graphql"
 import { Column, Entity, ObjectID, ObjectIdColumn } from "typeorm"
 import { Collection } from "./Collection"
 
@@ -18,6 +18,10 @@ registerEnumType(GroupType, {
 export class CollectionGroup {
   @ObjectIdColumn()
   id: ObjectID
+
+  @Field(type => ID, { nullable: true })
+  @ObjectIdColumn({ name: "id" })
+  internalID: ObjectID
 
   @Field(type => GroupType)
   @Column()

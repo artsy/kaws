@@ -18,7 +18,8 @@ collections you ask? A Collection is a prefiltered version of Artsy's
   artsy/kaws#master are automatically deployed to staging. PRs from `staging` to
   `release` are automatically deployed to production.
   [Start a deploy...](https://github.com/artsy/kaws/compare/release...staging?expand=1)
-- **Point People:** [@l2succes](https://github.com/l2succes)
+- **Point People:** [@mbilokonsky](https://github.com/mbilokonsky),
+  [@xtina-starr](https://github.com/xtina-starr)
 
 ## Prerequisites
 
