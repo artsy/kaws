@@ -105,6 +105,9 @@ type CollectionQuery {
   periods: [String!]
   major_periods: [String!] @deprecated(reason: \\"Prefer majorPeriods\\")
   majorPeriods: [String!]
+
+  # True for works that are not nude or provocative
+  marketable: Boolean
   partner_id: ID @deprecated(reason: \\"Prefer partnerID\\")
   partnerID: ID
   partner_cities: [String!] @deprecated(reason: \\"Prefer partnerCities\\")

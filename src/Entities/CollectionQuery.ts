@@ -163,6 +163,13 @@ export class CollectionQuery {
   @Column({ name: "major_periods", nullable: true })
   majorPeriods?: string[]
 
+  @Field({
+    nullable: true,
+    description: "True for works that are not nude or provocative",
+  })
+  @Column({ nullable: true })
+  marketable?: boolean
+
   @Field(type => ID, { nullable: true, deprecationReason: "Prefer partnerID" })
   @Column({ nullable: true })
   partner_id?: string
