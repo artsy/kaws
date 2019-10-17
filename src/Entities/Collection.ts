@@ -126,4 +126,12 @@ export class Collection {
   })
   @Column(type => CollectionGroup)
   linkedCollections: CollectionGroup[]
+
+  @Field(type => [String], {
+    description:
+      "IDs of artists that should be excluded from Featured Artists for this collection",
+    nullable: true,
+  })
+  @Column({ nullable: true })
+  featuredArtistExclusionIds?: string[] = []
 }

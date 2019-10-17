@@ -22,6 +22,7 @@ export const sanitizeRow = ({
   featured_collections,
   other_collections_label,
   other_collections,
+  featured_artist_exclusion_ids,
 }) => {
   return {
     title,
@@ -54,6 +55,7 @@ export const sanitizeRow = ({
       tag_id,
       keyword,
     },
+    featuredArtistExclusionIds: splitmap(featured_artist_exclusion_ids),
   } as Collection
 }
 
