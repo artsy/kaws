@@ -66,6 +66,7 @@ describe("GSheetImport", () => {
             keyword: "Superman",
           },
           linkedCollections: [],
+          featuredArtistExclusionIds: [],
         },
         {
           title: "Anish Kapoor: Etchings",
@@ -86,6 +87,7 @@ describe("GSheetImport", () => {
             gene_ids: ["etching-slash-engraving"],
           },
           linkedCollections: [],
+          featuredArtistExclusionIds: [],
         },
         {
           title: "Ansel Adams: Yosemite",
@@ -119,6 +121,7 @@ describe("GSheetImport", () => {
               groupType: GroupType.OtherCollections,
             },
           ],
+          featuredArtistExclusionIds: ["artist-id-for-pablo-picasso"],
         },
       ])
 
@@ -164,6 +167,7 @@ const rows = [
     "featured_collections",
     "other_collections_label",
     "other_collections",
+    "featured_artist_exclusion_ids",
   ],
   [
     "Andy Warhol: Superman",
@@ -210,5 +214,6 @@ const rows = [
     "",
     "OTHER",
     "andy-warhol-superman",
+    "artist-id-for-pablo-picasso",
   ],
 ]
