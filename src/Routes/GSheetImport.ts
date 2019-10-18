@@ -59,6 +59,7 @@ export const upload = async (
       featured_collections,
       other_collections_label,
       other_collections,
+      featured_artist_exclusion_ids,
     ] = row
 
     return sanitizeRow({
@@ -82,6 +83,7 @@ export const upload = async (
       featured_collections,
       other_collections_label,
       other_collections,
+      featured_artist_exclusion_ids,
     })
   })
 

@@ -53,6 +53,9 @@ type Collection {
 
   # CollectionGroups of this collection
   linkedCollections: [CollectionGroup!]!
+
+  # IDs of artists that should be excluded from Featured Artists for this collection
+  featuredArtistExclusionIds: [String!]
   relatedCollections: [Collection!]!
 }
 
