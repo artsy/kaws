@@ -51,7 +51,7 @@ describe.only("CRUD operations work", () => {
 
     const savedCollection = await collectionRepository.save(testCollection)
     const readCollection = await collectionRepository.findOne({
-      _id: savedCollection._id,
+      _id: savedCollection.id,
     })
 
     expect(readCollection.slug).toBe(testCollection.slug)
