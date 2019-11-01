@@ -26,8 +26,8 @@ describe("convertCSVToJSON", () => {
         query: {
           artist_ids: ["4dde70a1306f6800010036ef"],
           gene_ids: ["lithograph-1"],
-          tag_id: "",
-          keyword: "",
+          tag_id: null,
+          keyword: null,
         },
         price_guidance: 1000,
         show_on_editorial: true,
@@ -46,7 +46,7 @@ describe("convertCSVToJSON", () => {
         query: {
           artist_ids: ["4d8b92b34eb68a1b2c0003f4"],
           gene_ids: [],
-          tag_id: "",
+          tag_id: null,
           keyword: "Banana",
         },
         show_on_editorial: false,
@@ -94,7 +94,7 @@ describe("convertCSVToJSON", () => {
         query: {
           artist_ids: ["4ddbb20eb773bf00010031ea"],
           gene_ids: ["lithograph-1", "lithograph-2"],
-          tag_id: "",
+          tag_id: null,
           keyword: "lithograph",
         },
       },
@@ -120,7 +120,7 @@ describe("convertCSVToJSON", () => {
         query: {
           artist_ids: ["4ddbb20eb773bf00010031ea"],
           gene_ids: [],
-          tag_id: "",
+          tag_id: null,
           keyword: "praise",
         },
       },
@@ -138,12 +138,15 @@ describe("convertCSVToJSON", () => {
         show_on_editorial: false,
         is_featured_artist_content: false,
         linkedCollections: [
-          { name: "Featured Collections", members: ["agnes-martin-lithographs"] },
+          {
+            name: "Featured Collections",
+            members: ["agnes-martin-lithographs"],
+          },
         ],
         query: {
           artist_ids: ["4e1716d0f1bf8f00010023d8"],
           gene_ids: [],
-          tag_id: "",
+          tag_id: null,
           keyword: "bust",
         },
       },
