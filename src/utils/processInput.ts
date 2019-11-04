@@ -52,14 +52,16 @@ export const sanitizeRow = ({
     query: {
       artist_ids: splitmap(artist_ids),
       gene_ids: splitmap(gene_ids),
-      tag_id,
-      keyword,
+      tag_id: sanitizeString(tag_id),
+      keyword: sanitizeString(keyword),
     },
     featuredArtistExclusionIds: splitmap(featured_artist_exclusion_ids),
   } as Collection
 }
 
 const splitmap = text => (text ? text.split(",").map(a => a.trim()) : [])
+
+export const sanitizeString = (text: string) => (text ? text : null)
 
 const buildLinkedCollections = (
   { label: artistLabel, collection: artist },

@@ -62,7 +62,7 @@ describe("GSheetImport", () => {
           query: {
             artist_ids: ["4d8b92b34eb68a1b2c0003f4"],
             gene_ids: [],
-            tag_id: "",
+            tag_id: null,
             keyword: "Superman",
           },
           linkedCollections: [],
@@ -85,6 +85,8 @@ describe("GSheetImport", () => {
           query: {
             artist_ids: ["4de528068236f6000100070b"],
             gene_ids: ["etching-slash-engraving"],
+            tag_id: null,
+            keyword: null,
           },
           linkedCollections: [],
           featuredArtistExclusionIds: [],
@@ -105,7 +107,7 @@ describe("GSheetImport", () => {
           query: {
             artist_ids: ["4e677d4ff8597e00010072e0"],
             gene_ids: [],
-            tag_id: "",
+            tag_id: null,
             keyword:
               "Yosemite, El Capitan, Half Dome, Sentinel Dome, fern spring, Half Dome, nevada falls, Tuolomne Meadows",
           },
