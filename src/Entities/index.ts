@@ -1,8 +1,7 @@
 import { Collection } from "./Collection"
 import { CollectionGroup, GroupType } from "./CollectionGroup"
 import { CollectionQuery } from "./CollectionQuery"
-import { Image } from "./Image"
 
-export { Collection, CollectionQuery, CollectionGroup, Image, GroupType }
+export { Collection, CollectionQuery, CollectionGroup, GroupType }
 
-export const entities = [Collection, CollectionQuery, CollectionGroup, Image]
+export const entities = [Collection, CollectionQuery, CollectionGroup]
