@@ -11,29 +11,31 @@ export const getPriceInDollars = priceCents => {
   }
 }
 
-export const getPriceGuidance = async (slug: string) => {
-  try {
-    const results: any = await metaphysics(`{
-      marketingCollection(slug: "${slug}") {
-        artworks(aggregations: [TOTAL], price_range: "10-*", sort: "-has_price,-prices") {
-          artworks_connection(first: 5) {
-            edges {
-              node {
-                artist {
-                  name
-                }
-                title
-                price
-                priceCents {
-                  min
-                  max
-                }
-              }
+export const generateQuery = (slug: string) => `{
+  marketingCollection(slug: "${slug}") {
+    artworks(aggregations: [TOTAL], price_range: "10-*", sort: "-has_price,prices") {
+      artworks_connection(first: 5) {
+        edges {
+          node {
+            artist {
+              name
+            }
+            title
+            price
+            priceCents {
+              min
+              max
             }
           }
         }
       }
-    }`)
+    }
+  }
+}`
+
+export const getPriceGuidance = async (slug: string) => {
+  try {
+    const results: any = await metaphysics(generateQuery(slug))
     let avgPrice
     let hasNoBasePrice
 
