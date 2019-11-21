@@ -1,4 +1,8 @@
-import { getPriceGuidance, getPriceInDollars } from "../getPriceGuidance"
+import {
+  generateQuery,
+  getPriceGuidance,
+  getPriceInDollars,
+} from "../getPriceGuidance"
 
 jest.mock("../../lib/metaphysics", () => ({
   default: jest.fn(),
@@ -10,6 +14,33 @@ describe("#getPriceGuidance", () => {
   afterEach(() => {
     mockMetaphysics.mockClear()
   })
+
+  it("requests the five cheapest items in the given collection that still have a price", () => {
+    expect(generateQuery("foo-bar-baz")).toMatchInlineSnapshot(`
+"{
+  marketingCollection(slug: \\"foo-bar-baz\\") {
+    artworks(aggregations: [TOTAL], price_range: \\"10-*\\", sort: \\"-has_price,prices\\") {
+      artworks_connection(first: 5) {
+        edges {
+          node {
+            artist {
+              name
+            }
+            title
+            price
+            priceCents {
+              min
+              max
+            }
+          }
+        }
+      }
+    }
+  }
+}"
+`)
+  })
+
   it("calculates the average of the 5 lowest artworks of a collection rounded to the nearest 100th", async () => {
     const results = {
       marketingCollection: {
