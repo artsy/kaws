@@ -35,6 +35,11 @@
     "roots": [
       "<rootDir>/src",
       "<rootDir>/scripts"
+    ],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "coverageReporters": [
+      "lcov"
     ]
   },
   "prettier": {

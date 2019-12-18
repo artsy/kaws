@@ -5,7 +5,7 @@ service that powers [artsy.net](https://artsy.net) collection pages. What are
 collections you ask? A Collection is a prefiltered version of Artsy's
 [Collect](https://artsy.net/collect) page for marketing purposes.
 
-[![CircleCI](https://circleci.com/gh/artsy/kaws.svg?style=svg)](https://circleci.com/gh/artsy/kaws)
+## Meta [![CircleCI](https://circleci.com/gh/artsy/kaws.svg?style=svg)](https://circleci.com/gh/artsy/kaws) [![codecov](https://codecov.io/gh/artsy/kaws/branch/master/graph/badge.svg)](https://codecov.io/gh/artsy/kaws)
 
 - **State:** production
 - **Production:** [http://kaws.artsy.net](http://kaws.artsy.net/playground) |
@@ -28,11 +28,26 @@ collections you ask? A Collection is a prefiltered version of Artsy's
 - MongoDB 4.x
 
 ## Note on Google API Access
-KAWS exposes an `/upload` endpoint meant to be invoked from a google sheet. In order for this process to work a few constraints have to hold:
-1. `GOOGLE_CLIENT_ID` must be set - currently, the value we are using for this is the EMAIL ADDRESS of the Goole Service Account created for this purpose. See [this page](https://console.cloud.google.com/iam-admin/serviceaccounts?authuser=1&orgonly=true&project=project-id-9346371200481951628&supportedpurview=organizationId) for more information, but please make sure you're logged in using `it@` to see it.
-1. `GOOGLE_CLIENT_SECRET` must be set - this is a private key, and as such contains line-breaks. Those line-breaks must be represented in the .env file as simple `\n` characters!
-1. `SPREADSHEET_IDS_ALLOWLIST` is badly named - this is just the ID of the spreadsheet you want to use. Currently there is exactly one such spreadsheet and its ID is floating around, ask anyone on grow or galleries, or just run `hokusai staging env get` to see what's being used there.
-1. You can run `yarn test-google-config` to see if your local .env file's values for `GOOGLE_CLOUD_ID`, `GOOGLE_CLOUD_SECRET` and `SPREADSHEET_IDS_ALLOWLIST` validate.
+
+KAWS exposes an `/upload` endpoint meant to be invoked from a google sheet. In
+order for this process to work a few constraints have to hold:
+
+1. `GOOGLE_CLIENT_ID` must be set - currently, the value we are using for this
+   is the EMAIL ADDRESS of the Goole Service Account created for this purpose.
+   See
+   [this page](https://console.cloud.google.com/iam-admin/serviceaccounts?authuser=1&orgonly=true&project=project-id-9346371200481951628&supportedpurview=organizationId)
+   for more information, but please make sure you're logged in using `it@` to
+   see it.
+1. `GOOGLE_CLIENT_SECRET` must be set - this is a private key, and as such
+   contains line-breaks. Those line-breaks must be represented in the .env file
+   as simple `\n` characters!
+1. `SPREADSHEET_IDS_ALLOWLIST` is badly named - this is just the ID of the
+   spreadsheet you want to use. Currently there is exactly one such spreadsheet
+   and its ID is floating around, ask anyone on grow or galleries, or just run
+   `hokusai staging env get` to see what's being used there.
+1. You can run `yarn test-google-config` to see if your local .env file's values
+   for `GOOGLE_CLOUD_ID`, `GOOGLE_CLOUD_SECRET` and `SPREADSHEET_IDS_ALLOWLIST`
+   validate.
 
 ## Getting started
 
