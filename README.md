@@ -1,4 +1,4 @@
-# kaws
+# Kaws
 
 Named after [the artist](https://artsy.net/artist/kaws), kaws is a backend
 service that powers [artsy.net](https://artsy.net) collection pages. What are
@@ -7,7 +7,7 @@ collections you ask? A Collection is a prefiltered version of Artsy's
 
 ## Meta [![CircleCI](https://circleci.com/gh/artsy/kaws.svg?style=svg)](https://circleci.com/gh/artsy/kaws) [![codecov](https://codecov.io/gh/artsy/kaws/branch/master/graph/badge.svg)](https://codecov.io/gh/artsy/kaws)
 
-- **State:** production
+- **State:** Production
 - **Production:** [http://kaws.artsy.net](http://kaws.artsy.net/playground) |
   [k8s](https://kubernetes.artsy.net/#!/deployment/default/kaws-web?namespace=default)
 - **Staging:**
@@ -83,6 +83,8 @@ Finally, start the server by running the command below:
 
 ```bash
 yarn dev
+# or
+hokusai dev start
 ```
 
 Then open http://localhost:4000/playground and you should see Apollo's GraphQL
@@ -103,6 +105,8 @@ query {
 
 ```sh
 yarn jest
+# or
+hokusai test
 ```
 
 ## Did you change the GraphQL schema?
@@ -138,3 +142,28 @@ databse:
 ```bash
 hokusai production run 'yarn update-sitemap'
 ```
+
+## About Artsy
+
+<a href="https://www.artsy.net/">
+  <img align="left" src="https://avatars2.githubusercontent.com/u/546231?s=200&v=4"/>
+</a>
+
+This project is the work of engineers at [Artsy][footer_website], the world's
+leading and largest online art marketplace and platform for discovering art.
+One of our core [Engineering Principles][footer_principles] is being [Open
+Source by Default][footer_open] which means we strive to share as many details
+of our work as possible.
+
+You can learn more about this work from [our blog][footer_blog] and by following
+[@ArtsyOpenSource][footer_twitter] or explore our public data by checking out
+[our API][footer_api]. If you're interested in a career at Artsy, read through
+our [job postings][footer_jobs]!
+
+[footer_website]: https://www.artsy.net/
+[footer_principles]: culture/engineering-principles.md
+[footer_open]: culture/engineering-principles.md#open-source-by-default
+[footer_blog]: https://artsy.github.io/
+[footer_twitter]: https://twitter.com/ArtsyOpenSource
+[footer_api]: https://developers.artsy.net/
+[footer_jobs]: https://www.artsy.net/jobs
