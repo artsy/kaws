@@ -1,4 +1,7 @@
 import slugify from "slugify"
+const TurndownService = require("turndown")
+const turndownService = new TurndownService()
+
 import { Collection, CollectionGroup, GroupType } from "../Entities"
 
 export const sanitizeRow = ({
@@ -29,6 +32,8 @@ export const sanitizeRow = ({
     slug: sanitizeSlug(slug),
     category,
     description,
+    descriptionMarkdown: convertHTMLtoMD(description),
+    hasMarkdownDescription: convertHTMLtoMD(description) !== "",
     headerImage,
     thumbnail,
     credit,
@@ -58,6 +63,8 @@ export const sanitizeRow = ({
     featuredArtistExclusionIds: splitmap(featured_artist_exclusion_ids),
   } as Collection
 }
+
+const convertHTMLtoMD = html => (html ? turndownService.turndown(html) : "")
 
 const splitmap = text => (text ? text.split(",").map(a => a.trim()) : [])
 
