@@ -33,7 +33,6 @@ export const sanitizeRow = ({
     category,
     description,
     descriptionMarkdown: convertHTMLtoMD(description),
-    hasMarkdownDescription: convertHTMLtoMD(description) !== "",
     headerImage,
     thumbnail,
     credit,
