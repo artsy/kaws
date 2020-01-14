@@ -41,12 +41,6 @@ export class Collection {
   @Column({ nullable: true })
   descriptionMarkdown?: string
 
-  @Field(type => Boolean, {
-    description: "Collection has its description available as markdown",
-  })
-  @Column({ default: false })
-  hasMarkdownDescription: boolean = false
-
   @Field(type => String, {
     nullable: true,
     description: "Background image for the header of the collection page",
