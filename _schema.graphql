@@ -12,6 +12,9 @@ type Collection {
   # Description of the collection which can include links to other collections
   description: String
 
+  # Markdown alternate of description field contents.
+  descriptionMarkdown: String
+
   # Background image for the header of the collection page
   headerImage: String
 
