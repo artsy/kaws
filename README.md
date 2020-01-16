@@ -30,24 +30,23 @@ collections you ask? A Collection is a prefiltered version of Artsy's
 ## Note on Google API Access
 
 KAWS exposes an `/upload` endpoint meant to be invoked from a google sheet. In
-order for this process to work a few constraints have to hold:
+order for this process to work a few environment values must be supplied:
 
-1. `GOOGLE_CLIENT_ID` must be set - currently, the value we are using for this
-   is the EMAIL ADDRESS of the Goole Service Account created for this purpose.
-   See
-   [this page](https://console.cloud.google.com/iam-admin/serviceaccounts?authuser=1&orgonly=true&project=project-id-9346371200481951628&supportedpurview=organizationId)
-   for more information, but please make sure you're logged in using `it@` to
-   see it.
-1. `GOOGLE_CLIENT_SECRET` must be set - this is a private key, and as such
-   contains line-breaks. Those line-breaks must be represented in the .env file
-   as simple `\n` characters!
-1. `SPREADSHEET_IDS_ALLOWLIST` is badly named - this is just the ID of the
-   spreadsheet you want to use. Currently there is exactly one such spreadsheet
-   and its ID is floating around, ask anyone on grow or galleries, or just run
-   `hokusai staging env get` to see what's being used there.
-1. You can run `yarn test-google-config` to see if your local .env file's values
-   for `GOOGLE_CLOUD_ID`, `GOOGLE_CLOUD_SECRET` and `SPREADSHEET_IDS_ALLOWLIST`
-   validate.
+1. `GOOGLE_API_KEY`
+1. `GOOGLE_CLIENT_ID`
+1. `GOOGLE_CLIENT_SECRET`
+1. `SPREADSHEET_IDS_ALLOWLIST`
+
+See the hokusai and/or the **Kaws Credentials** secure note in 1passsword for
+current values of these.
+
+If it becomes necessary to re-generate these credentials in staging and
+production — as has happened a couple of times in the past — you can follow
+[these instructions](docs/google_credentials.md).
+
+For local development, you can run `yarn test-google-config` to see if your
+local .env file's values for `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` and
+`SPREADSHEET_IDS_ALLOWLIST` validate.
 
 ## Getting started
 
@@ -150,10 +149,10 @@ hokusai production run 'yarn update-sitemap'
 </a>
 
 This project is the work of engineers at [Artsy][footer_website], the world's
-leading and largest online art marketplace and platform for discovering art.
-One of our core [Engineering Principles][footer_principles] is being [Open
-Source by Default][footer_open] which means we strive to share as many details
-of our work as possible.
+leading and largest online art marketplace and platform for discovering art. One
+of our core [Engineering Principles][footer_principles] is being [Open Source by
+Default][footer_open] which means we strive to share as many details of our work
+as possible.
 
 You can learn more about this work from [our blog][footer_blog] and by following
 [@ArtsyOpenSource][footer_twitter] or explore our public data by checking out

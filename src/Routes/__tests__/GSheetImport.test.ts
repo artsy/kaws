@@ -51,6 +51,8 @@ describe("GSheetImport", () => {
           category: "Pop Art",
           description:
             '<p>At eight years old, <a href="https://www.artsy.net/artist/andy-warhol">Andy Warhol</a> found a new idol: Superman. Diagnosed with an autoimmune disease, the young artist was bedridden for months after episodes of involuntary shaking led to bullying at school. At home, Warhol escaped into the world of comic books, especially the tale of Clark Kent. As an insecure young boy, Warhol found hope in Kent’s transformation from underdog to superhero. Decades later, he created his own rendition of Superman, portraying the character flying through the sky as part of his “<a href="https://www.artsy.net/collection/andy-warhol-myths">Myths</a>” portfolio. Warhol’s silkscreen <i>Superman</i> (1981) reached a new auction record in 2017, selling for over $200,000 at Phillips. But this isn’t the only Warhol motif inspired by his childhood illness—while bedridden, Warhol’s mother also fed him lots of <a href="https://www.artsy.net/collection/andy-warhol-campbells-soup-can">Campbell’s Soup</a>.</p>',
+          descriptionMarkdown:
+            "At eight years old, [Andy Warhol](https://www.artsy.net/artist/andy-warhol) found a new idol: Superman. Diagnosed with an autoimmune disease, the young artist was bedridden for months after episodes of involuntary shaking led to bullying at school. At home, Warhol escaped into the world of comic books, especially the tale of Clark Kent. As an insecure young boy, Warhol found hope in Kent’s transformation from underdog to superhero. Decades later, he created his own rendition of Superman, portraying the character flying through the sky as part of his “[Myths](https://www.artsy.net/collection/andy-warhol-myths)” portfolio. Warhol’s silkscreen _Superman_ (1981) reached a new auction record in 2017, selling for over $200,000 at Phillips. But this isn’t the only Warhol motif inspired by his childhood illness—while bedridden, Warhol’s mother also fed him lots of [Campbell’s Soup](https://www.artsy.net/collection/andy-warhol-campbells-soup-can).",
           headerImage: "http://files.artsy.net/images/andywarholsuperman.png",
           thumbnail:
             "http://files.artsy.net/images/andywarholsuperman-thumbnail.png",
@@ -74,6 +76,8 @@ describe("GSheetImport", () => {
           category: "Contemporary",
           description:
             '<p>In the late 1980s, <a href="https://www.artsy.net/artist/anish-kapoor">Anish Kapoor</a> began experimenting with printmaking, turning to the etching technique to portray abstract voids on handmade paper. In a process that can last several months and dozens of trips to the studio, Kapoor uses several techniques to create a finished etching, layering his freely etched prints with additional color deposits from aquatint plates, spit bite plates, or acid washing. The end product calls to mind TV static, primordial cells, or cosmic dust—familiar yet intangible, seeming to morph into new forms before one’s eyes. “The void is not silent,” he <a href="http://anishkapoor.com/185/making-emptiness-by-homi-k-bhabha">says</a>. “I have always thought of it more and more as a transitional space, an in-between space.” Ranging from dark abstractions to bright bursts of color, Kapoor’s most celebrated series of etchings include <i>15 Etchings</i> (1996), <i>Blackness from her Womb</i> (2000), <i>12 Etchings</i> (2004), <i>Shadow</i> (2007–12), and <i>Fold</i> (2014–16).</p>',
+          descriptionMarkdown:
+            "In the late 1980s, [Anish Kapoor](https://www.artsy.net/artist/anish-kapoor) began experimenting with printmaking, turning to the etching technique to portray abstract voids on handmade paper. In a process that can last several months and dozens of trips to the studio, Kapoor uses several techniques to create a finished etching, layering his freely etched prints with additional color deposits from aquatint plates, spit bite plates, or acid washing. The end product calls to mind TV static, primordial cells, or cosmic dust—familiar yet intangible, seeming to morph into new forms before one’s eyes. “The void is not silent,” he [says](http://anishkapoor.com/185/making-emptiness-by-homi-k-bhabha). “I have always thought of it more and more as a transitional space, an in-between space.” Ranging from dark abstractions to bright bursts of color, Kapoor’s most celebrated series of etchings include _15 Etchings_ (1996), _Blackness from her Womb_ (2000), _12 Etchings_ (2004), _Shadow_ (2007–12), and _Fold_ (2014–16).",
           headerImage: "http://files.artsy.net/images/anishkapooretchings.png",
           thumbnail:
             "http://files.artsy.net/images/anishkapooretchings_thumb.png",
@@ -96,6 +100,7 @@ describe("GSheetImport", () => {
           slug: "ansel-adams-yosemite",
           category: "Photography",
           description: "",
+          descriptionMarkdown: "",
           headerImage: "http://files.artsy.net/images/anseladamsyosemite.png",
           thumbnail:
             "http://files.artsy.net/images/anseladamsyosemite_thumb.png",
