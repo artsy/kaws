@@ -1,4 +1,4 @@
-import { isEmpty, reject } from "lodash"
+import { isEmpty } from "lodash"
 import { Arg, FieldResolver, Int, Query, Resolver, Root } from "type-graphql"
 import { getMongoRepository } from "typeorm"
 import { CollectionGroup } from "../Entities"
@@ -92,46 +92,38 @@ export class CollectionsResolver {
 
   @FieldResolver(type => [Collection])
   async relatedCollections(
-    @Arg("size", () => Int, { nullable: true }) size: number,
+    @Arg("size", () => Int, { defaultValue: 10 }) size: number,
     @Root() collection: Collection
   ): Promise<Collection[]> {
-    const query: { where: {}; take?: number } = { where: {} }
     const isArtistBased =
       collection.query.artist_ids && collection.query.artist_ids.length > 0
 
-    if (size) {
-      query.take = size + 1
-    }
-
     if (isArtistBased) {
-      query.where["query.artist_ids"] = {
-        $in: collection.query.artist_ids,
-      }
-
-      const artistResults = await this.repository.find(query)
-
-      const relatedArtistCollections = reject(artistResults, {
-        id: collection.id,
+      const artistResults = await this.repository.find({
+        where: {
+          slug: { $ne: collection.slug },
+          "query.artist_ids": { $in: collection.query.artist_ids },
+        },
+        take: size,
       })
 
       // We only want to return relatedArtistCollections when there are more
       // than 4. Otherwise we return category based related collections.
-      if (relatedArtistCollections.length > 4) {
-        return relatedArtistCollections
+      if (artistResults.length > 4) {
+        return artistResults
       }
     }
 
-    query.where = {
-      category: { $in: [collection.category] },
-      show_on_editorial: true,
-    }
-
-    const relatedCategoryResults = await this.repository.find(query)
-
-    const relatedCategoryCollections = reject(relatedCategoryResults, {
-      id: collection.id,
+    const relatedCategoryResults = await this.repository.find({
+      where: {
+        slug: { $ne: collection.slug },
+        category: { $in: collection.category },
+        show_on_editorial: true,
+      },
+      take: size,
     })
-    return relatedCategoryCollections
+
+    return relatedCategoryResults
   }
 
   @FieldResolver(type => [CollectionGroup])

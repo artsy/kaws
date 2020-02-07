@@ -410,8 +410,10 @@ describe("Collection", () => {
     return runQuery(query, {}, createMockSchema).then(data => {
       expect(find).toBeCalledWith({
         where: {
+          slug: { $ne: "kaws-companions" },
           "query.artist_ids": { $in: ["123"] },
         },
+        take: 10,
       })
     })
   })
@@ -440,9 +442,11 @@ describe("Collection", () => {
     return runQuery(query, {}, createMockSchema).then(data => {
       expect(find).toBeCalledWith({
         where: {
-          category: { $in: ["Pop Art"] },
+          slug: { $ne: "jasper-johns-flags" },
+          category: { $in: "Pop Art" },
           show_on_editorial: true,
         },
+        take: 10,
       })
     })
   })
@@ -459,7 +463,7 @@ describe("Collection", () => {
             id
             artist_ids
           }
-          relatedCollections(size: 2) {
+          relatedCollections(size: 5) {
             id
             slug
             title
@@ -471,10 +475,11 @@ describe("Collection", () => {
     return runQuery(query, {}, createMockSchema).then(data => {
       expect(find).toBeCalledWith({
         where: {
-          category: { $in: ["Pop Art"] },
+          slug: { $ne: "jasper-johns-flags" },
+          category: { $in: "Pop Art" },
           show_on_editorial: true,
         },
-        take: 3,
+        take: 5,
       })
     })
   })
