@@ -443,7 +443,7 @@ describe("Collection", () => {
       expect(find).toBeCalledWith({
         where: {
           slug: { $ne: "jasper-johns-flags" },
-          category: { $in: "Pop Art" },
+          category: "Pop Art",
           show_on_editorial: true,
         },
         take: 10,
@@ -476,7 +476,7 @@ describe("Collection", () => {
       expect(find).toBeCalledWith({
         where: {
           slug: { $ne: "jasper-johns-flags" },
-          category: { $in: "Pop Art" },
+          category: "Pop Art",
           show_on_editorial: true,
         },
         take: 5,

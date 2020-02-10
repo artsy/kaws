@@ -117,7 +117,7 @@ export class CollectionsResolver {
     const relatedCategoryResults = await this.repository.find({
       where: {
         slug: { $ne: collection.slug },
-        category: { $in: collection.category },
+        category: collection.category,
         show_on_editorial: true,
       },
       take: size,
