@@ -1,4 +1,4 @@
-import { isEmpty, reject } from "lodash"
+import { isEmpty } from "lodash"
 import { Arg, FieldResolver, Int, Query, Resolver, Root } from "type-graphql"
 import { getMongoRepository } from "typeorm"
 import { CollectionGroup } from "../Entities"
@@ -92,6 +92,7 @@ export class CollectionsResolver {
 
   @FieldResolver(type => [Collection])
   async relatedCollections(
+    @Arg("size", () => Int, { defaultValue: 10 }) size: number,
     @Root() collection: Collection
   ): Promise<Collection[]> {
     const isArtistBased =
@@ -99,28 +100,30 @@ export class CollectionsResolver {
 
     if (isArtistBased) {
       const artistResults = await this.repository.find({
-        where: { "query.artist_ids": { $in: collection.query.artist_ids } },
+        where: {
+          slug: { $ne: collection.slug },
+          "query.artist_ids": { $in: collection.query.artist_ids },
+        },
+        take: size,
       })
 
-      const relatedArtistCollections = reject(artistResults, {
-        id: collection.id,
-      })
-
-      if (relatedArtistCollections.length > 4) {
-        return relatedArtistCollections
+      // We only want to return relatedArtistCollections when there are more
+      // than 4. Otherwise we return category based related collections.
+      if (artistResults.length > 4) {
+        return artistResults
       }
     }
 
     const relatedCategoryResults = await this.repository.find({
       where: {
-        category: { $in: [collection.category] },
+        slug: { $ne: collection.slug },
+        category: collection.category,
         show_on_editorial: true,
       },
+      take: size,
     })
-    const relatedCategoryCollections = reject(relatedCategoryResults, {
-      id: collection.id,
-    })
-    return relatedCategoryCollections
+
+    return relatedCategoryResults
   }
 
   @FieldResolver(type => [CollectionGroup])

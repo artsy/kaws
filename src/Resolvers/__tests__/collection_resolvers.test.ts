@@ -64,7 +64,7 @@ describe("Collections", () => {
     `
 
     return runQuery(query, {}, createMockSchema).then(data => {
-      expect((data as any).collections.length).toBe(3)
+      expect((data as any).collections.length).toBe(8)
       expect(mockedGetMongoRepository).toBeCalled()
       expect(data).toEqual({
         collections: [
@@ -107,6 +107,71 @@ describe("Collections", () => {
               tag_id: null,
             },
             price_guidance: 1000,
+            show_on_editorial: false,
+            is_featured_artist_content: true,
+          },
+          {
+            id: "4",
+            title: "KAWS: Toys",
+            description: `<p>Brian Donnelly, better known as KAWS, spent the first year of his career as an animator for Disney.</p>`,
+            slug: "kaws-toys",
+            query: {
+              id: null,
+              tag_id: null,
+            },
+            price_guidance: null,
+            show_on_editorial: false,
+            is_featured_artist_content: true,
+          },
+          {
+            id: "5",
+            title: "KAWS: BFF",
+            description: `<p>Brian Donnelly, better known as KAWS, spent the first year of his career as an animator for Disney.</p>`,
+            slug: "kaws-bff",
+            query: {
+              id: null,
+              tag_id: null,
+            },
+            price_guidance: null,
+            show_on_editorial: false,
+            is_featured_artist_content: true,
+          },
+          {
+            id: "6",
+            title: "KAWS: Bearbrick",
+            description: `<p>Brian Donnelly, better known as KAWS, spent the first year of his career as an animator for Disney.</p>`,
+            slug: "kaws-bearbrick",
+            query: {
+              id: null,
+              tag_id: null,
+            },
+            price_guidance: null,
+            show_on_editorial: false,
+            is_featured_artist_content: true,
+          },
+          {
+            id: "7",
+            title: "KAWS: Bape",
+            description: `<p>Brian Donnelly, better known as KAWS, spent the first year of his career as an animator for Disney.</p>`,
+            slug: "kaws-bape",
+            query: {
+              id: null,
+              tag_id: null,
+            },
+            price_guidance: null,
+            show_on_editorial: false,
+            is_featured_artist_content: true,
+          },
+          {
+            id: "8",
+            title: "KAWS: Together",
+            description: `<p>Brian Donnelly, better known as KAWS, spent the first year of his career as an animator for Disney.</p>`,
+            slug: "kaws-together",
+            query: {
+              id: null,
+              tag_id: null,
+            },
+            price_guidance: null,
             show_on_editorial: false,
             is_featured_artist_content: true,
           },
@@ -275,6 +340,11 @@ describe("Categories", () => {
               { title: "KAWS: Companions" },
               { title: "Big Artists, Small Sculptures" },
               { title: "Jasper Johns: Flags" },
+              { title: "KAWS: Toys" },
+              { title: "KAWS: BFF" },
+              { title: "KAWS: Bearbrick" },
+              { title: "KAWS: Bape" },
+              { title: "KAWS: Together" },
             ],
           },
         ],
@@ -340,8 +410,10 @@ describe("Collection", () => {
     return runQuery(query, {}, createMockSchema).then(data => {
       expect(find).toBeCalledWith({
         where: {
+          slug: { $ne: "kaws-companions" },
           "query.artist_ids": { $in: ["123"] },
         },
+        take: 10,
       })
     })
   })
@@ -370,9 +442,44 @@ describe("Collection", () => {
     return runQuery(query, {}, createMockSchema).then(data => {
       expect(find).toBeCalledWith({
         where: {
-          category: { $in: ["Pop Art"] },
+          slug: { $ne: "jasper-johns-flags" },
+          category: "Pop Art",
           show_on_editorial: true,
         },
+        take: 10,
+      })
+    })
+  })
+
+  it("returns limited related collections via size arg", () => {
+    const query = `
+      {
+        collection(slug: "jasper-johns-flags") {
+          id
+          title
+          slug
+          category
+          query {
+            id
+            artist_ids
+          }
+          relatedCollections(size: 5) {
+            id
+            slug
+            title
+          }
+        }
+      }
+    `
+
+    return runQuery(query, {}, createMockSchema).then(data => {
+      expect(find).toBeCalledWith({
+        where: {
+          slug: { $ne: "jasper-johns-flags" },
+          category: "Pop Art",
+          show_on_editorial: true,
+        },
+        take: 5,
       })
     })
   })
