@@ -64,7 +64,7 @@ describe("Collections", () => {
     `
 
     return runQuery(query, {}, createMockSchema).then(data => {
-      expect((data as any).collections.length).toBe(3)
+      expect((data as any).collections.length).toBe(9)
       expect(mockedGetMongoRepository).toBeCalled()
       expect(data).toEqual({
         collections: [
@@ -102,6 +102,85 @@ describe("Collections", () => {
             description:
               '<p>In 1954, two years after being discharged from the United States Army, the 24-year-old <a href="https://www.artsy.net/artist/jasper-johns">Jasper Johns</a> had a vivid dream of the American flag.</p>',
             slug: "jasper-johns-flags",
+            query: {
+              id: null,
+              tag_id: null,
+            },
+            price_guidance: 1000,
+            show_on_editorial: false,
+            is_featured_artist_content: true,
+          },
+          {
+            id: "4",
+            title: "KAWS: Toys",
+            description: `<p>Brian Donnelly, better known as KAWS, spent the first year of his career as an animator for Disney.</p>`,
+            slug: "kaws-toys",
+            query: {
+              id: null,
+              tag_id: null,
+            },
+            price_guidance: null,
+            show_on_editorial: false,
+            is_featured_artist_content: true,
+          },
+          {
+            id: "5",
+            title: "KAWS: BFF",
+            description: `<p>Brian Donnelly, better known as KAWS, spent the first year of his career as an animator for Disney.</p>`,
+            slug: "kaws-bff",
+            query: {
+              id: null,
+              tag_id: null,
+            },
+            price_guidance: null,
+            show_on_editorial: false,
+            is_featured_artist_content: true,
+          },
+          {
+            id: "6",
+            title: "KAWS: Bearbrick",
+            description: `<p>Brian Donnelly, better known as KAWS, spent the first year of his career as an animator for Disney.</p>`,
+            slug: "kaws-bearbrick",
+            query: {
+              id: null,
+              tag_id: null,
+            },
+            price_guidance: null,
+            show_on_editorial: false,
+            is_featured_artist_content: true,
+          },
+          {
+            id: "7",
+            title: "KAWS: Bape",
+            description: `<p>Brian Donnelly, better known as KAWS, spent the first year of his career as an animator for Disney.</p>`,
+            slug: "kaws-bape",
+            query: {
+              id: null,
+              tag_id: null,
+            },
+            price_guidance: null,
+            show_on_editorial: false,
+            is_featured_artist_content: true,
+          },
+          {
+            id: "8",
+            title: "KAWS: Together",
+            description: `<p>Brian Donnelly, better known as KAWS, spent the first year of his career as an animator for Disney.</p>`,
+            slug: "kaws-together",
+            query: {
+              id: null,
+              tag_id: null,
+            },
+            price_guidance: null,
+            show_on_editorial: false,
+            is_featured_artist_content: true,
+          },
+          {
+            id: "9",
+            title: "Andy Warhol: Shoes",
+            description:
+              '<p>In 1954, two years after being discharged from the United States Army, the 24-year-old <a href="https://www.artsy.net/artist/jasper-johns">Jasper Johns</a> had a vivid dream of the American flag.</p>',
+            slug: "andy-warhol-shoes",
             query: {
               id: null,
               tag_id: null,
@@ -275,6 +354,12 @@ describe("Categories", () => {
               { title: "KAWS: Companions" },
               { title: "Big Artists, Small Sculptures" },
               { title: "Jasper Johns: Flags" },
+              { title: "KAWS: Toys" },
+              { title: "KAWS: BFF" },
+              { title: "KAWS: Bearbrick" },
+              { title: "KAWS: Bape" },
+              { title: "KAWS: Together" },
+              { title: "Andy Warhol: Shoes" },
             ],
           },
         ],
@@ -340,8 +425,10 @@ describe("Collection", () => {
     return runQuery(query, {}, createMockSchema).then(data => {
       expect(find).toBeCalledWith({
         where: {
+          slug: { $ne: "kaws-companions" },
           "query.artist_ids": { $in: ["123"] },
         },
+        take: 10,
       })
     })
   })
@@ -370,9 +457,126 @@ describe("Collection", () => {
     return runQuery(query, {}, createMockSchema).then(data => {
       expect(find).toBeCalledWith({
         where: {
-          category: { $in: ["Pop Art"] },
+          slug: { $ne: "jasper-johns-flags" },
+          category: "Pop Art",
           show_on_editorial: true,
         },
+        take: 10,
+      })
+    })
+  })
+
+  it("returns limited related collections via size arg", () => {
+    const query = `
+      {
+        collection(slug: "jasper-johns-flags") {
+          id
+          title
+          slug
+          category
+          query {
+            id
+            artist_ids
+          }
+          relatedCollections(size: 5) {
+            id
+            slug
+            title
+          }
+        }
+      }
+    `
+
+    return runQuery(query, {}, createMockSchema).then(data => {
+      expect(find).toBeCalledWith({
+        where: {
+          slug: { $ne: "jasper-johns-flags" },
+          category: "Pop Art",
+          show_on_editorial: true,
+        },
+        take: 5,
+      })
+    })
+  })
+
+  describe("isDepartment", () => {
+    it("returns true if the collection has linkedCollections", () => {
+      const query = `
+        {
+          collection(slug: "kaws-companions") {
+            id
+            isDepartment
+          }
+        }
+      `
+
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(data).toEqual({
+          collection: {
+            id: "1",
+            isDepartment: true,
+          },
+        })
+      })
+    })
+
+    it("returns false if the linkedCollections field is not set", () => {
+      const query = `
+        {
+          collection(slug: "collectible-sculptures") {
+            id
+            isDepartment
+          }
+        }
+      `
+
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(data).toEqual({
+          collection: {
+            id: "2",
+            isDepartment: false,
+          },
+        })
+      })
+    })
+
+    it("returns false if there are linkedCollections but they have no members", () => {
+      const query = `
+        {
+          collection(slug: "andy-warhol-shoes") {
+            id
+            isDepartment
+          }
+        }
+      `
+
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(data).toEqual({
+          collection: {
+            id: "9",
+            isDepartment: false,
+          },
+        })
+      })
+    })
+
+    it("returns false if there are no linkedCollections", () => {
+      const query = `
+        {
+          collection(slug: "jasper-johns-flags") {
+            id
+            isDepartment
+          }
+        }
+      `
+
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(data).toEqual({
+          collection: {
+            id: "3",
+            isDepartment: false,
+          },
+        })
       })
     })
   })

@@ -59,7 +59,8 @@ type Collection {
 
   # IDs of artists that should be excluded from Featured Artists for this collection
   featuredArtistExclusionIds: [String!]
-  relatedCollections: [Collection!]!
+  relatedCollections(size: Int = 10): [Collection!]!
+  isDepartment: Boolean!
 }
 
 type CollectionCategory {
