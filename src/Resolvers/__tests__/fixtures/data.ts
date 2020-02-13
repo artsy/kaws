@@ -20,6 +20,7 @@ export const mockCollectionRepository = plainToClass(Collection, [
     show_on_editorial: false,
     price_guidance: null,
     is_featured_artist_content: true,
+    linkedCollections: [{ id: "abc", members: [{ name: "Linked 1" }] }],
   },
   {
     id: 2,
@@ -55,6 +56,7 @@ export const mockCollectionRepository = plainToClass(Collection, [
     show_on_editorial: false,
     price_guidance: 1000,
     is_featured_artist_content: true,
+    linkedCollections: [],
   },
   {
     id: 4,
@@ -145,5 +147,23 @@ export const mockCollectionRepository = plainToClass(Collection, [
     show_on_editorial: false,
     price_guidance: null,
     is_featured_artist_content: true,
+  },
+  {
+    id: 9,
+    _id: 9,
+    title: "Andy Warhol: Shoes",
+    category: "Pop Art",
+    description:
+      '<p>In 1954, two years after being discharged from the United States Army, the 24-year-old <a href="https://www.artsy.net/artist/jasper-johns">Jasper Johns</a> had a vivid dream of the American flag.</p>',
+    slug: "andy-warhol-shoes",
+    headerImage: "http://files.artsy.net/images/jasperjohnsflag.png",
+    query: {
+      id: null,
+      tag_id: null,
+    },
+    show_on_editorial: false,
+    price_guidance: 1000,
+    is_featured_artist_content: true,
+    linkedCollections: [{ id: "bcd", members: [] }],
   },
 ])

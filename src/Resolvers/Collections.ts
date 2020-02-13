@@ -1,4 +1,4 @@
-import { isEmpty } from "lodash"
+import { filter, isEmpty } from "lodash"
 import { Arg, FieldResolver, Int, Query, Resolver, Root } from "type-graphql"
 import { getMongoRepository } from "typeorm"
 import { CollectionGroup } from "../Entities"
@@ -124,6 +124,19 @@ export class CollectionsResolver {
     })
 
     return relatedCategoryResults
+  }
+
+  @FieldResolver(type => Boolean)
+  isDepartment(@Root() collection: Collection) {
+    const linkedCollectionsWithMembers = filter(
+      collection.linkedCollections,
+      linkedCollection => {
+        const membersLength =
+          linkedCollection.members && linkedCollection.members.length
+        return membersLength > 0
+      }
+    )
+    return linkedCollectionsWithMembers.length > 0
   }
 
   @FieldResolver(type => [CollectionGroup])
