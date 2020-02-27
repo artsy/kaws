@@ -152,6 +152,7 @@ spec:
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
+      backoffLimit: 2
       template:
         spec:
           containers:
@@ -176,7 +177,7 @@ spec:
                         operator: In
                         values:
                           - background
-      backoffLimit: 2
+
 ---
 apiVersion: batch/v2alpha1
 kind: CronJob
@@ -187,6 +188,7 @@ spec:
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
+      backoffLimit: 2
       template:
         spec:
           containers:
@@ -211,4 +213,39 @@ spec:
                         operator: In
                         values:
                           - background
-      backoffLimit: 2
+
+
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: kaws-data-import
+spec:
+  schedule: "0 6 * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: kaws-data-import-cron
+              image: artsy/mongo-data-sync
+              imagePullPolicy: Always
+              env:
+                - name: APP_NAME
+                  value: "kaws"
+              envFrom:
+                - configMapRef:
+                    name: kaws-environment
+              args: ["sh", "./import-db.sh", "production"]
+          restartPolicy: Never
+          affinity:
+            nodeAffinity:
+              preferredDuringSchedulingIgnoredDuringExecution:
+                - weight: 1
+                  preference:
+                    matchExpressions:
+                      - key: tier
+                        operator: In
+                        values:
+                          - background
