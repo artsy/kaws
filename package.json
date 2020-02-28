@@ -72,7 +72,7 @@
     "googleapis": "27.0.0",
     "graphql-yoga": "1.18.3",
     "lodash": "4.17.13",
-    "mongodb": "3.0.11",
+    "mongodb": "3.5.4",
     "mongodb-uri": "0.9.7",
     "morgan": "1.9.1",
     "node-fetch": "2.3.0",
