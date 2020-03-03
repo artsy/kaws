@@ -9,20 +9,21 @@
   ],
   "license": "MIT",
   "scripts": {
-    "update-database": "ts-node scripts/bootstrapOrUpdate.ts",
     "build": "tsc",
     "dev": "nodemon --inspect -r ts-node/register src/index.ts",
     "dump-schema": "ts-node scripts/dumpSchema.ts",
     "index-for-search": "ts-node scripts/indexForSearch.ts",
     "lint": "tslint 'src/**/*.{ts,tsx}'",
+    "pull-database": "./scripts/pull-database.sh",
     "release": "release-it",
     "start": "node build/index.js",
+    "test-google-config": "node scripts/test_google_config.js",
     "test": "jest",
     "type-check": "tsc --noEmit",
-    "update-sitemap": "ts-node scripts/updateSitemap.ts",
-    "watch": "tsc --watch",
+    "update-database": "ts-node scripts/bootstrapOrUpdate.ts",
     "update-sailthru": "ts-node scripts/pushCollectionsToSailthru.ts",
-    "test-google-config": "node scripts/test_google_config.js"
+    "update-sitemap": "ts-node scripts/updateSitemap.ts",
+    "watch": "tsc --watch"
   },
   "jest": {
     "preset": "ts-jest",
