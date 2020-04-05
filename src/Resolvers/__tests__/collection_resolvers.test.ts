@@ -331,6 +331,73 @@ describe("Collections", () => {
       })
     })
   })
+
+  describe("slugs", () => {
+    it("can filter by an array of slugs", () => {
+      const query = `
+        {
+          collections(slugs: ["andy-warhol-shoes", "jasper-johns-flags", "kaws-companions"]) {
+            slug
+          }
+        }
+      `
+
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(find).toBeCalledWith({
+          where: {
+            slug: {
+              $in: [
+                "andy-warhol-shoes",
+                "jasper-johns-flags",
+                "kaws-companions",
+              ],
+            },
+          },
+        })
+      })
+    })
+
+    it("handles an empty array input", () => {
+      const query = `
+        {
+          collections(slugs: []) {
+            slug
+          }
+        }
+      `
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(find).toBeCalledWith({
+          where: {},
+        })
+      })
+    })
+
+    it("can filter by slugs and another param", () => {
+      const query = `
+        {
+          collections(slugs: ["andy-warhol-shoes", "jasper-johns-flags", "kaws-companions"], category: "Pop Art") {
+            slug
+          }
+        }
+      `
+      return runQuery(query, {}, createMockSchema).then(data => {
+        expect(find).toBeCalledWith({
+          where: {
+            slug: {
+              $in: [
+                "andy-warhol-shoes",
+                "jasper-johns-flags",
+                "kaws-companions",
+              ],
+            },
+            category: {
+              $in: ["Pop Art"],
+            },
+          },
+        })
+      })
+    })
+  })
 })
 
 describe("Categories", () => {
