@@ -17,7 +17,8 @@ export class CollectionsResolver {
     isFeaturedArtistContent: boolean,
     @Arg("size", () => Int, { nullable: true }) size: number,
     @Arg("randomizationSeed", { nullable: true }) randomizationSeed: string,
-    @Arg("category", { nullable: true }) category: string
+    @Arg("category", { nullable: true }) category: string,
+    @Arg("slugs", type => [String], { nullable: true }) slugs: string[]
   ): Promise<Collection[]> {
     const hasArguments =
       [].filter.call(arguments, arg => arg !== undefined).length > 0
@@ -26,18 +27,25 @@ export class CollectionsResolver {
     if (isFeaturedArtistContent !== undefined) {
       query.where.is_featured_artist_content = isFeaturedArtistContent
     }
+
     if (showOnEditorial !== undefined) {
       query.where.show_on_editorial = showOnEditorial
     }
+
     if (artistID) {
       query.where["query.artist_ids"] = { $in: [artistID] }
     }
+
     if (!randomizationSeed && size) {
       query.take = size
     }
 
     if (category !== undefined) {
       query.where.category = { $in: [category] }
+    }
+
+    if (slugs !== undefined && slugs.length > 0) {
+      query.where.slug = { $in: slugs }
     }
 
     if (randomizationSeed) {
