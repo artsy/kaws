@@ -1,2 +1,4 @@
 project-name: kaws
-hokusai-required-version: "~=0.5"
+hokusai-required-version: ">=0.5.8"
+template-config-files:
+  - s3://artsy-citadel/k8s/hokusai-vars.yml
