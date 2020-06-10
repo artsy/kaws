@@ -24,6 +24,7 @@
     "test": "jest",
     "type-check": "tsc --noEmit",
     "update-database": "ts-node scripts/bootstrapOrUpdate.ts",
+    "update-price-guidance": "ts-node scripts/updatePriceGuidance.ts",
     "update-sailthru": "ts-node scripts/pushCollectionsToSailthru.ts",
     "update-sitemap": "ts-node scripts/updateSitemap.ts",
     "watch": "tsc --watch"
