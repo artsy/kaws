@@ -8,6 +8,9 @@
     "Art.sy Inc"
   ],
   "license": "MIT",
+  "engines": {
+    "node": "12"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "nodemon --inspect -r ts-node/register src/index.ts",
