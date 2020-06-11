@@ -214,6 +214,41 @@ spec:
                         values:
                           - background
 
+---
+apiVersion: batch/v2alpha1
+kind: CronJob
+metadata:
+  name: kaws-update-price-guidance
+spec:
+  schedule: 0 13 * * *
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      template:
+        spec:
+          containers:
+            - name: kaws-update-price-guidance
+              image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/kaws:production
+              args:
+                - "yarn"
+                - "run"
+                - "update-price-guidance"
+              imagePullPolicy: Always
+              envFrom:
+                - configMapRef:
+                    name: kaws-environment
+          restartPolicy: Never
+          affinity:
+            nodeAffinity:
+              preferredDuringSchedulingIgnoredDuringExecution:
+                - weight: 1
+                  preference:
+                    matchExpressions:
+                      - key: tier
+                        operator: In
+                        values:
+                          - background
 
 ---
 apiVersion: batch/v1beta1

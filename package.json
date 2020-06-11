@@ -8,6 +8,9 @@
     "Art.sy Inc"
   ],
   "license": "MIT",
+  "engines": {
+    "node": "12"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "nodemon --inspect -r ts-node/register src/index.ts",
@@ -21,6 +24,7 @@
     "test": "jest",
     "type-check": "tsc --noEmit",
     "update-database": "ts-node scripts/bootstrapOrUpdate.ts",
+    "update-price-guidance": "ts-node scripts/updatePriceGuidance.ts",
     "update-sailthru": "ts-node scripts/pushCollectionsToSailthru.ts",
     "update-sitemap": "ts-node scripts/updateSitemap.ts",
     "watch": "tsc --watch"
@@ -105,6 +109,6 @@
     "ts-node": "7.0.1",
     "tslint": "6.0.0",
     "tslint-config-prettier": "1.15.0",
-    "typescript": "3.8.3"
+    "typescript": "3.9.5"
   }
 }

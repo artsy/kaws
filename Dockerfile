@@ -1,4 +1,4 @@
-FROM node:10.13-alpine
+FROM node:12.18-alpine
 
 # Set up deploy user and working directory
 RUN adduser -D -g '' deploy
@@ -10,9 +10,6 @@ ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_a
 RUN chown deploy:deploy /usr/local/bin/dumb-init
 RUN chmod +x /usr/local/bin/dumb-init
 
-# Install yarn
-RUN npm install -g yarn@1.9.4
-
 # Switch to deploy user
 USER deploy
 ENV USER deploy
@@ -22,7 +19,7 @@ ENV HOME /home/deploy
 WORKDIR /app
 ADD package.json /app
 ADD yarn.lock /app
-RUN yarn install && yarn cache clean
+RUN yarn install --frozen-lockfile && yarn cache clean
 
 # Add the codebase
 ADD --chown=deploy:deploy . /app
