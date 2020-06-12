@@ -1,7 +1,11 @@
 import "dotenv/config"
 import { updatePriceGuidance } from "../src/utils/updatePriceGuidance"
 
-updatePriceGuidance().catch(error => {
-  console.log(error)
-  process.exit(1)
-})
+updatePriceGuidance()
+  .then(() => {
+    process.exit(0)
+  })
+  .catch(error => {
+    console.log(`Encountered unhandled error: ${error.message}`)
+    process.exit(1)
+  })
