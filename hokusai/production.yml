@@ -176,7 +176,7 @@ metadata:
     nginx.ingress.kubernetes.io/whitelist-source-range: "{{ cloudflareIpSourceRanges|join(',') }}"
 spec:
   rules:
-    - host: kaws-staging.artsy.net
+    - host: kaws.artsy.net
       http:
         paths:
           - path: /
