@@ -13,6 +13,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "delete-collections": "ts-node scripts/deleteCollections.ts",
     "dev": "nodemon --inspect -r ts-node/register src/index.ts",
     "dump-schema": "ts-node scripts/dumpSchema.ts",
     "index-for-search": "ts-node scripts/indexForSearch.ts",
@@ -103,7 +104,7 @@
     "jest": "23.6.0",
     "lint-staged": "7.3.0",
     "nodemon": "1.18.10",
-    "prettier": "1.14.3",
+    "prettier": "2.1.2",
     "release-it": "7.6.1",
     "ts-jest": "23.10.5",
     "ts-node": "7.0.1",
