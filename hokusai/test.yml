@@ -2,9 +2,7 @@ version: "2"
 services:
   kaws:
     command: ["yarn", "test"]
-    extends:
-      file: build.yml
-      service: kaws
+{% include 'templates/docker-compose-service.yml.j2' %}
     environment:
       - ELASTICSEARCH_URL=http://kaws-elasticsearch:9200
       - MONGOHQ_URL=mongodb://kaws-mongodb:27017/kaws-test
