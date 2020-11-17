@@ -1,6 +1,5 @@
 import "dotenv/config"
 import { setupDataDog } from "./config/datadog"
-import { ensureSSL } from "./lib/ensureSSL"
 const { MONGOHQ_URL, NODE_ENV, PORT, SENTRY_PRIVATE_DSN } = process.env
 
 // Setup DataDog before importing another modules,
@@ -73,12 +72,6 @@ async function bootstrap() {
 
     // Setup middleware
     app.use(morgan("combined"))
-
-    // Make sure we're using SSL
-    if (NODE_ENV !== "development") {
-      app.use(ensureSSL)
-      app.set("trust proxy", true)
-    }
 
     // Setup endpoints
     app.get("/health", (req, res) => res.status(200).end())
