@@ -199,7 +199,7 @@ kind: CronJob
 metadata:
   name: kaws-update-site-map
 spec:
-  schedule: 7 15 * * *
+  schedule: 7 16 * * *
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
