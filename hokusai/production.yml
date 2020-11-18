@@ -281,6 +281,9 @@ spec:
             - name: kaws-data-export-cron
               image: artsy/mongo-data-sync
               imagePullPolicy: Always
+              env:
+                - name: APP_NAME
+                  value: "kaws"
               envFrom:
                 - configMapRef:
                     name: kaws-environment
