@@ -29,13 +29,17 @@ collections you ask? A Collection is a prefiltered version of Artsy's
 
 ## Note on Google API Access
 
-KAWS exposes an `/upload` endpoint meant to be invoked from a google sheet. In
-order for this process to work a few environment values must be supplied:
+KAWS exposes a `yarn import-collections` command that re-imports collection data from a specified Google spreadsheet. Invoke it like:
+
+```
+hokusai production run "yarn import-collections SPREADSHEET_ID SHEET_NAME"
+```
+
+...where `SPREADSHEET_ID` is from the Google spreadsheet's URL and `SHEET_NAME` is the name of the selected sheet. The ID must match the configured `SPREADSHEET_IDS_ALLOWLIST` list, and the following Google credentials are required:
 
 1. `GOOGLE_API_KEY`
 1. `GOOGLE_CLIENT_ID`
 1. `GOOGLE_CLIENT_SECRET`
-1. `SPREADSHEET_IDS_ALLOWLIST`
 
 See the hokusai and/or the **Kaws Credentials** secure note in 1passsword for
 current values of these.
