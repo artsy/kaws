@@ -110,23 +110,6 @@ kind: Ingress
 metadata:
   name: kaws
   annotations:
-    nginx.ingress.kubernetes.io/whitelist-source-range: "{{ cloudflareIpSourceRanges|join(',') }}"
-spec:
-  rules:
-    - host: kaws-staging.artsy.net
-      http:
-        paths:
-          - path: /
-            backend:
-              serviceName: kaws-web-internal
-              servicePort: http
-
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: kaws-internal
-  annotations:
     kubernetes.io/ingress.class: nginx-internal
 spec:
   rules:
