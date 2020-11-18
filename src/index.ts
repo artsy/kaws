@@ -17,7 +17,6 @@ import { parse } from "mongodb-uri"
 import * as morgan from "morgan"
 import { Connection, createConnection } from "typeorm"
 import { databaseConfig } from "./config/database"
-import GSheetImportApp from "./Routes/GSheetImport"
 import { createSchema } from "./utils/createSchema"
 import { formatError } from "./utils/errorHandling"
 
@@ -75,9 +74,6 @@ async function bootstrap() {
 
     // Setup endpoints
     app.get("/health", (req, res) => res.status(200).end())
-
-    // Google sheet script endpoint
-    app.use(GSheetImportApp)
 
     // Start the server
     server.start(serverOptions, ({ port, playground }) => {
