@@ -8,17 +8,17 @@ collections you ask? A Collection is a prefiltered version of Artsy's
 ## Meta [![CircleCI](https://circleci.com/gh/artsy/kaws.svg?style=svg)](https://circleci.com/gh/artsy/kaws) [![codecov](https://codecov.io/gh/artsy/kaws/branch/master/graph/badge.svg)](https://codecov.io/gh/artsy/kaws)
 
 - **State:** Production
-- **Production:** [http://kaws.artsy.net](http://kaws.artsy.net/playground) |
-  [k8s](https://kubernetes.artsy.net/#!/deployment/default/kaws-web?namespace=default)
+- **Production:** (VPC only) [http://kaws.prd.artsy.systems](http://kaws.prd.artsy.systems/playground) |
+  [k8s](https://kubernetes.artsy.net/#!/deployment/default/kaws-web?namespace=default) or `kaws-web-internal:8080` within the cluster
 - **Staging:**
-  [http://kaws-staging.artsy.net](http://kaws-staging.artsy.net/playground) |
-  [k8s](https://kubernetes-staging.artsy.net/#!/search?q=kaws&namespace=default)
+  [http://kaws.stg.artsy.systems](http://kaws.stg.artsy.systems/playground) |
+  [k8s](https://kubernetes-staging.artsy.net/#!/search?q=kaws&namespace=default) or `kaws-web-internal:8080` within the cluster
 - **GitHub:** [https://github.com/artsy/kaws/](https://github.com/artsy/kaws/)
 - **CI:** [CircleCI](https://circleci.com/gh/artsy/kaws); merged PRs to
   artsy/kaws#master are automatically deployed to staging. PRs from `staging` to
   `release` are automatically deployed to production.
   [Start a deploy...](https://github.com/artsy/kaws/compare/release...staging?expand=1)
-- **Point People:** [@mbilokonsky](https://github.com/mbilokonsky),
+- **Point People:** [@anandaroop](https://github.com/anandaroop),
   [@xtina-starr](https://github.com/xtina-starr)
 
 ## Prerequisites
