@@ -119,9 +119,8 @@ kind: Ingress
 metadata:
   name: kaws
   annotations:
-    kubernetes.io/ingress.class: nginx-internal
 spec:
-  ingressClassName: nginx
+  ingressClassName: nginx-internal
   rules:
     - host: kaws.stg.artsy.systems
       http:
