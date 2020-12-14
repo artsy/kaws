@@ -118,10 +118,8 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: kaws
-  annotations:
-    kubernetes.io/ingress.class: nginx-internal
 spec:
-  ingressClassName: nginx
+  ingressClassName: nginx-internal
   rules:
     - host: kaws.prd.artsy.systems
       http:
