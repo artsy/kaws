@@ -9,10 +9,10 @@ collections you ask? A Collection is a prefiltered version of Artsy's
 
 - **State:** Production
 - **Production:** (VPC only) [http://kaws.prd.artsy.systems](http://kaws.prd.artsy.systems/playground) |
-  [k8s](https://kubernetes.artsy.net/#!/deployment/default/kaws-web?namespace=default) or `kaws-web-internal:8080` within the cluster
+  [k8s](https://kubernetes.prd.artsy.systems/#!/deployment/default/kaws-web?namespace=default) or `kaws-web-internal:8080` within the cluster
 - **Staging:**
   [http://kaws.stg.artsy.systems](http://kaws.stg.artsy.systems/playground) |
-  [k8s](https://kubernetes-staging.artsy.net/#!/search?q=kaws&namespace=default) or `kaws-web-internal:8080` within the cluster
+  [k8s](https://kubernetes.stg.artsy.systems/#!/search?q=kaws&namespace=default) or `kaws-web-internal:8080` within the cluster
 - **GitHub:** [https://github.com/artsy/kaws/](https://github.com/artsy/kaws/)
 - **CI:** [CircleCI](https://circleci.com/gh/artsy/kaws); merged PRs to
   artsy/kaws#master are automatically deployed to staging. PRs from `staging` to
