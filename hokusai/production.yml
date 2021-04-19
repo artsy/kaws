@@ -31,6 +31,8 @@ spec:
           env:
             - name: PORT
               value: "8080"
+            - name: NODE_ENV
+              value: production
             - name: DD_TRACE_AGENT_HOSTNAME
               valueFrom:
                 fieldRef:
@@ -61,6 +63,10 @@ spec:
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 5
+          lifecycle:
+            preStop:
+              exec:
+                command: ["sh", "-c", "sleep 5"]
       dnsPolicy: ClusterFirst
       dnsConfig:
         options:
@@ -106,7 +112,7 @@ spec:
     - port: 8080
       protocol: TCP
       name: http
-      targetPort: 8080
+      targetPort: kaws-http
   selector:
     app: kaws
     layer: application
@@ -131,7 +137,7 @@ spec:
               servicePort: http
 
 ---
-apiVersion: batch/v2alpha1
+apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: kaws-update-sailthu
@@ -142,6 +148,9 @@ spec:
     spec:
       backoffLimit: 2
       template:
+        metadata:
+          annotations:
+            "cluster-autoscaler.kubernetes.io/safe-to-evict": "false"
         spec:
           containers:
             - name: kaws-update-sailthru
@@ -157,17 +166,16 @@ spec:
           restartPolicy: Never
           affinity:
             nodeAffinity:
-              preferredDuringSchedulingIgnoredDuringExecution:
-                - weight: 1
-                  preference:
-                    matchExpressions:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                  - matchExpressions:
                       - key: tier
                         operator: In
                         values:
                           - background
 
 ---
-apiVersion: batch/v2alpha1
+apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: kaws-update-elastic-search
@@ -178,6 +186,9 @@ spec:
     spec:
       backoffLimit: 2
       template:
+        metadata:
+          annotations:
+            "cluster-autoscaler.kubernetes.io/safe-to-evict": "false"
         spec:
           containers:
             - name: kaws-update-elastic-search
@@ -193,17 +204,16 @@ spec:
           restartPolicy: Never
           affinity:
             nodeAffinity:
-              preferredDuringSchedulingIgnoredDuringExecution:
-                - weight: 1
-                  preference:
-                    matchExpressions:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                  - matchExpressions:
                       - key: tier
                         operator: In
                         values:
                           - background
 
 ---
-apiVersion: batch/v2alpha1
+apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: kaws-update-site-map
@@ -214,6 +224,9 @@ spec:
     spec:
       backoffLimit: 2
       template:
+        metadata:
+          annotations:
+            "cluster-autoscaler.kubernetes.io/safe-to-evict": "false"
         spec:
           containers:
             - name: kaws-update-site-map
@@ -229,17 +242,16 @@ spec:
           restartPolicy: Never
           affinity:
             nodeAffinity:
-              preferredDuringSchedulingIgnoredDuringExecution:
-                - weight: 1
-                  preference:
-                    matchExpressions:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                  - matchExpressions:
                       - key: tier
                         operator: In
                         values:
                           - background
 
 ---
-apiVersion: batch/v2alpha1
+apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: kaws-update-price-guidance
@@ -250,6 +262,9 @@ spec:
     spec:
       backoffLimit: 2
       template:
+        metadata:
+          annotations:
+            "cluster-autoscaler.kubernetes.io/safe-to-evict": "false"
         spec:
           containers:
             - name: kaws-update-price-guidance
@@ -265,10 +280,9 @@ spec:
           restartPolicy: Never
           affinity:
             nodeAffinity:
-              preferredDuringSchedulingIgnoredDuringExecution:
-                - weight: 1
-                  preference:
-                    matchExpressions:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                  - matchExpressions:
                       - key: tier
                         operator: In
                         values:
@@ -284,7 +298,11 @@ spec:
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
+      backoffLimit: 2
       template:
+        metadata:
+          annotations:
+            "cluster-autoscaler.kubernetes.io/safe-to-evict": "false"
         spec:
           containers:
             - name: kaws-data-export-cron
@@ -300,10 +318,9 @@ spec:
           restartPolicy: Never
           affinity:
             nodeAffinity:
-              preferredDuringSchedulingIgnoredDuringExecution:
-                - weight: 1
-                  preference:
-                    matchExpressions:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                  - matchExpressions:
                       - key: tier
                         operator: In
                         values:
