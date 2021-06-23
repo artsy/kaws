@@ -2,10 +2,7 @@
   "extends": [
     "@artsy:app"
   ],
-  "reviewers": [
-    "zephraph"
-  ],
   "assignees": [
-    "mbilokonsky"
+    "anandaroop"
   ]
 }
