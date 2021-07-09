@@ -141,44 +141,6 @@ spec:
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: kaws-update-sailthu
-spec:
-  schedule: 13 13 * * *
-  concurrencyPolicy: Forbid
-  jobTemplate:
-    spec:
-      backoffLimit: 2
-      template:
-        metadata:
-          annotations:
-            "cluster-autoscaler.kubernetes.io/safe-to-evict": "false"
-        spec:
-          containers:
-            - name: kaws-update-sailthru
-              image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/kaws:staging
-              args:
-                - "yarn"
-                - "run"
-                - "update-sailthru"
-              imagePullPolicy: Always
-              envFrom:
-                - configMapRef:
-                    name: kaws-environment
-          restartPolicy: Never
-          affinity:
-            nodeAffinity:
-              requiredDuringSchedulingIgnoredDuringExecution:
-                nodeSelectorTerms:
-                  - matchExpressions:
-                      - key: tier
-                        operator: In
-                        values:
-                          - background
-
----
-apiVersion: batch/v1beta1
-kind: CronJob
-metadata:
   name: kaws-update-elastic-search
 spec:
   schedule: 7 15 * * *
