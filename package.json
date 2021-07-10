@@ -27,7 +27,6 @@
     "type-check": "tsc --noEmit",
     "update-database": "ts-node scripts/bootstrapOrUpdate.ts",
     "update-price-guidance": "ts-node scripts/updatePriceGuidance.ts",
-    "update-sailthru": "ts-node scripts/pushCollectionsToSailthru.ts",
     "update-sitemap": "ts-node scripts/updateSitemap.ts",
     "watch": "tsc --watch"
   },
@@ -84,7 +83,6 @@
     "morgan": "1.9.1",
     "node-fetch": "2.3.0",
     "reflect-metadata": "0.1.12",
-    "sailthru-client": "3.0.2",
     "slugify": "1.3.4",
     "turndown": "5.0.3",
     "type-graphql": "0.17.5",
