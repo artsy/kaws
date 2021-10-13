@@ -71,7 +71,7 @@
     "@sentry/node": "4.6.4",
     "aws-sdk": "2.377.0",
     "body-parser": "1.18.3",
-    "class-transformer": "0.1.9",
+    "class-transformer": "0.3.1",
     "csv-parser": "2.1.0",
     "dd-trace": "0.6.0",
     "elasticsearch": "15.3.1",
