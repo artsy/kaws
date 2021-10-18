@@ -12,7 +12,10 @@ const client = new elasticsearch.Client({
   maxSockets: 10,
 })
 
+const indexName =
+  process.env.ELASTICSEARCH_INDEX_NAME || "marketing_collections"
+
 export const search = {
-  index: "marketing_collections_" + NODE_ENV,
+  index: [indexName, NODE_ENV].join("_"),
   client,
 }
