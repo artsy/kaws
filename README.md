@@ -71,15 +71,13 @@ cp .env.example .env
 Usually you do not have to change them, but if you need, update the variables to
 match your local development setup.
 
-Once this is done, the next step would be to load test data. The collection data
-is maintained by Artsy's marketing team
-[in Google Drive as a spreadsheet](https://docs.google.com/spreadsheets/d/1K-FBuIQYiU75ETBEgU0YuexznElKCLi5Tr_P2bqkFZw/edit#gid=23745674)
-(you need an `@artsymail.com` account). Download it as a CSV file (in this case
-saved as `collections.csv`) and try running the command below to load the data
-to your local MongoDB instance:
+Once this is done, the next step would be to load some data.
+
+Collections data can be pulled from the live staging or production environment
+using the following yarn command:
 
 ```bash
-yarn update-database ./collections.csv
+yarn pull-database staging # or production
 ```
 
 Finally, start the server by running the command below:
