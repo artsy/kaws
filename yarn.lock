@@ -7878,9 +7878,9 @@ verror@1.10.0:
     extsprintf "^1.2.0"
 
 vm2@^3.6.0:
-  version "3.6.3"
-  resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.6.3.tgz#6dd426bb67a387d03055c5d276720f3f23203b72"
-  integrity sha512-9sGC9T+R/afjDSVyG15ATUPzm5ZHzvIJvwkVmQ+4H2Cy55uDp0dXneXV4gXC7RMd2crWcL/awfdHjCsNSm+ufg==
+  version "3.9.5"
+  resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.9.5.tgz#5288044860b4bbace443101fcd3bddb2a0aa2496"
+  integrity sha512-LuCAHZN75H9tdrAiLFf030oW7nJV5xwNMuk1ymOZwopmuK3d2H4L1Kv4+GFHgarKiLfXXLFU+7LDABHnwOkWng==
 
 voca@^1.4.0:
   version "1.4.0"
