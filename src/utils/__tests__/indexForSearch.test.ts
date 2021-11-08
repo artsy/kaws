@@ -5,6 +5,11 @@ jest.mock("../../lib/search", () => ({
     client: { index: jest.fn() },
     index: "marketing_collections_development",
   },
+  algoliaSearch: {
+    client: { initIndex: jest.fn() },
+    index: { saveObject: jest.fn() },
+  },
+  algoliaSetSettings: jest.fn(),
 }))
 jest.mock("typeorm", () => {
   return {
@@ -19,7 +24,11 @@ jest.mock("../../lib/metaphysics", () => ({
 
 import { createConnection, getMongoRepository } from "typeorm"
 import { metaphysics as MetaphysicsMock } from "../../lib/metaphysics"
-import { search as SearchMock } from "../../lib/search"
+import {
+  search as SearchMock,
+  algoliaSearch,
+  algoliaSetSettings,
+} from "../../lib/search"
 import { indexForSearch } from "../indexForSearch"
 
 const createConnectionMock = createConnection as jest.Mock<any>
@@ -102,5 +111,8 @@ describe("indexForSearch", () => {
     expect(secondCollection.body.visible_to_public).toBe(true)
     expect(secondCollection.body.search_boost).toBe(1000)
     expect(firstCollection.body.image_url).toBe("/path/to/happy/cats.jpg")
+
+    expect(algoliaSetSettings).toHaveBeenCalledTimes(1)
+    expect(algoliaSearch.index.saveObject).toHaveBeenCalledTimes(2)
   })
 })
