@@ -2,7 +2,7 @@ import { CollectionRemover } from "../src/lib/utils/collectionRemover"
 
 const slugs = process.argv.slice(2)
 console.log(
-  `Attempting to remove ${slugs.length} collection(s) from Elasticsearch and MongoDB`
+  `Attempting to remove ${slugs.length} collection(s) from Elasticsearch, Algolia and MongoDB`
 )
 
 const collectionRemover = new CollectionRemover(slugs)

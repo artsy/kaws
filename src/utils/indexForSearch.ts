@@ -4,10 +4,10 @@ import { Connection, createConnection, getMongoRepository } from "typeorm"
 import { databaseConfig } from "../config/database"
 import { Collection } from "../Entities"
 import { metaphysics } from "../lib/metaphysics"
-import { search } from "../lib/search"
+import { search, algoliaSearch, algoliaSetSettings } from "../lib/search"
 
 /**
- * This indexes an ElasticSearch cluster with collections data.
+ * This indexes ElasticSearch and Algolia with collections data.
  */
 
 interface DebugRecord {
@@ -26,6 +26,8 @@ export const indexForSearch = async () => {
     if (connection.isConnected) {
       const repository = getMongoRepository(Collection)
       const collections = await repository.find()
+      algoliaSetSettings()
+
       for (const collection of collections) {
         console.log(`Now processing ${collection.slug}`)
 
@@ -45,8 +47,8 @@ export const indexForSearch = async () => {
         // Additionally, `visible_to_public` and `search_boost` are required for
         // proper surfacing of results.
         const name = collection.title
-        const alternate_names = collection.query.keyword
-        const featured_names = collection.category
+        const keyword = collection.query.keyword
+        const category = collection.category
         const description = collection.description
         const slug = collection.slug
         const visible_to_public = true
@@ -89,8 +91,8 @@ export const indexForSearch = async () => {
             id: collection.id.toString(),
             body: {
               name,
-              alternate_names,
-              featured_names,
+              alternate_names: keyword,
+              featured_names: category,
               description,
               slug,
               visible_to_public,
@@ -98,11 +100,20 @@ export const indexForSearch = async () => {
               image_url,
             },
           })
+
+          await algoliaSearch.index.saveObject({
+            objectID: collection.id.toString(),
+            name,
+            slug,
+            keyword,
+            category,
+            search_boost,
+            href: `/collection/${slug}`,
+            image_url,
+          })
         } catch (e) {
           console.log(
-            `\t[error] - ${
-              collection.slug
-            } - error writing collection to database: `,
+            `\t[error] - ${collection.slug} - error writing collection to database: `,
             e.message
           )
           bogus_collections.push({

@@ -1,5 +1,6 @@
-const { NODE_ENV, ELASTICSEARCH_URL } = process.env
 const elasticsearch = require("elasticsearch")
+
+const { NODE_ENV, ELASTICSEARCH_URL } = process.env
 
 if (!ELASTICSEARCH_URL) {
   throw new Error("ELASTICSEARCH_URL not defined, skipping...")
@@ -12,6 +13,8 @@ const client = new elasticsearch.Client({
   maxSockets: 10,
 })
 
+// in the Elasticsearch cluster `kaws_collection` will be the name of the legacy
+// index, and `marketing_collection` will be the name of the new index from Gravity
 const indexName =
   process.env.ELASTICSEARCH_INDEX_NAME || "marketing_collections"
 
