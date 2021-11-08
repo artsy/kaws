@@ -9,14 +9,19 @@ import { red, yellow, green } from "bash-color"
 
 import { databaseConfig } from "../../config/database"
 import { Collection } from "../../Entities/Collection"
+import { algoliaSearch } from "../../lib/search"
+import { SearchIndex } from "algoliasearch"
 
 export class CollectionRemover {
   private slugs: string[]
   private mongoConnection: Connection
   private mongoRepository: MongoRepository<Collection>
   private elasticsearchClient: ElasticsearchClient
-  private elasticsearchIndexName: string =
-    "marketing_collections_" + process.env.NODE_ENV
+  private elasticsearchIndexName: string = [
+    process.env.ELASTICSEARCH_INDEX_NAME || "marketing_collections",
+    process.env.NODE_ENV,
+  ].join("_")
+  private algoliaIndex: SearchIndex
 
   constructor(collectionSlugs: string[]) {
     this.slugs = collectionSlugs
@@ -42,6 +47,8 @@ export class CollectionRemover {
       keepAlive: true,
       maxSockets: 10,
     })
+    // setup Algolia
+    this.algoliaIndex = algoliaSearch.index
   }
 
   perform = async () => {
@@ -78,6 +85,12 @@ export class CollectionRemover {
         console.log(red(e.message))
         throw e
       }
+    }
+    try {
+      await this.algoliaIndex.deleteObject(collection.id.toString())
+    } catch (e) {
+      console.log(red(e.message))
+      throw e
     }
   }
 
