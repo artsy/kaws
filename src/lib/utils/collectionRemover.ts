@@ -15,8 +15,10 @@ export class CollectionRemover {
   private mongoConnection: Connection
   private mongoRepository: MongoRepository<Collection>
   private elasticsearchClient: ElasticsearchClient
-  private elasticsearchIndexName: string =
-    "marketing_collections_" + process.env.NODE_ENV
+  private elasticsearchIndexName: string = [
+    process.env.ELASTICSEARCH_INDEX_NAME || "marketing_collections",
+    process.env.NODE_ENV,
+  ].join("_")
 
   constructor(collectionSlugs: string[]) {
     this.slugs = collectionSlugs
