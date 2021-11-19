@@ -70,7 +70,7 @@
   "dependencies": {
     "@sentry/node": "4.6.4",
     "algoliasearch": "^4.10.5",
-    "aws-sdk": "2.377.0",
+    "aws-sdk": "2.1032.0",
     "body-parser": "1.18.3",
     "class-transformer": "0.1.9",
     "csv-parser": "2.1.0",
