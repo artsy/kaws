@@ -76,7 +76,7 @@
     "csv-parser": "2.1.0",
     "dd-trace": "0.6.0",
     "elasticsearch": "15.3.1",
-    "googleapis": "27.0.0",
+    "googleapis": "39.1.0",
     "graphql-yoga": "1.18.3",
     "lodash": "4.17.21",
     "mongodb": "3.1.13",
