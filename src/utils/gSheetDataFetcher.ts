@@ -34,8 +34,8 @@ export const gSheetDataFetcher = async (
           reject(err.message)
           return console.log("The API returned an error: " + err.message)
         }
-        const rows = res.data.values
-        if (rows.length) {
+        const rows = res?.data.values
+        if (rows?.length) {
           console.log(`Processing ${rows.length} rows.`)
           resolve(rows)
         } else {
