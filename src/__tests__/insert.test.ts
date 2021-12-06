@@ -12,7 +12,7 @@ const init = async () => {
   }
 }
 
-describe.only("CRUD operations work", () => {
+describe("CRUD operations work", () => {
   let connection
   beforeAll(async () => {
     connection = await init()
