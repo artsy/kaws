@@ -1,4 +1,4 @@
-### Master
+### Main
 
 - enable internal routing - [@joeyAghion]
 - Return `errors` with a 404 status code in `extensions` when a collection is

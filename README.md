@@ -5,7 +5,7 @@ service that powers [artsy.net](https://artsy.net) collection pages. What are
 collections you ask? A Collection is a prefiltered version of Artsy's
 [Collect](https://artsy.net/collect) page for marketing purposes.
 
-## Meta [![CircleCI](https://circleci.com/gh/artsy/kaws.svg?style=svg)](https://circleci.com/gh/artsy/kaws) [![codecov](https://codecov.io/gh/artsy/kaws/branch/master/graph/badge.svg)](https://codecov.io/gh/artsy/kaws)
+## Meta [![CircleCI](https://circleci.com/gh/artsy/kaws.svg?style=svg)](https://circleci.com/gh/artsy/kaws) [![codecov](https://codecov.io/gh/artsy/kaws/branch/main/graph/badge.svg)](https://codecov.io/gh/artsy/kaws)
 
 - **State:** Production
 - **Production:** (VPC only) [http://kaws.prd.artsy.systems](http://kaws.prd.artsy.systems/playground) |
@@ -15,7 +15,7 @@ collections you ask? A Collection is a prefiltered version of Artsy's
   [k8s](https://kubernetes.stg.artsy.systems/#!/search?q=kaws&namespace=default) or `kaws-web-internal:8080` within the cluster
 - **GitHub:** [https://github.com/artsy/kaws/](https://github.com/artsy/kaws/)
 - **CI:** [CircleCI](https://circleci.com/gh/artsy/kaws); merged PRs to
-  artsy/kaws#master are automatically deployed to staging. PRs from `staging` to
+  artsy/kaws#main are automatically deployed to staging. PRs from `staging` to
   `release` are automatically deployed to production.
   [Start a deploy...](https://github.com/artsy/kaws/compare/release...staging?expand=1)
 - **Point People:** [@anandaroop](https://github.com/anandaroop),
@@ -113,7 +113,7 @@ hokusai test
 ## Did you change the GraphQL schema?
 
 Metaphysics is the current consumer of Kaws GraphQL schema, and keeps a copy of
-its latest schema in https://github.com/artsy/metaphysics/tree/master/src/data.
+its latest schema in https://github.com/artsy/metaphysics/tree/main/src/data.
 If you have made changes to the Kaws GraphQL schema, make sure you also update
 the copy of this schema in Metaphysics. In order to do so follow these steps:
 
@@ -162,8 +162,8 @@ You can learn more about this work from [our blog][footer_blog] and by following
 our [job postings][footer_jobs]!
 
 [footer_website]: https://www.artsy.net/
-[footer_principles]: https://github.com/artsy/README/blob/master/culture/engineering-principles.md
-[footer_open]: https://github.com/artsy/README/blob/master/culture/engineering-principles.md#open-source-by-default
+[footer_principles]: https://github.com/artsy/README/blob/main/culture/engineering-principles.md
+[footer_open]: https://github.com/artsy/README/blob/main/culture/engineering-principles.md#open-source-by-default
 [footer_blog]: https://artsy.github.io/
 [footer_twitter]: https://twitter.com/ArtsyOpenSource
 [footer_api]: https://developers.artsy.net/
