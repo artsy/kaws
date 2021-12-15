@@ -138,6 +138,25 @@ spec:
               servicePort: http
 
 ---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: kaws
+  annotations:
+    nginx.ingress.kubernetes.io/whitelist-source-range: "{{ externalIngressAllowSourceIP|join(',') }}"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: kaws-staging.artsy.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              serviceName: kaws-web-internal
+              servicePort: http
+
+---
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
