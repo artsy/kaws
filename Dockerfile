@@ -1,4 +1,4 @@
-FROM node:12.18-alpine
+FROM node:12.20-alpine
 
 # Set up deploy user and working directory
 RUN adduser -D -g '' deploy
