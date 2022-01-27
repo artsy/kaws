@@ -46,7 +46,7 @@ export const updatePriceGuidance = async () => {
         try {
           const priceGuidance = await getPriceGuidance(slug)
           if (priceGuidance) {
-            await mongoCollection.update(
+            await mongoCollection.updateOne(
               { id },
               { $set: { price_guidance: priceGuidance } }
             )

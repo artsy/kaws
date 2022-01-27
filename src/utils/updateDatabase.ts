@@ -41,7 +41,7 @@ const upsertData = async (collection, inputData) => {
       if (!entry.price_guidance) {
         extend(entry, { price_guidance: null })
       }
-      await collection.update({ slug: entry.slug }, entry, { upsert: true })
+      await collection.updateOne({ slug: entry.slug }, entry, { upsert: true })
     }
   } catch (e) {
     console.log("Error upserting data!")
@@ -50,7 +50,7 @@ const upsertData = async (collection, inputData) => {
   }
 }
 
-const updatePriceGuidance = async collection => {
+const updatePriceGuidance = async (collection) => {
   const query = { price_guidance: null }
   const projection = { slug: 1, _id: 0 }
   const data = await collection.find(query, projection).toArray()
@@ -65,9 +65,7 @@ const updatePriceGuidance = async collection => {
       }
     } catch (e) {
       console.log(
-        `Unable to set price guidance for ${slug} due to error: [${
-          e.message
-        }]. Skipping!`
+        `Unable to set price guidance for ${slug} due to error: [${e.message}]. Skipping!`
       )
       error_slugs.push(slug)
       continue
