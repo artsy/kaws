@@ -23,7 +23,7 @@ collections you ask? A Collection is a prefiltered version of Artsy's
 
 ## Prerequisites
 
-- node.js 8.12.0 or newer
+- node.js 12.18.0 or newer
 - yarn 1.10.1 or newer
 - MongoDB 4.x
 
