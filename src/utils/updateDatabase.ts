@@ -14,14 +14,9 @@ export async function updateDatabase(inputData: Collection[]) {
   const collection = database.collection("collection")
 
   try {
-    if (connection.isConnected) {
-      await upsertData(collection, inputData)
-      await updatePriceGuidance(collection)
-      connection.close()
-    } else {
-      console.log("connection.isConnected === false, throwing error!")
-      throw new Error("The database connection is not currently active!")
-    }
+    await upsertData(collection, inputData)
+    await updatePriceGuidance(collection)
+    connection.close()
   } catch (error) {
     console.error("[kaws] Error bootstrapping data:", error)
     throw error
