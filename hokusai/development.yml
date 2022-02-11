@@ -10,7 +10,7 @@ services:
     depends_on:
       - kaws-mongodb
   kaws-mongodb:
-    image: mongo:4.2
+    image: mongo:4.4
     ports:
       - "27017:27017"
     command: ["--quiet", "--nojournal"]
