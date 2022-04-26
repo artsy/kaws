@@ -7,6 +7,7 @@ metadata:
     app: kaws
     component: web
     layer: application
+    app.kubernetes.io/version: staging
 spec:
   strategy:
     rollingUpdate:
@@ -24,64 +25,71 @@ spec:
         app: kaws
         component: web
         layer: application
+        app.kubernetes.io/version: staging
       name: kaws-web
     spec:
       containers:
-        - name: kaws-web
-          env:
-            - name: PORT
-              value: "8080"
-            - name: NODE_ENV
-              value: production
-            - name: DD_TRACE_AGENT_HOSTNAME
-              valueFrom:
-                fieldRef:
-                  fieldPath: spec.nodeName
-            - name: NODE_OPTIONS
-              value: "--max_old_space_size=256"
-          envFrom:
-            - configMapRef:
-                name: kaws-environment
-          image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/kaws:staging
-          imagePullPolicy: Always
-          ports:
-            - name: kaws-http
-              containerPort: 8080
-          resources:
-            requests:
-              cpu: 100m
-              memory: 256Mi
-            limits:
-              memory: 512Mi
-          readinessProbe:
-            httpGet:
-              port: kaws-http
-              path: /health
-              httpHeaders:
-                - name: X-FORWARDED-PROTO
-                  value: https
-            initialDelaySeconds: 10
-            periodSeconds: 10
-            timeoutSeconds: 5
-          lifecycle:
-            preStop:
-              exec:
-                command: ["sh", "-c", "sleep 5"]
+      - name: kaws-web
+        env:
+        - name: PORT
+          value: '8080'
+        - name: NODE_ENV
+          value: production
+        - name: DD_TRACE_AGENT_HOSTNAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: NODE_OPTIONS
+          value: --max_old_space_size=256
+        - name: DD_VERSION
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        envFrom:
+        - configMapRef:
+            name: kaws-environment
+        image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/kaws:staging
+        imagePullPolicy: Always
+        ports:
+        - name: kaws-http
+          containerPort: 8080
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            memory: 512Mi
+        readinessProbe:
+          httpGet:
+            port: kaws-http
+            path: /health
+            httpHeaders:
+            - name: X-FORWARDED-PROTO
+              value: https
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+        lifecycle:
+          preStop:
+            exec:
+              command:
+              - sh
+              - -c
+              - sleep 5
       dnsPolicy: ClusterFirst
       dnsConfig:
         options:
-          - name: ndots
-            value: "1"
+        - name: ndots
+          value: '1'
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
-              - matchExpressions:
-                  - key: tier
-                    operator: In
-                    values:
-                      - foreground
-
+            - matchExpressions:
+              - key: tier
+                operator: In
+                values:
+                - foreground
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -96,7 +104,6 @@ spec:
   minReplicas: 1
   maxReplicas: 2
   targetCPUUtilizationPercentage: 70
-
 ---
 apiVersion: v1
 kind: Service
@@ -109,34 +116,31 @@ metadata:
   namespace: default
 spec:
   ports:
-    - port: 8080
-      protocol: TCP
-      name: http
-      targetPort: kaws-http
+  - port: 8080
+    protocol: TCP
+    name: http
+    targetPort: kaws-http
   selector:
     app: kaws
     layer: application
     component: web
   type: ClusterIP
-
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: kaws
-  annotations:
 spec:
   ingressClassName: nginx-internal
   rules:
-    - host: kaws.stg.artsy.systems
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              serviceName: kaws-web-internal
-              servicePort: http
-
+  - host: kaws.stg.artsy.systems
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          serviceName: kaws-web-internal
+          servicePort: http
 ---
 apiVersion: batch/v1beta1
 kind: CronJob
@@ -151,30 +155,29 @@ spec:
       template:
         metadata:
           annotations:
-            "cluster-autoscaler.kubernetes.io/safe-to-evict": "false"
+            cluster-autoscaler.kubernetes.io/safe-to-evict: 'false'
         spec:
           containers:
-            - name: kaws-update-elastic-search
-              image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/kaws:staging
-              args:
-                - "yarn"
-                - "run"
-                - "index-for-search"
-              imagePullPolicy: Always
-              envFrom:
-                - configMapRef:
-                    name: kaws-environment
+          - name: kaws-update-elastic-search
+            image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/kaws:staging
+            args:
+            - yarn
+            - run
+            - index-for-search
+            imagePullPolicy: Always
+            envFrom:
+            - configMapRef:
+                name: kaws-environment
           restartPolicy: Never
           affinity:
             nodeAffinity:
               requiredDuringSchedulingIgnoredDuringExecution:
                 nodeSelectorTerms:
-                  - matchExpressions:
-                      - key: tier
-                        operator: In
-                        values:
-                          - background
-
+                - matchExpressions:
+                  - key: tier
+                    operator: In
+                    values:
+                    - background
 ---
 apiVersion: batch/v1beta1
 kind: CronJob
@@ -189,37 +192,36 @@ spec:
       template:
         metadata:
           annotations:
-            "cluster-autoscaler.kubernetes.io/safe-to-evict": "false"
+            cluster-autoscaler.kubernetes.io/safe-to-evict: 'false'
         spec:
           containers:
-            - name: kaws-update-price-guidance
-              image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/kaws:production
-              args:
-                - "yarn"
-                - "run"
-                - "update-price-guidance"
-              imagePullPolicy: Always
-              envFrom:
-                - configMapRef:
-                    name: kaws-environment
+          - name: kaws-update-price-guidance
+            image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/kaws:production
+            args:
+            - yarn
+            - run
+            - update-price-guidance
+            imagePullPolicy: Always
+            envFrom:
+            - configMapRef:
+                name: kaws-environment
           restartPolicy: Never
           affinity:
             nodeAffinity:
               requiredDuringSchedulingIgnoredDuringExecution:
                 nodeSelectorTerms:
-                  - matchExpressions:
-                      - key: tier
-                        operator: In
-                        values:
-                          - background
-
+                - matchExpressions:
+                  - key: tier
+                    operator: In
+                    values:
+                    - background
 ---
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: kaws-data-import
 spec:
-  schedule: "0 6 * * *"
+  schedule: 0 6 * * *
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
@@ -227,26 +229,29 @@ spec:
       template:
         metadata:
           annotations:
-            "cluster-autoscaler.kubernetes.io/safe-to-evict": "false"
+            cluster-autoscaler.kubernetes.io/safe-to-evict: 'false'
         spec:
           containers:
-            - name: kaws-data-import-cron
-              image: artsy/mongo-data-sync
-              imagePullPolicy: Always
-              env:
-                - name: APP_NAME
-                  value: "kaws"
-              envFrom:
-                - configMapRef:
-                    name: kaws-environment
-              args: ["sh", "./import-db.sh", "production"]
+          - name: kaws-data-import-cron
+            image: artsy/mongo-data-sync
+            imagePullPolicy: Always
+            env:
+            - name: APP_NAME
+              value: kaws
+            envFrom:
+            - configMapRef:
+                name: kaws-environment
+            args:
+            - sh
+            - ./import-db.sh
+            - production
           restartPolicy: Never
           affinity:
             nodeAffinity:
               requiredDuringSchedulingIgnoredDuringExecution:
                 nodeSelectorTerms:
-                  - matchExpressions:
-                      - key: tier
-                        operator: In
-                        values:
-                          - background
+                - matchExpressions:
+                  - key: tier
+                    operator: In
+                    values:
+                    - background
