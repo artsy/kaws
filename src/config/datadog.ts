@@ -1,9 +1,9 @@
-import * as ddTracer from "dd-trace"
+import tracer from "dd-trace"
 const { DD_APM_ENABLED, DD_TRACE_AGENT_HOSTNAME } = process.env
 
 export const setupDataDog = () => {
   if (DD_APM_ENABLED) {
-    ddTracer.init({
+    tracer.init({
       hostname: DD_TRACE_AGENT_HOSTNAME,
       service: "kaws",
       plugins: false,
@@ -14,14 +14,14 @@ export const setupDataDog = () => {
       //   error: console.error,
       // },
     })
-    ddTracer.use("express", {
+    tracer.use("express", {
       service: "kaws",
       headers: ["User-Agent"],
     })
-    ddTracer.use("graphql", {
+    tracer.use("graphql", {
       service: "kaws.graphql",
     })
-    ddTracer.use("http", {
+    tracer.use("http", {
       service: `kaws.http-client`,
     })
   }
