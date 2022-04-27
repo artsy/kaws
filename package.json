@@ -74,7 +74,7 @@
     "body-parser": "1.18.3",
     "class-transformer": "0.5.1",
     "csv-parser": "2.1.0",
-    "dd-trace": "0.36.2",
+    "dd-trace": "0.6.0",
     "elasticsearch": "15.3.1",
     "googleapis": "92.0.0",
     "graphql-yoga": "1.18.3",
